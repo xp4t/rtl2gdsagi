@@ -2,7 +2,7 @@
 
 > **Agentic RTL-to-GDS orchestrator** — OpenLane2 (sky130hd) driven by Claude AI at every stage checkpoint
 
-[![CI](https://github.com/xp4t/rtl2gdsagy/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/rtl2gdsagy/actions)
+[![CI](https://github.com/xp4t/rtl2gdsagy/actions/workflows/ci.yml/badge.svg)](https://github.com/xp4t/rtl2gdsagy/actions)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
 [![OpenLane2](https://img.shields.io/badge/backend-OpenLane2-purple)](https://github.com/efabless/openlane2)
