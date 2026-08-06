@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    name: Unit + integration tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      # Install everything except openlane (slow/large) for CI
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install anthropic pyyaml rich pytest pytest-asyncio
+
+      # Create a minimal libparse stub so openlane imports don't fail
+      # (full libparse build requires SWIG + Yosys submodule source)
+      - name: Install libparse stub
+        run: |
+          SITE=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE/libparse"
+          cat > "$SITE/libparse/__init__.py" << 'EOF'
+          class LibertyParser:
+              def __init__(self, *a, **kw):
+                  raise NotImplementedError("libparse stub — not needed for stages 1-4")
+          EOF
+
+      - name: Install openlane (no-deps, for import only)
+        run: pip install openlane --no-deps || true
+
+      - name: Run unit tests
+        run: pytest tests/ -v
+
+      - name: Run E2E integration test (all scenarios, no API key)
+        run: python test_e2e.py --all
+
+  lint:
+    name: Ruff lint check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff
+      - run: ruff check . --select E,F,W --ignore E501 || true   # advisory only for now

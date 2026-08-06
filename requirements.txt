@@ -1,0 +1,32 @@
+# RTL-to-GDS Agentic Orchestrator dependencies
+#
+# Install everything with:
+#   pip install -r requirements.txt
+#
+# For OpenLane2 (includes Yosys, OpenROAD, Magic, Netgen, KLayout, Verilator):
+#   pip install openlane
+#   openlane --install-pdk sky130hd        # downloads PDK to ~/OpenLane/pdks/
+#
+# Alternatively use the setup script:
+#   python setup_env.py
+
+# ── Claude API ───────────────────────────────────────────────────────────────
+anthropic>=0.34.0
+
+# ── Config parsing ───────────────────────────────────────────────────────────
+pyyaml>=6.0
+
+# ── OpenLane2 (Python package + embedded EDA tools) ─────────────────────────
+# Installs: openlane CLI, Yosys, OpenROAD, Magic, Netgen, KLayout, Verilator
+# Pinned to latest stable as of 2024-Q4; update as needed.
+openlane>=2.1.9
+
+# ── Async / utility ──────────────────────────────────────────────────────────
+# (All other imports are stdlib: asyncio, json, pathlib, subprocess, re, etc.)
+
+# ── Optional: progress display ───────────────────────────────────────────────
+rich>=13.0.0       # Pretty terminal tables for sweep results / stage status
+
+# ── Dev / test ───────────────────────────────────────────────────────────────
+pytest>=8.0.0
+pytest-asyncio>=0.23.0

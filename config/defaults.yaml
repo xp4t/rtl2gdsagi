@@ -1,0 +1,124 @@
+# RTL-to-GDS Agentic Orchestrator — default design config
+# This file is the TEMPLATE. Copy it to your design directory and customise.
+#
+# Usage: python run_flow.py --rtl ./designs/riscv_alu/rtl/alu.v \
+#                           --top riscv_alu \
+#                           --config config/defaults.yaml
+
+design:
+  top_module: riscv_alu
+  rtl_files:
+    - designs/riscv_alu/rtl/alu.v
+  clock_port: clk
+  pdk: sky130hd
+
+# OpenLane2 default parameters applied to every run
+defaults:
+  PDK: sky130hd
+  STD_CELL_LIBRARY: sky130_fd_sc_hd
+  CLOCK_PORT: clk
+  CLOCK_PERIOD: 10.0          # ns — 100 MHz target
+  FP_CORE_UTIL: 45            # % core utilisation
+  FP_ASPECT_RATIO: 1.0
+  PL_TARGET_DENSITY: 0.55
+  SYNTH_STRATEGY: 2           # 0=area 1=delay 2=balanced
+  SYNTH_MAX_FANOUT: 10
+  ROUTING_CORES: 4
+  CTS_TARGET_SKEW: 200        # ps
+  DIODE_INSERTION_STRATEGY: 4
+  # Verbosity
+  VERBOSE: 0
+
+# Per-parameter allowed ranges for LLM param_updates validation.
+# Any LLM suggestion outside these bounds is clamped or rejected.
+param_ranges:
+  CLOCK_PERIOD:
+    type: float
+    min: 2.0
+    max: 100.0
+    default: 10.0
+  FP_CORE_UTIL:
+    type: int
+    min: 20
+    max: 75
+    default: 45
+  FP_ASPECT_RATIO:
+    type: float
+    min: 0.5
+    max: 2.0
+    default: 1.0
+  PL_TARGET_DENSITY:
+    type: float
+    min: 0.30
+    max: 0.85
+    default: 0.55
+  SYNTH_STRATEGY:
+    type: int
+    min: 0
+    max: 4
+    default: 2
+  SYNTH_MAX_FANOUT:
+    type: int
+    min: 4
+    max: 32
+    default: 10
+  CTS_TARGET_SKEW:
+    type: int
+    min: 100
+    max: 500
+    default: 200
+  ROUTING_CORES:
+    type: int
+    min: 1
+    max: 16
+    default: 4
+  GLB_RT_OVERFLOW_ITERS:
+    type: int
+    min: 50
+    max: 200
+    default: 100
+  DIODE_INSERTION_STRATEGY:
+    type: int
+    min: 0
+    max: 5
+    default: 4
+  SYNTH_BUFFERING:
+    type: bool
+    default: true
+  SYNTH_SIZING:
+    type: bool
+    default: false
+  PL_ROUTABILITY_DRIVEN:
+    type: bool
+    default: true
+  PL_TIME_DRIVEN:
+    type: bool
+    default: true
+
+# Strategy sweep variants per stage (for sweep/ module)
+# Each entry is a dict of param overrides to try in parallel/sequence.
+sweeps:
+  synthesis:
+    - {SYNTH_STRATEGY: 0, SYNTH_MAX_FANOUT: 8}   # area-focused
+    - {SYNTH_STRATEGY: 1, SYNTH_MAX_FANOUT: 12}  # delay-focused
+    - {SYNTH_STRATEGY: 2, SYNTH_MAX_FANOUT: 10}  # balanced (default)
+
+  placement:
+    - {PL_TARGET_DENSITY: 0.45, PL_TIME_DRIVEN: true}
+    - {PL_TARGET_DENSITY: 0.55, PL_ROUTABILITY_DRIVEN: true}
+    - {PL_TARGET_DENSITY: 0.65}
+
+  floorplan:
+    - {FP_CORE_UTIL: 35, FP_ASPECT_RATIO: 1.0}
+    - {FP_CORE_UTIL: 45, FP_ASPECT_RATIO: 1.2}
+    - {FP_CORE_UTIL: 55, FP_ASPECT_RATIO: 1.0}
+
+  cts:
+    - {CTS_TARGET_SKEW: 150}
+    - {CTS_TARGET_SKEW: 200}
+    - {CTS_TARGET_SKEW: 300}
+
+# Flow control
+flow:
+  max_iterations: 3   # max retune attempts per stage before escalating
+  sweep_parallelism: 2  # number of variants to run concurrently in sweep
