@@ -182,7 +182,7 @@ class TestDRCParser:
 
     def test_nonzero_exit_no_report_raises(self, tmp_path):
         _write_logs(tmp_path, stdout="")
-        with pytest.raises(RuntimeError, match="non-zero exit"):
+        with pytest.raises(RuntimeError, match="unrecognised log format"):
             DRCParser().parse(tmp_path, _make_stage_result(1))
 
 

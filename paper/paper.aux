@@ -1,0 +1,80 @@
+\relax 
+\citation{wolf2013yosys}
+\citation{kahng2021openroad}
+\citation{ousterhout1984magic}
+\citation{shalan2020openlane}
+\citation{kahng2021openroad}
+\citation{mirhoseini2021chip}
+\citation{guo2022machine}
+\citation{shalan2020openlane}
+\citation{wolf2013yosys}
+\citation{kahng2021openroad}
+\citation{klayout}
+\citation{netgen}
+\citation{mirhoseini2021chip}
+\citation{guo2022machine}
+\citation{liu2023chipnemo,he2023chateda}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Background and Related Work}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Open-Source RTL-to-GDS Flows}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}ML-Guided Physical Design}{1}{}\protected@file@percent }
+\citation{anthropic2024tools}
+\citation{yao2022react}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces High-level architecture of rtl2gdsagi. Blue blocks are EDA tool wrappers; orange blocks are LLM-facing components; red indicates hard-gate stages enforced in code.}}{2}{}\protected@file@percent }
+\newlabel{fig:arch}{{1}{2}{}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}LLM Tool-Use and Agents}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-D}}Positioning}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}System Architecture}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Overview}{2}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Flow Stages, Tool Backends, and Hard-Gate Classification}}{2}{}\protected@file@percent }
+\newlabel{tab:stages}{{I}{2}{}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Orchestrator State Machine}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Async Execution and Timeout}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Crash-Safe State Persistence}{2}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Normalised STA parser output schema. All numeric fields are typed floats; missing fields are \texttt  {null}, never absent.}}{3}{}\protected@file@percent }
+\newlabel{fig:schema}{{2}{3}{}{figure.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces make\_flow\_decision Tool Schema}}{3}{}\protected@file@percent }
+\newlabel{tab:schema}{{II}{3}{}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Parser Layer and Agent Decision Schema}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Parser Design Principles}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Agent Decision Schema}{3}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Key Tunable Parameters and Validated Ranges}}{3}{}\protected@file@percent }
+\newlabel{tab:params}{{III}{3}{}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Per-Stage System Prompts}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Parameter Validation}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}Hard-Gate Enforcement}{3}{}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Strategy Sweep}}{4}{}\protected@file@percent }
+\newlabel{alg:sweep}{{1}{4}{}{algorithm.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces RISC-V ALU Design Parameters}}{4}{}\protected@file@percent }
+\newlabel{tab:design}{{IV}{4}{}{table.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Strategy Sweep Controller}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Evaluation}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Demo Design: RISC-V ALU}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}End-to-End Test Scenarios}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Parser Robustness}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Synthesis Strategy Sweep}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}API Fallback Behaviour}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-F}}Audit Trail Completeness}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Discussion and Limitations}{4}{}\protected@file@percent }
+\bibstyle{IEEEtran}
+\bibcite{wolf2013yosys}{1}
+\bibcite{kahng2021openroad}{2}
+\bibcite{ousterhout1984magic}{3}
+\bibcite{shalan2020openlane}{4}
+\bibcite{klayout}{5}
+\bibcite{netgen}{6}
+\bibcite{mirhoseini2021chip}{7}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces End-to-End Integration Test Scenario Results}}{5}{}\protected@file@percent }
+\newlabel{tab:scenarios}{{V}{5}{}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Parser Unit Test Coverage Summary}}{5}{}\protected@file@percent }
+\newlabel{tab:parsers}{{VI}{5}{}{table.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Synthesis Strategy Sweep: Expected Pareto Outcomes (sky130hd)}}{5}{}\protected@file@percent }
+\newlabel{tab:sweep}{{VII}{5}{}{table.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Conclusion}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{5}{}\protected@file@percent }
+\bibcite{guo2022machine}{8}
+\bibcite{liu2023chipnemo}{9}
+\bibcite{he2023chateda}{10}
+\bibcite{anthropic2024tools}{11}
+\bibcite{yao2022react}{12}
+\gdef \@abspage@last{6}

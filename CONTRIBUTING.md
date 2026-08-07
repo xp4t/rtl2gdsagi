@@ -1,4 +1,4 @@
-# Contributing to rtl2gdsagy
+# Contributing to rtl2gdsagi
 
 Thank you for your interest in contributing! This document explains the project structure,
 development workflow, and conventions so your contribution fits in cleanly.
@@ -8,8 +8,8 @@ development workflow, and conventions so your contribution fits in cleanly.
 ## Development setup
 
 ```bash
-git clone https://github.com/your-org/rtl2gdsagy.git
-cd rtl2gdsagy
+git clone https://github.com/your-org/rtl2gdsagi.git
+cd rtl2gdsagi
 
 # Create a venv
 python -m venv .venv && source .venv/bin/activate

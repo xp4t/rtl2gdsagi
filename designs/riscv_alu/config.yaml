@@ -7,7 +7,7 @@ design:
     - designs/riscv_alu/rtl/alu.v
   clock_port: clk
   pdk: sky130hd
-  description: "RV32I ALU slice — demo design for rtl2gdsagy proof-of-concept"
+  description: "RV32I ALU slice — demo design for rtl2gdsagi proof-of-concept"
 
 # Override global defaults for this design
 defaults:

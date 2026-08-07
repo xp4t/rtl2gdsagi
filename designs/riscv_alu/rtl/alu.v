@@ -1,4 +1,4 @@
-// RISC-V ALU Slice  —  Demo design for rtl2gdsagy
+// RISC-V ALU Slice  —  Demo design for rtl2gdsagi
 // Supports all RV32I ALU operations
 // Top module: riscv_alu
 `timescale 1ns/1ps

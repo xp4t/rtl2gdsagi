@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""End-to-end integration test for rtl2gdsagy.
+"""End-to-end integration test for rtl2gdsagi.
 
 Simulates stages 1–4 (Lint → Synth → SDC → Post-Synth STA) by injecting
 realistic mock tool outputs into StageRunner. The real parsers, real agent
@@ -211,7 +211,7 @@ SCENARIOS = {
 def run_e2e(scenario_name: str = "happy-path", verbose: bool = False) -> bool:
     scenario = SCENARIOS[scenario_name]
 
-    banner(f"rtl2gdsagy  END-TO-END TEST  [{scenario_name}]")
+    banner(f"rtl2gdsagi  END-TO-END TEST  [{scenario_name}]")
     info(scenario["description"])
     info("No Claude API key → agent uses deterministic fallback decisions")
     info("Stages: lint → synthesis → sdc_check → post_synth_sta")
@@ -376,7 +376,7 @@ def run_e2e(scenario_name: str = "happy-path", verbose: bool = False) -> bool:
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description="rtl2gdsagy end-to-end integration test")
+    p = argparse.ArgumentParser(description="rtl2gdsagi end-to-end integration test")
     p.add_argument("--scenario", choices=list(SCENARIOS), default="happy-path",
                    help="Which test scenario to run")
     p.add_argument("--all", action="store_true", help="Run all scenarios")

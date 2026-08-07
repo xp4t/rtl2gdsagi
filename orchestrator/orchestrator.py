@@ -38,11 +38,15 @@ class Orchestrator:
         max_iterations: int = 3,
         resume_run_id: str | None = None,
         replay_decisions: bool = False,
+        from_stage: str | None = None,
+        to_stage: str | None = None,
     ) -> None:
         self.runs_dir = runs_dir
         self.state_mgr = StateManager(runs_dir)
         self.max_iterations = max_iterations
         self.replay_decisions = replay_decisions
+        self.from_stage = from_stage
+        self.to_stage = to_stage
 
         if resume_run_id:
             log.info("Resuming run %s", resume_run_id)
@@ -81,7 +85,26 @@ class Orchestrator:
         return asyncio.run(self._run_async())
 
     async def _run_async(self) -> bool:
-        for stage in STAGE_ORDER:
+        start_idx = 0
+        end_idx = len(STAGE_ORDER)
+
+        if self.from_stage:
+            try:
+                start_stage = Stage(self.from_stage)
+                start_idx = STAGE_ORDER.index(start_stage)
+            except ValueError:
+                log.error("Invalid from_stage: %s", self.from_stage)
+                return False
+
+        if self.to_stage:
+            try:
+                end_stage = Stage(self.to_stage)
+                end_idx = STAGE_ORDER.index(end_stage) + 1
+            except ValueError:
+                log.error("Invalid to_stage: %s", self.to_stage)
+                return False
+
+        for stage in STAGE_ORDER[start_idx:end_idx]:
             if stage.value in self.state.completed_stages:
                 log.info("Skipping already-completed stage: %s", stage.value)
                 continue

@@ -47,7 +47,10 @@ class ConfigManager:
                 )
                 continue
             spec = self.param_ranges[key]
-            validated[key] = self._validate_value(key, value, spec)
+            try:
+                validated[key] = self._validate_value(key, value, spec)
+            except ValueError:
+                continue
         return validated
 
     def generate_run_config(
@@ -99,17 +102,25 @@ class ConfigManager:
                 value = int(value)
             except (TypeError, ValueError):
                 log.warning("Param '%s': expected int, got %r — skipping", key, value)
-                return spec.get("default", value)
+                raise ValueError
         elif expected_type == "float":
             try:
                 value = float(value)
             except (TypeError, ValueError):
                 log.warning("Param '%s': expected float, got %r — skipping", key, value)
-                return spec.get("default", value)
+                raise ValueError
         elif expected_type == "bool":
-            if not isinstance(value, bool):
-                log.warning("Param '%s': expected bool, got %r — coercing", key, value)
-                value = bool(value)
+            if isinstance(value, str):
+                if value.lower() in {"true", "1", "yes"}:
+                    value = True
+                elif value.lower() in {"false", "0", "no"}:
+                    value = False
+                else:
+                    log.warning("Param '%s': expected bool, got %r — skipping", key, value)
+                    raise ValueError
+            elif not isinstance(value, bool):
+                log.warning("Param '%s': expected bool, got %r — skipping", key, value)
+                raise ValueError
 
         # Range clamping
         if "min" in spec and value < spec["min"]:

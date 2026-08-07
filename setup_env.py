@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-shot environment setup script for rtl2gdsagy.
+"""One-shot environment setup script for rtl2gdsagi.
 
 Runs on a fresh machine after `git clone`. Does NOT require OpenLane
 pre-installed. Installs everything needed:
@@ -60,7 +60,7 @@ def step(title: str) -> None:
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description="Setup rtl2gdsagy environment")
+    p = argparse.ArgumentParser(description="Setup rtl2gdsagi environment")
     p.add_argument(
         "--pdk-root",
         default=os.path.expanduser("~/OpenLane/pdks"),
@@ -78,7 +78,7 @@ def main() -> int:
     )
     args = p.parse_args()
 
-    print(f"{BOLD}\nrtl2gdsagy environment setup{RESET}")
+    print(f"{BOLD}\nrtl2gdsagi environment setup{RESET}")
     print(f"Python: {sys.version}")
     print(f"Root:   {ROOT}")
 

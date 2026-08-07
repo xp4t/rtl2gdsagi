@@ -189,7 +189,7 @@ class DecisionEngine:
                 "decision": "escalate_to_human",
                 "reasoning": (
                     f"Hard gate: {stage.value} failed — "
-                    "overriding agent decision '{decision.get(\"decision\")}'."
+                    f"overriding agent decision '{decision.get('decision')}'."
                 ),
                 "param_updates": {},
                 "confidence": "high",

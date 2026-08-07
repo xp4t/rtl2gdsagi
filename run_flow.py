@@ -129,7 +129,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     # -- Misc ----------------------------------------------------------------
     p.add_argument("-v", "--verbose", action="store_true", help="Debug logging")
     p.add_argument("--list-runs", action="store_true", help="List known runs and exit")
-    p.add_argument("--version", action="version", version="rtl2gdsagy 0.1.0")
+    p.add_argument("--version", action="version", version="rtl2gdsagi 0.1.0")
 
     return p.parse_args(argv)
 
@@ -208,6 +208,8 @@ def main(argv: list[str] | None = None) -> int:
         max_iterations=args.max_iterations,
         resume_run_id=args.resume,
         replay_decisions=args.replay_decisions,
+        from_stage=args.from_stage,
+        to_stage=args.to_stage,
     )
 
     # Sweep mode

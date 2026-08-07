@@ -45,19 +45,10 @@ class DRCParser(BaseParser):
                 return self._parse_magic_text(text, log_dir, stage_result)
 
         ec = getattr(stage_result, "exit_code", 0)
-        if ec != 0:
-            raise RuntimeError(
-                f"DRCParser: non-zero exit ({ec}) and no recognisable DRC report "
-                f"found in {log_dir} — unrecognised log format."
-            )
-        # Zero exit, no report file → assume clean
-        return {
-            "stage": "drc",
-            "status": "pass",
-            "total_violations": 0,
-            "violations": [],
-            "raw_log_path": str(log_dir),
-        }
+        raise RuntimeError(
+            f"DRCParser: no recognisable DRC report "
+            f"found in {log_dir} (exit code {ec}) — unrecognised log format."
+        )
 
     def _parse_magic(self, path: Path, log_dir: Path, sr: Any) -> dict[str, Any]:
         return self._parse_magic_text(path.read_text(errors="replace"), log_dir, sr)
@@ -70,12 +61,10 @@ class DRCParser(BaseParser):
             for m in self._MAGIC_RULE_RE.finditer(text)
         ]
         if not total_m and not rules:
-            # exit 0 with no recognisable DRC pattern — flag it
-            ec = getattr(sr, "exit_code", 0)
-            if ec != 0:
-                raise RuntimeError(
-                    f"DRCParser: unrecognised Magic DRC format in {log_dir}/stdout.log"
-                )
+            raise RuntimeError(
+                f"DRCParser: no recognisable DRC report "
+                f"found in {log_dir} — unrecognised log format."
+            )
         return {
             "stage": "drc",
             "status": "pass" if total == 0 else "fail",

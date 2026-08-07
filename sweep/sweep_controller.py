@@ -124,12 +124,16 @@ class SweepController:
 
         runner = StageRunner(variant_dir)
         t0 = time.monotonic()
+        
+        from orchestrator.orchestrator import Orchestrator
+        stage_name = Orchestrator._openlane_stage_name(stage)
+        
         raw = await runner.run_stage_async(
             stage=stage.value,
             extra_args=[
                 "--run-tag", f"sweep_{idx:02d}",
-                "--from", stage.value,
-                "--to", stage.value,
+                "--from", stage_name,
+                "--to", stage_name,
                 str(cfg_path),
             ],
         )
@@ -215,5 +219,14 @@ class SweepController:
         passed = [v for v in variants if v["result"].get("status") == "pass"]
         if not passed:
             passed = variants
-        best = min(passed, key=lambda v: v["result"].get("area_um2") or float("inf"))
+
+        def rank_key(v: dict[str, Any]) -> tuple[float, float]:
+            res = v.get("result", {})
+            wns = res.get("worst_setup_slack_ns")
+            wns_val = wns if wns is not None else -float("inf")
+            area = res.get("area_um2")
+            area_val = area if area is not None else float("inf")
+            return (-wns_val, area_val)
+
+        best = min(passed, key=rank_key)
         return best["idx"]

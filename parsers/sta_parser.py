@@ -90,10 +90,10 @@ class STAParser(BaseParser):
         else:
             status = "pass"
 
-        # Hard failure: non-zero exit but no parseable timing → format changed
-        if ec != 0 and wns is None and len(text) > 100:
+        # Hard failure: no parseable timing → format changed or garbled
+        if wns is None:
             raise RuntimeError(
-                f"STAParser [{self._stage_name}]: non-zero exit and no parseable "
+                f"STAParser [{self._stage_name}]: no parseable "
                 f"timing data — unrecognised log format. Check {log_dir}/stdout.log"
             )
 
