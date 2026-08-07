@@ -1,8 +1,8 @@
-# rtl2gdsagy 🔧➡️💎
+# rtl2gdsagi 🔧➡️💎
 
 > **Agentic RTL-to-GDS orchestrator** — OpenLane2 (sky130hd) driven by Claude AI at every stage checkpoint
 
-[![CI](https://github.com/xp4t/rtl2gdsagy/actions/workflows/ci.yml/badge.svg)](https://github.com/xp4t/rtl2gdsagy/actions)
+[![CI](https://github.com/xp4t/rtl2gdsagi/actions/workflows/ci.yml/badge.svg)](https://github.com/xp4t/rtl2gdsagi/actions)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
 [![OpenLane2](https://img.shields.io/badge/backend-OpenLane2-purple)](https://github.com/efabless/openlane2)
@@ -11,7 +11,7 @@
 
 ## What is this?
 
-`rtl2gdsagy` wraps the full **OpenLane2** open-source ASIC flow (Yosys → OpenROAD → Magic → Netgen → KLayout) and places a **Claude AI agent** at every stage checkpoint. The agent inspects structured results from each stage and decides: **continue**, **retune parameters**, **escalate to a human**, or **abort**.
+`rtl2gdsagi` wraps the full **OpenLane2** open-source ASIC flow (Yosys → OpenROAD → Magic → Netgen → KLayout) and places a **Claude AI agent** at every stage checkpoint. The agent inspects structured results from each stage and decides: **continue**, **retune parameters**, **escalate to a human**, or **abort**.
 
 **The LLM never generates raw EDA commands.** It only adjusts config knobs (e.g. `PL_TARGET_DENSITY`, `CLOCK_PERIOD`) within validated ranges — a deterministic wrapper runs the actual tools.
 
@@ -47,8 +47,8 @@ RTL  ──►  Lint  ──►  Synth  ──►  SDC  ──►  STA  ──�
 ### 1. Clone and setup (≈ 5–15 min first time, downloads PDK)
 
 ```bash
-git clone https://github.com/your-org/rtl2gdsagy.git
-cd rtl2gdsagy
+git clone https://github.com/your-org/rtl2gdsagi.git
+cd rtl2gdsagi
 python setup_env.py          # installs everything — Rust, OpenLane2, sky130hd PDK
 ```
 
@@ -125,7 +125,7 @@ python run_flow.py --list-runs
 ## Repository layout
 
 ```
-rtl2gdsagy/
+rtl2gdsagi/
 │
 ├── run_flow.py               ← CLI entrypoint
 ├── setup_env.py              ← One-shot environment setup
