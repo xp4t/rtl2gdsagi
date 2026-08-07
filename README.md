@@ -1,4 +1,4 @@
-# rtl2gdsagi 🔧➡️💎
+# rtl2gdsagi 📝→🧱
 
 > **Agentic RTL-to-GDS orchestrator** — OpenLane2 (sky130hd) driven by Claude AI at every stage checkpoint
 
