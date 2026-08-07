@@ -2,11 +2,7 @@
 
 > **Agentic RTL-to-GDS orchestrator** — OpenLane2 (sky130hd) driven by Claude AI at every stage checkpoint
 
-<<<<<<< HEAD
 [![CI](https://github.com/xp4t/rtl2gdsagi/actions/workflows/ci.yml/badge.svg)](https://github.com/xp4t/rtl2gdsagi/actions)
-=======
-[![CI](https://github.com/your-org/rtl2gdsagi/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/rtl2gdsagi/actions)
->>>>>>> 883a1d9 (drc/lvs fixes)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)](LICENSE)
 [![OpenLane2](https://img.shields.io/badge/backend-OpenLane2-purple)](https://github.com/efabless/openlane2)
@@ -51,11 +47,7 @@ RTL  ──►  Lint  ──►  Synth  ──►  SDC  ──►  STA  ──�
 ### 1. Clone and setup (≈ 5–15 min first time, downloads PDK)
 
 ```bash
-<<<<<<< HEAD
 git clone https://github.com/xp4t/rtl2gdsagi.git
-=======
-git clone https://github.com/your-org/rtl2gdsagi.git
->>>>>>> 883a1d9 (drc/lvs fixes)
 cd rtl2gdsagi
 python setup_env.py          # installs everything — Rust, OpenLane2, sky130hd PDK
 ```
