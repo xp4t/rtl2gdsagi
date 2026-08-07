@@ -47,7 +47,7 @@ RTL  ──►  Lint  ──►  Synth  ──►  SDC  ──►  STA  ──�
 ### 1. Clone and setup (≈ 5–15 min first time, downloads PDK)
 
 ```bash
-git clone https://github.com/your-org/rtl2gdsagi.git
+git clone https://github.com/xp4t/rtl2gdsagi.git
 cd rtl2gdsagi
 python setup_env.py          # installs everything — Rust, OpenLane2, sky130hd PDK
 ```
