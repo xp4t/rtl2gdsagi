@@ -1,0 +1,13 @@
+# The first thing to run. Every gate this design reaches comes back green.
+#
+#   .venv/bin/rtl2gdsagi run --config examples/register/register.yaml --no-api
+#
+top: register
+rtl: examples/register/rtl
+
+pdk:
+  name: sky130A
+
+ir:
+  sim:
+    testbench_dir: examples/register/tb
