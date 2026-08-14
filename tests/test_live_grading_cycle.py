@@ -165,15 +165,14 @@ def _live_result(delta="__default__", *, before=2, after=0):
 
 
 def _evaluate(case, result, run_dir, case_path):
-    """The production post-run sequence, in the production order."""
-    g = grader.grade(case, result, run_dir, case_path=case_path)
-    result["ground_truth_pass"] = g.passed
-    ok, missing = run_case.attribution_complete(result)
-    result["autonomy_evidence"] = ok
-    result["attribution_missing"] = missing
-    if result.get("diagnosis_source") == "live_model":
-        grader.grade_live_attribution(result, g)
-    return g, result
+    """Delegates to the production helper.
+
+    L3: this used to transcribe `run_case.main()`'s sequence by hand, which is
+    how P0-LIVE-01 survived -- the copy did not have the cycle the original
+    had. There is now one implementation, and this calls it.
+    """
+    return run_case.finalize_run_result(case, result, run_dir, case_path,
+                                        write=False)
 
 
 # ---- P0-LIVE-01: the cycle is gone ----------------------------------------

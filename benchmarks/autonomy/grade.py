@@ -196,6 +196,62 @@ def check_freeze(case_path: Path, run_dir: Path, g: "Grade") -> None:
             on_pass=f"{len(required)} components match")
 
 
+#: How an IR field renders as a tool option, for the fields a case may inject.
+#: Explicit, because deriving it from the renderer would import the thing being
+#: graded. Extend deliberately, never by pattern-guessing.
+RENDERED_AS = {
+    "droute_iters": "-droute_end_iter",
+    "min_layer": "-bottom_routing_layer",
+    "max_layer": "-top_routing_layer",
+}
+
+
+def rendered_option_values(text: str, option: str) -> list[str]:
+    """Every value given to `option`, as exact whitespace-delimited tokens.
+
+    L2: `"-droute_end_iter 1" in text` is satisfied by
+    `-droute_end_iter 16`, so a run that never applied the injection could
+    satisfy the check. Tokenising means `1` matches `1` and nothing else --
+    not `16`, not `10`, not `1foo` -- while `-droute_end_iter 1 -verbose 1`
+    still matches, because the token after the option is what is compared.
+    """
+    tokens = text.split()
+    out: list[str] = []
+    for i, tok in enumerate(tokens):
+        if tok == option and i + 1 < len(tokens):
+            out.append(tokens[i + 1])
+    return out
+
+
+def check_typed_render_binding(g: "Grade", label: str, script_text: str,
+                               effective_ir: dict, fields) -> None:
+    """The rendered command must carry exactly the snapshot's typed value."""
+    for field_name in fields:
+        option = RENDERED_AS.get(field_name)
+        if option is None:
+            continue
+        want = effective_ir.get(field_name)
+        values = rendered_option_values(script_text, option)
+        if not values:
+            g.check(f"{label} renders {option}", False,
+                    f"{option} absent from the frozen script")
+            continue
+        if len(set(values)) > 1:
+            g.check(f"{label} renders one value for {option}", False,
+                    f"conflicting values {sorted(set(values))}; refusing to "
+                    "guess which one the tool used")
+            continue
+        got = values[0]
+        # Compare in the snapshot's own type, so "1" never satisfies 1.
+        try:
+            same = type(want)(got) == want and str(want) == got
+        except (TypeError, ValueError):
+            same = False
+        g.check(f"{label} renders {option} {want!r}", same,
+                f"script says {option} {got!r}, snapshot says {want!r}",
+                on_pass=f"{option} {got}")
+
+
 def grade(case: dict, result: dict, run_dir: Path,
           case_path: Path | None = None) -> Grade:
     g = Grade()
@@ -286,10 +342,11 @@ def grade(case: dict, result: dict, run_dir: Path,
                     digest == snap.get("script_sha256"),
                     f"{digest[:12]} != {str(snap.get('script_sha256'))[:12]}",
                     on_pass=digest[:12])
-        for m in marks:
-            g.check(f"attempt 1 script renders {m!r}", m in text,
-                    "not present in the frozen attempt-1 script",
-                    on_pass="present")
+        # Bind the frozen script to the snapshot's TYPED value, not to a
+        # ground-truth substring.
+        check_typed_render_binding(
+            g, "attempt 1", text, eff,
+            [f for fields in injected.values() for f in fields])
 
         # The accepted delta must be the configuration the successful rerun
         # actually used. Without this, a run could record any plausible delta
@@ -307,6 +364,15 @@ def grade(case: dict, result: dict, run_dir: Path,
                     (f"attempt 2 ran with {mismatched}" if mismatched
                      else "no accepted delta for the failing stage"),
                     on_pass=", ".join(f"{f}={v!r}" for f, v in accepted.items()))
+
+            # And attempt 2's own script must carry attempt 2's typed values.
+            s2 = json.loads(snap2.read_text())
+            script2 = stage_dir / str(s2.get("script", ""))
+            if script2.is_file():
+                check_typed_render_binding(
+                    g, "attempt 2", script2.read_text(errors="replace"), e2,
+                    list(accepted) or [f for fields in injected.values()
+                                       for f in fields])
             # The injection must not have survived into the rerun.
             for section, fields in injected.items():
                 if section != fail_stage:
@@ -531,6 +597,46 @@ def grade(case: dict, result: dict, run_dir: Path,
             g.check("signoff is clean",
                     json.loads(sg_path.read_text()).get("clean") is True, "")
 
+    # 8b. The experiment envelope, enforced from the artifacts rather than
+    #     trusted. One diagnosis, one remediation retry, no third attempt.
+    envelope = case.get("envelope") or {}
+    max_retries = envelope.get("max_retries")
+    if max_retries is not None and responsible:
+        attempts = stages.get(responsible, {}).get("attempts") or 0
+        g.check(f"{responsible} stayed within the retry envelope",
+                attempts <= max_retries + 1,
+                f"{attempts} attempts, envelope allows "
+                f"{max_retries + 1} (initial + {max_retries})",
+                on_pass=f"{attempts} attempt(s)")
+        if stage_dir is not None:
+            extra = sorted(stage_dir.glob("attempt_0[3-9]_config.json"))
+            g.check("no third attempt was configured", not extra,
+                    f"found {[e.name for e in extra]}",
+                    on_pass="attempts 1 and 2 only")
+
+    max_calls = envelope.get("max_model_calls")
+    if max_calls is not None:
+        audits = result.get("call_audits") or []
+        n = result.get("non_scripted_model_calls") or 0
+        g.check("model calls stayed within the envelope", n <= max_calls,
+                f"{n} calls, envelope allows {max_calls}",
+                on_pass=f"{n} of at most {max_calls}")
+        # With one call permitted, the recorded hashes and the accepted delta
+        # must all describe that one interaction -- otherwise the attribution
+        # is stitched together from different exchanges.
+        if audits:
+            first = audits[0]
+            same_call = (
+                result.get("prompt_sha256") == first.get("user_prompt_sha256")
+                and result.get("response_sha256") == first.get("response_sha256")
+                and result.get("evidence_sha256")
+                == first.get("evidence_payload_sha256")
+            )
+            g.check("the recorded hashes belong to the single model call",
+                    same_call and len(audits) <= max_calls,
+                    "result hashes do not match the recorded call audit",
+                    on_pass=f"{len(audits)} audit(s), hashes match")
+
     # 9. scripted mode must never claim autonomy. This is safe to assert here
     #    because it reads a value that is *already* known before attribution is
     #    computed: a scripted run has no model call to attribute.
@@ -580,9 +686,31 @@ def main() -> int:
     case = yaml.safe_load(Path(args.case).read_text())
     run_dir = Path(args.run_dir)
     result = json.loads((run_dir / "result.json").read_text())
+
+    # L1: a standalone re-grade must reach the SAME verdict the harness did.
+    #
+    # This used to call `grade()` alone, which omits the live-only checks --
+    # notably "a real non-scripted model call was recorded". For a live run it
+    # could therefore overwrite grade.json with PASS and exit 0 while
+    # result.json said FAIL: two files disagreeing about one experiment.
+    #
+    # The live checks are reused, never reimplemented, and the recorded
+    # attribution is read as-is. Nothing is recomputed or fabricated here: a
+    # re-grade inspects a run, it does not re-run it, so `result.json` is left
+    # untouched.
     g = grade(case, result, run_dir, case_path=Path(args.case))
+    if result.get("diagnosis_source") == "live_model":
+        grade_live_attribution(result, g)
+
     print(g.report())
     (run_dir / "grade.json").write_text(json.dumps(g.to_dict(), indent=2))
+
+    recorded = result.get("grade_passed")
+    if recorded is not None and recorded != g.passed:
+        print(f"\nWARNING: the recorded run says grade_passed={recorded} but "
+              f"this re-grade says {g.passed}. The instrument or the run has "
+              "changed; treat the run as void rather than trusting either.",
+              file=sys.stderr)
     return 0 if g.passed else 1
 
 

@@ -20,7 +20,7 @@ sys.path.insert(0, str(BENCH))
 import grade as grader  # noqa: E402
 
 #: Neutral directory name -- see the run-directory policy.
-RUN = BENCH / "runs" / "scripted_trial_04"
+RUN = BENCH / "runs" / "scripted_trial_05"
 CASE = BENCH / "case_05_droute_iters.yaml"
 
 pytestmark = pytest.mark.skipif(
