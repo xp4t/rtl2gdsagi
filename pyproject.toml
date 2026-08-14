@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rtl2gdsagi"
+version = "0.1.0"
+description = "Agentic RTL-to-GDSII orchestrator with per-stage Claude-driven self-healing"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.40",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+rtl2gdsagi = "rtl2gdsagi.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"rtl2gdsagi.resources" = ["*.py", "*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+filterwarnings = ["error::DeprecationWarning"]
