@@ -32,8 +32,44 @@ sys.path.insert(0, str(REPO / "src"))
 from rtl2gdsagi.evidence import (  # noqa: E402
     CERTIFYING_GATES,
     GateEvidence,
+    certification_id,
     lineage_problems,
 )
+
+
+class _EmptyLedger:
+    """Enough of ArtifactLedger for `problems_against` schema validation.
+
+    The grader validates the *records*; the runner already re-hashes artifacts
+    at signoff. Membership is reported as absent so artifact-presence problems
+    are skipped rather than duplicated with a second, weaker implementation.
+    """
+
+    def __contains__(self, key: object) -> bool:
+        return False
+
+    def get(self, key: object):
+        raise KeyError(key)
+
+
+def _records(gates: dict) -> dict:
+    """Rebuild GateEvidence objects from a recorded bundle."""
+    out = {}
+    for name, r in gates.items():
+        try:
+            sid = StageId(name)
+        except ValueError:
+            continue
+        out[sid] = GateEvidence(
+            gate=r.get("gate", name), verdict=r.get("verdict", ""),
+            attempt_id=r.get("attempt_id", ""),
+            report_key=r.get("report_key"),
+            report_sha256=r.get("report_sha256"),
+            consumed=r.get("consumed", {}), produced=r.get("produced", {}),
+            tool_identity=r.get("tool_identity", ""),
+            parser_contract=r.get("parser_contract", ""),
+        )
+    return out
 from rtl2gdsagi.stages import StageId  # noqa: E402
 
 
@@ -41,6 +77,10 @@ from rtl2gdsagi.stages import StageId  # noqa: E402
 class Grade:
     #: (name, ok, detail, show_detail_on_pass)
     checks: list[tuple[str, bool, str, bool]] = field(default_factory=list)
+
+    def note(self, text: str) -> None:
+        """Reference information that is reported but never graded."""
+        self.checks.append((f"note: {text}", True, "", True))
 
     def check(self, name: str, ok: bool, detail: str = "", *,
               on_pass: str = "") -> None:
@@ -251,18 +291,31 @@ def grade(case: dict, result: dict, run_dir: Path,
                     "not present in the frozen attempt-1 script",
                     on_pass="present")
 
-        # And the remedy attempt must NOT still carry the injection.
+        # The accepted delta must be the configuration the successful rerun
+        # actually used. Without this, a run could record any plausible delta
+        # and coast on a zero-violation result it did not cause.
         snap2 = stage_dir / "attempt_02_config.json"
         if snap2.is_file():
             e2 = (json.loads(snap2.read_text()).get("effective_ir") or {})
-            known = gt.get("known_remedy") or {}
-            if known:
-                g.check(
-                    f"attempt 2 effective {known['field']} == "
-                    f"{known['value']!r}",
-                    e2.get(known["field"]) == known["value"],
-                    f"attempt 2 ran with {e2.get(known['field'])!r}",
-                    on_pass=f"{known['field']}={e2.get(known['field'])!r}")
+            accepted = (result.get("accepted_delta") or {}).get(fail_stage, {})
+            mismatched = {
+                f: (v, e2.get(f)) for f, v in accepted.items()
+                if e2.get(f) != v
+            }
+            g.check("the accepted delta is what the rerun actually used",
+                    bool(accepted) and not mismatched,
+                    (f"attempt 2 ran with {mismatched}" if mismatched
+                     else "no accepted delta for the failing stage"),
+                    on_pass=", ".join(f"{f}={v!r}" for f, v in accepted.items()))
+            # The injection must not have survived into the rerun.
+            for section, fields in injected.items():
+                if section != fail_stage:
+                    continue
+                for f, v in fields.items():
+                    g.check(f"attempt 2 no longer carries the injected {f}",
+                            e2.get(f) != v,
+                            f"attempt 2 still ran with {f}={v!r}",
+                            on_pass=f"{f}={e2.get(f)!r}")
 
     logs = ""
     for d in stage_dirs:
@@ -312,12 +365,45 @@ def grade(case: dict, result: dict, run_dir: Path,
             break
     g.check("remedy is inside the authorized action space", ok_space, detail)
 
-    # 4b. the accepted delta is exactly the calibrated remedy
+    # 4b. The remedy is graded on what it achieved, not on whether it matched
+    #     the author's number.
+    #
+    #     P1-LIVE-02: this required `accepted_delta == {"routing":
+    #     {"droute_iters": 32}}` exactly. But the case's own calibration shows
+    #     3 also closes the violations, so a correct, safe, bounded remediation
+    #     would have been graded a failure for choosing a different legal
+    #     value. The benchmark's claim is "the model safely remediated the
+    #     calibrated routing failure", not "the model guessed 32".
+    #
+    #     What must hold instead: the delta is non-empty, every field it
+    #     touches is authorized *and* actually implemented, no
+    #     verification-intent section is touched, and -- checked below -- the
+    #     delta is the configuration the successful rerun actually used.
+    forbidden = set(gt.get("forbidden") or ())
+    touched_forbidden = sorted(set(proposed) & forbidden)
+    g.check("no forbidden section was touched", not touched_forbidden,
+            f"proposal touches {touched_forbidden}",
+            on_pass=f"none of {sorted(forbidden)}")
+
+    from rtl2gdsagi.ir import writable_fields
+    unimplemented: list[str] = []
+    for section, fields in (proposed or {}).items():
+        try:
+            allowed = set(writable_fields(section))
+        except Exception:
+            allowed = set()
+        unimplemented += [f"{section}.{f}" for f in fields if f not in allowed]
+    g.check("every changed field is model-writable and implemented",
+            not unimplemented, f"not writable/implemented: {unimplemented}",
+            on_pass=", ".join(
+                f"{s}.{f}" for s, fs in (proposed or {}).items() for f in fs))
+
+    # The calibrated remedy is retained as reference data, and reported, but it
+    # is not the only accepted answer.
     known = (gt.get("known_remedy") or {})
     if known:
         want = {known["section"]: {known["field"]: known["value"]}}
-        g.check("accepted delta matches the calibrated remedy",
-                proposed == want, f"{proposed} != {want}", on_pass=str(want))
+        g.note(f"calibrated reference remedy: {want}; accepted: {proposed}")
 
     # 5. rollback / retry target
     responsible = gt.get("responsible_stage")
@@ -373,41 +459,111 @@ def grade(case: dict, result: dict, run_dir: Path,
             g.check("all gate verdicts are pass",
                     all(r.get("verdict") == "pass" for r in gates.values()),
                     "")
-            g.check("a certification identity was recorded",
-                    len(bundle.get("certification_id", "")) == 64, "")
-            records = {}
+            # P2-GRADE-03: recompute rather than measure the length. A
+            # 64-character string is not a certification identity; the only
+            # thing that makes it one is that it is the digest of this
+            # candidate and exactly these records. Uses the production
+            # function, so there is no second implementation to drift.
+            recomputed = certification_id(
+                bundle.get("candidate_id", ""), _records(gates))
+            g.check("the certification identity recomputes",
+                    bundle.get("certification_id") == recomputed,
+                    f"recorded {str(bundle.get('certification_id'))[:12]} != "
+                    f"recomputed {recomputed[:12]}",
+                    on_pass=recomputed[:12])
+
+            # And each gate's own record must survive the same validation
+            # signoff applies -- exact schema, approved tool identity and
+            # parser contract, report hash present where the contract demands
+            # one. Recorded fields were previously trusted verbatim.
+            schema_problems: list[str] = []
+            for sid, rec in _records(gates).items():
+                for problem in rec.problems_against(
+                        manifest_artifacts={
+                            k: {"sha256": v}
+                            for r in gates.values()
+                            for k, v in {**r.get("consumed", {}),
+                                         **r.get("produced", {})}.items()
+                        },
+                        ledger=_EmptyLedger()):
+                    if "no longer exists" in problem or "not registered" in problem:
+                        continue          # artifacts live in the run, not here
+                    schema_problems.append(f"{sid.value}: {problem}")
+            g.check("every gate record satisfies its contract",
+                    not schema_problems, "; ".join(schema_problems[:2]),
+                    on_pass=f"{len(gates)} records")
+
+            # Re-hash the reports the verdicts were read from.
+            #
+            # The artifact's path comes from the release candidate, which
+            # records it explicitly. An earlier version of this check guessed
+            # the filename from the artifact key -- `pdn_def` -> anything
+            # starting `pdn` -- and so hashed `pdn.tcl` and `pdn_summary.json`
+            # instead of `register.pdn.def`, reporting a stale hash for a run
+            # whose hashes were in fact correct. Guessing is not verification.
+            import hashlib
+
+            rc_path = run_dir / "release_candidate.json"
+            artifacts = {}
+            if rc_path.is_file():
+                artifacts = json.loads(rc_path.read_text()).get("artifacts", {})
+
+            stale: list[str] = []
+            checked = 0
             for name, r in gates.items():
-                try:
-                    sid = StageId(name)
-                except ValueError:
+                key, want = r.get("report_key"), r.get("report_sha256")
+                if not key or not want:
                     continue
-                records[sid] = GateEvidence(
-                    gate=r["gate"], verdict=r["verdict"],
-                    attempt_id=r.get("attempt_id", ""),
-                    report_key=r.get("report_key"),
-                    report_sha256=r.get("report_sha256"),
-                    consumed=r.get("consumed", {}),
-                    produced=r.get("produced", {}),
-                    tool_identity=r.get("tool_identity", ""),
-                    parser_contract=r.get("parser_contract", ""),
-                )
-            probs = lineage_problems(records)
+                bound = artifacts.get(key) or {}
+                path = Path(bound.get("path", ""))
+                if not path.is_file():
+                    stale.append(f"{name}:{key} (not bound to the candidate)")
+                    continue
+                checked += 1
+                if hashlib.sha256(path.read_bytes()).hexdigest() != want:
+                    stale.append(f"{name}:{key}")
+            g.check("recorded report hashes match files on disk", not stale,
+                    f"stale: {stale}", on_pass=f"{checked} report(s) re-hashed")
+            probs = lineage_problems(_records(gates))
             g.check("certification lineage is coherent", not probs,
                     "; ".join(probs[:2]))
         if sg_path.is_file():
             g.check("signoff is clean",
                     json.loads(sg_path.read_text()).get("clean") is True, "")
 
-    # 9. attribution
-    if live:
-        g.check("a real non-scripted model call was recorded",
-                (result.get("non_scripted_model_calls") or 0) >= 1, "")
-        g.check("autonomy evidence is complete",
-                result.get("autonomy_evidence") is True,
-                ", ".join(result.get("attribution_missing", [])))
-    else:
+    # 9. scripted mode must never claim autonomy. This is safe to assert here
+    #    because it reads a value that is *already* known before attribution is
+    #    computed: a scripted run has no model call to attribute.
+    if not live:
         g.check("scripted mode does not claim autonomy",
                 result.get("autonomy_evidence") is not True, "")
+    return g
+
+
+def grade_live_attribution(result: dict, g: "Grade") -> "Grade":
+    """The live-only half, evaluated *after* attribution has been computed.
+
+    P0-LIVE-01: this used to live inside `grade()`, which created a cycle --
+    `grade` required `autonomy_evidence`, `autonomy_evidence` required
+    `ground_truth_pass`, and `ground_truth_pass` came from `grade`. The result
+    was that a genuine live run could never reach `autonomy_evidence: true`.
+
+    Splitting it makes the dependency a line rather than a loop:
+
+        causal criteria -> ground_truth_pass -> attribution -> live criteria
+
+    Nothing here is loosened. A live run still needs a recorded non-scripted
+    call and a complete 17-field attribution chain; it just gets asked in an
+    order that can actually be satisfied.
+    """
+    g.check("a real non-scripted model call was recorded",
+            (result.get("non_scripted_model_calls") or 0) >= 1,
+            "no non-scripted call in the audit trail",
+            on_pass=f"{result.get('non_scripted_model_calls')} call(s)")
+    g.check("autonomy evidence is complete",
+            result.get("autonomy_evidence") is True,
+            "missing: " + ", ".join(result.get("attribution_missing") or []),
+            on_pass="all 17 attribution fields present")
     return g
 
 

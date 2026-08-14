@@ -20,7 +20,7 @@ sys.path.insert(0, str(BENCH))
 import grade as grader  # noqa: E402
 
 #: Neutral directory name -- see the run-directory policy.
-RUN = BENCH / "runs" / "scripted_trial_02"
+RUN = BENCH / "runs" / "scripted_trial_04"
 CASE = BENCH / "case_05_droute_iters.yaml"
 
 pytestmark = pytest.mark.skipif(
@@ -50,8 +50,10 @@ def test_the_real_run_passes(case, result):
     (lambda r: r.update(history=[]), "failure class"),
     (lambda r: r.update(accepted_delta={"sdc": {"default_clock_period_ns": 20}}),
      "authorized action space"),
+    # P1-LIVE-02: a different *authorized* value is no longer wrong for being
+    # different -- it is wrong when it is not what the rerun actually used.
     (lambda r: r.update(accepted_delta={"routing": {"droute_iters": 64}}),
-     "calibrated remedy"),
+     "what the rerun actually used"),
     (lambda r: r.update(exit_code=3), "closed"),
     (lambda r: r.update(autonomy_evidence=True), "autonomy"),
 ])
