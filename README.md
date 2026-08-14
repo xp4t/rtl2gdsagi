@@ -66,7 +66,7 @@ all generated. If you *want* to control them you can
 ### 2.0 The short way
 
 ```bash
-git clone <your-clone-url> rtl2gdsagi
+git clone https://github.com/xp4t/rtl2gdsagi.git
 cd rtl2gdsagi
 ./setup.sh
 ```
@@ -149,7 +149,7 @@ This lands in `~/.volare/sky130A` and is found automatically.
 ### 2.3 This tool
 
 ```bash
-git clone <your-clone-url> rtl2gdsagi
+git clone https://github.com/xp4t/rtl2gdsagi.git
 cd rtl2gdsagi
 python3 -m venv .venv
 .venv/bin/pip install -e .
