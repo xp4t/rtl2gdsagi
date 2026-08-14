@@ -1,0 +1,13 @@
+{
+  "tool": "klayout",
+  "version": "KLayout 0.30.3",
+  "stage": "drc",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/16_drc/drc.lyrdb",
+  "expected": {
+    "total_violations": 0,
+    "declared_categories_gt": 200,
+    "verdict": "pass"
+  }
+}

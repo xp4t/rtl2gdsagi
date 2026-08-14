@@ -1,0 +1,24 @@
+# A known-good starting point. Run it with:
+#
+#   .venv/bin/rtl2gdsagi run --config examples/counter/counter.yaml --no-api
+#
+top: counter
+rtl: examples/counter/rtl
+
+pdk:
+  name: sky130A
+
+retry_limit: 3
+
+ir:
+  sim:
+    testbench_dir: examples/counter/tb
+
+  # This design is tiny, so the power grid and die need to be sized for it.
+  # The defaults assume a much larger chip.
+  pdn:
+    strap_offset_um: 1.0
+    strap_pitch_um: 10.0
+    core_ring: false
+  floorplan:
+    core_utilization: 0.30

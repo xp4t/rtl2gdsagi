@@ -1,0 +1,12 @@
+{
+  "tool": "klayout",
+  "version": "KLayout 0.30.3",
+  "stage": "lvs",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/17_lvs/attempt_01.log",
+  "expected": {
+    "log_claims_match": true,
+    "verdict": "fail"
+  }
+}

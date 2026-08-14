@@ -1,0 +1,13 @@
+{
+  "tool": "klayout",
+  "version": "KLayout 0.30.3",
+  "stage": "gdsout",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/15_gdsout/register.gds",
+  "expected": {
+    "top_cell": "register",
+    "unresolved_references": 0,
+    "verdict": "pass"
+  }
+}

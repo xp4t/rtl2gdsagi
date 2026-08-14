@@ -1,0 +1,14 @@
+{
+  "tool": "openroad",
+  "version": "OpenROAD via openlane image ff5509f65b17bfa4068d5336495ab1718987ff69",
+  "stage": "cts",
+  "design": "ov7670_cam_top",
+  "source_run": "ov11",
+  "captured_from": "RUNS/ov11/stages/10_cts/attempt_01.log",
+  "expected": {
+    "clock_skew_ns": 0.07,
+    "clocks": 2,
+    "verdict": "pass"
+  },
+  "note": "Two clocks; worst skew is the max over the report's rows."
+}

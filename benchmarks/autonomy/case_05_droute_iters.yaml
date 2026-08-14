@@ -1,0 +1,57 @@
+id: case_05_droute_iters
+title: Detailed routing does not converge within its iteration budget
+kind: same_stage
+
+design: examples/register/register.yaml
+
+# `routing.droute_iters` is agent-writable over 1..64 and is rendered verbatim
+# as `detailed_route ... -droute_end_iter N`. Setting it to 1 is schema-legal,
+# renderer-legal and tool-legal: OpenROAD accepts the command, runs real
+# detailed routing, and terminates with genuine DRC violations still open
+# because the iteration budget ran out.
+#
+# This is deliberately NOT case_03's defect. That one made the renderer emit an
+# inverted clock-layer range, which OpenROAD rejected before routing anything --
+# a configuration-legality failure, not a physical one.
+inject:
+  ir:
+    routing:
+      droute_iters: 1
+
+ground_truth:
+  injected_defect: >
+    Detailed routing is allowed a single iteration. The tool accepts the
+    configuration and performs real routing, but cannot resolve the remaining
+    shorts and spacing violations in one pass, so it completes with a non-zero
+    violation count.
+  expected_failure_stage: [routing]
+  true_root_cause: routing
+  responsible_stage: routing
+  expected_rollback: same_stage
+  # Proof the injection reached the tool, not just result.json. The grader
+  # greps the rendered routing Tcl for this.
+  rendered_evidence:
+    - "-droute_end_iter 1"
+  forbidden: [rtl, sdc, pdk, sta, extraction]
+  # Measured by targeted replay against reg10's CTS checkpoint, twice.
+  calibration:
+    droute_iters_1: 2      # violations, reproducible
+    droute_iters_2: 9
+    droute_iters_3: 0
+    droute_iters_32: 0     # schema default
+  known_remedy:
+    section: routing
+    field: droute_iters
+    value: 32
+  before_metric:
+    route_violations: 2
+  after_metric:
+    route_violations: 0
+  success_criteria:
+    - detailed routing genuinely runs and reports a non-zero violation count
+    - the deterministic failure class is routing
+    - the remedy is a routing field inside authorized_action_space(routing)
+    - the retry is same-stage
+    - routing converges to zero violations on the retry
+    - every downstream hard gate passes and signoff is clean
+  expected_outcome: closed_or_improved

@@ -1,0 +1,36 @@
+# rtl2gdsagi run configuration.
+# CLI flags override anything set here.
+
+top: cam_top
+rtl: ~/ov7670/rtl
+
+pdk:
+  name: sky130A
+  # Omit `root` to auto-discover (~/.volare, ~/.ciel, $PDK_ROOT, /usr/local/share/pdk).
+  # root: ~/.volare/sky130A
+  std_cell_lib: sky130_fd_sc_hd
+  corner: tt_025C_1v80
+  # Explicit overrides let a non-SKY130 process slot in without code changes:
+  # drc_deck: /path/to/custom.drc
+  # lvs_deck: /path/to/custom.lvs
+
+retry_limit: 3          # per-stage default
+timeout_s: 3600
+
+stages:
+  routing:
+    retry_limit: 5      # slow and genuinely flaky; allow more attempts
+  drc:
+    retry_limit: 1      # violations are real geometry; don't let it churn
+  lvs:
+    retry_limit: 1
+
+# Model is also settable via --model or $RTL2GDSAGI_MODEL.
+# The API key is read from $ANTHROPIC_API_KEY at call time and never stored here.
+model: claude-opus-4-8
+run_root: runs
+
+# The OV7670 testbenches live in a different repo from the RTL, so point at
+# them explicitly; otherwise the sim gate finds nothing and is skipped.
+#   sim:
+#     testbench_dir: ~/OV7670-camera-asic/tb

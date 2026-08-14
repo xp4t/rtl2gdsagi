@@ -1,0 +1,44 @@
+OpenROAD 41a51eaf4ca2171c92ff38afb91eb37bbd3f36da 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /sanitised/home/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef
+[INFO ODB-0223]     Created 13 technology layers
+[INFO ODB-0224]     Created 25 technology vias
+[INFO ODB-0226] Finished LEF file:  /sanitised/home/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef
+[INFO ODB-0222] Reading LEF file: /sanitised/home/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /sanitised/home/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef at line 2.
+
+[INFO ODB-0225]     Created 437 library cells
+[INFO ODB-0226] Finished LEF file:  /sanitised/home/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__clkinv_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__nand2_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__and4_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__nand3_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__nand4_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__xnor2_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__a21oi_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__lpflow_isobufsrc_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__xor2_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__a31oi_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__nor2_1 has no liberty cell.
+[WARNING ORD-1011] LEF master sky130_fd_sc_hd__dfrtp_1 has no liberty cell.
+[WARNING STA-0319] time scale 1e-09 does not match library scale 1e+00.
+[WARNING STA-0319] capacitance scale 1e-12 does not match library scale 1e+00.
+[WARNING IFP-0028] Core area lower left (10.000, 10.000) snapped to (10.120, 10.880).
+[INFO IFP-0001] Added 10 rows of 62 site unithd with height 1.
+Found 0 macro blocks.
+Using 1u default distance from corners.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0010] Tentative 0 to set up sections.
+[INFO PPL-0001] Number of slots          174
+[INFO PPL-0002] Number of I/O            18
+[INFO PPL-0003] Number of I/O w/sink     18
+[INFO PPL-0004] Number of I/O w/o sink   0
+[INFO PPL-0005] Slots per section        200
+[INFO PPL-0006] Slots increase factor    0.01
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 514.80 um.
+[INFO RSZ-0026] Removed 0 buffers.
+[INFO TAP-0005] Inserted 12 tapcells.
+Design area 0 u^2 40% utilization.

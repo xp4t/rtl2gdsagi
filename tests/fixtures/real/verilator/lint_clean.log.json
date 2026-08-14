@@ -1,0 +1,13 @@
+{
+  "tool": "verilator",
+  "version": "Verilator 5.050 2026-07-01 rev v5.050-60-g3d2421f3b",
+  "stage": "lint",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/01_lint/attempt_01.log",
+  "expected": {
+    "errors": 0,
+    "warnings": 0,
+    "verdict": "pass"
+  }
+}

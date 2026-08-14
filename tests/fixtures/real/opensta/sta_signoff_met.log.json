@@ -1,0 +1,15 @@
+{
+  "tool": "opensta",
+  "version": "OpenSTA via openlane image ff5509f65b17bfa4068d5336495ab1718987ff69",
+  "stage": "sta_signoff",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/14_sta_signoff/attempt_01.log",
+  "expected": {
+    "has_setup_wns": true,
+    "has_hold_wns": true,
+    "setup_positive": true,
+    "hold_positive": true,
+    "verdict": "pass"
+  }
+}

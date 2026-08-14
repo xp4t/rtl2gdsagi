@@ -1,0 +1,44 @@
+==========================================
+  UNIFIED SIGNOFF: DRC + LVS
+  GDS: pnr_signoff.gds
+  Date: Tuesday 11 August 2026 09:18:09 AM IST
+==========================================
+
+--- Step 1: DRC ---
+Writing report database: /home/xpat/final_drc_check/drc_signoff.lyrdb ..
+Total elapsed: 44.190s  Memory: 713.00M
+DRC Complete. Report: drc_signoff.lyrdb
+
+--- Step 2: LVS ---
+2026-08-11 09:18:56 +0530: Starting running SCL C1D Klayout LVS runset on pnr_signoff.gds with top cell top
+2026-08-11 09:18:57 +0530: deep mode is enabled.
+2026-08-11 09:18:57 +0530: Netlist file: pnr_final_yosys_wrapped.spi
+2026-08-11 09:18:57 +0530: Extracted netlist file: layout_extracted_signoff.cir
+2026-08-11 09:18:57 +0530: Final report: lvs_signoff.lvsdb
+2026-08-11 09:20:08 +0530: LVS Total Run time 71.316321 seconds
+2026-08-11 09:20:08 +0530: ==========================================
+2026-08-11 09:20:08 +0530: INFO : Congratulations! Netlists match.
+2026-08-11 09:20:08 +0530: INFO : (17,018 devices and nets verified successfully)
+2026-08-11 09:20:08 +0530: ==========================================
+LVS Complete. Report: lvs_signoff.lvsdb
+
+==========================================
+  SIGNOFF COMPLETE
+  Inspect drc_signoff.lyrdb and
+  lvs_signoff.lvsdb in KLayout GUI.
+==========================================
+Pushing results to Git...
+fatal: pathspec 'lvs_signoff.lvsdb' did not match any files
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   drc_signoff.lyrdb
+	modified:   layout_extracted_signoff.cir
+	modified:   log.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+Done.

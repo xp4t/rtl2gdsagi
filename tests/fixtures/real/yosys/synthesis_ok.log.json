@@ -1,0 +1,13 @@
+{
+  "tool": "yosys",
+  "version": "Yosys 0.68+56 (git sha1 7011770a1, Release, GNU /usr/bin/c++ 11.4.0)",
+  "stage": "synthesis",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/04_synthesis/attempt_01.log",
+  "expected": {
+    "cells_gt": 0,
+    "latches_inferred": false,
+    "verdict": "pass"
+  }
+}

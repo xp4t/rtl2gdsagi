@@ -1,0 +1,13 @@
+{
+  "tool": "openroad",
+  "version": "OpenROAD via openlane image ff5509f65b17bfa4068d5336495ab1718987ff69",
+  "stage": "routing",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/12_routing/attempt_01.log",
+  "expected": {
+    "completed": true,
+    "terminal_violations": 0,
+    "verdict": "pass"
+  }
+}

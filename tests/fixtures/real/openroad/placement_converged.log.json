@@ -1,0 +1,14 @@
+{
+  "tool": "openroad",
+  "version": "OpenROAD via openlane image ff5509f65b17bfa4068d5336495ab1718987ff69",
+  "stage": "placement",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/09_placement/attempt_01.log",
+  "expected": {
+    "overflow_converged": true,
+    "overflow": 0.099774,
+    "verdict": "pass"
+  },
+  "note": "Terminal overflow comes from 'Finished with Overflow:', not the first NesterovSolve iteration (0.647628)."
+}

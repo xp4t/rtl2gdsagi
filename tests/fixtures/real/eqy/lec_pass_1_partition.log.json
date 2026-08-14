@@ -1,0 +1,14 @@
+{
+  "tool": "eqy",
+  "version": "EQY v0.68",
+  "stage": "lec_synth",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/05_lec_synth/attempt_01.log",
+  "expected": {
+    "outcome": "PASS",
+    "partitions_proved": 1,
+    "partitions_unknown": 0,
+    "verdict": "pass"
+  }
+}
