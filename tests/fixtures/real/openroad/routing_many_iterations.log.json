@@ -1,0 +1,22 @@
+{
+  "tool": "openroad",
+  "version": "OpenROAD via openlane image ff5509f65b17bfa4068d5336495ab1718987ff69",
+  "stage": "routing",
+  "design": "ov7670_cam_top",
+  "source_run": "ov9",
+  "captured_from": "RUNS/ov9/stages/12_routing/attempt_01.log",
+  "expected": {
+    "completed": true,
+    "terminal_violations": 0,
+    "iteration_counts": [
+      900,
+      739,
+      764,
+      104,
+      38,
+      0
+    ],
+    "verdict": "pass"
+  },
+  "note": "THE reference fixture. The original parser matched zero of these counts because OpenROAD writes '= 900.' and the regex expected ': 900'. A search() would also wrongly select the first (900)."
+}

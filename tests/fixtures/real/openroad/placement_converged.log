@@ -1,0 +1,118 @@
+OpenROAD 41a51eaf4ca2171c92ff38afb91eb37bbd3f36da 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /sanitised/home/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef
+[INFO ODB-0223]     Created 13 technology layers
+[INFO ODB-0224]     Created 25 technology vias
+[INFO ODB-0226] Finished LEF file:  /sanitised/home/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef
+[INFO ODB-0222] Reading LEF file: /sanitised/home/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /sanitised/home/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef at line 2.
+
+[INFO ODB-0225]     Created 437 library cells
+[INFO ODB-0226] Finished LEF file:  /sanitised/home/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef
+[INFO ODB-0127] Reading DEF file: RUNS/reg5/stages/08_pdn/register.pdn.def
+[INFO ODB-0128] Design: register
+[INFO ODB-0130]     Created 18 pins.
+[INFO ODB-0131]     Created 34 components and 193 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 68 connections.
+[INFO ODB-0133]     Created 32 nets and 81 connections.
+[INFO ODB-0134] Finished DEF file: RUNS/reg5/stages/08_pdn/register.pdn.def
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: 460 2720
+[INFO GPL-0004] CoreAreaLxLy: 10120 10880
+[INFO GPL-0005] CoreAreaUxUy: 38640 38080
+[INFO GPL-0006] NumInstances: 34
+[INFO GPL-0007] NumPlaceInstances: 22
+[INFO GPL-0008] NumFixedInstances: 12
+[INFO GPL-0009] NumDummyInstances: 0
+[INFO GPL-0010] NumNets: 32
+[INFO GPL-0011] NumPins: 99
+[INFO GPL-0012] DieAreaLxLy: 0 0
+[INFO GPL-0013] DieAreaUxUy: 48920 48920
+[INFO GPL-0014] CoreAreaLxLy: 10120 10880
+[INFO GPL-0015] CoreAreaUxUy: 38640 38080
+[INFO GPL-0016] CoreArea: 775744000
+[INFO GPL-0017] NonPlaceInstsArea: 15014400
+[INFO GPL-0018] PlaceInstsArea: 292780800
+[INFO GPL-0019] Util(%): 38.49
+[INFO GPL-0020] StdInstsArea: 292780800
+[INFO GPL-0021] MacroInstsArea: 0
+[InitialPlace]  Iter: 1 CG residual: 0.00000009 HPWL: 622360
+[InitialPlace]  Iter: 2 CG residual: 0.00000009 HPWL: 326233
+[InitialPlace]  Iter: 3 CG residual: 0.00000008 HPWL: 329254
+[InitialPlace]  Iter: 4 CG residual: 0.00000004 HPWL: 334243
+[InitialPlace]  Iter: 5 CG residual: 0.00000007 HPWL: 334183
+[INFO GPL-0031] FillerInit: NumGCells: 25
+[INFO GPL-0032] FillerInit: NumGNets: 32
+[INFO GPL-0033] FillerInit: NumGPins: 99
+[INFO GPL-0023] TargetDensity: 0.45
+[INFO GPL-0024] AveragePlaceInstArea: 13308218
+[INFO GPL-0025] IdealBinArea: 29573818
+[INFO GPL-0026] IdealBinCnt: 26
+[INFO GPL-0027] TotalBinArea: 775744000
+[INFO GPL-0028] BinCnt: 4 4
+[INFO GPL-0029] BinSize: 7130 6800
+[INFO GPL-0030] NumBins: 16
+[NesterovSolve] Iter: 1 overflow: 0.647628 HPWL: 383982
+[NesterovSolve] Iter: 10 overflow: 0.629748 HPWL: 384547
+[NesterovSolve] Iter: 20 overflow: 0.630387 HPWL: 384630
+[NesterovSolve] Iter: 30 overflow: 0.630295 HPWL: 384613
+[NesterovSolve] Iter: 40 overflow: 0.630283 HPWL: 384619
+[NesterovSolve] Iter: 50 overflow: 0.630298 HPWL: 384621
+[NesterovSolve] Iter: 60 overflow: 0.630283 HPWL: 384608
+[NesterovSolve] Iter: 70 overflow: 0.630263 HPWL: 384610
+[NesterovSolve] Iter: 80 overflow: 0.630252 HPWL: 384619
+[NesterovSolve] Iter: 90 overflow: 0.630285 HPWL: 385010
+[NesterovSolve] Iter: 100 overflow: 0.630478 HPWL: 385146
+[NesterovSolve] Iter: 110 overflow: 0.630803 HPWL: 384671
+[NesterovSolve] Iter: 120 overflow: 0.631111 HPWL: 384701
+[NesterovSolve] Iter: 130 overflow: 0.631524 HPWL: 384753
+[NesterovSolve] Iter: 140 overflow: 0.632097 HPWL: 384899
+[NesterovSolve] Iter: 150 overflow: 0.632542 HPWL: 385285
+[NesterovSolve] Iter: 160 overflow: 0.631267 HPWL: 386654
+[NesterovSolve] Iter: 170 overflow: 0.622385 HPWL: 388849
+[NesterovSolve] Iter: 180 overflow: 0.606583 HPWL: 392252
+[NesterovSolve] Snapshot saved at iter = 183
+[NesterovSolve] Iter: 190 overflow: 0.583288 HPWL: 397735
+[NesterovSolve] Iter: 200 overflow: 0.552028 HPWL: 405708
+[NesterovSolve] Iter: 210 overflow: 0.521815 HPWL: 418163
+[NesterovSolve] Iter: 220 overflow: 0.487934 HPWL: 441720
+[NesterovSolve] Iter: 230 overflow: 0.426561 HPWL: 476166
+[NesterovSolve] Iter: 240 overflow: 0.354646 HPWL: 496670
+[NesterovSolve] Iter: 250 overflow: 0.305025 HPWL: 523945
+[NesterovSolve] Iter: 260 overflow: 0.247071 HPWL: 545966
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileLxLy: 0 0
+[INFO GPL-0037] TileSize: 6900 6900
+[INFO GPL-0038] TileCnt: 7 7
+[INFO GPL-0039] numRoutingLayers: 6
+[INFO GPL-0040] NumTiles: 49
+[INFO GPL-0063] TotalRouteOverflowH2: 0.0
+[INFO GPL-0064] TotalRouteOverflowV2: 0.0
+[INFO GPL-0065] OverflowTileCnt2: 0
+[INFO GPL-0066] 0.5%RC: 0.949999988079071
+[INFO GPL-0067] 1.0%RC: 0.875
+[INFO GPL-0068] 2.0%RC: 0.799999992052714
+[INFO GPL-0069] 5.0%RC: 0.6916666726271311
+[INFO GPL-0070] 0.5rcK: 1.0
+[INFO GPL-0071] 1.0rcK: 1.0
+[INFO GPL-0072] 2.0rcK: 0.0
+[INFO GPL-0073] 5.0rcK: 0.0
+[INFO GPL-0074] FinalRC: 0.9125
+[NesterovSolve] Iter: 270 overflow: 0.191101 HPWL: 564234
+[NesterovSolve] Iter: 280 overflow: 0.138467 HPWL: 581677
+[NesterovSolve] Finished with Overflow: 0.099774
+[WARNING RSZ-0014] wire capacitance for corner default is zero. Use the set_wire_rc command to set wire resistance and capacitance.
+[WARNING RSZ-0021] no estimated parasitics. Using wire load models.
+[INFO RSZ-0039] Resized 9 instances.
+Placement Analysis
+---------------------------------
+total displacement         61.5 u
+average displacement        1.8 u
+max displacement            5.9 u
+original HPWL             596.6 u
+legalized HPWL            639.0 u
+delta HPWL                    7 %
+
+=== congestion ===

@@ -1,0 +1,14 @@
+{
+  "tool": "klayout",
+  "version": "KLayout 0.30.3",
+  "stage": "lvs",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/17_lvs/lvs.lvsdb",
+  "expected": {
+    "netlists_match": true,
+    "must_connect_violations": 3,
+    "verdict": "fail"
+  },
+  "note": "The netlist comparison itself matches, but the database carries three severity-W entries reading 'Must-connect subnets of VGND of circuit sky130_fd_sc_hd__clkbuf_1 must be connected further up in the hierarchy - this is an error at chip top level.' All three clkbuf_1 instances in the design are flagged (3 of 3), so this is a property of the cell's PG topology in this layout, not of one placement. The original sidecar recorded verdict=pass, which is the implementation/test/fixture shared assumption the real-fixture campaign exists to catch."
+}

@@ -1,0 +1,16 @@
+{
+  "tool": "klayout",
+  "version": "KLayout 0.30.3",
+  "stage": "drc",
+  "design": "ov7670_cam_top",
+  "source_run": "ov11",
+  "captured_from": "RUNS/ov11/stages/16_drc/drc.lyrdb",
+  "expected": {
+    "total_violations": 1,
+    "by_category": {
+      "m2.x": 1
+    },
+    "verdict": "fail"
+  },
+  "note": "Real violation: floating met2 from an unused top-level port."
+}

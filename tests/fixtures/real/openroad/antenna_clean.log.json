@@ -1,0 +1,13 @@
+{
+  "tool": "openroad",
+  "version": "OpenROAD via openlane image ff5509f65b17bfa4068d5336495ab1718987ff69",
+  "stage": "antenna",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/18_antenna/attempt_01.log",
+  "expected": {
+    "net_violations": 0,
+    "pin_violations": 0,
+    "verdict": "pass"
+  }
+}

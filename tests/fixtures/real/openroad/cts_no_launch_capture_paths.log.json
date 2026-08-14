@@ -1,0 +1,13 @@
+{
+  "tool": "openroad",
+  "version": "OpenROAD via openlane image ff5509f65b17bfa4068d5336495ab1718987ff69",
+  "stage": "cts",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/10_cts/attempt_01.log",
+  "expected": {
+    "clock_skew_ns": null,
+    "verdict": "pass"
+  },
+  "note": "report_clock_skew prints 'No launch/capture paths found.' -- absence of skew, which must not be recorded as skew 0."
+}

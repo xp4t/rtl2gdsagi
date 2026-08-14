@@ -1,0 +1,6128 @@
+#%lvsdb-klayout
+J(
+ W(top)
+ U(0.001)
+ L(l9 '1/0')
+ L(l5 '7/0')
+ L(l22 '8/0')
+ L(l30 '8/7')
+ L(l29 '10/0')
+ L(l31 '10/7')
+ L(l28 '9/0')
+ L(l16)
+ L(l10)
+ L(l6)
+ L(l3)
+ L(l18)
+ L(l14)
+ L(l1)
+ L(l2)
+ L(l4)
+ L(l13)
+ L(l8)
+ L(l20)
+ L(l27)
+ L(l25)
+ L(l23)
+ L(l26)
+ C(l9 l9 l10 l27)
+ C(l5 l5 l22 l16 l10 l6 l14 l2 l4 l13 l8 l27 l25 l23 l26)
+ C(l22 l5 l22 l30 l28 l18 l20)
+ C(l30 l22 l30)
+ C(l29 l29 l31 l28)
+ C(l31 l29 l31)
+ C(l28 l22 l29 l28)
+ C(l16 l5 l16)
+ C(l10 l9 l5 l10)
+ C(l6 l5 l6 l3)
+ C(l3 l6 l3)
+ C(l18 l22 l18)
+ C(l14 l5 l14)
+ C(l1 l1 l4)
+ C(l2 l5 l2)
+ C(l4 l5 l1 l4)
+ C(l13 l5 l13)
+ C(l8 l5 l8)
+ C(l20 l22 l20)
+ C(l27 l9 l5 l27)
+ C(l25 l5 l25)
+ C(l23 l5 l23)
+ C(l26 l5 l26)
+ G(l3 VSS)
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4333.74,51.7;4333.74,63.65;4343.89,63.65;4343.89,59.65;4337.64,59.65;4337.64,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4338.84,51.7;4338.84,58.45;4343.89,58.45;4343.89,55.9;4343.09,55.9;4343.09,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4350.54,51.7;4350.54,63.65;4360.69,63.65;4360.69,59.65;4354.44,59.65;4354.44,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4355.64,51.7;4355.64,58.45;4360.69,58.45;4360.69,55.9;4359.89,55.9;4359.89,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4364.94,54.2;4364.94,61.2;4368.64,61.2;4368.64,54.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5117.48,51.7;5117.48,59.65;5111.23,59.65;5111.23,63.65;5121.38,63.65;5121.38,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4369.84,54.2;4369.84,61.2;4373.74,61.2;4373.74,54.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5112.03,51.7;5112.03,55.9;5111.23,55.9;5111.23,58.45;5116.28,58.45;5116.28,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4375.44,51.7;4375.44,54.2;4374.94,54.2;4374.94,61.2;4379.44,61.2;4379.44,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5103.38,51.7;5103.38,61.2;5107.08,61.2;5107.08,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4380.64,51.7;4380.64,61.2;4384.34,61.2;4384.34,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4385.94,54.2;4385.94,61.2;4389.64,61.2;4389.64,54.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5098.18,51.7;5098.18,54.2;5097.68,54.2;5097.68,61.2;5102.18,61.2;5102.18,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4390.84,54.2;4390.84,61.2;4394.74,61.2;4394.74,54.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5092.58,54.2;5092.58,61.2;5096.48,61.2;5096.48,54.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4396.44,51.7;4396.44,54.2;4395.94,54.2;4395.94,61.2;4400.44,61.2;4400.44,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5087.68,54.2;5087.68,61.2;5091.38,61.2;5091.38,54.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4401.64,51.7;4401.64,61.2;4405.34,61.2;4405.34,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5075.98,53.65;5075.98,57.7;5079.68,57.7;5079.68,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5070.58,53.65;5070.58,59.15;5071.08,59.15;5071.08,63.25;5079.68,63.25;5079.68,58.9;5074.78,58.9;5074.78,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4408.54,51.75;4408.54,63.55;4430.44,63.55;4430.44,51.75;4426.74,51.75;4426.74,59.75;4412.34,59.75;4412.34,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4413.54,51.75;4413.54,58.55;4425.54,58.55;4425.54,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5067.38,53.65;5067.38,59.15;5069.38,59.15;5069.38,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5062.48,53.65;5062.48,59.15;5066.18,59.15;5066.18,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5042.18,51.75;5042.18,58.55;5054.18,58.55;5054.18,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5037.28,51.75;5037.28,63.55;5059.18,63.55;5059.18,51.75;5055.38,51.75;5055.38,59.75;5040.98,59.75;5040.98,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5016.98,51.75;5016.98,58.55;5028.98,58.55;5028.98,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4438.95,53.7;4438.95,58.7;4442.65,58.7;4442.65,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5012.08,51.75;5012.08,63.55;5033.98,63.55;5033.98,51.75;5030.18,51.75;5030.18,59.75;5015.78,59.75;5015.78,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4443.85,53.7;4443.85,58.7;4447.75,58.7;4447.75,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4448.95,53.7;4448.95,58.7;4452.85,58.7;4452.85,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5006.78,53.7;5006.78,58.7;5010.48,58.7;5010.48,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4454.05,53.7;4454.05,58.7;4457.95,58.7;4457.95,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5001.68,53.7;5001.68,58.7;5005.58,58.7;5005.58,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4459.15,53.7;4459.15,58.7;4461.75,58.7;4461.75,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4463.45,51.7;4463.45,53.7;4462.95,53.7;4462.95,58.7;4463.45,58.7;4463.45,59.7;4467.15,59.7;4467.15,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4468.35,51.7;4468.35,59.7;4472.05,59.7;4472.05,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4996.58,53.7;4996.58,58.7;5000.48,58.7;5000.48,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4478.45,51.75;4478.45,63.55;4500.35,63.55;4500.35,51.75;4496.65,51.75;4496.65,59.75;4482.25,59.75;4482.25,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4483.45,51.75;4483.45,58.55;4495.45,58.55;4495.45,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4991.48,53.7;4991.48,58.7;4995.38,58.7;4995.38,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4987.68,53.7;4987.68,58.7;4990.28,58.7;4990.28,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4982.28,51.7;4982.28,59.7;4985.98,59.7;4985.98,58.7;4986.48,58.7;4986.48,53.7;4985.98,53.7;4985.98,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4504.13,52.15;4504.13,63.35;4518.08,63.35;4518.08,52.15;4514.33,52.15;4514.33,58.65;4507.93,58.65;4507.93,52.15)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4977.38,51.7;4977.38,59.7;4981.08,59.7;4981.08,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4509.13,52.15;4509.13,57.45;4513.13,57.45;4513.13,52.15)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4950.6,53.65;4950.6,57.7;4954.3,57.7;4954.3,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4520.68,54.7;4520.68,59.7;4524.38,59.7;4524.38,54.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4945.2,53.65;4945.2,59.15;4945.7,59.15;4945.7,63.25;4954.3,63.25;4954.3,58.9;4949.4,58.9;4949.4,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4525.58,54.7;4525.58,59.7;4529.48,59.7;4529.48,54.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4942,53.65;4942,59.15;4944,59.15;4944,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4530.68,54.7;4530.68,59.7;4534.58,59.7;4534.58,54.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4535.78,54.7;4535.78,59.7;4539.68,59.7;4539.68,54.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4540.88,54.7;4540.88,59.7;4544.58,59.7;4544.58,54.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4937.1,53.65;4937.1,59.15;4940.8,59.15;4940.8,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4549.88,51.7;4549.88,59.7;4553.78,59.7;4553.78,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4931.8,53.7;4931.8,58.7;4935.5,58.7;4935.5,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4554.98,51.7;4554.98,59.7;4558.88,59.7;4558.88,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4926.7,53.7;4926.7,58.7;4930.6,58.7;4930.6,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4560.08,51.7;4560.08,59.7;4563.78,59.7;4563.78,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4921.6,53.7;4921.6,58.7;4925.5,58.7;4925.5,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4916.5,53.7;4916.5,58.7;4920.4,58.7;4920.4,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4912.7,53.7;4912.7,58.7;4915.3,58.7;4915.3,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4907.3,51.7;4907.3,59.7;4911,59.7;4911,58.7;4911.5,58.7;4911.5,53.7;4911,53.7;4911,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4580.32,54.3;4580.32,59.25;4584.02,59.25;4584.02,54.3)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4585.22,54.3;4585.22,59.25;4589.12,59.25;4589.12,54.3)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4590.32,54.3;4590.32,59.25;4594.02,59.25;4594.02,54.3)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4595.72,51.75;4595.72,56.75;4599.47,56.75;4599.47,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4902.4,51.7;4902.4,59.7;4906.1,59.7;4906.1,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4600.67,51.75;4600.67,56.75;4601.22,56.75;4601.22,60.5;4605.07,60.5;4605.07,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4882.1,51.75;4882.1,60.5;4885.8,60.5;4885.8,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4876.5,51.75;4876.5,56.75;4877.05,56.75;4877.05,60.5;4880.9,60.5;4880.9,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4606.27,51.75;4606.27,60.5;4609.97,60.5;4609.97,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4635.34,53.65;4635.34,58.9;4630.44,58.9;4630.44,63.25;4639.04,63.25;4639.04,59.15;4639.54,59.15;4639.54,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4630.44,53.65;4630.44,57.7;4634.14,57.7;4634.14,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4871.55,51.75;4871.55,56.75;4875.3,56.75;4875.3,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4640.74,53.65;4640.74,59.15;4642.74,59.15;4642.74,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4643.94,53.65;4643.94,59.15;4647.64,59.15;4647.64,53.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4866.15,54.3;4866.15,59.25;4869.85,59.25;4869.85,54.3)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4861.05,54.3;4861.05,59.25;4864.95,59.25;4864.95,54.3)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4654.79,53.15;4654.79,60.65;4658.49,60.65;4658.49,53.15)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4856.15,54.3;4856.15,59.25;4859.85,59.25;4859.85,54.3)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4659.69,53.15;4659.69,60.65;4663.69,60.65;4663.69,54.65;4661.79,54.65;4661.79,53.15)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4850,53.7;4850,58.7;4853.7,58.7;4853.7,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4664.89,54.65;4664.89,60.65;4668.59,60.65;4668.59,54.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4844.9,53.7;4844.9,58.7;4848.8,58.7;4848.8,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4670.39,54.65;4670.39,61.65;4674.09,61.65;4674.09,54.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4839.8,53.7;4839.8,58.7;4843.7,58.7;4843.7,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4675.29,54.65;4675.29,61.65;4679.24,61.65;4679.24,54.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4834.7,53.7;4834.7,58.7;4838.6,58.7;4838.6,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4680.44,54.65;4680.44,61.65;4684.14,61.65;4684.14,54.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4830.9,53.7;4830.9,58.7;4833.5,58.7;4833.5,53.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4687.04,55.2;4687.04,63.2;4690.79,63.2;4690.79,55.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4825.5,51.7;4825.5,59.7;4829.2,59.7;4829.2,58.7;4829.7,58.7;4829.7,53.7;4829.2,53.7;4829.2,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4691.99,55.2;4691.99,63.2;4693.99,63.2;4693.99,55.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4695.19,55.2;4695.19,63.2;4698.59,63.2;4698.59,55.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4820.6,51.7;4820.6,59.7;4824.3,59.7;4824.3,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4798.11,52.2;4798.11,60.2;4801.81,60.2;4801.81,52.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4699.79,55.2;4699.79,63.2;4701.79,63.2;4701.79,55.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4702.99,55.2;4702.99,63.2;4706.69,63.2;4706.69,55.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4792.11,52.2;4792.11,58.7;4792.91,58.7;4792.91,60.2;4796.91,60.2;4796.91,52.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4710.29,55.2;4710.29,63.2;4714.04,63.2;4714.04,55.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4715.24,55.2;4715.24,63.2;4717.24,63.2;4717.24,55.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4786.91,52.2;4786.91,58.7;4790.91,58.7;4790.91,52.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4718.44,55.2;4718.44,63.2;4720.44,63.2;4720.44,55.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4721.64,55.2;4721.64,63.2;4723.64,63.2;4723.64,55.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4774.91,51.75;4774.91,61.75;4778.61,61.75;4778.61,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4724.84,55.2;4724.84,63.2;4728.54,63.2;4728.54,55.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4770.71,51.75;4770.71,61.75;4773.71,61.75;4773.71,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4730.24,54.2;4730.24,61.2;4733.94,61.2;4733.94,54.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4735.14,54.2;4735.14,61.2;4739.04,61.2;4739.04,54.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4765.01,51.75;4765.01,61.75;4769.51,61.75;4769.51,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4761.71,51.75;4761.71,61.75;4763.81,61.75;4763.81,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4740.74,51.7;4740.74,54.2;4740.24,54.2;4740.24,61.2;4744.74,61.2;4744.74,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4757.91,51.75;4757.91,61.75;4760.51,61.75;4760.51,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4745.94,51.7;4745.94,61.2;4749.64,61.2;4749.64,51.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4753.01,51.75;4753.01,61.75;4756.71,61.75;4756.71,51.75)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4361.76,229.6;4361.76,238.6;4365.76,238.6;4365.76,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4365.53,116.2;4365.53,125.2;4369.53,125.2;4369.53,116.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4366.96,229.6;4366.96,238.6;4370.86,238.6;4370.86,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4370.73,116.2;4370.73,125.2;4374.63,125.2;4374.63,116.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4372.06,229.6;4372.06,238.6;4375.76,238.6;4375.76,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4375.83,116.2;4375.83,125.2;4379.53,125.2;4379.53,116.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4384.86,229.6;4384.86,236.55;4388.56,236.55;4388.56,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4388.63,118.25;4388.63,125.2;4392.33,125.2;4392.33,118.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4389.76,229.6;4389.76,236.55;4395.21,236.55;4395.21,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4393.53,118.25;4393.53,125.2;4398.98,125.2;4398.98,118.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4396.41,229.6;4396.41,236.55;4398.41,236.55;4398.41,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4399.61,229.6;4399.61,236.55;4403.06,236.55;4403.06,236.1;4403.56,236.1;4403.56,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4400.18,118.25;4400.18,125.2;4402.18,125.2;4402.18,118.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4403.38,118.25;4403.38,125.2;4407.33,125.2;4407.33,118.7;4406.83,118.7;4406.83,118.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4404.76,229.6;4404.76,236.1;4408.66,236.1;4408.66,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4408.53,118.7;4408.53,125.2;4412.43,125.2;4412.43,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4409.86,229.6;4409.86,236.1;4413.26,236.1;4413.26,237.6;4417.96,237.6;4417.96,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4417.03,117.2;4417.03,118.7;4413.63,118.7;4413.63,125.2;4421.73,125.2;4421.73,117.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4419.16,229.6;4419.16,237.6;4421.16,237.6;4421.16,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4422.36,229.6;4422.36,237.6;4425.56,237.6;4425.56,236.1;4426.26,236.1;4426.26,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4422.93,117.2;4422.93,125.2;4424.93,125.2;4424.93,117.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4426.13,117.2;4426.13,125.2;4430.03,125.2;4430.03,118.7;4429.33,118.7;4429.33,117.2)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4427.46,229.6;4427.46,236.1;4431.36,236.1;4431.36,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4431.23,118.7;4431.23,125.2;4435.13,125.2;4435.13,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4432.56,229.6;4432.56,236.1;4436.46,236.1;4436.46,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4436.33,118.7;4436.33,125.2;4440.23,125.2;4440.23,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4437.66,229.6;4437.66,236.1;4441.36,236.1;4441.36,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4441.43,118.7;4441.43,125.2;4445.13,125.2;4445.13,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4445.56,229.25;4445.56,236.85;4449.26,236.85;4449.26,229.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4449.33,117.95;4449.33,125.55;4453.03,125.55;4453.03,117.95)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4450.46,229.25;4450.46,236.85;4451.36,236.85;4451.36,240.4;4458.11,240.4;4458.11,236.7;4454.36,236.7;4454.36,229.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4455.13,114.4;4455.13,117.95;4454.23,117.95;4454.23,125.55;4458.13,125.55;4458.13,118.1;4461.88,118.1;4461.88,114.4)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4455.56,229.25;4455.56,235.4;4458.11,235.4;4458.11,234.85;4459.26,234.85;4459.26,229.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4459.33,119.4;4459.33,125.55;4463.03,125.55;4463.03,119.95;4461.88,119.95;4461.88,119.4)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5054.15,229.6;5054.15,238.6;5058.15,238.6;5058.15,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4478.24,229.1;4478.24,241.05;4488.39,241.05;4488.39,237.05;4482.14,237.05;4482.14,229.1)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4482.83,114.15;4482.83,118.5;4487.73,118.5;4487.73,123.75;4491.93,123.75;4491.93,118.25;4491.43,118.25;4491.43,114.15)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4482.83,119.7;4482.83,123.75;4486.53,123.75;4486.53,119.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4483.34,229.1;4483.34,235.85;4488.39,235.85;4488.39,233.3;4487.59,233.3;4487.59,229.1)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4493.13,118.25;4493.13,123.75;4495.13,123.75;4495.13,118.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4496.33,118.25;4496.33,123.75;4500.03,123.75;4500.03,118.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4503.13,116.9;4503.13,125.65;4506.83,125.65;4506.83,116.9)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4508.03,116.9;4508.03,125.65;4512.43,125.65;4512.43,120.65;4511.88,120.65;4511.88,116.9)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4509.79,231.05;4509.79,235.1;4513.49,235.1;4513.49,231.05)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4514.69,231.05;4514.69,236.3;4509.79,236.3;4509.79,240.65;4518.39,240.65;4518.39,236.55;4518.89,236.55;4518.89,231.05)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4513.63,120.65;4513.63,125.65;4517.38,125.65;4517.38,120.65)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4519.08,118.15;4519.08,123.1;4522.78,123.1;4522.78,118.15)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4520.09,231.05;4520.09,236.55;4522.09,236.55;4522.09,231.05)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4523.29,231.05;4523.29,236.55;4526.99,236.55;4526.99,231.05)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4523.98,118.15;4523.98,123.1;4527.88,123.1;4527.88,118.15)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4529.08,118.15;4529.08,123.1;4532.78,123.1;4532.78,118.15)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4542.7,229.6;4542.7,243.6;4546.4,243.6;4546.4,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4547.6,229.6;4547.6,243.6;4549.3,243.6;4549.3,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4549.73,117.7;4549.73,125.7;4553.43,125.7;4553.43,117.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4550.5,229.6;4550.5,243.6;4553,243.6;4553,241.6;4554.9,241.6;4554.9,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4554.63,117.7;4554.63,125.7;4558.33,125.7;4558.33,123.7;4558.83,123.7;4558.83,118.7;4558.33,118.7;4558.33,117.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4560.03,118.7;4560.03,123.7;4562.63,123.7;4562.63,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4563.83,118.7;4563.83,123.7;4567.73,123.7;4567.73,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4568.93,118.7;4568.93,123.7;4572.83,123.7;4572.83,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(5049.05,229.6;5049.05,238.6;5052.95,238.6;5052.95,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4574.03,118.7;4574.03,123.7;4577.93,123.7;4577.93,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4575.22,229.6;4575.22,243.6;4578.92,243.6;4578.92,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4579.13,118.7;4579.13,123.7;4582.83,123.7;4582.83,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4580.12,229.6;4580.12,243.6;4581.82,243.6;4581.82,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4583.02,229.6;4583.02,243.6;4585.52,243.6;4585.52,241.6;4587.42,241.6;4587.42,229.6)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4592.12,231.05;4592.12,236.55;4595.82,236.55;4595.82,231.05)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4597.02,231.05;4597.02,236.55;4599.02,236.55;4599.02,231.05)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4597.31,118.25;4597.31,123.75;4601.01,123.75;4601.01,118.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4602.21,118.25;4602.21,123.75;4604.21,123.75;4604.21,118.25)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4600.22,231.05;4600.22,236.55;4600.72,236.55;4600.72,240.65;4609.32,240.65;4609.32,236.3;4604.42,236.3;4604.42,231.05)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4605.91,114.15;4605.91,118.25;4605.41,118.25;4605.41,123.75;4609.61,123.75;4609.61,118.5;4614.51,118.5;4614.51,114.15)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4605.62,231.05;4605.62,235.1;4609.32,235.1;4609.32,231.05)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4610.81,119.7;4610.81,123.75;4614.51,123.75;4614.51,119.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4620.67,229.1;4620.67,233.3;4619.87,233.3;4619.87,235.85;4624.92,235.85;4624.92,229.1)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4626.12,229.1;4626.12,237.05;4619.87,237.05;4619.87,241.05;4630.02,241.05;4630.02,229.1)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4635.59,119.4;4635.59,119.95;4634.44,119.95;4634.44,125.55;4638.14,125.55;4638.14,119.4)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4634.37,229.55;4634.37,240.75;4648.32,240.75;4648.32,229.55;4644.57,229.55;4644.57,236.05;4638.17,236.05;4638.17,229.55)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4635.59,114.4;4635.59,118.1;4639.34,118.1;4639.34,125.55;4643.24,125.55;4643.24,117.95;4642.34,117.95;4642.34,114.4)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4639.37,229.55;4639.37,234.85;4643.37,234.85;4643.37,229.55)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4644.44,117.95;4644.44,125.55;4648.14,125.55;4648.14,117.95)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4652.34,118.7;4652.34,125.2;4656.04,125.2;4656.04,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4657.24,118.7;4657.24,125.2;4661.14,125.2;4661.14,118.7)'))
+ H(W B('Expected two polygons on contacts interacting with one resistor shape (found 0) - resistor shape ignored') C(top) X('device-extract') Q('(4660,229.55;4660,240.75;4673.95,240.75;4673.95,229.55;4670.15,229.55;4670.15,236.05;4663.75,236.05;4663.75,229.55)'))
+ K(N MOS4)
+ K(P MOS4)
+ K(RNW RES)
+ K(RNDIFF RES)
+ K(RPDIFF RES)
+ K(RPP RES)
+ K(RNP RES)
+ K(dndiffpsub DIODE)
+ K(dnwellpsub DIODE)
+ K(dpdiffnwell DIODE)
+ D(D$N N
+  T(S
+   R(l2 (-4300 -2750) (3700 5500))
+  )
+  T(G
+   R(l4 (-600 -2750) (1200 5500))
+  )
+  T(D
+   R(l2 (600 -2750) (2000 5500))
+  )
+  T(B
+   R(l3 (-600 -2750) (1200 5500))
+  )
+ )
+ D(D$N$1 N
+  T(S
+   Q(l2 (1100 -6850) (0 4100) (-500 0) (0 5500) (4200 0) (0 -5250) (4900 0) (0 -4350))
+  )
+  T(G
+   R(l4 (-600 -2750) (1200 5500))
+  )
+  T(D
+   R(l2 (-2600 -2750) (2000 5500))
+  )
+  T(B
+   R(l3 (-600 -2750) (1200 5500))
+  )
+ )
+ D(D$N$2 N
+  T(S
+   Q(l2 (-6150 -6975) (0 4100) (-500 0) (0 5500) (4200 0) (0 -5250) (4900 0) (0 -4350))
+  )
+  T(G
+   Q(l4 (-2450 -2625) (0 5250) (1200 0) (0 -4050) (3700 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-1250 -1425) (3700 4050))
+  )
+  T(B
+   Q(l3 (-2450 -2625) (0 5250) (1200 0) (0 -4050) (3700 0) (0 -1200))
+  )
+ )
+ D(D$N$3 N
+  T(S
+   Q(l2 (-1875 -7425) (0 3700) (3750 0) (0 7450) (3900 0) (0 -7600) (-900 0) (0 -3550))
+  )
+  T(G
+   Q(l4 (-1875 -3725) (0 1300) (2550 0) (0 6150) (1200 0) (0 -7450))
+  )
+  T(D
+   Q(l2 (-1875 -2425) (0 550) (-1150 0) (0 5600) (3700 0) (0 -6150))
+  )
+  T(B
+   Q(l3 (-1875 -3725) (0 1300) (2550 0) (0 6150) (1200 0) (0 -7450))
+  )
+ )
+ D(D$N$4 N
+  T(S
+   Q(l2 (-8250 -7350) (0 3700) (3750 0) (0 7450) (3900 0) (0 -7600) (-900 0) (0 -3550))
+  )
+  T(G
+   R(l4 (-600 -3800) (1200 7600))
+  )
+  T(D
+   R(l2 (600 -3800) (3700 7600))
+  )
+  T(B
+   R(l3 (-600 -3800) (1200 7600))
+  )
+ )
+ D(D$N$5 N
+  T(S
+   R(l2 (-4300 -3250) (3700 6500))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (600 -3250) (3900 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$6 N
+  T(S
+   R(l2 (-4500 -3250) (3900 6500))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (600 -3250) (3900 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$7 N
+  T(S
+   Q(l2 (1300 -4750) (0 1500) (-700 0) (0 6500) (3900 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (-4500 -3250) (3900 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$8 N
+  T(S
+   Q(l2 (-3800 -4000) (0 1500) (-700 0) (0 6500) (3900 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (2000 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$9 N
+  T(S
+   R(l2 (-2600 -4000) (2000 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   Q(l2 (600 -4000) (0 8000) (8100 0) (0 -6500) (-3400 0) (0 -1500))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$10 N
+  T(S
+   Q(l2 (-8700 -4750) (0 8000) (8100 0) (0 -6500) (-3400 0) (0 -1500))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (600 -3250) (3900 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$11 N
+  T(S
+   Q(l2 (1100 -3700) (0 450) (-500 0) (0 6500) (3950 0) (0 -6950))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (-4500 -3250) (3900 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$12 N
+  T(S
+   Q(l2 (-4050 -3475) (0 450) (-500 0) (0 6500) (3950 0) (0 -6950))
+  )
+  T(G
+   R(l4 (-600 -3475) (1200 6950))
+  )
+  T(D
+   R(l2 (600 -3475) (2000 6950))
+  )
+  T(B
+   R(l3 (-600 -3475) (1200 6950))
+  )
+ )
+ D(D$N$13 N
+  T(S
+   R(l2 (-2600 -3475) (2000 6950))
+  )
+  T(G
+   R(l4 (-600 -3475) (1200 6950))
+  )
+  T(D
+   R(l2 (600 -3475) (5450 6950))
+  )
+  T(B
+   R(l3 (-600 -3475) (1200 6950))
+  )
+ )
+ D(D$N$14 N
+  T(S
+   R(l2 (-6050 -3475) (5450 6950))
+  )
+  T(G
+   R(l4 (-600 -3475) (1200 6950))
+  )
+  T(D
+   R(l2 (600 -3475) (3700 6950))
+  )
+  T(B
+   R(l3 (-600 -3475) (1200 6950))
+  )
+ )
+ D(D$N$15 N
+  T(S
+   R(l2 (-4300 -4500) (3700 9000))
+  )
+  T(G
+   R(l4 (-600 -4500) (1200 9000))
+  )
+  T(D
+   R(l2 (600 -4500) (3900 9000))
+  )
+  T(B
+   R(l3 (-600 -4500) (1200 9000))
+  )
+ )
+ D(D$N$16 N
+  T(S
+   R(l2 (-4500 -4500) (3900 9000))
+  )
+  T(G
+   R(l4 (-600 -4500) (1200 9000))
+  )
+  T(D
+   R(l2 (600 -4500) (4000 9000))
+  )
+  T(B
+   R(l3 (-600 -4500) (1200 9000))
+  )
+ )
+ D(D$N$17 N
+  T(S
+   R(l2 (-4300 -3500) (3700 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3900 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$18 N
+  T(S
+   R(l2 (-4500 -3500) (3900 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   Q(l2 (600 -3500) (0 7000) (500 0) (0 2500) (4000 0) (0 -9500))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$19 N
+  T(S
+   Q(l2 (-5100 -4750) (0 7000) (500 0) (0 2500) (4000 0) (0 -9500))
+  )
+  T(G
+   R(l4 (-600 -4750) (1200 9500))
+  )
+  T(D
+   R(l2 (600 -4750) (3700 9500))
+  )
+  T(B
+   R(l3 (-600 -4750) (1200 9500))
+  )
+ )
+ D(D$N$20 N
+  T(S
+   Q(l2 (1150 -6250) (0 3750) (-550 0) (0 5000) (4400 0) (0 -8750))
+  )
+  T(G
+   R(l4 (-600 -2500) (1200 5000))
+  )
+  T(D
+   R(l2 (-4350 -2500) (3750 5000))
+  )
+  T(B
+   R(l3 (-600 -2500) (1200 5000))
+  )
+ )
+ D(D$N$21 N
+  T(S
+   Q(l2 (-4450 -4375) (0 3750) (-550 0) (0 5000) (4400 0) (0 -8750))
+  )
+  T(G
+   R(l4 (-600 -4375) (1200 8750))
+  )
+  T(D
+   R(l2 (600 -4375) (3700 8750))
+  )
+  T(B
+   R(l3 (-600 -4375) (1200 8750))
+  )
+ )
+ D(D$N$22 N
+  T(S
+   R(l2 (-4300 -2475) (3700 4950))
+  )
+  T(G
+   R(l4 (-600 -2475) (1200 4950))
+  )
+  T(D
+   R(l2 (600 -2475) (3900 4950))
+  )
+  T(B
+   R(l3 (-600 -2475) (1200 4950))
+  )
+ )
+ D(D$N$23 N
+  T(S
+   R(l2 (-4500 -2475) (3900 4950))
+  )
+  T(G
+   R(l4 (-600 -2475) (1200 4950))
+  )
+  T(D
+   R(l2 (600 -2475) (3700 4950))
+  )
+  T(B
+   R(l3 (-600 -2475) (1200 4950))
+  )
+ )
+ D(D$N$24 N
+  T(S
+   R(l2 (-4300 -4000) (3700 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3700 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$25 N
+  T(S
+   R(l2 (-4300 -5000) (3700 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (2000 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$26 N
+  T(S
+   R(l2 (-2600 -5000) (2000 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (2000 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$27 N
+  T(S
+   R(l2 (-2600 -5000) (2000 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3700 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$28 N
+  T(S
+   Q(l2 (-7025 -7975) (0 11950) (3900 0) (0 -7950) (6250 0) (0 -4000))
+  )
+  T(G
+   Q(l4 (-3125 -3975) (0 7950) (1200 0) (0 -6750) (5050 0) (0 -1200))
+  )
+  T(D
+   Q(l2 (-1925 -2775) (0 6750) (4250 0) (0 -4200) (800 0) (0 -2550))
+  )
+  T(B
+   Q(l3 (-3125 -3975) (0 7950) (1200 0) (0 -6750) (5050 0) (0 -1200))
+  )
+ )
+ D(D$N$29 N
+  T(S
+   Q(l2 (-7000 -7950) (0 11200) (3800 0) (0 -6500) (6400 0) (0 6500) (3750 0) (0 -11200))
+  )
+  T(G
+   Q(l4 (-3200 -3250) (0 6500) (1200 0) (0 -5300) (4000 0) (0 5300) (1200 0) (0 -6500))
+  )
+  T(D
+   R(l2 (-2000 -2050) (4000 5300))
+  )
+  T(B
+   Q(l3 (-3200 -3250) (0 6500) (1200 0) (0 -5300) (4000 0) (0 5300) (1200 0) (0 -6500))
+  )
+ )
+ D(D$N$30 N
+  T(S
+   R(l2 (-4350 -3500) (3750 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3900 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$31 N
+  T(S
+   R(l2 (-4300 -4500) (3700 9000))
+  )
+  T(G
+   R(l4 (-600 -4500) (1200 9000))
+  )
+  T(D
+   Q(l2 (600 -4500) (0 9000) (4400 0) (0 -7000) (-500 0) (0 -2000))
+  )
+  T(B
+   R(l3 (-600 -4500) (1200 9000))
+  )
+ )
+ D(D$N$32 N
+  T(S
+   Q(l2 (-5000 -5500) (0 9000) (4400 0) (0 -7000) (-500 0) (0 -2000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3750 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$33 N
+  T(S
+   R(l2 (-4300 -4500) (3700 9000))
+  )
+  T(G
+   R(l4 (-600 -4500) (1200 9000))
+  )
+  T(D
+   R(l2 (600 -4500) (2000 9000))
+  )
+  T(B
+   R(l3 (-600 -4500) (1200 9000))
+  )
+ )
+ D(D$N$34 N
+  T(S
+   R(l2 (-2600 -4500) (2000 9000))
+  )
+  T(G
+   R(l4 (-600 -4500) (1200 9000))
+  )
+  T(D
+   R(l2 (600 -4500) (3700 9000))
+  )
+  T(B
+   R(l3 (-600 -4500) (1200 9000))
+  )
+ )
+ D(D$N$35 N
+  T(S
+   R(l2 (-4300 -7000) (3700 14000))
+  )
+  T(G
+   R(l4 (-600 -7000) (1200 14000))
+  )
+  T(D
+   R(l2 (600 -7000) (1700 14000))
+  )
+  T(B
+   R(l3 (-600 -7000) (1200 14000))
+  )
+ )
+ D(D$N$36 N
+  T(S
+   R(l2 (-2300 -7000) (1700 14000))
+  )
+  T(G
+   R(l4 (-600 -7000) (1200 14000))
+  )
+  T(D
+   Q(l2 (600 -7000) (0 14000) (4400 0) (0 -12000) (-1900 0) (0 -2000))
+  )
+  T(B
+   R(l3 (-600 -7000) (1200 14000))
+  )
+ )
+ D(D$N$37 N
+  T(S
+   Q(l2 (-13350 -7750) (0 11800) (3750 0) (0 -8100) (19200 0) (0 8100) (3800 0) (0 -11800))
+  )
+  T(G
+   Q(l4 (-9600 -4050) (0 8100) (1200 0) (0 -6900) (16800 0) (0 6900) (1200 0) (0 -8100))
+  )
+  T(D
+   Q(l2 (-8400 -2850) (0 6900) (3700 0) (0 -3200) (9350 0) (0 3200) (3750 0) (0 -6900))
+  )
+  T(B
+   Q(l3 (-9600 -4050) (0 8100) (1200 0) (0 -6900) (16800 0) (0 6900) (1200 0) (0 -8100))
+  )
+ )
+ D(D$N$38 N
+  T(S
+   R(l2 (-4500 -3250) (3900 6500))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (600 -3250) (3700 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$39 N
+  T(S
+   Q(l2 (-2450 -6400) (0 3700) (4900 0) (0 5400) (3900 0) (0 -4900) (4900 0) (0 -4200))
+  )
+  T(G
+   Q(l4 (-2450 -2700) (0 1200) (3700 0) (0 4200) (1200 0) (0 -5400))
+  )
+  T(D
+   R(l2 (-2450 -1500) (3700 4200))
+  )
+  T(B
+   Q(l3 (-2450 -2700) (0 1200) (3700 0) (0 4200) (1200 0) (0 -5400))
+  )
+ )
+ D(D$N$40 N
+  T(S
+   Q(l2 (-11250 -6650) (0 3700) (4900 0) (0 5400) (3900 0) (0 -4900) (4900 0) (0 -4200))
+  )
+  T(G
+   Q(l4 (-2450 -2450) (0 4900) (1200 0) (0 -3700) (3700 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-1250 -1250) (3700 3700))
+  )
+  T(B
+   Q(l3 (-2450 -2450) (0 4900) (1200 0) (0 -3700) (3700 0) (0 -1200))
+  )
+ )
+ D(D$N$41 N
+  T(S
+   Q(l2 (-4600 -2500) (0 7300) (3500 0) (0 -2300) (500 0) (0 -5000))
+  )
+  T(G
+   R(l4 (-600 -2500) (1200 5000))
+  )
+  T(D
+   R(l2 (600 -2500) (5200 5000))
+  )
+  T(B
+   R(l3 (-600 -2500) (1200 5000))
+  )
+ )
+ D(D$N$42 N
+  T(S
+   R(l2 (-5800 -2500) (5200 5000))
+  )
+  T(G
+   R(l4 (-600 -2500) (1200 5000))
+  )
+  T(D
+   R(l2 (600 -2500) (4200 5000))
+  )
+  T(B
+   R(l3 (-600 -2500) (1200 5000))
+  )
+ )
+ D(D$N$43 N
+  T(S
+   R(l2 (-4800 -2500) (4200 5000))
+  )
+  T(G
+   R(l4 (-600 -2500) (1200 5000))
+  )
+  T(D
+   Q(l2 (600 -2500) (0 5000) (1150 0) (0 1000) (4900 0) (0 -6000))
+  )
+  T(B
+   R(l3 (-600 -2500) (1200 5000))
+  )
+ )
+ D(D$N$44 N
+  T(S
+   Q(l2 (-6650 -3000) (0 5000) (1150 0) (0 1000) (4900 0) (0 -6000))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   R(l2 (600 -3000) (2000 6000))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$45 N
+  T(S
+   R(l2 (-2600 -3000) (2000 6000))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   R(l2 (600 -3000) (3700 6000))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$46 N
+  T(S
+   R(l2 (-4300 -2500) (3700 5000))
+  )
+  T(G
+   R(l4 (-600 -2500) (1200 5000))
+  )
+  T(D
+   R(l2 (600 -2500) (3900 5000))
+  )
+  T(B
+   R(l3 (-600 -2500) (1200 5000))
+  )
+ )
+ D(D$N$47 N
+  T(S
+   R(l2 (-4500 -2500) (3900 5000))
+  )
+  T(G
+   R(l4 (-600 -2500) (1200 5000))
+  )
+  T(D
+   R(l2 (600 -2500) (3700 5000))
+  )
+  T(B
+   R(l3 (-600 -2500) (1200 5000))
+  )
+ )
+ D(D$N$48 N
+  T(S
+   R(l2 (-4300 -4975) (3700 9950))
+  )
+  T(G
+   R(l4 (-600 -4975) (1200 9950))
+  )
+  T(D
+   R(l2 (600 -4975) (2000 9950))
+  )
+  T(B
+   R(l3 (-600 -4975) (1200 9950))
+  )
+ )
+ D(D$N$49 N
+  T(S
+   R(l2 (-2600 -4975) (2000 9950))
+  )
+  T(G
+   R(l4 (-600 -4975) (1200 9950))
+  )
+  T(D
+   R(l2 (600 -4975) (3700 9950))
+  )
+  T(B
+   R(l3 (-600 -4975) (1200 9950))
+  )
+ )
+ D(D$N$50 N
+  T(S
+   Q(l2 (-4800 -2500) (0 8000) (3700 0) (0 -3000) (500 0) (0 -5000))
+  )
+  T(G
+   R(l4 (-600 -2500) (1200 5000))
+  )
+  T(D
+   R(l2 (600 -2500) (3700 5000))
+  )
+  T(B
+   R(l3 (-600 -2500) (1200 5000))
+  )
+ )
+ D(D$N$51 N
+  T(S
+   Q(l2 (-4800 -3000) (0 8000) (3700 0) (0 -2000) (500 0) (0 -6000))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   R(l2 (600 -3000) (3900 6000))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$52 N
+  T(S
+   R(l2 (-4500 -3000) (3900 6000))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   R(l2 (600 -3000) (3900 6000))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$53 N
+  T(S
+   R(l2 (-4500 -3000) (3900 6000))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   Q(l2 (600 -3000) (0 6000) (500 0) (0 2000) (3700 0) (0 -8000))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$54 N
+  T(S
+   R(l2 (-4300 -4000) (3700 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3900 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$55 N
+  T(S
+   R(l2 (-4500 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   Q(l2 (600 -4000) (0 8000) (3700 0) (0 -2000) (500 0) (0 -6000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$56 N
+  T(S
+   Q(l2 (-4800 -4000) (0 6000) (500 0) (0 2000) (3700 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (7200 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$57 N
+  T(S
+   R(l2 (-7800 -4000) (7200 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   Q(l2 (600 -4000) (0 8000) (3700 0) (0 -3000) (500 0) (0 -5000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$58 N
+  T(S
+   R(l2 (-4500 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   Q(l2 (600 -4000) (0 8000) (500 0) (0 350) (3500 0) (0 -8350))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$59 N
+  T(S
+   R(l2 (-4300 -3925) (3700 7850))
+  )
+  T(G
+   R(l4 (-600 -3925) (1200 7850))
+  )
+  T(D
+   R(l2 (600 -3925) (3900 7850))
+  )
+  T(B
+   R(l3 (-600 -3925) (1200 7850))
+  )
+ )
+ D(D$N$60 N
+  T(S
+   R(l2 (-4500 -3925) (3900 7850))
+  )
+  T(G
+   R(l4 (-600 -3925) (1200 7850))
+  )
+  T(D
+   R(l2 (600 -3925) (3900 7850))
+  )
+  T(B
+   R(l3 (-600 -3925) (1200 7850))
+  )
+ )
+ D(D$N$61 N
+  T(S
+   R(l2 (-4300 -5000) (3700 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3700 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$62 N
+  T(S
+   R(l2 (-4300 -6000) (3700 12000))
+  )
+  T(G
+   R(l4 (-600 -6000) (1200 12000))
+  )
+  T(D
+   R(l2 (600 -6000) (2000 12000))
+  )
+  T(B
+   R(l3 (-600 -6000) (1200 12000))
+  )
+ )
+ D(D$N$63 N
+  T(S
+   R(l2 (-2600 -6000) (2000 12000))
+  )
+  T(G
+   R(l4 (-600 -6000) (1200 12000))
+  )
+  T(D
+   R(l2 (600 -6000) (2700 12000))
+  )
+  T(B
+   R(l3 (-600 -6000) (1200 12000))
+  )
+ )
+ D(D$N$64 N
+  T(S
+   R(l2 (-3300 -6000) (2700 12000))
+  )
+  T(G
+   R(l4 (-600 -6000) (1200 12000))
+  )
+  T(D
+   R(l2 (600 -6000) (2700 12000))
+  )
+  T(B
+   R(l3 (-600 -6000) (1200 12000))
+  )
+ )
+ D(D$N$65 N
+  T(S
+   R(l2 (-3300 -6000) (2700 12000))
+  )
+  T(G
+   R(l4 (-600 -6000) (1200 12000))
+  )
+  T(D
+   R(l2 (600 -6000) (3700 12000))
+  )
+  T(B
+   R(l3 (-600 -6000) (1200 12000))
+  )
+ )
+ D(D$N$66 N
+  T(S
+   R(l2 (-4400 -4000) (3800 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3900 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$67 N
+  T(S
+   R(l2 (-4500 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3900 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$68 N
+  T(S
+   R(l2 (-4500 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   Q(l2 (600 -4000) (0 8000) (4100 0) (0 -7000) (-500 0) (0 -1000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$69 N
+  T(S
+   Q(l2 (-4700 -4500) (0 8000) (4100 0) (0 -7000) (-500 0) (0 -1000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3700 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$70 N
+  T(S
+   Q(l2 (1100 -8500) (0 4500) (-500 0) (0 8000) (4800 0) (0 -12500))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (-4500 -4000) (3900 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$71 N
+  T(S
+   Q(l2 (-4900 -6250) (0 4500) (-500 0) (0 8000) (4800 0) (0 -12500))
+  )
+  T(G
+   R(l4 (-600 -6250) (1200 12500))
+  )
+  T(D
+   R(l2 (600 -6250) (1300 12500))
+  )
+  T(B
+   R(l3 (-600 -6250) (1200 12500))
+  )
+ )
+ D(D$N$72 N
+  T(S
+   R(l2 (-1900 -6250) (1300 12500))
+  )
+  T(G
+   R(l4 (-600 -6250) (1200 12500))
+  )
+  T(D
+   R(l2 (600 -6250) (3700 12500))
+  )
+  T(B
+   R(l3 (-600 -6250) (1200 12500))
+  )
+ )
+ D(D$N$73 N
+  T(S
+   Q(l2 (2600 -8000) (0 4000) (-2000 0) (0 8000) (6150 0) (0 -8300) (4900 0) (0 -3700))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (-4500 -4000) (3900 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$74 N
+  T(S
+   Q(l2 (-6600 -7850) (0 4000) (-2000 0) (0 8000) (6150 0) (0 -8300) (4900 0) (0 -3700))
+  )
+  T(G
+   Q(l4 (-2450 -4150) (0 8300) (1200 0) (0 -7100) (3700 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-1250 -2950) (3700 7100))
+  )
+  T(B
+   Q(l3 (-2450 -4150) (0 8300) (1200 0) (0 -7100) (3700 0) (0 -1200))
+  )
+ )
+ D(D$N$75 N
+  T(S
+   Q(l2 (-8000 -7800) (0 11800) (3800 0) (0 -8000) (8400 0) (0 8000) (3850 0) (0 -11800))
+  )
+  T(G
+   Q(l4 (-4200 -4000) (0 8000) (1200 0) (0 -6800) (6000 0) (0 6800) (1200 0) (0 -8000))
+  )
+  T(D
+   R(l2 (-3000 -2800) (6000 6800))
+  )
+  T(B
+   Q(l3 (-4200 -4000) (0 8000) (1200 0) (0 -6800) (6000 0) (0 6800) (1200 0) (0 -8000))
+  )
+ )
+ D(D$N$76 N
+  T(S
+   Q(l2 (-11000 -7800) (0 11800) (3800 0) (0 -8000) (14400 0) (0 8000) (3700 0) (0 -11800))
+  )
+  T(G
+   Q(l4 (-7200 -4000) (0 8000) (1200 0) (0 -6800) (12000 0) (0 6800) (1200 0) (0 -8000))
+  )
+  T(D
+   R(l2 (-6000 -2800) (12000 6800))
+  )
+  T(B
+   Q(l3 (-7200 -4000) (0 8000) (1200 0) (0 -6800) (12000 0) (0 6800) (1200 0) (0 -8000))
+  )
+ )
+ D(D$N$77 N
+  T(S
+   R(l2 (-4500 -2500) (3900 5000))
+  )
+  T(G
+   R(l4 (-600 -2500) (1200 5000))
+  )
+  T(D
+   R(l2 (600 -2500) (3900 5000))
+  )
+  T(B
+   R(l3 (-600 -2500) (1200 5000))
+  )
+ )
+ D(D$N$78 N
+  T(S
+   R(l2 (-4500 -2500) (3900 5000))
+  )
+  T(G
+   R(l4 (-600 -2500) (1200 5000))
+  )
+  T(D
+   R(l2 (600 -2500) (2600 5000))
+  )
+  T(B
+   R(l3 (-600 -2500) (1200 5000))
+  )
+ )
+ D(D$N$79 N
+  T(S
+   Q(l2 (1100 -3500) (0 1000) (-500 0) (0 5000) (500 0) (0 2000) (3700 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -2500) (1200 5000))
+  )
+  T(D
+   R(l2 (-3200 -2500) (2600 5000))
+  )
+  T(B
+   R(l3 (-600 -2500) (1200 5000))
+  )
+ )
+ D(D$N$80 N
+  T(S
+   Q(l2 (-4300 -4000) (0 1000) (-500 0) (0 5000) (500 0) (0 2000) (3700 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3700 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$81 N
+  T(S
+   R(l2 (-4300 -2000) (3700 4000))
+  )
+  T(G
+   R(l4 (-600 -2000) (1200 4000))
+  )
+  T(D
+   Q(l2 (600 -2000) (0 4000) (550 0) (0 3000) (3700 0) (0 -7000))
+  )
+  T(B
+   R(l3 (-600 -2000) (1200 4000))
+  )
+ )
+ D(D$N$82 N
+  T(S
+   Q(l2 (-4850 -3500) (0 4000) (550 0) (0 3000) (3700 0) (0 -7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3700 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$83 N
+  T(S
+   R(l2 (-4300 -3000) (3700 6000))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   R(l2 (600 -3000) (3900 6000))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$84 N
+  T(S
+   R(l2 (-4500 -3000) (3900 6000))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   R(l2 (600 -3000) (3700 6000))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$85 N
+  T(S
+   R(l2 (-4300 -5000) (3700 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (2600 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$86 N
+  T(S
+   R(l2 (-3200 -5000) (2600 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (2100 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$87 N
+  T(S
+   R(l2 (-2700 -5000) (2100 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (4500 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$88 N
+  T(S
+   R(l2 (-5100 -5000) (4500 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3000 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$89 N
+  T(S
+   R(l2 (-3600 -5000) (3000 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3700 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$90 N
+  T(S
+   Q(l2 (1400 -4750) (0 1500) (-800 0) (0 6500) (4800 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (-4600 -3250) (4000 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$91 N
+  T(S
+   Q(l2 (-4600 -4000) (0 1500) (-800 0) (0 6500) (4800 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3700 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$92 N
+  T(S
+   R(l2 (-2700 -5000) (2100 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3900 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$93 N
+  T(S
+   R(l2 (-4500 -5000) (3900 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3700 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$94 N
+  T(S
+   R(l2 (-4600 -3500) (4000 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (4200 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$95 N
+  T(S
+   R(l2 (-4800 -3500) (4200 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3700 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$96 N
+  T(S
+   R(l2 (-4300 -4000) (3700 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (1800 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$97 N
+  T(S
+   R(l2 (-2400 -4000) (1800 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (2500 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$98 N
+  T(S
+   R(l2 (-3100 -4000) (2500 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3700 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$99 N
+  T(S
+   R(l2 (-4500 -3500) (3900 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3700 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$100 N
+  T(S
+   R(l2 (-4300 -3125) (3700 6250))
+  )
+  T(G
+   R(l4 (-600 -3125) (1200 6250))
+  )
+  T(D
+   R(l2 (600 -3125) (3900 6250))
+  )
+  T(B
+   R(l3 (-600 -3125) (1200 6250))
+  )
+ )
+ D(D$N$101 N
+  T(S
+   Q(l2 (1100 -6025) (0 2900) (-500 0) (0 6250) (500 0) (0 1850) (3700 0) (0 -11000))
+  )
+  T(G
+   R(l4 (-600 -3125) (1200 6250))
+  )
+  T(D
+   R(l2 (-4500 -3125) (3900 6250))
+  )
+  T(B
+   R(l3 (-600 -3125) (1200 6250))
+  )
+ )
+ D(D$N$102 N
+  T(S
+   Q(l2 (-5050 -6400) (0 11000) (3950 0) (0 -1600) (500 0) (0 -6000) (-500 0) (0 -3400))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   R(l2 (600 -3000) (3800 6000))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$103 N
+  T(S
+   Q(l2 (-4300 -5500) (0 2900) (-500 0) (0 6250) (500 0) (0 1850) (3700 0) (0 -11000))
+  )
+  T(G
+   R(l4 (-600 -5500) (1200 11000))
+  )
+  T(D
+   R(l2 (600 -5500) (2700 11000))
+  )
+  T(B
+   R(l3 (-600 -5500) (1200 11000))
+  )
+ )
+ D(D$N$104 N
+  T(S
+   R(l2 (-3300 -5500) (2700 11000))
+  )
+  T(G
+   R(l4 (-600 -5500) (1200 11000))
+  )
+  T(D
+   Q(l2 (600 -5500) (0 11000) (3950 0) (0 -1600) (500 0) (0 -6000) (-500 0) (0 -3400))
+  )
+  T(B
+   R(l3 (-600 -5500) (1200 11000))
+  )
+ )
+ D(D$N$105 N
+  T(S
+   R(l2 (-4500 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3900 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$106 N
+  T(S
+   R(l2 (-4500 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3700 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$107 N
+  T(S
+   Q(l2 (-4700 -6400) (0 1700) (-1100 0) (0 8000) (3400 0) (0 -600) (500 0) (0 -5400) (3800 0) (0 -3700))
+  )
+  T(G
+   Q(l4 (-1900 -2700) (0 5400) (1200 0) (0 -4200) (2600 0) (0 -1200))
+  )
+  T(D
+   Q(l2 (-700 -1500) (0 4200) (3700 0) (0 -3700) (-1100 0) (0 -500))
+  )
+  T(B
+   Q(l3 (-1900 -2700) (0 5400) (1200 0) (0 -4200) (2600 0) (0 -1200))
+  )
+ )
+ D(D$N$108 N
+  T(S
+   R(l2 (-4300 -4000) (3700 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (2000 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$109 N
+  T(S
+   R(l2 (-2600 -4000) (2000 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (2000 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$110 N
+  T(S
+   Q(l2 (1700 -5700) (0 1700) (-1100 0) (0 8000) (3400 0) (0 -600) (500 0) (0 -5400) (3800 0) (0 -3700))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (-2600 -4000) (2000 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$111 N
+  T(S
+   Q(l2 (-4225 -6450) (0 1750) (-1600 0) (0 8000) (3200 0) (0 -600) (700 0) (0 -5400) (3850 0) (0 -3750))
+  )
+  T(G
+   Q(l4 (-1925 -2700) (0 5400) (1200 0) (0 -4200) (2650 0) (0 -1200))
+  )
+  T(D
+   Q(l2 (-725 -1500) (0 4200) (3700 0) (0 -3700) (-1050 0) (0 -500))
+  )
+  T(B
+   Q(l3 (-1925 -2700) (0 5400) (1200 0) (0 -4200) (2650 0) (0 -1200))
+  )
+ )
+ D(D$N$112 N
+  T(S
+   R(l2 (-2600 -4000) (2000 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (4100 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$113 N
+  T(S
+   Q(l2 (2200 -5750) (0 1750) (-1600 0) (0 8000) (3200 0) (0 -600) (700 0) (0 -5400) (3850 0) (0 -3750))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (-4700 -4000) (4100 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$114 N
+  T(S
+   Q(l2 (-1925 -6700) (0 4000) (3850 0) (0 5400) (600 0) (0 600) (3300 0) (0 -8000) (-1900 0) (0 -2000))
+  )
+  T(G
+   Q(l4 (-1925 -2700) (0 1200) (2650 0) (0 4200) (1200 0) (0 -5400))
+  )
+  T(D
+   Q(l2 (-1925 -1500) (0 500) (-1100 0) (0 3700) (3750 0) (0 -4200))
+  )
+  T(B
+   Q(l3 (-1925 -2700) (0 1200) (2650 0) (0 4200) (1200 0) (0 -5400))
+  )
+ )
+ D(D$N$115 N
+  T(S
+   Q(l2 (-8350 -6000) (0 4000) (3850 0) (0 5400) (600 0) (0 600) (3300 0) (0 -8000) (-1900 0) (0 -2000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (4100 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$116 N
+  T(S
+   R(l2 (-4700 -4000) (4100 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (1800 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$117 N
+  T(S
+   R(l2 (-2400 -4000) (1800 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3700 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$118 N
+  T(S
+   Q(l2 (-1900 -7400) (0 4700) (3800 0) (0 5400) (500 0) (0 600) (3400 0) (0 -8000) (-2900 0) (0 -2700))
+  )
+  T(G
+   Q(l4 (-1900 -2700) (0 1200) (2600 0) (0 4200) (1200 0) (0 -5400))
+  )
+  T(D
+   Q(l2 (-1900 -1500) (0 500) (-1100 0) (0 3700) (3700 0) (0 -4200))
+  )
+  T(B
+   Q(l3 (-1900 -2700) (0 1200) (2600 0) (0 4200) (1200 0) (0 -5400))
+  )
+ )
+ D(D$N$119 N
+  T(S
+   Q(l2 (-8300 -6700) (0 4700) (3800 0) (0 5400) (500 0) (0 600) (3400 0) (0 -8000) (-2900 0) (0 -2700))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (2000 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$120 N
+  T(S
+   R(l2 (-2600 -4000) (2000 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3700 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$121 N
+  T(S
+   R(l2 (-3500 -4300) (7000 3700))
+  )
+  T(G
+   R(l4 (-3500 -600) (7000 1200))
+  )
+  T(D
+   R(l2 (-3500 600) (7000 4200))
+  )
+  T(B
+   R(l3 (-3500 -600) (7000 1200))
+  )
+ )
+ D(D$N$122 N
+  T(S
+   R(l2 (-3500 -4300) (7000 3700))
+  )
+  T(G
+   R(l4 (-3500 -600) (7000 1200))
+  )
+  T(D
+   R(l2 (-3500 600) (7000 3700))
+  )
+  T(B
+   R(l3 (-3500 -600) (7000 1200))
+  )
+ )
+ D(D$N$123 N
+  T(S
+   Q(l2 (1200 -10050) (0 6050) (-600 0) (0 8000) (4900 0) (0 -9800) (6400 0) (0 -4250))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (-2600 -4000) (2000 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$124 N
+  T(S
+   Q(l2 (-7500 -9150) (0 6050) (-600 0) (0 8000) (4900 0) (0 -9800) (6400 0) (0 -4250))
+  )
+  T(G
+   Q(l4 (-3200 -4900) (0 9800) (1200 0) (0 -8600) (5200 0) (0 -1200))
+  )
+  T(D
+   Q(l2 (-2000 -3700) (0 8600) (3750 0) (0 -2200) (600 0) (0 -4300) (850 0) (0 -2100))
+  )
+  T(B
+   Q(l3 (-3200 -4900) (0 9800) (1200 0) (0 -8600) (5200 0) (0 -1200))
+  )
+ )
+ D(D$N$125 N
+  T(S
+   R(l2 (-4300 -4000) (3700 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (2750 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$126 N
+  T(S
+   R(l2 (-3350 -4000) (2750 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3950 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$127 N
+  T(S
+   R(l2 (-4550 -4000) (3950 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (2000 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$128 N
+  T(S
+   R(l2 (-4300 -2250) (3700 4500))
+  )
+  T(G
+   R(l4 (-600 -2250) (1200 4500))
+  )
+  T(D
+   Q(l2 (600 -2250) (0 4500) (500 0) (0 3500) (3700 0) (0 -8000))
+  )
+  T(B
+   R(l3 (-600 -2250) (1200 4500))
+  )
+ )
+ D(D$N$129 N
+  T(S
+   Q(l2 (-4800 -4000) (0 4500) (500 0) (0 3500) (3700 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3700 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$130 N
+  T(S
+   Q(l2 (-4800 -2000) (0 8000) (3700 0) (0 -4000) (500 0) (0 -4000))
+  )
+  T(G
+   R(l4 (-600 -2000) (1200 4000))
+  )
+  T(D
+   Q(l2 (600 -2000) (0 4000) (500 0) (0 4000) (3700 0) (0 -8000))
+  )
+  T(B
+   R(l3 (-600 -2000) (1200 4000))
+  )
+ )
+ D(D$N$131 N
+  T(S
+   R(l2 (-2600 -4000) (2000 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   Q(l2 (600 -4000) (0 8000) (3700 0) (0 -4000) (500 0) (0 -4000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$132 N
+  T(S
+   Q(l2 (-4800 -4000) (0 4000) (500 0) (0 4000) (3700 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3700 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$133 N
+  T(S
+   R(l2 (-4300 -7750) (3700 15500))
+  )
+  T(G
+   R(l4 (-600 -7750) (1200 15500))
+  )
+  T(D
+   Q(l2 (600 -7750) (0 15500) (4500 0) (0 -12000) (-500 0) (0 -3500))
+  )
+  T(B
+   R(l3 (-600 -7750) (1200 15500))
+  )
+ )
+ D(D$N$134 N
+  T(S
+   Q(l2 (-5100 -9500) (0 15500) (4500 0) (0 -12000) (-500 0) (0 -3500))
+  )
+  T(G
+   R(l4 (-600 -6000) (1200 12000))
+  )
+  T(D
+   Q(l2 (600 -6000) (0 12000) (3900 0) (0 -10000) (-500 0) (0 -2000))
+  )
+  T(B
+   R(l3 (-600 -6000) (1200 12000))
+  )
+ )
+ D(D$N$135 N
+  T(S
+   Q(l2 (-4500 -7000) (0 12000) (3900 0) (0 -10000) (-500 0) (0 -2000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3700 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$136 N
+  T(S
+   R(l2 (-4300 -7750) (3700 15500))
+  )
+  T(G
+   R(l4 (-600 -7750) (1200 15500))
+  )
+  T(D
+   R(l2 (600 -7750) (2200 15500))
+  )
+  T(B
+   R(l3 (-600 -7750) (1200 15500))
+  )
+ )
+ D(D$N$137 N
+  T(S
+   R(l2 (-2800 -7750) (2200 15500))
+  )
+  T(G
+   R(l4 (-600 -7750) (1200 15500))
+  )
+  T(D
+   R(l2 (600 -7750) (2100 15500))
+  )
+  T(B
+   R(l3 (-600 -7750) (1200 15500))
+  )
+ )
+ D(D$N$138 N
+  T(S
+   R(l2 (-2700 -7750) (2100 15500))
+  )
+  T(G
+   R(l4 (-600 -7750) (1200 15500))
+  )
+  T(D
+   R(l2 (600 -7750) (3700 15500))
+  )
+  T(B
+   R(l3 (-600 -7750) (1200 15500))
+  )
+ )
+ D(D$N$139 N
+  T(S
+   Q(l2 (-4600 -6500) (0 12000) (3500 0) (0 -500) (500 0) (0 -10000) (-500 0) (0 -1500))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3700 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$140 N
+  T(S
+   R(l2 (-4300 -6000) (3700 12000))
+  )
+  T(G
+   R(l4 (-600 -6000) (1200 12000))
+  )
+  T(D
+   R(l2 (600 -6000) (4000 12000))
+  )
+  T(B
+   R(l3 (-600 -6000) (1200 12000))
+  )
+ )
+ D(D$N$141 N
+  T(S
+   R(l2 (-4600 -6000) (4000 12000))
+  )
+  T(G
+   R(l4 (-600 -6000) (1200 12000))
+  )
+  T(D
+   Q(l2 (600 -6000) (0 12000) (3500 0) (0 -500) (500 0) (0 -10000) (-500 0) (0 -1500))
+  )
+  T(B
+   R(l3 (-600 -6000) (1200 12000))
+  )
+ )
+ D(D$N$142 N
+  T(S
+   Q(l2 (1100 -4250) (0 1000) (-500 0) (0 6500) (4200 0) (0 -7500))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (-4300 -3250) (3700 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$143 N
+  T(S
+   Q(l2 (-4300 -3750) (0 1000) (-500 0) (0 6500) (4200 0) (0 -7500))
+  )
+  T(G
+   R(l4 (-600 -3750) (1200 7500))
+  )
+  T(D
+   R(l2 (600 -3750) (3700 7500))
+  )
+  T(B
+   R(l3 (-600 -3750) (1200 7500))
+  )
+ )
+ D(D$N$144 N
+  T(S
+   Q(l2 (-4500 -3250) (0 9000) (3400 0) (0 -2500) (500 0) (0 -6500))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (600 -3250) (3000 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$145 N
+  T(S
+   R(l2 (-3600 -3250) (3000 6500))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (600 -3250) (3700 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$146 N
+  T(S
+   R(l2 (-4500 -4500) (3900 9000))
+  )
+  T(G
+   R(l4 (-600 -4500) (1200 9000))
+  )
+  T(D
+   R(l2 (600 -4500) (3900 9000))
+  )
+  T(B
+   R(l3 (-600 -4500) (1200 9000))
+  )
+ )
+ D(D$N$147 N
+  T(S
+   R(l2 (-4500 -4500) (3900 9000))
+  )
+  T(G
+   R(l4 (-600 -4500) (1200 9000))
+  )
+  T(D
+   R(l2 (600 -4500) (4100 9000))
+  )
+  T(B
+   R(l3 (-600 -4500) (1200 9000))
+  )
+ )
+ D(D$N$148 N
+  T(S
+   R(l2 (-4700 -4500) (4100 9000))
+  )
+  T(G
+   R(l4 (-600 -4500) (1200 9000))
+  )
+  T(D
+   R(l2 (600 -4500) (3900 9000))
+  )
+  T(B
+   R(l3 (-600 -4500) (1200 9000))
+  )
+ )
+ D(D$N$149 N
+  T(S
+   R(l2 (-4500 -4500) (3900 9000))
+  )
+  T(G
+   R(l4 (-600 -4500) (1200 9000))
+  )
+  T(D
+   Q(l2 (600 -4500) (0 9000) (3400 0) (0 -2500) (500 0) (0 -6500))
+  )
+  T(B
+   R(l3 (-600 -4500) (1200 9000))
+  )
+ )
+ D(D$N$150 N
+  T(S
+   R(l2 (-4300 -5500) (3700 11000))
+  )
+  T(G
+   R(l4 (-600 -5500) (1200 11000))
+  )
+  T(D
+   R(l2 (600 -5500) (3700 11000))
+  )
+  T(B
+   R(l3 (-600 -5500) (1200 11000))
+  )
+ )
+ D(D$N$151 N
+  T(S
+   R(l2 (-4300 -6500) (3700 13000))
+  )
+  T(G
+   R(l4 (-600 -6500) (1200 13000))
+  )
+  T(D
+   R(l2 (600 -6500) (2000 13000))
+  )
+  T(B
+   R(l3 (-600 -6500) (1200 13000))
+  )
+ )
+ D(D$N$152 N
+  T(S
+   R(l2 (-2600 -6500) (2000 13000))
+  )
+  T(G
+   R(l4 (-600 -6500) (1200 13000))
+  )
+  T(D
+   R(l2 (600 -6500) (2000 13000))
+  )
+  T(B
+   R(l3 (-600 -6500) (1200 13000))
+  )
+ )
+ D(D$N$153 N
+  T(S
+   R(l2 (-2600 -6500) (2000 13000))
+  )
+  T(G
+   R(l4 (-600 -6500) (1200 13000))
+  )
+  T(D
+   Q(l2 (600 -6500) (0 13000) (2000 0) (0 -9300) (4900 0) (0 -3700))
+  )
+  T(B
+   R(l3 (-600 -6500) (1200 13000))
+  )
+ )
+ D(D$N$154 N
+  T(S
+   Q(l2 (-4450 -8350) (0 13000) (2000 0) (0 -9300) (4900 0) (0 -3700))
+  )
+  T(G
+   Q(l4 (-2450 -4650) (0 9300) (1200 0) (0 -8100) (3700 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-1250 -3450) (3700 8100))
+  )
+  T(B
+   Q(l3 (-2450 -4650) (0 9300) (1200 0) (0 -8100) (3700 0) (0 -1200))
+  )
+ )
+ D(D$N$155 N
+  T(S
+   R(l2 (-4600 -5000) (4000 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (4200 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$156 N
+  T(S
+   R(l2 (-4800 -5000) (4200 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3700 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$157 N
+  T(S
+   R(l2 (-4300 -5000) (3700 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3900 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$158 N
+  T(S
+   R(l2 (-4600 -3250) (4000 6500))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (600 -3250) (4200 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$159 N
+  T(S
+   Q(l2 (1450 -3750) (0 500) (-850 0) (0 6500) (3900 0) (0 -7000))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (-4800 -3250) (4200 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$160 N
+  T(S
+   Q(l2 (-3650 -3500) (0 500) (-850 0) (0 6500) (3900 0) (0 -7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (5700 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$161 N
+  T(S
+   R(l2 (-6300 -3500) (5700 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   Q(l2 (600 -3500) (0 7000) (3900 0) (0 -6500) (-950 0) (0 -500))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$162 N
+  T(S
+   Q(l2 (-4500 -3750) (0 7000) (3900 0) (0 -6500) (-950 0) (0 -500))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (600 -3250) (4100 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$163 N
+  T(S
+   Q(l2 (1750 -3750) (0 500) (-1150 0) (0 6500) (4300 0) (0 -7000))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (-4700 -3250) (4100 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$164 N
+  T(S
+   Q(l2 (-3750 -3500) (0 500) (-1150 0) (0 6500) (4300 0) (0 -7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3900 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$165 N
+  T(S
+   R(l2 (-4500 -3500) (3900 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (4300 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$166 N
+  T(S
+   R(l2 (-4300 -5000) (3700 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (2200 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$167 N
+  T(S
+   Q(l2 (1100 -7200) (0 2200) (-500 0) (0 10000) (4200 0) (0 -8500) (4900 0) (0 -3700))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (-2800 -5000) (2200 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$168 N
+  T(S
+   Q(l2 (-6150 -7950) (0 2200) (-500 0) (0 10000) (4200 0) (0 -8500) (4900 0) (0 -3700))
+  )
+  T(G
+   Q(l4 (-2450 -4250) (0 8500) (1200 0) (0 -7300) (3700 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-1250 -3050) (3700 7300))
+  )
+  T(B
+   Q(l3 (-2450 -4250) (0 8500) (1200 0) (0 -7300) (3700 0) (0 -1200))
+  )
+ )
+ D(D$N$169 N
+  T(S
+   Q(l2 (1200 -11550) (0 8300) (-600 0) (0 6500) (650 0) (0 300) (3700 0) (0 -11300) (5450 0) (0 -3800))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (-4300 -3250) (3700 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$170 N
+  T(S
+   Q(l2 (-6475 -9450) (0 8300) (-600 0) (0 6500) (650 0) (0 300) (3700 0) (0 -11300) (5450 0) (0 -3800))
+  )
+  T(G
+   Q(l4 (-2725 -5650) (0 11300) (1200 0) (0 -10100) (4250 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-1525 -4450) (4250 10100))
+  )
+  T(B
+   Q(l3 (-2725 -5650) (0 11300) (1200 0) (0 -10100) (4250 0) (0 -1200))
+  )
+ )
+ D(D$N$171 N
+  T(S
+   Q(l2 (-2450 -8000) (0 3800) (4900 0) (0 8400) (3950 0) (0 -8400) (4900 0) (0 -3800))
+  )
+  T(G
+   Q(l4 (-2450 -4200) (0 1200) (3700 0) (0 7200) (1200 0) (0 -8400))
+  )
+  T(D
+   R(l2 (-2450 -3000) (3700 7200))
+  )
+  T(B
+   Q(l3 (-2450 -4200) (0 1200) (3700 0) (0 7200) (1200 0) (0 -8400))
+  )
+ )
+ D(D$N$172 N
+  T(S
+   Q(l2 (-11300 -8000) (0 3800) (4900 0) (0 8400) (3950 0) (0 -8400) (4900 0) (0 -3800))
+  )
+  T(G
+   Q(l4 (-2450 -4200) (0 8400) (1200 0) (0 -7200) (3700 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-1250 -3000) (3700 7200))
+  )
+  T(B
+   Q(l3 (-2450 -4200) (0 8400) (1200 0) (0 -7200) (3700 0) (0 -1200))
+  )
+ )
+ D(D$N$173 N
+  T(S
+   R(l2 (-4350 -3250) (3750 6500))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (600 -3250) (3700 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$174 N
+  T(S
+   R(l2 (-4300 -3500) (3700 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (2000 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$175 N
+  T(S
+   R(l2 (-2600 -3500) (2000 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3700 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$176 N
+  T(S
+   R(l2 (-4500 -5000) (3900 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3950 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$177 N
+  T(S
+   R(l2 (-4550 -5000) (3950 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3950 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$178 N
+  T(S
+   R(l2 (-4550 -5000) (3950 10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3700 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$179 N
+  T(S
+   Q(l2 (2150 -7000) (0 4000) (-1550 0) (0 6000) (3900 0) (0 -10000))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   R(l2 (-4350 -3000) (3750 6000))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$180 N
+  T(S
+   Q(l2 (-2950 -5000) (0 4000) (-1550 0) (0 6000) (3900 0) (0 -10000))
+  )
+  T(G
+   R(l4 (-600 -5000) (1200 10000))
+  )
+  T(D
+   R(l2 (600 -5000) (3700 10000))
+  )
+  T(B
+   R(l3 (-600 -5000) (1200 10000))
+  )
+ )
+ D(D$N$181 N
+  T(S
+   Q(l2 (-4300 -2600) (0 1800) (-500 0) (0 5200) (3700 0) (0 -1800) (500 0) (0 -5200))
+  )
+  T(G
+   R(l4 (-600 -2600) (1200 5200))
+  )
+  T(D
+   Q(l2 (600 -2600) (0 5200) (500 0) (0 1800) (5800 0) (0 -5200) (-500 0) (0 -1800))
+  )
+  T(B
+   R(l3 (-600 -2600) (1200 5200))
+  )
+ )
+ D(D$N$182 N
+  T(S
+   R(l2 (-4300 -2600) (3700 5200))
+  )
+  T(G
+   R(l4 (-600 -2600) (1200 5200))
+  )
+  T(D
+   R(l2 (600 -2600) (3900 5200))
+  )
+  T(B
+   R(l3 (-600 -2600) (1200 5200))
+  )
+ )
+ D(D$N$183 N
+  T(S
+   Q(l2 (1100 -4400) (0 1800) (-500 0) (0 5200) (3700 0) (0 -1800) (500 0) (0 -5200))
+  )
+  T(G
+   R(l4 (-600 -2600) (1200 5200))
+  )
+  T(D
+   R(l2 (-4500 -2600) (3900 5200))
+  )
+  T(B
+   R(l3 (-600 -2600) (1200 5200))
+  )
+ )
+ D(D$N$184 N
+  T(S
+   Q(l2 (1100 -8900) (0 6300) (-500 0) (0 5200) (500 0) (0 4500) (3700 0) (0 -16000))
+  )
+  T(G
+   R(l4 (-600 -2600) (1200 5200))
+  )
+  T(D
+   Q(l2 (-6900 -4400) (0 5200) (500 0) (0 1800) (5800 0) (0 -5200) (-500 0) (0 -1800))
+  )
+  T(B
+   R(l3 (-600 -2600) (1200 5200))
+  )
+ )
+ D(D$N$185 N
+  T(S
+   Q(l2 (-4300 -8000) (0 6300) (-500 0) (0 5200) (500 0) (0 4500) (3700 0) (0 -16000))
+  )
+  T(G
+   R(l4 (-600 -8000) (1200 16000))
+  )
+  T(D
+   R(l2 (600 -8000) (1700 16000))
+  )
+  T(B
+   R(l3 (-600 -8000) (1200 16000))
+  )
+ )
+ D(D$N$186 N
+  T(S
+   R(l2 (-2300 -8000) (1700 16000))
+  )
+  T(G
+   R(l4 (-600 -8000) (1200 16000))
+  )
+  T(D
+   R(l2 (600 -8000) (3700 16000))
+  )
+  T(B
+   R(l3 (-600 -8000) (1200 16000))
+  )
+ )
+ D(D$N$187 N
+  T(S
+   Q(l2 (-4800 -2600) (0 8000) (3700 0) (0 -2800) (500 0) (0 -5200))
+  )
+  T(G
+   R(l4 (-600 -2600) (1200 5200))
+  )
+  T(D
+   R(l2 (600 -2600) (3900 5200))
+  )
+  T(B
+   R(l3 (-600 -2600) (1200 5200))
+  )
+ )
+ D(D$N$188 N
+  T(S
+   R(l2 (-4500 -2600) (3900 5200))
+  )
+  T(G
+   R(l4 (-600 -2600) (1200 5200))
+  )
+  T(D
+   R(l2 (600 -2600) (3900 5200))
+  )
+  T(B
+   R(l3 (-600 -2600) (1200 5200))
+  )
+ )
+ D(D$N$189 N
+  T(S
+   R(l2 (-4500 -2600) (3900 5200))
+  )
+  T(G
+   R(l4 (-600 -2600) (1200 5200))
+  )
+  T(D
+   R(l2 (600 -2600) (3700 5200))
+  )
+  T(B
+   R(l3 (-600 -2600) (1200 5200))
+  )
+ )
+ D(D$N$190 N
+  T(S
+   R(l2 (-4300 -4000) (3700 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   Q(l2 (600 -4000) (0 8000) (3700 0) (0 -2800) (500 0) (0 -5200))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$191 N
+  T(S
+   R(l2 (-4450 -3250) (3700 6500))
+  )
+  T(G
+   R(l4 (-750 -3250) (1500 6500))
+  )
+  T(D
+   R(l2 (750 -3250) (1900 6500))
+  )
+  T(B
+   R(l3 (-750 -3250) (1500 6500))
+  )
+ )
+ D(D$N$192 N
+  T(S
+   Q(l2 (1250 -8250) (0 5000) (-500 0) (0 6500) (500 0) (0 1500) (3700 0) (0 -9300) (7900 0) (0 -3700))
+  )
+  T(G
+   R(l4 (-750 -3250) (1500 6500))
+  )
+  T(D
+   R(l2 (-2650 -3250) (1900 6500))
+  )
+  T(B
+   R(l3 (-750 -3250) (1500 6500))
+  )
+ )
+ D(D$N$193 N
+  T(S
+   Q(l2 (-7650 -8350) (0 5000) (-500 0) (0 6500) (500 0) (0 1500) (3700 0) (0 -9300) (7900 0) (0 -3700))
+  )
+  T(G
+   Q(l4 (-3950 -4650) (0 9300) (1200 0) (0 -8100) (6700 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-2750 -3450) (6700 8100))
+  )
+  T(B
+   Q(l3 (-3950 -4650) (0 9300) (1200 0) (0 -8100) (6700 0) (0 -1200))
+  )
+ )
+ D(D$N$194 N
+  T(S
+   Q(l2 (-2450 -8250) (0 3800) (4900 0) (0 8900) (3950 0) (0 -8900) (4900 0) (0 -3800))
+  )
+  T(G
+   Q(l4 (-2450 -4450) (0 1200) (3700 0) (0 7700) (1200 0) (0 -8900))
+  )
+  T(D
+   R(l2 (-2450 -3250) (3700 7700))
+  )
+  T(B
+   Q(l3 (-2450 -4450) (0 1200) (3700 0) (0 7700) (1200 0) (0 -8900))
+  )
+ )
+ D(D$N$195 N
+  T(S
+   Q(l2 (-11300 -8250) (0 3800) (4900 0) (0 8900) (3950 0) (0 -8900) (4900 0) (0 -3800))
+  )
+  T(G
+   Q(l4 (-2450 -4450) (0 8900) (1200 0) (0 -7700) (3700 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-1250 -3250) (3700 7700))
+  )
+  T(B
+   Q(l3 (-2450 -4450) (0 8900) (1200 0) (0 -7700) (3700 0) (0 -1200))
+  )
+ )
+ D(D$N$196 N
+  T(S
+   Q(l2 (1200 -9350) (0 6100) (-600 0) (0 6500) (4150 0) (0 -8800) (4900 0) (0 -3800))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (-4300 -3250) (3700 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$197 N
+  T(S
+   Q(l2 (-6000 -8200) (0 6100) (-600 0) (0 6500) (4150 0) (0 -8800) (4900 0) (0 -3800))
+  )
+  T(G
+   Q(l4 (-2450 -4400) (0 8800) (1200 0) (0 -7600) (3700 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-1250 -3200) (3700 7600))
+  )
+  T(B
+   Q(l3 (-2450 -4400) (0 8800) (1200 0) (0 -7600) (3700 0) (0 -1200))
+  )
+ )
+ D(D$N$198 N
+  T(S
+   R(l2 (-4500 -3000) (3900 6000))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   Q(l2 (600 -3000) (0 6000) (500 0) (0 3000) (3700 0) (0 -7000) (-500 0) (0 -2000))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$199 N
+  T(S
+   Q(l2 (-4800 -5500) (0 6000) (500 0) (0 3000) (3700 0) (0 -7000) (-500 0) (0 -2000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3700 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$200 N
+  T(S
+   R(l2 (-4300 -1750) (3700 3500))
+  )
+  T(G
+   R(l4 (-600 -1750) (1200 3500))
+  )
+  T(D
+   R(l2 (600 -1750) (3900 3500))
+  )
+  T(B
+   R(l3 (-600 -1750) (1200 3500))
+  )
+ )
+ D(D$N$201 N
+  T(S
+   Q(l2 (1100 -3250) (0 1500) (-500 0) (0 3500) (500 0) (0 3000) (3700 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -1750) (1200 3500))
+  )
+  T(D
+   R(l2 (-4500 -1750) (3900 3500))
+  )
+  T(B
+   R(l3 (-600 -1750) (1200 3500))
+  )
+ )
+ D(D$N$202 N
+  T(S
+   Q(l2 (-4300 -4000) (0 1500) (-500 0) (0 3500) (500 0) (0 3000) (3700 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (1300 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$203 N
+  T(S
+   R(l2 (-1900 -4000) (1300 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3700 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$204 N
+  T(S
+   Q(l2 (2150 -8600) (0 5350) (-1550 0) (0 6500) (5250 0) (0 -8150) (5550 0) (0 -3700))
+  )
+  T(G
+   R(l4 (-600 -3250) (1200 6500))
+  )
+  T(D
+   R(l2 (-4500 -3250) (3900 6500))
+  )
+  T(B
+   R(l3 (-600 -3250) (1200 6500))
+  )
+ )
+ D(D$N$205 N
+  T(S
+   Q(l2 (-6475 -7775) (0 5350) (-1550 0) (0 6500) (5250 0) (0 -8150) (5550 0) (0 -3700))
+  )
+  T(G
+   Q(l4 (-2775 -4075) (0 8150) (1200 0) (0 -6950) (4350 0) (0 -1200))
+  )
+  T(D
+   R(l2 (-1575 -2875) (4350 6950))
+  )
+  T(B
+   Q(l3 (-2775 -4075) (0 8150) (1200 0) (0 -6950) (4350 0) (0 -1200))
+  )
+ )
+ D(D$N$206 N
+  T(S
+   R(l2 (-4300 -3000) (3700 6000))
+  )
+  T(G
+   R(l4 (-600 -3000) (1200 6000))
+  )
+  T(D
+   Q(l2 (600 -3000) (0 6000) (1900 0) (0 1500) (2100 0) (0 -7500))
+  )
+  T(B
+   R(l3 (-600 -3000) (1200 6000))
+  )
+ )
+ D(D$N$207 N
+  T(S
+   Q(l2 (-4600 -3750) (0 6000) (1900 0) (0 1500) (2100 0) (0 -7500))
+  )
+  T(G
+   R(l4 (-600 -3750) (1200 7500))
+  )
+  T(D
+   R(l2 (600 -3750) (3700 7500))
+  )
+  T(B
+   R(l3 (-600 -3750) (1200 7500))
+  )
+ )
+ D(D$N$208 N
+  T(S
+   R(l2 (-4300 -3500) (3700 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3950 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$209 N
+  T(S
+   R(l2 (-4550 -3500) (3950 7000))
+  )
+  T(G
+   R(l4 (-600 -3500) (1200 7000))
+  )
+  T(D
+   R(l2 (600 -3500) (3700 7000))
+  )
+  T(B
+   R(l3 (-600 -3500) (1200 7000))
+  )
+ )
+ D(D$N$210 N
+  T(S
+   R(l2 (-2600 -4000) (2000 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3400 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$211 N
+  T(S
+   R(l2 (-4000 -4000) (3400 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (2000 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$N$212 N
+  T(S
+   R(l2 (-2600 -4000) (2000 8000))
+  )
+  T(G
+   R(l4 (-600 -4000) (1200 8000))
+  )
+  T(D
+   R(l2 (600 -4000) (3750 8000))
+  )
+  T(B
+   R(l3 (-600 -4000) (1200 8000))
+  )
+ )
+ D(D$P P
+  T(S
+   R(l8 (-4450 -3500) (3700 7000))
+  )
+  T(G
+   R(l4 (-750 -3500) (1500 7000))
+  )
+  T(D
+   R(l8 (750 -3500) (3900 7000))
+  )
+  T(B
+   R(l9 (-750 -3500) (1500 7000))
+  )
+ )
+ D(D$P$1 P
+  T(S
+   Q(l8 (1250 -8200) (0 4700) (-500 0) (0 7000) (500 0) (0 4050) (9500 0) (0 -4050) (-5800 0) (0 -11700))
+  )
+  T(G
+   R(l4 (-750 -3500) (1500 7000))
+  )
+  T(D
+   R(l8 (-4650 -3500) (3900 7000))
+  )
+  T(B
+   R(l9 (-750 -3500) (1500 7000))
+  )
+ )
+ D(D$P$2 P
+  T(S
+   Q(l8 (-6600 -5850) (0 4700) (-500 0) (0 7000) (500 0) (0 4050) (9500 0) (0 -4050) (-5800 0) (0 -11700))
+  )
+  T(G
+   Q(l4 (-2900 -5850) (0 11700) (5800 0) (0 -1500) (-4300 0) (0 -10200))
+  )
+  T(D
+   R(l8 (-1400 -5850) (4300 10200))
+  )
+  T(B
+   Q(l9 (-2900 -5850) (0 11700) (5800 0) (0 -1500) (-4300 0) (0 -10200))
+  )
+ )
+ D(D$P$3 P
+  T(S
+   Q(l8 (-4650 -4000) (0 12000) (3400 0) (0 -4000) (500 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (750 -4000) (3900 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$4 P
+  T(S
+   R(l8 (-4650 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (750 -4000) (3900 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$5 P
+  T(S
+   R(l8 (-4650 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   Q(l8 (750 -4000) (0 8000) (3350 0) (0 -1700) (350 0) (0 -6300))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$6 P
+  T(S
+   R(l8 (-4450 -6000) (3700 12000))
+  )
+  T(G
+   R(l4 (-750 -6000) (1500 12000))
+  )
+  T(D
+   R(l8 (750 -6000) (3900 12000))
+  )
+  T(B
+   R(l9 (-750 -6000) (1500 12000))
+  )
+ )
+ D(D$P$7 P
+  T(S
+   R(l8 (-4650 -6000) (3900 12000))
+  )
+  T(G
+   R(l4 (-750 -6000) (1500 12000))
+  )
+  T(D
+   Q(l8 (750 -6000) (0 12000) (3400 0) (0 -4000) (500 0) (0 -8000))
+  )
+  T(B
+   R(l9 (-750 -6000) (1500 12000))
+  )
+ )
+ D(D$P$8 P
+  T(S
+   Q(l8 (-6500 -6175) (0 13400) (-4000 0) (0 3700) (13100 0) (0 -4750) (-5200 0) (0 -12350))
+  )
+  T(G
+   Q(l4 (-2600 -6175) (0 12350) (5200 0) (0 -1500) (-3700 0) (0 -10850))
+  )
+  T(D
+   R(l8 (-1100 -6175) (3700 10850))
+  )
+  T(B
+   Q(l9 (-2600 -6175) (0 12350) (5200 0) (0 -1500) (-3700 0) (0 -10850))
+  )
+ )
+ D(D$P$9 P
+  T(S
+   Q(l8 (-3200 -6700) (0 11100) (1200 0) (0 800) (2500 0) (0 -11900))
+  )
+  T(G
+   Q(l4 (500 -6700) (0 11900) (-2500 0) (0 1500) (4000 0) (0 -13400))
+  )
+  T(D
+   Q(l8 (2000 -6700) (0 13400) (-4000 0) (0 3700) (13100 0) (0 -4750) (-5200 0) (0 -12350))
+  )
+  T(B
+   Q(l9 (500 -6700) (0 11900) (-2500 0) (0 1500) (4000 0) (0 -13400))
+  )
+ )
+ D(D$P$10 P
+  T(S
+   Q(l8 (-4450 -4000) (0 6700) (1200 0) (0 1300) (2500 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (750 -4000) (3900 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$11 P
+  T(S
+   R(l8 (-4650 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   Q(l8 (750 -4000) (0 8000) (850 0) (0 700) (3050 0) (0 -8000) (-500 0) (0 -700))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$12 P
+  T(S
+   Q(l8 (-4650 -4700) (0 8000) (850 0) (0 700) (3050 0) (0 -8000) (-500 0) (0 -700))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (750 -4000) (3700 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$13 P
+  T(S
+   Q(l8 (-1650 -5900) (-950 950) (0 9350) (3700 0) (0 -10300))
+  )
+  T(G
+   Q(l4 (1100 -5900) (0 10300) (-3700 0) (0 1500) (5200 0) (0 -11800))
+  )
+  T(D
+   Q(l8 (2600 -5900) (0 11800) (-5200 0) (0 3700) (8900 0) (0 -15500))
+  )
+  T(B
+   Q(l9 (1100 -5900) (0 10300) (-3700 0) (0 1500) (5200 0) (0 -11800))
+  )
+ )
+ D(D$P$14 P
+  T(S
+   R(l8 (-4450 -10000) (3700 20000))
+  )
+  T(G
+   R(l4 (-750 -10000) (1500 20000))
+  )
+  T(D
+   R(l8 (750 -10000) (3900 20000))
+  )
+  T(B
+   R(l9 (-750 -10000) (1500 20000))
+  )
+ )
+ D(D$P$15 P
+  T(S
+   R(l8 (-4650 -10000) (3900 20000))
+  )
+  T(G
+   R(l4 (-750 -10000) (1500 20000))
+  )
+  T(D
+   R(l8 (750 -10000) (3700 20000))
+  )
+  T(B
+   R(l9 (-750 -10000) (1500 20000))
+  )
+ )
+ D(D$P$16 P
+  T(S
+   R(l8 (-4450 -7000) (3700 14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (2000 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$17 P
+  T(S
+   R(l8 (-2750 -7000) (2000 14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   Q(l8 (750 -7000) (0 14000) (500 0) (0 2000) (5000 0) (0 -16000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$18 P
+  T(S
+   Q(l8 (-6250 -8000) (0 14000) (500 0) (0 2000) (5000 0) (0 -16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (3700 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$19 P
+  T(S
+   R(l8 (-4450 -7500) (3700 15000))
+  )
+  T(G
+   R(l4 (-750 -7500) (1500 15000))
+  )
+  T(D
+   R(l8 (750 -7500) (2000 15000))
+  )
+  T(B
+   R(l9 (-750 -7500) (1500 15000))
+  )
+ )
+ D(D$P$20 P
+  T(S
+   R(l8 (-2750 -7500) (2000 15000))
+  )
+  T(G
+   R(l4 (-750 -7500) (1500 15000))
+  )
+  T(D
+   R(l8 (750 -7500) (3700 15000))
+  )
+  T(B
+   R(l9 (-750 -7500) (1500 15000))
+  )
+ )
+ D(D$P$21 P
+  T(S
+   R(l8 (-4450 -5000) (3700 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   Q(l8 (750 -5000) (0 10000) (500 0) (0 5100) (3700 0) (0 -14000) (-500 0) (0 -1100))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$22 P
+  T(S
+   Q(l8 (-4950 -8100) (0 10000) (500 0) (0 5100) (3700 0) (0 -14000) (-500 0) (0 -1100))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (3900 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$23 P
+  T(S
+   R(l8 (-4450 -6500) (3700 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (3900 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$24 P
+  T(S
+   R(l8 (-4650 -6500) (3900 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (3900 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$25 P
+  T(S
+   R(l8 (-4650 -6500) (3900 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (3700 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$26 P
+  T(S
+   R(l8 (-4450 -8500) (3700 17000))
+  )
+  T(G
+   R(l4 (-750 -8500) (1500 17000))
+  )
+  T(D
+   R(l8 (750 -8500) (3700 17000))
+  )
+  T(B
+   R(l9 (-750 -8500) (1500 17000))
+  )
+ )
+ D(D$P$27 P
+  T(S
+   Q(l8 (-7350 -6000) (0 15850) (14650 0) (0 -15850) (-3800 0) (0 12000) (-7000 0) (0 -12000))
+  )
+  T(G
+   Q(l4 (-3500 -6000) (0 12000) (7000 0) (0 -12000) (-1500 0) (0 10500) (-4000 0) (0 -10500))
+  )
+  T(D
+   R(l8 (-2000 -6000) (4000 10500))
+  )
+  T(B
+   Q(l9 (-3500 -6000) (0 12000) (7000 0) (0 -12000) (-1500 0) (0 10500) (-4000 0) (0 -10500))
+  )
+ )
+ D(D$P$28 P
+  T(S
+   Q(l8 (-7200 -8750) (0 21250) (14500 0) (0 -21250) (-3800 0) (0 17500) (-7000 0) (0 -17500))
+  )
+  T(G
+   Q(l4 (-3500 -8750) (0 17500) (7000 0) (0 -17500) (-1500 0) (0 16000) (-4000 0) (0 -16000))
+  )
+  T(D
+   R(l8 (-2000 -8750) (4000 16000))
+  )
+  T(B
+   Q(l9 (-3500 -8750) (0 17500) (7000 0) (0 -17500) (-1500 0) (0 16000) (-4000 0) (0 -16000))
+  )
+ )
+ D(D$P$29 P
+  T(S
+   R(l8 (-4650 -7000) (3900 14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (3700 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$30 P
+  T(S
+   R(l8 (-4450 -5000) (3700 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   Q(l8 (750 -5000) (0 10000) (500 0) (0 5000) (8900 0) (0 -3700) (-5200 0) (0 -11300))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$31 P
+  T(S
+   Q(l8 (-6800 -5650) (0 10000) (500 0) (0 5000) (8900 0) (0 -3700) (-5200 0) (0 -11300))
+  )
+  T(G
+   Q(l4 (-2600 -5650) (0 11300) (5200 0) (0 -1500) (-3700 0) (0 -9800))
+  )
+  T(D
+   R(l8 (-1100 -5650) (3700 9800))
+  )
+  T(B
+   Q(l9 (-2600 -5650) (0 11300) (5200 0) (0 -1500) (-3700 0) (0 -9800))
+  )
+ )
+ D(D$P$32 P
+  T(S
+   R(l8 (-4450 -5000) (3700 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (3900 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$33 P
+  T(S
+   R(l8 (-4650 -5000) (3900 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (3900 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$34 P
+  T(S
+   R(l8 (-4650 -5000) (3900 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (3850 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$35 P
+  T(S
+   Q(l8 (-7350 -8125) (0 14900) (-900 0) (0 5150) (26400 0) (0 -20050) (-3700 0) (0 16250) (-7000 0) (0 -16250) (-3950 0) (0 16250) (-7000 0) (0 -16250))
+  )
+  T(G
+   Q(l4 (-3500 -8125) (0 16250) (7000 0) (0 -16250) (-1500 0) (0 14750) (-4000 0) (0 -14750))
+  )
+  T(D
+   R(l8 (-2000 -8125) (4000 14750))
+  )
+  T(B
+   Q(l9 (-3500 -8125) (0 16250) (7000 0) (0 -16250) (-1500 0) (0 14750) (-4000 0) (0 -14750))
+  )
+ )
+ D(D$P$36 P
+  T(S
+   Q(l8 (-18300 -8125) (0 14900) (-900 0) (0 5150) (26400 0) (0 -20050) (-3700 0) (0 16250) (-7000 0) (0 -16250) (-3950 0) (0 16250) (-7000 0) (0 -16250))
+  )
+  T(G
+   Q(l4 (-3500 -8125) (0 16250) (7000 0) (0 -16250) (-1500 0) (0 14750) (-4000 0) (0 -14750))
+  )
+  T(D
+   R(l8 (-2000 -8125) (4000 14750))
+  )
+  T(B
+   Q(l9 (-3500 -8125) (0 16250) (7000 0) (0 -16250) (-1500 0) (0 14750) (-4000 0) (0 -14750))
+  )
+ )
+ D(D$P$37 P
+  T(S
+   Q(l8 (-4600 -7650) (0 19000) (3700 0) (0 -350) (3500 0) (0 -3350) (-5200 0) (0 -15300))
+  )
+  T(G
+   Q(l4 (-2600 -7650) (0 15300) (5200 0) (0 -1500) (-3700 0) (0 -13800))
+  )
+  T(D
+   R(l8 (-1100 -7650) (3700 13800))
+  )
+  T(B
+   Q(l9 (-2600 -7650) (0 15300) (5200 0) (0 -1500) (-3700 0) (0 -13800))
+  )
+ )
+ D(D$P$38 P
+  T(S
+   R(l8 (-4450 -9500) (3700 19000))
+  )
+  T(G
+   R(l4 (-750 -9500) (1500 19000))
+  )
+  T(D
+   Q(l8 (750 -9500) (0 19000) (3700 0) (0 -350) (3500 0) (0 -3350) (-5200 0) (0 -15300))
+  )
+  T(B
+   R(l9 (-750 -9500) (1500 19000))
+  )
+ )
+ D(D$P$39 P
+  T(S
+   R(l8 (-4650 -5000) (3900 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (4200 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$40 P
+  T(S
+   R(l8 (-4950 -5000) (4200 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (5400 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$41 P
+  T(S
+   R(l8 (-6150 -5000) (5400 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (3900 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$42 P
+  T(S
+   R(l8 (-4650 -5000) (3900 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (3700 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$43 P
+  T(S
+   Q(l8 (-6500 -6650) (0 15300) (-5200 0) (0 3750) (14300 0) (0 -5750) (-5200 0) (0 -13300))
+  )
+  T(G
+   Q(l4 (-2600 -6650) (0 13300) (5200 0) (0 -1500) (-3700 0) (0 -11800))
+  )
+  T(D
+   R(l8 (-1100 -6650) (3700 11800))
+  )
+  T(B
+   Q(l9 (-2600 -6650) (0 13300) (5200 0) (0 -1500) (-3700 0) (0 -11800))
+  )
+ )
+ D(D$P$44 P
+  T(S
+   R(l8 (-2600 -7650) (3700 13800))
+  )
+  T(G
+   Q(l4 (1100 -7650) (0 13800) (-3700 0) (0 1500) (5200 0) (0 -15300))
+  )
+  T(D
+   Q(l8 (2600 -7650) (0 15300) (-5200 0) (0 3750) (14300 0) (0 -5750) (-5200 0) (0 -13300))
+  )
+  T(B
+   Q(l9 (1100 -7650) (0 13800) (-3700 0) (0 1500) (5200 0) (0 -15300))
+  )
+ )
+ D(D$P$45 P
+  T(S
+   Q(l8 (-4950 -4750) (0 11000) (3700 0) (0 -1500) (500 0) (0 -9500))
+  )
+  T(G
+   R(l4 (-750 -4750) (1500 9500))
+  )
+  T(D
+   R(l8 (750 -4750) (3700 9500))
+  )
+  T(B
+   R(l9 (-750 -4750) (1500 9500))
+  )
+ )
+ D(D$P$46 P
+  T(S
+   R(l8 (-4450 -5500) (3700 11000))
+  )
+  T(G
+   R(l4 (-750 -5500) (1500 11000))
+  )
+  T(D
+   Q(l8 (750 -5500) (0 11000) (3700 0) (0 -1500) (500 0) (0 -9500))
+  )
+  T(B
+   R(l9 (-750 -5500) (1500 11000))
+  )
+ )
+ D(D$P$47 P
+  T(S
+   Q(l8 (-4950 -4000) (0 12200) (3700 0) (0 -4200) (500 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (750 -4000) (3900 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$48 P
+  T(S
+   R(l8 (-4650 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   Q(l8 (750 -4000) (0 8000) (500 0) (0 6050) (3400 0) (0 -14050))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$49 P
+  T(S
+   R(l8 (-4500 -6100) (3750 12200))
+  )
+  T(G
+   R(l4 (-750 -6100) (1500 12200))
+  )
+  T(D
+   Q(l8 (750 -6100) (0 12200) (3700 0) (0 -4200) (500 0) (0 -8000))
+  )
+  T(B
+   R(l9 (-750 -6100) (1500 12200))
+  )
+ )
+ D(D$P$50 P
+  T(S
+   Q(l8 (-4650 -7025) (0 8000) (500 0) (0 6050) (3400 0) (0 -14050))
+  )
+  T(G
+   R(l4 (-750 -7025) (1500 14050))
+  )
+  T(D
+   R(l8 (750 -7025) (3900 14050))
+  )
+  T(B
+   R(l9 (-750 -7025) (1500 14050))
+  )
+ )
+ D(D$P$51 P
+  T(S
+   R(l8 (-4650 -7025) (3900 14050))
+  )
+  T(G
+   R(l4 (-750 -7025) (1500 14050))
+  )
+  T(D
+   R(l8 (750 -7025) (3700 14050))
+  )
+  T(B
+   R(l9 (-750 -7025) (1500 14050))
+  )
+ )
+ D(D$P$52 P
+  T(S
+   R(l8 (-4450 -4000) (3700 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (750 -4000) (3900 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$53 P
+  T(S
+   R(l8 (-4650 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   Q(l8 (750 -4000) (0 8000) (4200 0) (0 -5000) (-550 0) (0 -3000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$54 P
+  T(S
+   Q(l8 (-4950 -5500) (0 8000) (4200 0) (0 -5000) (-550 0) (0 -3000))
+  )
+  T(G
+   R(l4 (-750 -2500) (1500 5000))
+  )
+  T(D
+   R(l8 (750 -2500) (3900 5000))
+  )
+  T(B
+   R(l9 (-750 -2500) (1500 5000))
+  )
+ )
+ D(D$P$55 P
+  T(S
+   R(l8 (-4650 -2500) (3900 5000))
+  )
+  T(G
+   R(l4 (-750 -2500) (1500 5000))
+  )
+  T(D
+   R(l8 (750 -2500) (3700 5000))
+  )
+  T(B
+   R(l9 (-750 -2500) (1500 5000))
+  )
+ )
+ D(D$P$56 P
+  T(S
+   R(l8 (-2600 -8150) (3700 14800))
+  )
+  T(G
+   Q(l4 (1100 -8150) (0 14800) (-3700 0) (0 1500) (5200 0) (0 -16300))
+  )
+  T(D
+   Q(l8 (2600 -8150) (0 16300) (-5200 0) (0 3700) (8550 0) (0 -1950) (550 0) (0 -18050))
+  )
+  T(B
+   Q(l9 (1100 -8150) (0 14800) (-3700 0) (0 1500) (5200 0) (0 -16300))
+  )
+ )
+ D(D$P$57 P
+  T(S
+   Q(l8 (-4650 -9025) (0 16300) (-5200 0) (0 3700) (8550 0) (0 -1950) (550 0) (0 -18050))
+  )
+  T(G
+   R(l4 (-750 -9025) (1500 18050))
+  )
+  T(D
+   R(l8 (750 -9025) (3700 18050))
+  )
+  T(B
+   R(l9 (-750 -9025) (1500 18050))
+  )
+ )
+ D(D$P$58 P
+  T(S
+   Q(l8 (-4950 -7000) (0 15000) (3700 0) (0 -1000) (500 0) (0 -14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (3900 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$59 P
+  T(S
+   R(l8 (-4450 -7500) (3700 15000))
+  )
+  T(G
+   R(l4 (-750 -7500) (1500 15000))
+  )
+  T(D
+   Q(l8 (750 -7500) (0 15000) (3700 0) (0 -1000) (500 0) (0 -14000))
+  )
+  T(B
+   R(l9 (-750 -7500) (1500 15000))
+  )
+ )
+ D(D$P$60 P
+  T(S
+   R(l8 (-4650 -6000) (3900 12000))
+  )
+  T(G
+   R(l4 (-750 -6000) (1500 12000))
+  )
+  T(D
+   R(l8 (750 -6000) (3900 12000))
+  )
+  T(B
+   R(l9 (-750 -6000) (1500 12000))
+  )
+ )
+ D(D$P$61 P
+  T(S
+   R(l8 (-4650 -6000) (3900 12000))
+  )
+  T(G
+   R(l4 (-750 -6000) (1500 12000))
+  )
+  T(D
+   R(l8 (750 -6000) (3700 12000))
+  )
+  T(B
+   R(l9 (-750 -6000) (1500 12000))
+  )
+ )
+ D(D$P$62 P
+  T(S
+   R(l8 (-4450 -9500) (3700 19000))
+  )
+  T(G
+   R(l4 (-750 -9500) (1500 19000))
+  )
+  T(D
+   R(l8 (750 -9500) (3700 19000))
+  )
+  T(B
+   R(l9 (-750 -9500) (1500 19000))
+  )
+ )
+ D(D$P$63 P
+  T(S
+   R(l8 (-4450 -7000) (3700 14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (1800 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$64 P
+  T(S
+   R(l8 (-2550 -7000) (1800 14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (1650 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$65 P
+  T(S
+   Q(l8 (1250 -8500) (0 1500) (-500 0) (0 14000) (500 0) (0 500) (3700 0) (0 -16000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (-2400 -7000) (1650 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$66 P
+  T(S
+   Q(l8 (-4450 -8000) (0 1500) (-500 0) (0 14000) (500 0) (0 500) (3700 0) (0 -16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (3700 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$67 P
+  T(S
+   Q(l8 (-4950 -8000) (0 14000) (3700 0) (0 -1000) (500 0) (0 -10000) (-500 0) (0 -3000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (4550 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$68 P
+  T(S
+   R(l8 (-5300 -5000) (4550 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (4000 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$69 P
+  T(S
+   R(l8 (-2750 -7000) (2000 14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (2000 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$70 P
+  T(S
+   R(l8 (-2750 -7000) (2000 14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   Q(l8 (750 -7000) (0 14000) (3700 0) (0 -1000) (500 0) (0 -10000) (-500 0) (0 -3000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$71 P
+  T(S
+   R(l8 (-4450 -9500) (3700 19000))
+  )
+  T(G
+   R(l4 (-750 -9500) (1500 19000))
+  )
+  T(D
+   R(l8 (750 -9500) (2000 19000))
+  )
+  T(B
+   R(l9 (-750 -9500) (1500 19000))
+  )
+ )
+ D(D$P$72 P
+  T(S
+   R(l8 (-2750 -9500) (2000 19000))
+  )
+  T(G
+   R(l4 (-750 -9500) (1500 19000))
+  )
+  T(D
+   R(l8 (750 -9500) (1800 19000))
+  )
+  T(B
+   R(l9 (-750 -9500) (1500 19000))
+  )
+ )
+ D(D$P$73 P
+  T(S
+   R(l8 (-2550 -9500) (1800 19000))
+  )
+  T(G
+   R(l4 (-750 -9500) (1500 19000))
+  )
+  T(D
+   Q(l8 (750 -9500) (0 19000) (8400 0) (0 -17000) (-500 0) (0 -2000))
+  )
+  T(B
+   R(l9 (-750 -9500) (1500 19000))
+  )
+ )
+ D(D$P$74 P
+  T(S
+   Q(l8 (-9150 -10500) (0 19000) (8400 0) (0 -17000) (-500 0) (0 -2000))
+  )
+  T(G
+   R(l4 (-750 -8500) (1500 17000))
+  )
+  T(D
+   R(l8 (750 -8500) (3700 17000))
+  )
+  T(B
+   R(l9 (-750 -8500) (1500 17000))
+  )
+ )
+ D(D$P$75 P
+  T(S
+   R(l8 (-3325 -9925) (5150 18350))
+  )
+  T(G
+   Q(l4 (1825 -9925) (0 18350) (-5150 0) (0 1500) (6650 0) (0 -19850))
+  )
+  T(D
+   Q(l8 (3325 -9925) (0 19850) (-6650 0) (0 3700) (17300 0) (0 -3700) (-6650 0) (0 -19850))
+  )
+  T(B
+   Q(l9 (1825 -9925) (0 18350) (-5150 0) (0 1500) (6650 0) (0 -19850))
+  )
+ )
+ D(D$P$76 P
+  T(S
+   Q(l8 (-7325 -9925) (0 19850) (-6650 0) (0 3700) (17300 0) (0 -3700) (-6650 0) (0 -19850))
+  )
+  T(G
+   Q(l4 (-3325 -9925) (0 19850) (6650 0) (0 -1500) (-5150 0) (0 -18350))
+  )
+  T(D
+   R(l8 (-1825 -9925) (5150 18350))
+  )
+  T(B
+   Q(l9 (-3325 -9925) (0 19850) (6650 0) (0 -1500) (-5150 0) (0 -18350))
+  )
+ )
+ D(D$P$77 P
+  T(S
+   Q(l8 (-18475 -8075) (0 23400) (22250 0) (0 -6750) (-1150 0) (0 -500) (-5250 0) (0 -16150) (-3950 0) (0 19050) (-7000 0) (0 -19050))
+  )
+  T(G
+   Q(l4 (-2625 -8075) (0 16150) (5250 0) (0 -1500) (-3750 0) (0 -14650))
+  )
+  T(D
+   R(l8 (-1125 -8075) (3750 14650))
+  )
+  T(B
+   Q(l9 (-2625 -8075) (0 16150) (5250 0) (0 -1500) (-3750 0) (0 -14650))
+  )
+ )
+ D(D$P$78 P
+  T(S
+   Q(l8 (-8400 -9525) (0 23400) (22250 0) (0 -6750) (-1150 0) (0 -500) (-5250 0) (0 -16150) (-3950 0) (0 19050) (-7000 0) (0 -19050))
+  )
+  T(G
+   Q(l4 (-3500 -9525) (0 19050) (7000 0) (0 -19050) (-1500 0) (0 17550) (-4000 0) (0 -17550))
+  )
+  T(D
+   R(l8 (-2000 -9525) (4000 17550))
+  )
+  T(B
+   Q(l9 (-3500 -9525) (0 19050) (7000 0) (0 -19050) (-1500 0) (0 17550) (-4000 0) (0 -17550))
+  )
+ )
+ D(D$P$79 P
+  T(S
+   Q(l8 (-6750 -3400) (0 15000) (1600 0) (0 -6500) (10000 0) (0 -1700) (-9700 0) (0 -6800))
+  )
+  T(G
+   Q(l4 (-4850 -3400) (0 6800) (9700 0) (0 -1500) (-8200 0) (0 -5300))
+  )
+  T(D
+   Q(l8 (-3350 -3400) (0 5300) (8200 0) (0 -3900) (-5150 0) (0 -1400))
+  )
+  T(B
+   Q(l9 (-4850 -3400) (0 6800) (9700 0) (0 -1500) (-8200 0) (0 -5300))
+  )
+ )
+ D(D$P$80 P
+  T(S
+   R(l8 (-2750 -7500) (2000 15000))
+  )
+  T(G
+   R(l4 (-750 -7500) (1500 15000))
+  )
+  T(D
+   R(l8 (750 -7500) (3900 15000))
+  )
+  T(B
+   R(l9 (-750 -7500) (1500 15000))
+  )
+ )
+ D(D$P$81 P
+  T(S
+   R(l8 (-4650 -7500) (3900 15000))
+  )
+  T(G
+   R(l4 (-750 -7500) (1500 15000))
+  )
+  T(D
+   Q(l8 (750 -7500) (0 15000) (1600 0) (0 -6500) (10000 0) (0 -1700) (-9700 0) (0 -6800))
+  )
+  T(B
+   R(l9 (-750 -7500) (1500 15000))
+  )
+ )
+ D(D$P$82 P
+  T(S
+   Q(l8 (-6600 -11750) (0 15000) (1600 0) (0 -6500) (10000 0) (0 -1700) (-9700 0) (0 -6800))
+  )
+  T(G
+   Q(l4 (-5000 -3250) (0 6500) (1500 0) (0 -5000) (8500 0) (0 -1500))
+  )
+  T(D
+   R(l8 (-3500 -1750) (8500 5000))
+  )
+  T(B
+   Q(l9 (-5000 -3250) (0 6500) (1500 0) (0 -5000) (8500 0) (0 -1500))
+  )
+ )
+ D(D$P$83 P
+  T(S
+   R(l8 (-4450 -8000) (3700 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (3700 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$84 P
+  T(S
+   R(l8 (-4450 -8000) (3700 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (1600 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$85 P
+  T(S
+   R(l8 (-2350 -8000) (1600 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (1600 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$86 P
+  T(S
+   R(l8 (-2350 -8000) (1600 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (4500 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$87 P
+  T(S
+   Q(l8 (1250 -10500) (0 7000) (-500 0) (0 7000) (4200 0) (0 -14000))
+  )
+  T(G
+   R(l4 (-750 -3500) (1500 7000))
+  )
+  T(D
+   R(l8 (-4450 -3500) (3700 7000))
+  )
+  T(B
+   R(l9 (-750 -3500) (1500 7000))
+  )
+ )
+ D(D$P$88 P
+  T(S
+   Q(l8 (-4450 -7000) (0 7000) (-500 0) (0 7000) (4200 0) (0 -14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (3700 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$89 P
+  T(S
+   R(l8 (-4450 -6250) (3700 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   Q(l8 (750 -6250) (0 12500) (500 0) (0 1500) (4000 0) (0 -14000))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$90 P
+  T(S
+   Q(l8 (-5250 -7000) (0 12500) (500 0) (0 1500) (4000 0) (0 -14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (3700 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$91 P
+  T(S
+   R(l8 (-4450 -7750) (3700 15500))
+  )
+  T(G
+   R(l4 (-750 -7750) (1500 15500))
+  )
+  T(D
+   R(l8 (750 -7750) (3900 15500))
+  )
+  T(B
+   R(l9 (-750 -7750) (1500 15500))
+  )
+ )
+ D(D$P$92 P
+  T(S
+   R(l8 (-4650 -7750) (3900 15500))
+  )
+  T(G
+   R(l4 (-750 -7750) (1500 15500))
+  )
+  T(D
+   R(l8 (750 -7750) (3700 15500))
+  )
+  T(B
+   R(l9 (-750 -7750) (1500 15500))
+  )
+ )
+ D(D$P$93 P
+  T(S
+   R(l8 (-4450 -8000) (3700 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (3900 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$94 P
+  T(S
+   R(l8 (-4650 -8000) (3900 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (3700 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$95 P
+  T(S
+   R(l8 (-4650 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (750 -4000) (3700 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$96 P
+  T(S
+   R(l8 (-4450 -6250) (3700 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (3900 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$97 P
+  T(S
+   R(l8 (-4650 -6250) (3900 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (3900 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$98 P
+  T(S
+   R(l8 (-4650 -6250) (3900 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (4100 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$99 P
+  T(S
+   R(l8 (-4850 -6250) (4100 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (3700 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$100 P
+  T(S
+   R(l8 (-4650 -6250) (3900 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (3700 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$101 P
+  T(S
+   R(l8 (-4450 -5025) (3700 10050))
+  )
+  T(G
+   R(l4 (-750 -5025) (1500 10050))
+  )
+  T(D
+   R(l8 (750 -5025) (3700 10050))
+  )
+  T(B
+   R(l9 (-750 -5025) (1500 10050))
+  )
+ )
+ D(D$P$102 P
+  T(S
+   R(l8 (-4450 -8000) (3700 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (2000 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$103 P
+  T(S
+   R(l8 (-2750 -8000) (2000 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (3700 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$104 P
+  T(S
+   R(l8 (-4450 -5000) (3700 10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   Q(l8 (750 -5000) (0 10000) (500 0) (0 4000) (3900 0) (0 -14000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$105 P
+  T(S
+   Q(l8 (-5150 -7000) (0 10000) (500 0) (0 4000) (3900 0) (0 -14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (3700 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$106 P
+  T(S
+   Q(l8 (1250 -7400) (0 2400) (-500 0) (0 10000) (500 0) (0 4700) (7800 0) (0 -3700) (-4100 0) (0 -13400))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (-4650 -5000) (3900 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$107 P
+  T(S
+   Q(l8 (-5750 -6700) (0 2400) (-500 0) (0 10000) (500 0) (0 4700) (7800 0) (0 -3700) (-4100 0) (0 -13400))
+  )
+  T(G
+   Q(l4 (-2050 -6700) (0 13400) (4100 0) (0 -1500) (-2600 0) (0 -11900))
+  )
+  T(D
+   Q(l8 (-550 -6700) (0 11900) (2600 0) (0 -1150) (1100 0) (0 -10750))
+  )
+  T(B
+   Q(l9 (-2050 -6700) (0 13400) (4100 0) (0 -1500) (-2600 0) (0 -11900))
+  )
+ )
+ D(D$P$108 P
+  T(S
+   Q(l8 (-2650 -6350) (0 8800) (-550 0) (0 2400) (4900 0) (0 -11200))
+  )
+  T(G
+   Q(l4 (1700 -6350) (0 11200) (-4900 0) (0 1500) (6400 0) (0 -12700))
+  )
+  T(D
+   Q(l8 (3200 -6350) (0 12700) (-6400 0) (0 3700) (16150 0) (0 -3700) (-5800 0) (0 -12700))
+  )
+  T(B
+   Q(l9 (1700 -6350) (0 11200) (-4900 0) (0 1500) (6400 0) (0 -12700))
+  )
+ )
+ D(D$P$109 P
+  T(S
+   Q(l8 (-6850 -6350) (0 12700) (-6400 0) (0 3700) (16150 0) (0 -3700) (-5800 0) (0 -12700))
+  )
+  T(G
+   Q(l4 (-2900 -6350) (0 12700) (5800 0) (0 -1500) (-4300 0) (0 -11200))
+  )
+  T(D
+   R(l8 (-1400 -6350) (4300 11200))
+  )
+  T(B
+   Q(l9 (-2900 -6350) (0 12700) (5800 0) (0 -1500) (-4300 0) (0 -11200))
+  )
+ )
+ D(D$P$110 P
+  T(S
+   Q(l8 (-4950 -7400) (0 13400) (-4100 0) (0 3700) (7800 0) (0 -4700) (500 0) (0 -10000) (-500 0) (0 -2400))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (3900 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$111 P
+  T(S
+   Q(l8 (-3150 -6700) (0 10750) (1100 0) (0 1150) (2600 0) (0 -11900))
+  )
+  T(G
+   Q(l4 (550 -6700) (0 11900) (-2600 0) (0 1500) (4100 0) (0 -13400))
+  )
+  T(D
+   Q(l8 (2050 -6700) (0 13400) (-4100 0) (0 3700) (7800 0) (0 -4700) (500 0) (0 -10000) (-500 0) (0 -2400))
+  )
+  T(B
+   Q(l9 (550 -6700) (0 11900) (-2600 0) (0 1500) (4100 0) (0 -13400))
+  )
+ )
+ D(D$P$112 P
+  T(S
+   R(l8 (-4450 -5100) (3700 10200))
+  )
+  T(G
+   R(l4 (-750 -5100) (1500 10200))
+  )
+  T(D
+   Q(l8 (750 -5100) (0 10200) (3900 0) (0 -6605) (-700 -834) (0 -2561) (-550 0) (0 -200))
+  )
+  T(B
+   R(l9 (-750 -5100) (1500 10200))
+  )
+ )
+ D(D$P$113 P
+  T(S
+   Q(l8 (-4300 -5200) (0 10200) (3900 0) (0 -6605) (-700 -834) (0 -2561) (-550 0) (0 -200))
+  )
+  T(G
+   Q(l4 (-1100 -5000) (0 2561) (700 834) (0 6605) (1500 0) (0 -7165) (-700 -834) (0 -2001))
+  )
+  T(D
+   Q(l8 (400 -5000) (0 2001) (700 834) (0 7165) (3900 0) (0 -10000))
+  )
+  T(B
+   Q(l9 (-1100 -5000) (0 2561) (700 834) (0 6605) (1500 0) (0 -7165) (-700 -834) (0 -2001))
+  )
+ )
+ D(D$P$114 P
+  T(S
+   Q(l8 (1250 -5450) (0 450) (-500 0) (0 10000) (500 0) (0 5250) (8900 0) (0 -3700) (-5200 0) (0 -12000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   Q(l8 (-5350 -5000) (0 2001) (700 834) (0 7165) (3900 0) (0 -10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$115 P
+  T(S
+   Q(l8 (-6300 -6000) (0 450) (-500 0) (0 10000) (500 0) (0 5250) (8900 0) (0 -3700) (-5200 0) (0 -12000))
+  )
+  T(G
+   Q(l4 (-2600 -6000) (0 12000) (5200 0) (0 -1500) (-3700 0) (0 -10500))
+  )
+  T(D
+   R(l8 (-1100 -6000) (3700 10500))
+  )
+  T(B
+   Q(l9 (-2600 -6000) (0 12000) (5200 0) (0 -1500) (-3700 0) (0 -10500))
+  )
+ )
+ D(D$P$116 P
+  T(S
+   Q(l8 (-4950 -5450) (0 12000) (-5200 0) (0 3700) (8900 0) (0 -5250) (500 0) (0 -10000) (-500 0) (0 -450))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   Q(l8 (750 -5000) (0 10000) (3900 0) (0 -7151) (700 -834) (0 -2015))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$117 P
+  T(S
+   Q(l8 (1650 -5150) (0 150) (-550 0) (0 2566) (-700 834) (0 6600) (3900 0) (0 -10150))
+  )
+  T(G
+   Q(l4 (-400 -5000) (0 2015) (-700 834) (0 7151) (1500 0) (0 -6600) (700 -834) (0 -2566))
+  )
+  T(D
+   Q(l8 (-5000 -5000) (0 10000) (3900 0) (0 -7151) (700 -834) (0 -2015))
+  )
+  T(B
+   Q(l9 (-400 -5000) (0 2015) (-700 834) (0 7151) (1500 0) (0 -6600) (700 -834) (0 -2566))
+  )
+ )
+ D(D$P$118 P
+  T(S
+   Q(l8 (-3400 -5075) (0 150) (-550 0) (0 2566) (-700 834) (0 6600) (3900 0) (0 -10150))
+  )
+  T(G
+   R(l4 (-750 -5075) (1500 10150))
+  )
+  T(D
+   R(l8 (750 -5075) (3700 10150))
+  )
+  T(B
+   R(l9 (-750 -5075) (1500 10150))
+  )
+ )
+ D(D$P$119 P
+  T(S
+   R(l8 (-2600 -6000) (3700 10500))
+  )
+  T(G
+   Q(l4 (1100 -6000) (0 10500) (-3700 0) (0 1500) (5200 0) (0 -12000))
+  )
+  T(D
+   Q(l8 (2600 -6000) (0 12000) (-5200 0) (0 3700) (8900 0) (0 -5250) (500 0) (0 -10000) (-500 0) (0 -450))
+  )
+  T(B
+   Q(l9 (1100 -6000) (0 10500) (-3700 0) (0 1500) (5200 0) (0 -12000))
+  )
+ )
+ D(D$P$120 P
+  T(S
+   Q(l8 (-4850 -9000) (0 20000) (3600 0) (0 -2000) (500 0) (0 -18000))
+  )
+  T(G
+   R(l4 (-750 -9000) (1500 18000))
+  )
+  T(D
+   R(l8 (750 -9000) (4200 18000))
+  )
+  T(B
+   R(l9 (-750 -9000) (1500 18000))
+  )
+ )
+ D(D$P$121 P
+  T(S
+   R(l8 (-4950 -9000) (4200 18000))
+  )
+  T(G
+   R(l4 (-750 -9000) (1500 18000))
+  )
+  T(D
+   R(l8 (750 -9000) (3700 18000))
+  )
+  T(B
+   R(l9 (-750 -9000) (1500 18000))
+  )
+ )
+ D(D$P$122 P
+  T(S
+   R(l8 (-4650 -10000) (3900 20000))
+  )
+  T(G
+   R(l4 (-750 -10000) (1500 20000))
+  )
+  T(D
+   Q(l8 (750 -10000) (0 20000) (3600 0) (0 -2000) (500 0) (0 -18000))
+  )
+  T(B
+   R(l9 (-750 -10000) (1500 20000))
+  )
+ )
+ D(D$P$123 P
+  T(S
+   R(l8 (-4450 -8000) (3700 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (4200 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$124 P
+  T(S
+   R(l8 (-4950 -8000) (4200 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (3700 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$125 P
+  T(S
+   Q(l8 (-5900 -9550) (0 22800) (8100 0) (0 -3700) (-4400 0) (0 -19100))
+  )
+  T(G
+   Q(l4 (-2200 -9550) (0 19100) (4400 0) (0 -1500) (-2900 0) (0 -17600))
+  )
+  T(D
+   Q(l8 (-700 -9550) (0 17600) (2900 0) (0 -650) (800 0) (0 -16950))
+  )
+  T(B
+   Q(l9 (-2200 -9550) (0 19100) (4400 0) (0 -1500) (-2900 0) (0 -17600))
+  )
+ )
+ D(D$P$126 P
+  T(S
+   R(l8 (-4650 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   Q(l8 (750 -4000) (0 8000) (500 0) (0 4500) (3700 0) (0 -12500))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$127 P
+  T(S
+   Q(l8 (-7000 -6150) (0 2500) (-800 0) (0 12500) (500 0) (0 1100) (10900 0) (0 -3800) (-7200 0) (0 -12300))
+  )
+  T(G
+   Q(l4 (-3600 -6150) (0 12300) (7200 0) (0 -1500) (-5700 0) (0 -10800))
+  )
+  T(D
+   Q(l8 (-2100 -6150) (0 10800) (5700 0) (0 -3700) (-2000 0) (0 -7100))
+  )
+  T(B
+   Q(l9 (-3600 -6150) (0 12300) (7200 0) (0 -1500) (-5700 0) (0 -10800))
+  )
+ )
+ D(D$P$128 P
+  T(S
+   Q(l8 (-4950 -6250) (0 8000) (500 0) (0 4500) (3700 0) (0 -12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (4200 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$129 P
+  T(S
+   R(l8 (-4950 -6250) (4200 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (1700 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$130 P
+  T(S
+   Q(l8 (1550 -8750) (0 2500) (-800 0) (0 12500) (500 0) (0 1100) (10900 0) (0 -3800) (-7200 0) (0 -12300))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (-2450 -6250) (1700 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$131 P
+  T(S
+   Q(l8 (-5650 -9500) (0 450) (-1000 0) (0 19050) (3000 0) (0 -500) (2900 0) (0 -19000))
+  )
+  T(G
+   R(l4 (-750 -9500) (1500 19000))
+  )
+  T(D
+   R(l8 (750 -9500) (3700 19000))
+  )
+  T(B
+   R(l9 (-750 -9500) (1500 19000))
+  )
+ )
+ D(D$P$132 P
+  T(S
+   R(l8 (-2600 -10275) (3700 19050))
+  )
+  T(G
+   Q(l4 (1100 -10275) (0 19050) (-3700 0) (0 1500) (5200 0) (0 -20550))
+  )
+  T(D
+   Q(l8 (2600 -10275) (0 20550) (-5200 0) (0 3700) (13900 0) (0 -3700) (-4500 0) (0 -20550))
+  )
+  T(B
+   Q(l9 (1100 -10275) (0 19050) (-3700 0) (0 1500) (5200 0) (0 -20550))
+  )
+ )
+ D(D$P$133 P
+  T(S
+   Q(l8 (250 -10725) (0 450) (-1000 0) (0 19050) (3000 0) (0 -500) (2900 0) (0 -19000))
+  )
+  T(G
+   Q(l4 (-2250 -10275) (0 20550) (4500 0) (0 -1500) (-3000 0) (0 -19050))
+  )
+  T(D
+   Q(l8 (-6450 -10275) (0 20550) (-5200 0) (0 3700) (13900 0) (0 -3700) (-4500 0) (0 -20550))
+  )
+  T(B
+   Q(l9 (-2250 -10275) (0 20550) (4500 0) (0 -1500) (-3000 0) (0 -19050))
+  )
+ )
+ D(D$P$134 P
+  T(S
+   R(l8 (-4650 -7750) (3900 15500))
+  )
+  T(G
+   R(l4 (-750 -7750) (1500 15500))
+  )
+  T(D
+   R(l8 (750 -7750) (3900 15500))
+  )
+  T(B
+   R(l9 (-750 -7750) (1500 15500))
+  )
+ )
+ D(D$P$135 P
+  T(S
+   R(l8 (-4750 -6000) (4000 12000))
+  )
+  T(G
+   R(l4 (-750 -6000) (1500 12000))
+  )
+  T(D
+   R(l8 (750 -6000) (3900 12000))
+  )
+  T(B
+   R(l9 (-750 -6000) (1500 12000))
+  )
+ )
+ D(D$P$136 P
+  T(S
+   R(l8 (-4650 -6000) (3900 12000))
+  )
+  T(G
+   R(l4 (-750 -6000) (1500 12000))
+  )
+  T(D
+   Q(l8 (750 -6000) (0 12000) (700 0) (0 8000) (3800 0) (0 -20000))
+  )
+  T(B
+   R(l9 (-750 -6000) (1500 12000))
+  )
+ )
+ D(D$P$137 P
+  T(S
+   Q(l8 (-4650 -9000) (0 20000) (2000 0) (0 -2000) (1900 0) (0 -18000))
+  )
+  T(G
+   R(l4 (-750 -9000) (1500 18000))
+  )
+  T(D
+   R(l8 (750 -9000) (3700 18000))
+  )
+  T(B
+   R(l9 (-750 -9000) (1500 18000))
+  )
+ )
+ D(D$P$138 P
+  T(S
+   Q(l8 (-5250 -10000) (0 12000) (700 0) (0 8000) (3800 0) (0 -20000))
+  )
+  T(G
+   R(l4 (-750 -10000) (1500 20000))
+  )
+  T(D
+   Q(l8 (750 -10000) (0 20000) (2000 0) (0 -2000) (1900 0) (0 -18000))
+  )
+  T(B
+   R(l9 (-750 -10000) (1500 20000))
+  )
+ )
+ D(D$P$139 P
+  T(S
+   Q(l8 (-5550 -3750) (0 8200) (-5200 0) (0 4300) (9500 0) (0 -5000) (500 0) (0 -7500))
+  )
+  T(G
+   R(l4 (-750 -3750) (1500 7500))
+  )
+  T(D
+   R(l8 (750 -3750) (4000 7500))
+  )
+  T(B
+   R(l9 (-750 -3750) (1500 7500))
+  )
+ )
+ D(D$P$140 P
+  T(S
+   R(l8 (-4750 -3750) (4000 7500))
+  )
+  T(G
+   R(l4 (-750 -3750) (1500 7500))
+  )
+  T(D
+   Q(l8 (750 -3750) (0 7500) (500 0) (0 7700) (8900 0) (0 -3900) (-5200 0) (0 -11300))
+  )
+  T(B
+   R(l9 (-750 -3750) (1500 7500))
+  )
+ )
+ D(D$P$141 P
+  T(S
+   R(l8 (-2600 -4100) (3700 6700))
+  )
+  T(G
+   Q(l4 (1100 -4100) (0 6700) (-3700 0) (0 1500) (5200 0) (0 -8200))
+  )
+  T(D
+   Q(l8 (2600 -4100) (0 8200) (-5200 0) (0 4300) (9500 0) (0 -5000) (500 0) (0 -7500))
+  )
+  T(B
+   Q(l9 (1100 -4100) (0 6700) (-3700 0) (0 1500) (5200 0) (0 -8200))
+  )
+ )
+ D(D$P$142 P
+  T(S
+   Q(l8 (-6800 -5650) (0 7500) (500 0) (0 7700) (8900 0) (0 -3900) (-5200 0) (0 -11300))
+  )
+  T(G
+   Q(l4 (-2600 -5650) (0 11300) (5200 0) (0 -1500) (-3700 0) (0 -9800))
+  )
+  T(D
+   R(l8 (-1100 -5650) (3700 9800))
+  )
+  T(B
+   Q(l9 (-2600 -5650) (0 11300) (5200 0) (0 -1500) (-3700 0) (0 -9800))
+  )
+ )
+ D(D$P$143 P
+  T(S
+   R(l8 (-4450 -6250) (3700 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (1800 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$144 P
+  T(S
+   R(l8 (-2550 -6250) (1800 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (1700 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$145 P
+  T(S
+   R(l8 (-2450 -6250) (1700 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   Q(l8 (750 -6250) (0 12500) (500 0) (0 6000) (6700 0) (0 -18500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$146 P
+  T(S
+   Q(l8 (-7950 -9250) (0 12500) (500 0) (0 6000) (6700 0) (0 -18500))
+  )
+  T(G
+   R(l4 (-750 -9250) (1500 18500))
+  )
+  T(D
+   R(l8 (750 -9250) (3900 18500))
+  )
+  T(B
+   R(l9 (-750 -9250) (1500 18500))
+  )
+ )
+ D(D$P$147 P
+  T(S
+   R(l8 (-4650 -9250) (3900 18500))
+  )
+  T(G
+   R(l4 (-750 -9250) (1500 18500))
+  )
+  T(D
+   R(l8 (750 -9250) (1800 18500))
+  )
+  T(B
+   R(l9 (-750 -9250) (1500 18500))
+  )
+ )
+ D(D$P$148 P
+  T(S
+   R(l8 (-2550 -9250) (1800 18500))
+  )
+  T(G
+   R(l4 (-750 -9250) (1500 18500))
+  )
+  T(D
+   R(l8 (750 -9250) (1700 18500))
+  )
+  T(B
+   R(l9 (-750 -9250) (1500 18500))
+  )
+ )
+ D(D$P$149 P
+  T(S
+   R(l8 (-2450 -9250) (1700 18500))
+  )
+  T(G
+   R(l4 (-750 -9250) (1500 18500))
+  )
+  T(D
+   R(l8 (750 -9250) (3700 18500))
+  )
+  T(B
+   R(l9 (-750 -9250) (1500 18500))
+  )
+ )
+ D(D$P$150 P
+  T(S
+   R(l8 (-4650 -6500) (3900 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (4500 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$151 P
+  T(S
+   Q(l8 (6250 -11450) (0 4950) (-5500 0) (0 13000) (3500 0) (0 4050) (4000 0) (0 -22000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (-5250 -6500) (4500 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$152 P
+  T(S
+   Q(l8 (-2750 -11000) (0 4950) (-5500 0) (0 13000) (3500 0) (0 4050) (4000 0) (0 -22000))
+  )
+  T(G
+   R(l4 (-750 -11000) (1500 22000))
+  )
+  T(D
+   R(l8 (750 -11000) (4000 22000))
+  )
+  T(B
+   R(l9 (-750 -11000) (1500 22000))
+  )
+ )
+ D(D$P$153 P
+  T(S
+   R(l8 (-4650 -4000) (3900 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   Q(l8 (750 -4000) (0 8000) (2500 0) (0 2500) (2000 0) (0 -9800) (-500 0) (0 -700))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$154 P
+  T(S
+   Q(l8 (-5250 -4000) (0 10500) (2000 0) (0 -2500) (2500 0) (0 -8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (750 -4000) (3900 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$155 P
+  T(S
+   Q(l8 (1250 -7700) (0 3700) (-500 0) (0 8000) (500 0) (0 3800) (3400 0) (0 -15500))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (-4650 -4000) (3900 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$156 P
+  T(S
+   Q(l8 (-4150 -7750) (0 3700) (-500 0) (0 8000) (500 0) (0 3800) (3400 0) (0 -15500))
+  )
+  T(G
+   R(l4 (-750 -7750) (1500 15500))
+  )
+  T(D
+   R(l8 (750 -7750) (3900 15500))
+  )
+  T(B
+   R(l9 (-750 -7750) (1500 15500))
+  )
+ )
+ D(D$P$157 P
+  T(S
+   Q(l8 (-4250 -6350) (0 8000) (2500 0) (0 2500) (2000 0) (0 -9800) (-500 0) (0 -700))
+  )
+  T(G
+   Q(l4 (250 -5650) (0 9800) (-2000 0) (0 1500) (3500 0) (0 -11300))
+  )
+  T(D
+   Q(l8 (3650 -6350) (0 700) (-1900 0) (0 11300) (-3500 0) (0 3700) (10900 0) (0 -3700) (-3500 0) (0 -12000))
+  )
+  T(B
+   Q(l9 (250 -5650) (0 9800) (-2000 0) (0 1500) (3500 0) (0 -11300))
+  )
+ )
+ D(D$P$158 P
+  T(S
+   Q(l8 (-3750 -6000) (0 700) (-1900 0) (0 11300) (-3500 0) (0 3700) (10900 0) (0 -3700) (-3500 0) (0 -12000))
+  )
+  T(G
+   Q(l4 (-1750 -6000) (0 12000) (3500 0) (0 -1500) (-2000 0) (0 -10500))
+  )
+  T(D
+   Q(l8 (-250 -6000) (0 10500) (2000 0) (0 -2500) (2500 0) (0 -8000))
+  )
+  T(B
+   Q(l9 (-1750 -6000) (0 12000) (3500 0) (0 -1500) (-2000 0) (0 -10500))
+  )
+ )
+ D(D$P$159 P
+  T(S
+   Q(l8 (-6600 -7150) (0 16000) (950 0) (0 2000) (8250 0) (0 -3700) (-5200 0) (0 -14300))
+  )
+  T(G
+   Q(l4 (-2600 -7150) (0 14300) (5200 0) (0 -1500) (-3700 0) (0 -12800))
+  )
+  T(D
+   R(l8 (-1100 -7150) (3700 12800))
+  )
+  T(B
+   Q(l9 (-2600 -7150) (0 14300) (5200 0) (0 -1500) (-3700 0) (0 -12800))
+  )
+ )
+ D(D$P$160 P
+  T(S
+   R(l8 (-4650 -8000) (3900 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   Q(l8 (750 -8000) (0 16000) (950 0) (0 2000) (8250 0) (0 -3700) (-5200 0) (0 -14300))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$161 P
+  T(S
+   R(l8 (-4550 -5275) (3800 10550))
+  )
+  T(G
+   R(l4 (-750 -5275) (1500 10550))
+  )
+  T(D
+   R(l8 (750 -5275) (2000 10550))
+  )
+  T(B
+   R(l9 (-750 -5275) (1500 10550))
+  )
+ )
+ D(D$P$162 P
+  T(S
+   R(l8 (-2750 -5275) (2000 10550))
+  )
+  T(G
+   R(l4 (-750 -5275) (1500 10550))
+  )
+  T(D
+   Q(l8 (750 -5275) (0 10550) (750 0) (0 2450) (4900 0) (0 -12500) (-700 0) (0 -500))
+  )
+  T(B
+   R(l9 (-750 -5275) (1500 10550))
+  )
+ )
+ D(D$P$163 P
+  T(S
+   Q(l8 (-6400 -6750) (0 10550) (750 0) (0 2450) (4900 0) (0 -12500) (-700 0) (0 -500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (3700 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$164 P
+  T(S
+   Q(l8 (-9000 -5650) (0 12500) (500 0) (0 2550) (13600 0) (0 -3750) (-10200 0) (0 -11300))
+  )
+  T(G
+   Q(l4 (-5100 -5650) (0 11300) (10200 0) (0 -1500) (-8700 0) (0 -9800))
+  )
+  T(D
+   Q(l8 (-3600 -5650) (0 9800) (8700 0) (0 -3700) (-4350 0) (0 -6100))
+  )
+  T(B
+   Q(l9 (-5100 -5650) (0 11300) (10200 0) (0 -1500) (-8700 0) (0 -9800))
+  )
+ )
+ D(D$P$165 P
+  T(S
+   R(l8 (-4450 -6250) (3700 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   Q(l8 (750 -6250) (0 12500) (500 0) (0 2550) (13600 0) (0 -3750) (-10200 0) (0 -11300))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$166 P
+  T(S
+   R(l8 (-4450 -9000) (3700 18000))
+  )
+  T(G
+   R(l4 (-750 -9000) (1500 18000))
+  )
+  T(D
+   R(l8 (750 -9000) (2000 18000))
+  )
+  T(B
+   R(l9 (-750 -9000) (1500 18000))
+  )
+ )
+ D(D$P$167 P
+  T(S
+   R(l8 (-2750 -9000) (2000 18000))
+  )
+  T(G
+   R(l4 (-750 -9000) (1500 18000))
+  )
+  T(D
+   R(l8 (750 -9000) (2000 18000))
+  )
+  T(B
+   R(l9 (-750 -9000) (1500 18000))
+  )
+ )
+ D(D$P$168 P
+  T(S
+   R(l8 (-2750 -9000) (2000 18000))
+  )
+  T(G
+   R(l4 (-750 -9000) (1500 18000))
+  )
+  T(D
+   R(l8 (750 -9000) (3800 18000))
+  )
+  T(B
+   R(l9 (-750 -9000) (1500 18000))
+  )
+ )
+ D(D$P$169 P
+  T(S
+   R(l8 (-4450 -4000) (3700 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (750 -4000) (4000 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$170 P
+  T(S
+   R(l8 (-4750 -4000) (4000 8000))
+  )
+  T(G
+   R(l4 (-750 -4000) (1500 8000))
+  )
+  T(D
+   R(l8 (750 -4000) (3700 8000))
+  )
+  T(B
+   R(l9 (-750 -4000) (1500 8000))
+  )
+ )
+ D(D$P$171 P
+  T(S
+   R(l8 (-4450 -5500) (3700 11000))
+  )
+  T(G
+   R(l4 (-750 -5500) (1500 11000))
+  )
+  T(D
+   Q(l8 (750 -5500) (0 11000) (1900 0) (0 4000) (2000 0) (0 -15000))
+  )
+  T(B
+   R(l9 (-750 -5500) (1500 11000))
+  )
+ )
+ D(D$P$172 P
+  T(S
+   Q(l8 (-4650 -7500) (0 11000) (1900 0) (0 4000) (2000 0) (0 -15000))
+  )
+  T(G
+   R(l4 (-750 -7500) (1500 15000))
+  )
+  T(D
+   R(l8 (750 -7500) (3750 15000))
+  )
+  T(B
+   R(l9 (-750 -7500) (1500 15000))
+  )
+ )
+ D(D$P$173 P
+  T(S
+   Q(l8 (-1750 -6300) (0 7100) (-1700 0) (0 4000) (5400 0) (0 -11100))
+  )
+  T(G
+   Q(l4 (1950 -6300) (0 11100) (-5400 0) (0 1500) (6900 0) (0 -12600))
+  )
+  T(D
+   Q(l8 (3450 -6300) (0 12600) (-6900 0) (0 5400) (15100 0) (0 -5000) (500 0) (0 -13000))
+  )
+  T(B
+   Q(l9 (1950 -6300) (0 11100) (-5400 0) (0 1500) (6900 0) (0 -12600))
+  )
+ )
+ D(D$P$174 P
+  T(S
+   Q(l8 (-9450 -6500) (0 12600) (-6900 0) (0 5400) (15100 0) (0 -5000) (500 0) (0 -13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (2000 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$175 P
+  T(S
+   R(l8 (-2750 -6500) (2000 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (2100 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$176 P
+  T(S
+   R(l8 (-2850 -6500) (2100 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (1900 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$177 P
+  T(S
+   R(l8 (-2650 -6500) (1900 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (3700 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$178 P
+  T(S
+   R(l8 (-4450 -6500) (3700 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (2000 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$179 P
+  T(S
+   R(l8 (-2750 -6500) (2000 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (2000 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$180 P
+  T(S
+   R(l8 (-2750 -6500) (2000 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   Q(l8 (750 -6500) (0 13000) (500 0) (0 1600) (2000 0) (0 -13000) (-500 0) (0 -1600))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$181 P
+  T(S
+   Q(l8 (-3250 -8100) (0 13000) (500 0) (0 1600) (2000 0) (0 -13000) (-500 0) (0 -1600))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   R(l8 (750 -6500) (3900 13000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$182 P
+  T(S
+   Q(l8 (-7350 -9400) (0 20000) (950 0) (0 2500) (9750 0) (0 -3700) (-6700 0) (0 -18800))
+  )
+  T(G
+   Q(l4 (-3350 -9400) (0 18800) (6700 0) (0 -1500) (-5200 0) (0 -17300))
+  )
+  T(D
+   Q(l8 (-1850 -9400) (0 17300) (5200 0) (0 -3100) (-700 0) (0 -14200))
+  )
+  T(B
+   Q(l9 (-3350 -9400) (0 18800) (6700 0) (0 -1500) (-5200 0) (0 -17300))
+  )
+ )
+ D(D$P$183 P
+  T(S
+   Q(l8 (-3800 -10000) (0 400) (-850 0) (0 20000) (3200 0) (0 -400) (700 0) (0 -20000))
+  )
+  T(G
+   R(l4 (-750 -10000) (1500 20000))
+  )
+  T(D
+   Q(l8 (750 -10000) (0 20000) (950 0) (0 2500) (9750 0) (0 -3700) (-6700 0) (0 -18800))
+  )
+  T(B
+   R(l9 (-750 -10000) (1500 20000))
+  )
+ )
+ D(D$P$184 P
+  T(S
+   Q(l8 (1600 -10400) (0 400) (-850 0) (0 20000) (3200 0) (0 -400) (700 0) (0 -20000))
+  )
+  T(G
+   R(l4 (-750 -10000) (1500 20000))
+  )
+  T(D
+   R(l8 (-4450 -10000) (3700 20000))
+  )
+  T(B
+   R(l9 (-750 -10000) (1500 20000))
+  )
+ )
+ D(D$P$185 P
+  T(S
+   Q(l8 (-6400 -6750) (0 15050) (4950 0) (0 -2050) (700 0) (0 -12500) (-700 0) (0 -500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   R(l8 (750 -6250) (3700 12500))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$186 P
+  T(S
+   R(l8 (-4550 -7525) (3800 15050))
+  )
+  T(G
+   R(l4 (-750 -7525) (1500 15050))
+  )
+  T(D
+   R(l8 (750 -7525) (2000 15050))
+  )
+  T(B
+   R(l9 (-750 -7525) (1500 15050))
+  )
+ )
+ D(D$P$187 P
+  T(S
+   R(l8 (-2750 -7525) (2000 15050))
+  )
+  T(G
+   R(l4 (-750 -7525) (1500 15050))
+  )
+  T(D
+   Q(l8 (750 -7525) (0 15050) (4950 0) (0 -2050) (700 0) (0 -12500) (-700 0) (0 -500))
+  )
+  T(B
+   R(l9 (-750 -7525) (1500 15050))
+  )
+ )
+ D(D$P$188 P
+  T(S
+   Q(l8 (-7350 -5650) (0 12500) (500 0) (0 2550) (14000 0) (0 -15050) (-3700 0) (0 11300) (-6900 0) (0 -11300))
+  )
+  T(G
+   Q(l4 (-3450 -5650) (0 11300) (6900 0) (0 -11300) (-1500 0) (0 9800) (-3900 0) (0 -9800))
+  )
+  T(D
+   R(l8 (-1950 -5650) (3900 9800))
+  )
+  T(B
+   Q(l9 (-3450 -5650) (0 11300) (6900 0) (0 -11300) (-1500 0) (0 9800) (-3900 0) (0 -9800))
+  )
+ )
+ D(D$P$189 P
+  T(S
+   R(l8 (-4450 -6250) (3700 12500))
+  )
+  T(G
+   R(l4 (-750 -6250) (1500 12500))
+  )
+  T(D
+   Q(l8 (750 -6250) (0 12500) (500 0) (0 2550) (14000 0) (0 -15050) (-3700 0) (0 11300) (-6900 0) (0 -11300))
+  )
+  T(B
+   R(l9 (-750 -6250) (1500 12500))
+  )
+ )
+ D(D$P$190 P
+  T(S
+   R(l8 (-4450 -8000) (3700 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (1300 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$191 P
+  T(S
+   R(l8 (-2050 -8000) (1300 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (1300 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$192 P
+  T(S
+   R(l8 (-2050 -8000) (1300 16000))
+  )
+  T(G
+   R(l4 (-750 -8000) (1500 16000))
+  )
+  T(D
+   R(l8 (750 -8000) (3900 16000))
+  )
+  T(B
+   R(l9 (-750 -8000) (1500 16000))
+  )
+ )
+ D(D$P$193 P
+  T(S
+   R(l8 (-4450 -3500) (3700 7000))
+  )
+  T(G
+   R(l4 (-750 -3500) (1500 7000))
+  )
+  T(D
+   R(l8 (750 -3500) (2000 7000))
+  )
+  T(B
+   R(l9 (-750 -3500) (1500 7000))
+  )
+ )
+ D(D$P$194 P
+  T(S
+   Q(l8 (1250 -6500) (0 3000) (-500 0) (0 7000) (4200 0) (0 -10000))
+  )
+  T(G
+   R(l4 (-750 -3500) (1500 7000))
+  )
+  T(D
+   R(l8 (-2750 -3500) (2000 7000))
+  )
+  T(B
+   R(l9 (-750 -3500) (1500 7000))
+  )
+ )
+ D(D$P$195 P
+  T(S
+   Q(l8 (-4450 -5000) (0 3000) (-500 0) (0 7000) (4200 0) (0 -10000))
+  )
+  T(G
+   R(l4 (-750 -5000) (1500 10000))
+  )
+  T(D
+   R(l8 (750 -5000) (3900 10000))
+  )
+  T(B
+   R(l9 (-750 -5000) (1500 10000))
+  )
+ )
+ D(D$P$196 P
+  T(S
+   Q(l8 (-6950 -7000) (0 17000) (3150 0) (0 700) (6550 0) (0 -3700) (-5500 0) (0 -14000))
+  )
+  T(G
+   Q(l4 (-2750 -7000) (0 14000) (5500 0) (0 -1500) (-4000 0) (0 -12500))
+  )
+  T(D
+   R(l8 (-1250 -7000) (4000 12500))
+  )
+  T(B
+   Q(l9 (-2750 -7000) (0 14000) (5500 0) (0 -1500) (-4000 0) (0 -12500))
+  )
+ )
+ D(D$P$197 P
+  T(S
+   R(l8 (-4450 -8500) (3700 17000))
+  )
+  T(G
+   R(l4 (-750 -8500) (1500 17000))
+  )
+  T(D
+   R(l8 (750 -8500) (2000 17000))
+  )
+  T(B
+   R(l9 (-750 -8500) (1500 17000))
+  )
+ )
+ D(D$P$198 P
+  T(S
+   R(l8 (-2750 -8500) (2000 17000))
+  )
+  T(G
+   R(l4 (-750 -8500) (1500 17000))
+  )
+  T(D
+   R(l8 (750 -8500) (1800 17000))
+  )
+  T(B
+   R(l9 (-750 -8500) (1500 17000))
+  )
+ )
+ D(D$P$199 P
+  T(S
+   R(l8 (-2550 -8500) (1800 17000))
+  )
+  T(G
+   R(l4 (-750 -8500) (1500 17000))
+  )
+  T(D
+   R(l8 (750 -8500) (3900 17000))
+  )
+  T(B
+   R(l9 (-750 -8500) (1500 17000))
+  )
+ )
+ D(D$P$200 P
+  T(S
+   R(l8 (-4650 -8500) (3900 17000))
+  )
+  T(G
+   R(l4 (-750 -8500) (1500 17000))
+  )
+  T(D
+   Q(l8 (750 -8500) (0 17000) (3150 0) (0 700) (6550 0) (0 -3700) (-5500 0) (0 -14000))
+  )
+  T(B
+   R(l9 (-750 -8500) (1500 17000))
+  )
+ )
+ D(D$P$201 P
+  T(S
+   R(l8 (-4650 -6500) (3900 13000))
+  )
+  T(G
+   R(l4 (-750 -6500) (1500 13000))
+  )
+  T(D
+   Q(l8 (750 -6500) (0 13000) (2000 0) (0 1000) (2000 0) (0 -14000))
+  )
+  T(B
+   R(l9 (-750 -6500) (1500 13000))
+  )
+ )
+ D(D$P$202 P
+  T(S
+   Q(l8 (-4750 -7000) (0 13000) (2000 0) (0 1000) (2000 0) (0 -14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (1950 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$203 P
+  T(S
+   R(l8 (-2700 -7000) (1950 14000))
+  )
+  T(G
+   R(l4 (-750 -7000) (1500 14000))
+  )
+  T(D
+   R(l8 (750 -7000) (3700 14000))
+  )
+  T(B
+   R(l9 (-750 -7000) (1500 14000))
+  )
+ )
+ D(D$P$204 P
+  T(S
+   Q(l8 (2700 -9500) (0 4000) (-1950 0) (0 11000) (3950 0) (0 -15000))
+  )
+  T(G
+   R(l4 (-750 -5500) (1500 11000))
+  )
+  T(D
+   R(l8 (-4450 -5500) (3700 11000))
+  )
+  T(B
+   R(l9 (-750 -5500) (1500 11000))
+  )
+ )
+ D(D$P$205 P
+  T(S
+   Q(l8 (-2750 -7500) (0 4000) (-1950 0) (0 11000) (3950 0) (0 -15000))
+  )
+  T(G
+   R(l4 (-750 -7500) (1500 15000))
+  )
+  T(D
+   R(l8 (750 -7500) (3700 15000))
+  )
+  T(B
+   R(l9 (-750 -7500) (1500 15000))
+  )
+ )
+)

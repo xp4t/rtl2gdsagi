@@ -1,0 +1,12 @@
+{
+  "tool": "iverilog",
+  "version": "Icarus Verilog version 11.0 (stable) ()",
+  "stage": "sim",
+  "design": "register",
+  "source_run": "reg5",
+  "captured_from": "RUNS/reg5/stages/02_sim/register_tb.sim.log",
+  "expected": {
+    "self_checking": true,
+    "verdict": "pass"
+  }
+}

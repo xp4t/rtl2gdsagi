@@ -1,0 +1,275 @@
+EQY 15:13:20 [RUNS/ov10/stages/05_lec_synth/eqy] read_gold: starting process "yosys -ql RUNS/ov10/stages/05_lec_synth/eqy/gold.log RUNS/ov10/stages/05_lec_synth/eqy/gold.ys"
+EQY 15:13:20 [RUNS/ov10/stages/05_lec_synth/eqy] read_gold: RUNS/ov10/work/rtl/top.v:141: Warning: Identifier `\dummy_vga_video' is implicitly declared.
+EQY 15:13:20 [RUNS/ov10/stages/05_lec_synth/eqy] read_gate: starting process "yosys -ql RUNS/ov10/stages/05_lec_synth/eqy/gate.log RUNS/ov10/stages/05_lec_synth/eqy/gate.ys"
+EQY 15:13:20 [RUNS/ov10/stages/05_lec_synth/eqy] read_gold: Warning: Resizing cell port cam_top.configure_cam.o_SCCB_dout from 1 bits to 8 bits.
+EQY 15:13:20 [RUNS/ov10/stages/05_lec_synth/eqy] read_gold: finished (returncode=0)
+EQY 15:13:20 [RUNS/ov10/stages/05_lec_synth/eqy] read_gate: finished (returncode=0)
+EQY 15:13:20 [RUNS/ov10/stages/05_lec_synth/eqy] combine: starting process "yosys -ql RUNS/ov10/stages/05_lec_synth/eqy/combine.log RUNS/ov10/stages/05_lec_synth/eqy/combine.ys"
+EQY 15:13:20 [RUNS/ov10/stages/05_lec_synth/eqy] combine: finished (returncode=0)
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] partition: starting process "cd RUNS/ov10/stages/05_lec_synth/eqy; yosys -ql partition.log partition.ys"
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] partition: finished (returncode=0)
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.11 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.10 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.9 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.8 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.7 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.6 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.5 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.4 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.3 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.2 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.1 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_data.0 contains 2 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.17 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.16 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.15 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.14 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.13 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.12 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.11 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.10 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.9 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.8 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.7 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.6 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.5 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.4 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.3 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.2 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.1 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.o_pix_addr.0 contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Partition cam_top.cam_btn_start_db.o_btn_db contains 1 unused gate inputs.
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: starting process "make -C RUNS/ov10/stages/05_lec_synth/eqy -f strategies.mk"
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: make: Entering directory 'RUNS/ov10/stages/05_lec_synth/eqy'
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.cam_btn_start_db.o_btn_db'..
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.cam_btn_start_db.o_btn_db' using strategy 'sat'
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.cam_pixels.r1_vsync'..
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.cam_pixels.r1_vsync' using strategy 'sat'
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.cam_pixels.r2_vsync'..
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.cam_pixels.r2_vsync' using strategy 'sat'
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.cam_pixels.r_half_data'..
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.cam_pixels.r_half_data' using strategy 'sat'
+EQY 15:13:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.configure_cam.OV7670_config.i_i2c_ready'..
+EQY 15:13:22 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.configure_cam.OV7670_config.i_i2c_ready' using strategy 'sat': equivalence unknown
+EQY 15:13:22 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.configure_cam.OV7670_config.i_i2c_ready'..
+EQY 15:13:23 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.configure_cam.OV7670_config.i_i2c_ready' using strategy 'smt': equivalence unknown
+EQY 15:13:23 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.configure_cam.OV7670_config.o_i2c_start'..
+EQY 15:13:27 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.configure_cam.OV7670_config.o_i2c_start' using strategy 'sat': equivalence unknown
+EQY 15:13:27 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.configure_cam.OV7670_config.o_i2c_start'..
+EQY 15:13:30 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.configure_cam.OV7670_config.o_i2c_start' using strategy 'smt': equivalence unknown
+EQY 15:13:30 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.configure_cam.SCCB_HERE.data_state'..
+EQY 15:13:32 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.configure_cam.SCCB_HERE.data_state' using strategy 'sat': equivalence unknown
+EQY 15:13:32 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.configure_cam.SCCB_HERE.data_state'..
+EQY 15:13:33 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.configure_cam.SCCB_HERE.data_state' using strategy 'smt': equivalence unknown
+EQY 15:13:33 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.configure_cam.SCCB_HERE.r2_en_sda'..
+EQY 15:13:33 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.configure_cam.SCCB_HERE.r2_en_sda' using strategy 'sat'
+EQY 15:13:33 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.configure_cam.SCCB_HERE.r_scl'..
+EQY 15:13:35 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.configure_cam.SCCB_HERE.r_scl' using strategy 'sat': equivalence unknown
+EQY 15:13:35 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.configure_cam.SCCB_HERE.r_scl'..
+EQY 15:13:37 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.configure_cam.SCCB_HERE.r_scl' using strategy 'smt': equivalence unknown
+EQY 15:13:37 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.configure_cam.SCCB_HERE.r_sda'..
+EQY 15:13:47 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.configure_cam.SCCB_HERE.r_sda' using strategy 'sat': equivalence unknown
+EQY 15:13:47 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.configure_cam.SCCB_HERE.r_sda'..
+EQY 15:13:56 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.configure_cam.SCCB_HERE.r_sda' using strategy 'smt': equivalence unknown
+EQY 15:13:56 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.configure_cam.SCCB_HERE.r_write'..
+EQY 15:13:57 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.configure_cam.SCCB_HERE.r_write' using strategy 'sat'
+EQY 15:13:57 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_cam_done'..
+EQY 15:14:01 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_cam_done' using strategy 'sat': equivalence unknown
+EQY 15:14:01 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_cam_done'..
+EQY 15:14:04 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_cam_done' using strategy 'smt': equivalence unknown
+EQY 15:14:04 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.0'..
+EQY 15:14:05 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.0' using strategy 'sat': equivalence unknown
+EQY 15:14:05 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.0'..
+EQY 15:14:05 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.0' using strategy 'smt': equivalence unknown
+EQY 15:14:05 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.1'..
+EQY 15:14:05 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.1' using strategy 'sat': equivalence unknown
+EQY 15:14:05 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.1'..
+EQY 15:14:06 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.1' using strategy 'smt': equivalence unknown
+EQY 15:14:06 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.10'..
+EQY 15:14:06 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.10' using strategy 'sat': equivalence unknown
+EQY 15:14:06 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.10'..
+EQY 15:14:07 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.10' using strategy 'smt': equivalence unknown
+EQY 15:14:07 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.11'..
+EQY 15:14:07 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.11' using strategy 'sat': equivalence unknown
+EQY 15:14:07 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.11'..
+EQY 15:14:07 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.11' using strategy 'smt': equivalence unknown
+EQY 15:14:07 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.12'..
+EQY 15:14:08 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.12' using strategy 'sat': equivalence unknown
+EQY 15:14:08 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.12'..
+EQY 15:14:08 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.12' using strategy 'smt': equivalence unknown
+EQY 15:14:08 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.13'..
+EQY 15:14:08 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.13' using strategy 'sat': equivalence unknown
+EQY 15:14:08 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.13'..
+EQY 15:14:09 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.13' using strategy 'smt': equivalence unknown
+EQY 15:14:09 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.14'..
+EQY 15:14:09 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.14' using strategy 'sat': equivalence unknown
+EQY 15:14:09 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.14'..
+EQY 15:14:10 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.14' using strategy 'smt': equivalence unknown
+EQY 15:14:10 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.15'..
+EQY 15:14:10 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.15' using strategy 'sat': equivalence unknown
+EQY 15:14:10 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.15'..
+EQY 15:14:10 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.15' using strategy 'smt': equivalence unknown
+EQY 15:14:10 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.16'..
+EQY 15:14:11 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.16' using strategy 'sat': equivalence unknown
+EQY 15:14:11 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.16'..
+EQY 15:14:11 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.16' using strategy 'smt': equivalence unknown
+EQY 15:14:11 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.17'..
+EQY 15:14:12 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.17' using strategy 'sat': equivalence unknown
+EQY 15:14:12 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.17'..
+EQY 15:14:12 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.17' using strategy 'smt': equivalence unknown
+EQY 15:14:12 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.18'..
+EQY 15:14:13 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.18' using strategy 'sat': equivalence unknown
+EQY 15:14:13 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.18'..
+EQY 15:14:13 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.18' using strategy 'smt': equivalence unknown
+EQY 15:14:13 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.2'..
+EQY 15:14:14 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.2' using strategy 'sat': equivalence unknown
+EQY 15:14:14 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.2'..
+EQY 15:14:14 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.2' using strategy 'smt': equivalence unknown
+EQY 15:14:14 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.3'..
+EQY 15:14:14 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.3' using strategy 'sat': equivalence unknown
+EQY 15:14:14 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.3'..
+EQY 15:14:15 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.3' using strategy 'smt': equivalence unknown
+EQY 15:14:15 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.4'..
+EQY 15:14:15 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.4' using strategy 'sat': equivalence unknown
+EQY 15:14:15 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.4'..
+EQY 15:14:16 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.4' using strategy 'smt': equivalence unknown
+EQY 15:14:16 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.5'..
+EQY 15:14:16 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.5' using strategy 'sat': equivalence unknown
+EQY 15:14:16 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.5'..
+EQY 15:14:17 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.5' using strategy 'smt': equivalence unknown
+EQY 15:14:17 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.6'..
+EQY 15:14:17 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.6' using strategy 'sat': equivalence unknown
+EQY 15:14:17 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.6'..
+EQY 15:14:18 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.6' using strategy 'smt': equivalence unknown
+EQY 15:14:18 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.7'..
+EQY 15:14:18 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.7' using strategy 'sat': equivalence unknown
+EQY 15:14:18 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.7'..
+EQY 15:14:19 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.7' using strategy 'smt': equivalence unknown
+EQY 15:14:19 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.8'..
+EQY 15:14:20 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.8' using strategy 'sat': equivalence unknown
+EQY 15:14:20 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.8'..
+EQY 15:14:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.8' using strategy 'smt': equivalence unknown
+EQY 15:14:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_addr.9'..
+EQY 15:14:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.9' using strategy 'sat': equivalence unknown
+EQY 15:14:21 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_addr.9'..
+EQY 15:14:22 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_addr.9' using strategy 'smt': equivalence unknown
+EQY 15:14:22 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.0'..
+EQY 15:14:22 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.0' using strategy 'sat': equivalence unknown
+EQY 15:14:22 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.0'..
+EQY 15:14:23 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.0' using strategy 'smt': equivalence unknown
+EQY 15:14:23 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.1'..
+EQY 15:14:23 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.1' using strategy 'sat': equivalence unknown
+EQY 15:14:23 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.1'..
+EQY 15:14:24 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.1' using strategy 'smt': equivalence unknown
+EQY 15:14:24 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.10'..
+EQY 15:14:24 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.10' using strategy 'sat': equivalence unknown
+EQY 15:14:24 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.10'..
+EQY 15:14:25 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.10' using strategy 'smt': equivalence unknown
+EQY 15:14:25 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.11'..
+EQY 15:14:25 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.11' using strategy 'sat': equivalence unknown
+EQY 15:14:25 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.11'..
+EQY 15:14:26 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.11' using strategy 'smt': equivalence unknown
+EQY 15:14:26 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.2'..
+EQY 15:14:26 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.2' using strategy 'sat': equivalence unknown
+EQY 15:14:26 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.2'..
+EQY 15:14:27 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.2' using strategy 'smt': equivalence unknown
+EQY 15:14:27 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.3'..
+EQY 15:14:27 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.3' using strategy 'sat': equivalence unknown
+EQY 15:14:27 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.3'..
+EQY 15:14:28 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.3' using strategy 'smt': equivalence unknown
+EQY 15:14:28 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.4'..
+EQY 15:14:28 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.4' using strategy 'sat': equivalence unknown
+EQY 15:14:28 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.4'..
+EQY 15:14:28 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.4' using strategy 'smt': equivalence unknown
+EQY 15:14:28 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.5'..
+EQY 15:14:29 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.5' using strategy 'sat': equivalence unknown
+EQY 15:14:29 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.5'..
+EQY 15:14:29 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.5' using strategy 'smt': equivalence unknown
+EQY 15:14:29 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.6'..
+EQY 15:14:30 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.6' using strategy 'sat': equivalence unknown
+EQY 15:14:30 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.6'..
+EQY 15:14:30 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.6' using strategy 'smt': equivalence unknown
+EQY 15:14:30 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.7'..
+EQY 15:14:31 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.7' using strategy 'sat': equivalence unknown
+EQY 15:14:31 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.7'..
+EQY 15:14:32 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.7' using strategy 'smt': equivalence unknown
+EQY 15:14:32 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.8'..
+EQY 15:14:32 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.8' using strategy 'sat': equivalence unknown
+EQY 15:14:32 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.8'..
+EQY 15:14:33 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.8' using strategy 'smt': equivalence unknown
+EQY 15:14:33 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_data.9'..
+EQY 15:14:33 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.9' using strategy 'sat': equivalence unknown
+EQY 15:14:33 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_pix_data.9'..
+EQY 15:14:34 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_pix_data.9' using strategy 'smt': equivalence unknown
+EQY 15:14:34 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pix_wr'..
+EQY 15:14:34 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.o_pix_wr' using strategy 'sat'
+EQY 15:14:34 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_pwdn'..
+EQY 15:14:34 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.o_pwdn' using strategy 'sat'
+EQY 15:14:34 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_reset'..
+EQY 15:14:34 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.o_reset' using strategy 'sat'
+EQY 15:14:34 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_sda_oe'..
+EQY 15:14:35 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_sda_oe' using strategy 'sat': equivalence unknown
+EQY 15:14:35 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'smt' on 'cam_top.o_sda_oe'..
+EQY 15:14:36 [RUNS/ov10/stages/05_lec_synth/eqy] run: Could not prove equivalence of partition 'cam_top.o_sda_oe' using strategy 'smt': equivalence unknown
+EQY 15:14:36 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_sda_out'..
+EQY 15:14:36 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.o_sda_out' using strategy 'sat'
+EQY 15:14:36 [RUNS/ov10/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'cam_top.o_sioc'..
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'cam_top.o_sioc' using strategy 'sat'
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] run: make -f strategies.mk summary
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] run: make[1]: Entering directory 'RUNS/ov10/stages/05_lec_synth/eqy'
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] run: make[1]: Leaving directory 'RUNS/ov10/stages/05_lec_synth/eqy'
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] run: make: Leaving directory 'RUNS/ov10/stages/05_lec_synth/eqy'
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] run: finished (returncode=0)
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.o_sioc
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.o_sda_out
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.o_reset
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.o_pwdn
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.o_pix_wr
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.configure_cam.SCCB_HERE.r_write
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.configure_cam.SCCB_HERE.r2_en_sda
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.cam_pixels.r_half_data
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.cam_pixels.r2_vsync
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.cam_pixels.r1_vsync
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Successfully proved equivalence of partition cam_top.cam_btn_start_db.o_btn_db
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Warning: Failed to prove equivalence for 38/49 partitions:
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_sda_oe
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.11
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.10
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.9
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.8
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.7
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.6
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.5
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.4
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.3
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.2
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.1
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_data.0
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.18
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.17
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.16
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.15
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.14
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.13
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.12
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.11
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.10
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.9
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.8
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.7
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.6
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.5
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.4
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.3
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.2
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.1
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_pix_addr.0
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.o_cam_done
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.configure_cam.SCCB_HERE.r_sda
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.configure_cam.SCCB_HERE.r_scl
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.configure_cam.SCCB_HERE.data_state
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.configure_cam.OV7670_config.o_i2c_start
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] Failed to prove equivalence of partition cam_top.configure_cam.OV7670_config.i_i2c_ready
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] summary: Elapsed clock time [H:MM:SS (secs)]: 0:01:16 (76)
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] summary: Elapsed process time [H:MM:SS (secs)]: 0:01:42 (102)
+EQY 15:14:37 [RUNS/ov10/stages/05_lec_synth/eqy] DONE (FAIL, rc=2)

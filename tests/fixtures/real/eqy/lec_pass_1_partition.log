@@ -1,0 +1,22 @@
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] read_gold: starting process "yosys -ql RUNS/reg5/stages/05_lec_synth/eqy/gold.log RUNS/reg5/stages/05_lec_synth/eqy/gold.ys"
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] read_gold: finished (returncode=0)
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] read_gate: starting process "yosys -ql RUNS/reg5/stages/05_lec_synth/eqy/gate.log RUNS/reg5/stages/05_lec_synth/eqy/gate.ys"
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] read_gate: finished (returncode=0)
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] combine: starting process "yosys -ql RUNS/reg5/stages/05_lec_synth/eqy/combine.log RUNS/reg5/stages/05_lec_synth/eqy/combine.ys"
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] combine: finished (returncode=0)
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] partition: starting process "cd RUNS/reg5/stages/05_lec_synth/eqy; yosys -ql partition.log partition.ys"
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] partition: finished (returncode=0)
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] run: starting process "make -C RUNS/reg5/stages/05_lec_synth/eqy -f strategies.mk"
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] run: make: Entering directory 'RUNS/reg5/stages/05_lec_synth/eqy'
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] run: Running strategy 'sat' on 'register.o_data'..
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] run: Proved equivalence of partition 'register.o_data' using strategy 'sat'
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] run: make -f strategies.mk summary
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] run: make[1]: Entering directory 'RUNS/reg5/stages/05_lec_synth/eqy'
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] run: make[1]: Leaving directory 'RUNS/reg5/stages/05_lec_synth/eqy'
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] run: make: Leaving directory 'RUNS/reg5/stages/05_lec_synth/eqy'
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] run: finished (returncode=0)
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] Successfully proved equivalence of partition register.o_data
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] Successfully proved designs equivalent
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+EQY 15:08:35 [RUNS/reg5/stages/05_lec_synth/eqy] DONE (PASS, rc=0)

@@ -1,0 +1,15 @@
+{
+  "tool": "eqy",
+  "version": "EQY v0.68",
+  "stage": "lec_synth",
+  "design": "ov7670_cam_top",
+  "source_run": "ov10",
+  "captured_from": "RUNS/ov10/stages/05_lec_synth/attempt_01.log",
+  "expected": {
+    "outcome": "FAIL",
+    "partitions_proved": 11,
+    "partitions_unknown": 38,
+    "verdict": "fail"
+  },
+  "note": "Real unproven-equivalence case: eqy could not prove 38 partitions."
+}

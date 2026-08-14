@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report-database>
+ <description>SCL DRC runset</description>
+ <original-file/>
+ <generator>drc: script='c1d_digital.drc'</generator>
+ <top-cell>top</top-cell>
+ <tags>
+ </tags>
+ <categories>
+  <category>
+   <name>1.1.1 &amp; 1.1.2 : Minimum Nwell width violations = 4.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>1.2.2 : Minimum Nwell spacing violations = 7.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>1.3.2 : Minimium spacing Ndiff outside nwell = 3.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>1.3.3 : Minimum spacing Pdiff inside Nwell = 3.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>2.1.1 : Minimum Ndiff Width violations =  2.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>2.1.2 : Minimum Pdiff Width violations =  2.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>2.2.1 : Minimum Ndiff spacing violations =  1.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>2.2.2 : Minimum Pdiff spacing violations =  1.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>2.2.3 : Minimum Pdiff to Ndiff Spacing violations =  1.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>3.1.1 : Shapes present in Nwell_rev XOR Nwell</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>4.1.1 : Minimum Poly width violations  =  1.2um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>4.2.1 : Minimum Poly to diffusion spacing violations =  0.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>4.2.2 : Minimum Poly spacing edge violations = 1.3um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>4.3.1 &amp; 4.3.2 : Minimum NMOS length : 1.2um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>4.3.1 &amp; 4.3.2 : Minimum NMOS Area : 3.0umÂ²</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>4.3.1 &amp; 4.3.3 : Minimum PMOS length : 1.5u</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>4.3.1 &amp; 4.3.3 : Minimum PMOS Area : 3.75umÂ²</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>4.4.1 : Minimum Poly Extension beyond Gate : 1.2um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>4.5.1 : Minimum Diffusion extenion beyond Gate violations = 2.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>4.6.1 : Poly dimension exceeds Maximum 30u x 30u</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>5.1.1 and 5.1.2 : Minimum Boron width violations =  2.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>5.4.1 : Minimum enclosure of Diffusion by Boron violations =  0.7um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>5.4.1 : Minimum overlap of Diffusion by Boron violations =  0.7um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>5.5.1 : Minimum Boron to Ndiff spacing violations = 0.7um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>5.7.1 : Minimum Boron spacing violations =  1.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>6.1.1 : Shapes present in Boron_rev XOR Boron</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.1.1 : Contacts not exactly 1.5u x 1.5u</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.2.1 &amp; 7.2.2 : Maximum Nplus substrate contact size violations</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.2.1 &amp; 7.2.2 : Maximum Pplus substrate contact size violations</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.3.1 : Minimum Contact spacing violations =  1.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.4.1 :  Minimum enclosure of Poly to Contact violations = 0.7um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.4.2 : Minimum enclosure of Diffusion to Contact violations =  1.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.5.1 : Minimum Diffusion contact spacing tO Poly gate = 1.2um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.6.1 : Minimum Poly contact spacing tO active Gate area = 1.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.7.1 : Minimum butted Contact extension to Boron</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.7.1 : Minimum butted Diffusion Contact width = 2.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.1 : Poly Contact in Diffusion NOT ALLOWED</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>7.2 : Contact NOT IN Poly OR Diffusion AND Metal1</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8.1.1 : Minimum Metal1 spacing violations = 1.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8.2.1 : Minimum Metal1 width violations = 2.4um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8.3.1 : Minimum Metal1 enclose to contact violations = 0.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8.4.1 : Minimum Metal1 enclousure to Pad Contacts =  1.2um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8.9.1 : Minimum bonding Pad spacing to Diffusion violations = 10.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8.9.2 : Minimum bonding Pad spacing to Poly violations = 30.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8.9.3 : Minimum bonding Pad spacing to Contact violations = 15.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8.9.4 : Minimum bonding Pad spacing to Metal1 violations = 30.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8.9.5 : Minimum enclousure of Metal1 to Pad window violations = 5.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>8.1 : NO Poly allowed underneath bonding Pad Metal1</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>9.1.1 : Exact via width = 1.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>9.1.1 : Exact via spacing = 1.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>9.2.1 : Minimum via to via spacing violations = 1.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>9.3.1 : Minimum via to contact spacing violations = 1.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>9.4.1 : Minimum via to Poly spacing violations = 1.2um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>9.5.1 : Minimum Metal1 enclose to via violations = 0.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>9.6.1 : Minimum Metal2 enclose to via violations = 0.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>10.1.1 : Minimum Metal2 to Metal2 spacing violations = 1.7um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>10.2.1 : Minimum Metal2 width violations = 2.5um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>10.3.2 : Minimum bonding pad spacing to via violations = 15.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>10.3.3 : Minimum bonding pad metal spacing to Metal2 violations = 30.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>10.3.5 : Minimum enclosure of Metal2 to pad violations = 5.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>11.1.1 : Minimum pad window size = 90 X 90 </name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>11.2.1 : Minimum pad to pad spacing violations = 100.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>11.1 : unwanted Nguardbar CONNECTED TO SOURCE/DRAIN OF nmos</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>11.2 : unwanted Pguardbar CUTTING nwell</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>11.3 : pad Metal NOT ON Metal1 OR Metal2 ARE ILLEGAL</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>rnwell width violations = 10.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>@GUIDELINE-3 Bad contact covering nwell resistor</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name> @GUIDELINE-3 Bad contact covering npoly resistor</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>@GUIDELINE-3 Bad contact covering ppoly resistor</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>@GUIDELINE_4_floating_gates  </name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name> @GUIDELINE-6 AVOID PLACING vias ON diff EDGES</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>@GUIDELINE-5 distance pgate welltap &gt; 100.0um  </name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>@GUIDELINE-5 distance ngate subtap &gt; 100.0um</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+ </categories>
+ <cells>
+  <cell>
+   <name>top</name>
+   <variant/>
+   <layout-name/>
+   <references>
+   </references>
+  </cell>
+  <cell>
+   <name>ORND01</name>
+   <variant/>
+   <layout-name>ORND01</layout-name>
+   <references>
+    <ref>
+     <parent>top</parent>
+     <trans>m0 *1 3002.19,5035.9</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>OR5101</name>
+   <variant/>
+   <layout-name>OR5101</layout-name>
+   <references>
+    <ref>
+     <parent>top</parent>
+     <trans>r180 *1 4351.52,2374.9</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>NOR200</name>
+   <variant/>
+   <layout-name>NOR200</layout-name>
+   <references>
+    <ref>
+     <parent>top</parent>
+     <trans>m0 *1 557.88,2729.7</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>AND601</name>
+   <variant/>
+   <layout-name>AND601</layout-name>
+   <references>
+    <ref>
+     <parent>top</parent>
+     <trans>r180 *1 4708.22,1842.7</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>ADOR16</name>
+   <variant/>
+   <layout-name>ADOR16</layout-name>
+   <references>
+    <ref>
+     <parent>top</parent>
+     <trans>r180 *1 2453.52,4326.3</trans>
+    </ref>
+   </references>
+  </cell>
+ </cells>
+ <items>
+ </items>
+</report-database>
