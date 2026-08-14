@@ -376,11 +376,17 @@ def main() -> int:
     # a real tool failed, the deterministic class was right, the remedy stayed
     # in the authorized space, the right stage reran, the metric improved, and
     # the resulting evidence and lineage are valid.
-    from grade import grade
+    from grade import grade, grade_live_attribution
 
-    # Order matters (avoids a circular dependency): grade the causal chain
-    # first, record ground_truth_pass from that verdict, and only then compute
-    # autonomy_evidence -- which requires ground_truth_pass among its fields.
+    # A line, not a loop (P0-LIVE-01).
+    #
+    #   causal criteria -> ground_truth_pass -> attribution -> live criteria
+    #
+    # The live attribution checks used to sit inside `grade()`, so grading
+    # required `autonomy_evidence`, which required `ground_truth_pass`, which
+    # came from grading. `autonomy_evidence: true` was unreachable for any
+    # genuine live run. Nothing is loosened here; the questions are just asked
+    # in an order that can be answered.
     g = grade(case, result, run_dir, case_path=Path(args.case))
     result["ground_truth_pass"] = g.passed
 
@@ -391,10 +397,16 @@ def main() -> int:
         print("autonomy_evidence withheld; missing: " + ", ".join(missing),
               file=sys.stderr)
 
+    if live:
+        # Extends the same Grade object, so there is exactly one verdict and
+        # `result.json` and `grade.json` cannot disagree.
+        grade_live_attribution(result, g)
+
     print("\ngrading:")
     print(g.report())
     (run_dir / "grade.json").write_text(json.dumps(g.to_dict(), indent=2))
     result["grade"] = g.to_dict()
+    result["grade_passed"] = g.passed
     (run_dir / "result.json").write_text(json.dumps(result, indent=2, default=str))
     return 0 if g.passed else 1
 

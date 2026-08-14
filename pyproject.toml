@@ -13,7 +13,14 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0"]
+dev = [
+    "pytest>=8.0",
+    # `eqy` is a python script with `#!/usr/bin/env python3`, so inside this
+    # venv it resolves to the venv interpreter and needs its own dependency
+    # here. Without it the LEC gate fails closed on ModuleNotFoundError --
+    # correct behaviour, but an environment fault rather than a design one.
+    "click>=8.0",
+]
 
 [project.scripts]
 rtl2gdsagi = "rtl2gdsagi.cli:main"
