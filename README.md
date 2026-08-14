@@ -590,8 +590,7 @@ of the problem:
   in between.
 
 The lesson is that "the model cannot construct a verdict" is a much weaker
-guarantee than "the model cannot change what gets measured". See
-`AUDIT-REMEDIATION.md`.
+guarantee than "the model cannot change what gets measured".
 
 **Some things are never touched.** Your original RTL (edits go to a copy), the
 PDK, and the signoff decks are read-only. Timing problems never result in RTL
@@ -607,17 +606,19 @@ against the real SKY130 PDK.
 
 ### What an independent audit found
 
-This project was reviewed by an independent audit (`results.md`), and its
-central finding was correct: several checks could report a pass on evidence that
+This project has been through several rounds of independent review, and the
+central finding of the first was correct: several checks could report a pass on evidence that
 was missing, one-sided, self-contradictory, or never parsed at all. The worst
 was that **the routing violation parser matched nothing in a real OpenROAD log**
 — it was written for `violations: 0` when the tool writes `violations = 0`, so
 every routing stage in every real run passed without ever reading a number.
 
-All of the false-clean paths it found are now closed and covered by tests, and
-the numbers in this section were re-measured afterwards. The full disposition,
-including one finding I initially judged wrong and had to correct, is in
-[`AUDIT-REMEDIATION.md`](AUDIT-REMEDIATION.md).
+All of the false-clean paths those reviews found are now closed and covered by
+tests, and the numbers in this section were re-measured afterwards. Each defect
+has a named regression in `tests/` -- see `test_audit_regressions.py`,
+`test_codex_p0_regressions.py`, `test_spef_identity.py`, `test_evidence_lineage.py`
+and `test_pdn_contract.py` -- so the record of what was wrong lives in the tests
+that would fail if it came back.
 
 Two limits are worth stating up front, because they bound everything below:
 

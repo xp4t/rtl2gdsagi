@@ -117,8 +117,9 @@ issue.
 3. **The agent cannot weaken a check.** Its write surface is `ir.py`. There is
    no field for waive/skip/relax, and `drc`/`lvs`/`antenna` expose performance
    knobs only. Adding a field that changes *what gets measured* breaks the
-   property that makes the whole design safe — the audit found three such leaks
-   (see `AUDIT-REMEDIATION.md`) and they are regression-tested.
+   property that makes the whole design safe — review found three such leaks
+   and they are regression-tested (`tests/test_ir_safety.py`,
+   `tests/test_action_space.py`).
 4. **Immutable zones.** The PDK tree, signoff decks and the user's original RTL
    are read-only; repairs go to the run's private copy under `work/rtl/`.
 5. **New `str` IR fields need a `pattern`.** Values are interpolated into Tcl,
@@ -142,11 +143,11 @@ taxonomy row. `runner.py` is generic and should not need to change.
   repos) used to build tooling — not part of this project's source. Only
   `src/rtl2gdsagi/resources/formal_pdk_proc.py` is vendored *into* the package
   (from EQY's SKY130 example) to preprocess SKY130 UDP cell models.
-- The top-level `*.md` files are an engineering record, not stale scratch:
-  `README.md` §8–9 is the authoritative account of what works and which false-clean
-  bugs were found; `results.md` is the independent audit; `AUDIT-REMEDIATION.md`
-  its disposition; the `CODEX-*` / `P0-*` / `FINAL-*` files are subsequent review
-  rounds. Consult them before re-litigating a design decision.
+- `README.md` §8–9 is the authoritative account of what works, which false-clean
+  bugs were found, and what the method does not cover. The detailed review
+  history is in the git log; each closed defect has a named regression in
+  `tests/`. Consult those before re-litigating a design decision — a check that
+  looks redundant is usually load-bearing.
 - Runs land in `runs/<timestamp>/` (gitignored): `run.log`, `run.jsonl`,
   `run_state.json`, `signoff.json`, `failure_report.md`, `stages/NN_<name>/`,
   `checkpoints/`.
