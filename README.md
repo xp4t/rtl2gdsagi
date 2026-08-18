@@ -105,6 +105,7 @@ sudo apt-get update
 sudo apt-get install -y verilator iverilog klayout python3-venv git
 ```
 Install **Yosys** as a seperate tool from its own github repo, use cmake to build, since apt ```yosys``` is v0.9, and does not include a ```yosys-config``` with it, so install yosys manually. Added to ```setup.sh``` as well.
+
 **OpenSTA** (timing analysis) and **OpenROAD** (place & route) are not in
 apt. The easiest route is Docker, which this tool uses automatically:
 
