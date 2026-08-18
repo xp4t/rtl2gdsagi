@@ -23,13 +23,40 @@ step() { printf '\n\033[1m%s\033[0m\n' "$1"; }
 
 have() { command -v "$1" >/dev/null 2>&1; }
 
+# Debian/Ubuntu apt yosys is frequently too old for this flow (missing passes /
+# stale JSON frontend behavior), so yosys is built from source via CMake
+# instead of apt. YOSYS_MIN_VERSION gates whether an apt/existing install is
+# accepted as-is or rebuilt.
+YOSYS_MIN_VERSION="0.44"
+YOSYS_GIT_REF="main"
+
+yosys_version() {
+  have yosys || return 1
+  yosys -V 2>/dev/null | grep -oE '[0-9]+\.[0-9]+' | head -n1
+}
+
+yosys_is_recent() {
+  local v
+  v="$(yosys_version)" || return 1
+  [ -n "$v" ] || return 1
+  # true if $v >= YOSYS_MIN_VERSION
+  [ "$(printf '%s\n%s\n' "$YOSYS_MIN_VERSION" "$v" | sort -V | head -n1)" = "$YOSYS_MIN_VERSION" ]
+}
+
 # --------------------------------------------------------------- report ----
 
 report() {
   step "Tools"
-  for t in verilator iverilog yosys klayout; do
+  for t in verilator iverilog klayout; do
     have "$t" && ok "$t" || miss "$t   (apt-get install $t)"
   done
+  if yosys_is_recent; then
+    ok "yosys $(yosys_version) (>= $YOSYS_MIN_VERSION)"
+  elif have yosys; then
+    miss "yosys $(yosys_version) is older than $YOSYS_MIN_VERSION (build from source: see step 1b)"
+  else
+    miss "yosys   (build from source: see step 1b)"
+  fi
   have eqy && ok "eqy" || warn "eqy   (optional: formal equivalence; signoff needs it)"
   [ -x "$VENV/bin/sby" ] && ok "sby (in venv)" || warn "sby   (optional: stronger equivalence proofs)"
   [ -x "$VENV/bin/z3" ]  && ok "z3 (in venv)"  || warn "z3    (optional: SMT solver for sby)"
@@ -80,9 +107,9 @@ fi
 
 # -------------------------------------------------------------- install ----
 
-step "1/5  System packages"
+step "1/6  System packages"
 MISSING=()
-for t in verilator iverilog yosys klayout git; do
+for t in verilator iverilog klayout git; do
   have "$t" || MISSING+=("$t")
 done
 python3 -c 'import venv' 2>/dev/null || MISSING+=(python3-venv)
@@ -94,7 +121,46 @@ else
   ok "already present"
 fi
 
-step "2/5  OpenROAD and OpenSTA"
+step "1b/6  Yosys (from source, CMake)"
+if yosys_is_recent; then
+  ok "yosys $(yosys_version) already satisfies >= $YOSYS_MIN_VERSION"
+else
+  if have yosys; then
+    warn "apt/existing yosys ($(yosys_version)) is older than $YOSYS_MIN_VERSION — building from source"
+  else
+    echo "  yosys not found — building from source"
+  fi
+  BUILD_DEPS=(build-essential cmake clang bison flex libreadline-dev gawk \
+              tcl-dev libffi-dev git graphviz xdot pkg-config python3 \
+              libboost-system-dev libboost-python-dev libboost-filesystem-dev \
+              zlib1g-dev)
+  MISSING_BUILD_DEPS=()
+  for p in "${BUILD_DEPS[@]}"; do
+    dpkg -s "$p" >/dev/null 2>&1 || MISSING_BUILD_DEPS+=("$p")
+  done
+  if [ ${#MISSING_BUILD_DEPS[@]} -gt 0 ]; then
+    echo "  installing build deps: ${MISSING_BUILD_DEPS[*]}"
+    sudo apt-get update -qq && sudo apt-get install -y "${MISSING_BUILD_DEPS[@]}" || \
+      warn "apt-get failed to install some build deps; the cmake build below may fail"
+  fi
+
+  TMP="$(mktemp -d)"
+  if git clone -q --recurse-submodules --depth 1 --branch "$YOSYS_GIT_REF" \
+       https://github.com/YosysHQ/yosys.git "$TMP/yosys" 2>/dev/null; then
+    (
+      cd "$TMP/yosys" &&
+      cmake -S . -B build -DCMAKE_BUILD_TYPE=Release >/dev/null &&
+      cmake --build build -j"$(nproc)" >/dev/null &&
+      sudo cmake --install build
+    ) && ok "yosys built and installed ($(yosys_version 2>/dev/null || echo new))" || \
+      warn "yosys cmake build failed — check $TMP/yosys manually, or fall back to: sudo apt-get install yosys"
+  else
+    warn "could not clone YosysHQ/yosys (optional network issue) — yosys stays missing"
+  fi
+  rm -rf "$TMP"
+fi
+
+step "2/6  OpenROAD and OpenSTA"
 if have openroad && have sta; then
   ok "native install found"
 elif have docker; then
@@ -111,13 +177,13 @@ else
   echo "      sudo usermod -aG docker \$USER   # then log out and back in"
 fi
 
-step "3/5  Python environment"
+step "3/6  Python environment"
 [ -d "$VENV" ] || python3 -m venv "$VENV"
 "$VENV/bin/pip" install -q --upgrade pip
 "$VENV/bin/pip" install -q -e "$HERE" && ok "rtl2gdsagi installed" || \
   warn "install failed — try: $VENV/bin/pip install -e $HERE"
 
-step "4/5  SKY130 PDK"
+step "5/6  SKY130 PDK"
 if [ -d "$HOME/.volare/sky130A/libs.ref" ]; then
   ok "already installed"
 else
@@ -127,7 +193,7 @@ else
     warn "volare failed — see https://github.com/efabless/volare"
 fi
 
-step "5/5  Formal equivalence (optional)"
+step "6/6  Formal equivalence (optional)"
 if [ -x "$VENV/bin/sby" ] && [ -x "$VENV/bin/z3" ]; then
   ok "sby and z3 already in the venv"
 else
