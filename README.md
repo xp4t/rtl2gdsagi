@@ -51,6 +51,10 @@ This tool is the plumbing. It:
 That last point is the reason this project exists. Read
 [section 8](#8-why-you-can-trust-the-results) — it is the most important part.
 
+### Architecture Flow Diagram
+<img width="1375" height="4082" alt="RTL2GDS AGI Architecture_page-0001" src="https://github.com/user-attachments/assets/bcb74d5e-b5bc-4184-b2c4-64965c498512" />
+
+
 ### What you provide
 
 Just your RTL, and the name of your top module. That's it.
