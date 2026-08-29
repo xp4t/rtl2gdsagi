@@ -1,0 +1,8 @@
+[PLACE] Global placement iteration 3
+Density: 0.687
+Total congestion: 0.72
+Peak routing congestion = 0.91
+Total power = 125.7 mW
+Stage elapsed: 00:15:22
+Writing results/placement.def.gz
+Report: reports/congestion.rpt

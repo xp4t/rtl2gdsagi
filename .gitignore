@@ -59,6 +59,7 @@ runs/
 *.drc.rpt
 *.lvs.rpt
 *.log
+!tests/fixtures/gui_logs/*.log
 reports/
 results/
 tmp/
@@ -104,7 +105,11 @@ Thumbs.db
 *.dylib
 *.dll
 Makefile.in
-
+# ── Agent cache ───────────────────────────────────────────────────────
+.codex/
+.agents/
+.github/
+.impeccable/
 # ── Documentation build ───────────────────────────────────────────────────────
 docs/_build/
 site/

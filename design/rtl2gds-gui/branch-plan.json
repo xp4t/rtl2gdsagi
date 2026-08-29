@@ -1,0 +1,328 @@
+{
+  "version": 1,
+  "runId": "crt-f6c50ca0178762bf1535546157a9c2195d88ebaa",
+  "concept": "Expand this operator console into a coherent rtl2gdsagi desktop web app. Preserve the exact industrial dark shell, dense typography, stage rail, restrained green/cyan/amber/red semantics, and compact engineering controls. Add sibling states/routes: Runs history and resume/replay, New Run setup with RTL/config/PDK and bounded parameters, Active Run stage workspace, Human Review hard-gate escalation, Strategy Sweep comparison with PPA/timing tradeoffs, Reports & Artifacts browser, and Configuration/Policy audit view. Keep all surfaces practical for physical design engineers; no marketing pages, chat bubbles, gradients, glass, oversized cards, decorative AI motifs, or invented EDA features.",
+  "aspect": "landscape",
+  "scope": "site",
+  "sitePurpose": "Enable physical design engineers to configure, run, govern, compare, and inspect RTL-to-GDS implementation flows.",
+  "statusUpdate": "I’ll extend the active implementation workspace into a focused engineering console for launching, supervising, reviewing, comparing, and auditing physical design runs. The routes carry engineers from run setup through execution and hard-gate decisions to evidence, history, and policy control.",
+  "approvedScreenSummary": "The approved source shows chipcore_cpu run_042 actively executing Placement for chipcore_top, with a 14-stage flow rail, live PPA and congestion metrics, placement task progress, logs, output snapshot, signoff-gate status, an agent-recommended bounded retune, and key placement artifacts.",
+  "winnerCanvas": {
+    "width": 1536,
+    "height": 1024
+  },
+  "pages": [
+    {
+      "index": 0,
+      "id": "p0-active-run-placement",
+      "kind": "source",
+      "title": "Active Run — Placement",
+      "pageType": "application",
+      "surfaceType": "web_app",
+      "purpose": "Monitor the current implementation stage, inspect execution evidence, and control an in-progress run.",
+      "startsFromWinner": true,
+      "slots": [
+        "a"
+      ]
+    },
+    {
+      "index": 1,
+      "id": "p1-runs-history",
+      "kind": "additional",
+      "title": "Runs History",
+      "pageType": "directory",
+      "surfaceType": "web_app",
+      "purpose": "Find prior implementation runs and resume or replay a selected execution from a valid checkpoint.",
+      "startsFromWinner": false,
+      "slots": [
+        "b",
+        "c"
+      ]
+    },
+    {
+      "index": 2,
+      "id": "p2-new-run",
+      "kind": "additional",
+      "title": "New Run",
+      "pageType": "application",
+      "surfaceType": "web_app",
+      "purpose": "Create a bounded, reproducible implementation run from RTL, configuration, PDK, and execution parameters.",
+      "startsFromWinner": false,
+      "slots": [
+        "d"
+      ]
+    },
+    {
+      "index": 3,
+      "id": "p3-human-review",
+      "kind": "additional",
+      "title": "Human Review",
+      "pageType": "application",
+      "surfaceType": "web_app",
+      "purpose": "Resolve a mandatory engineering escalation before an automated parameter retune can continue execution.",
+      "startsFromWinner": false,
+      "slots": [
+        "e"
+      ]
+    },
+    {
+      "index": 4,
+      "id": "p4-strategy-sweep",
+      "kind": "additional",
+      "title": "Strategy Sweep",
+      "pageType": "application",
+      "surfaceType": "web_app",
+      "purpose": "Compare controlled implementation strategies and select a candidate based on PPA and timing tradeoffs.",
+      "startsFromWinner": false,
+      "slots": [
+        "f"
+      ]
+    }
+  ],
+  "screens": [
+    {
+      "slot": "a",
+      "pageIndex": 0,
+      "viewportOrdinal": 2,
+      "status": "succeeded",
+      "direction": "Active Run — Placement (part 2)",
+      "header": null,
+      "footer": null,
+      "pageEndsHere": true,
+      "dependsOnSlot": null,
+      "width": 1536,
+      "height": 1024,
+      "canvasDecision": {
+        "provenance": "inherited-from-winner",
+        "sourceCanvas": {
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "content": "The global placement task reaches a proposed bounded retune after congestion repair. Show the recorded before-and-after metrics, affected constraints, and a clear action to send the decision to Human Review because timing remains unresolved."
+    },
+    {
+      "slot": "b",
+      "pageIndex": 1,
+      "viewportOrdinal": 1,
+      "status": "succeeded",
+      "direction": "Runs History",
+      "header": null,
+      "footer": null,
+      "pageEndsHere": false,
+      "dependsOnSlot": null,
+      "width": 1536,
+      "height": 1024,
+      "canvasDecision": {
+        "provenance": "inherited-from-winner",
+        "sourceCanvas": {
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "content": "Browse a concrete run inventory for chipcore_cpu: run_039 baseline, run_040 low-power experiment, run_041 route recovery, and run_042 current implementation. Include status, commit, started time, terminal stage, PPA outcome, and filters for branch and result."
+    },
+    {
+      "slot": "c",
+      "pageIndex": 1,
+      "viewportOrdinal": 2,
+      "status": "succeeded",
+      "direction": "Runs History (part 2)",
+      "header": null,
+      "footer": null,
+      "pageEndsHere": true,
+      "dependsOnSlot": "b",
+      "width": 1536,
+      "height": 1024,
+      "canvasDecision": {
+        "provenance": "inherited-from-winner",
+        "sourceCanvas": {
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "content": "Carry run_041 route recovery forward as the selected record. Present its stage timeline, failure evidence at detailed route, retained checkpoints, and choices to resume from route or replay from floorplan with the original configuration."
+    },
+    {
+      "slot": "d",
+      "pageIndex": 2,
+      "viewportOrdinal": 1,
+      "status": "succeeded",
+      "direction": "New Run",
+      "header": null,
+      "footer": null,
+      "pageEndsHere": true,
+      "dependsOnSlot": null,
+      "width": 1536,
+      "height": 1024,
+      "canvasDecision": {
+        "provenance": "inherited-from-winner",
+        "sourceCanvas": {
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "content": "Define a new chipcore_cpu implementation run using a named RTL revision, top module, approved configuration profile, PDK release, target clock, utilization target, effort preset, and resource limit. Validate required inputs before allowing the run to be queued."
+    },
+    {
+      "slot": "e",
+      "pageIndex": 3,
+      "viewportOrdinal": 1,
+      "status": "succeeded",
+      "direction": "Human Review",
+      "header": null,
+      "footer": null,
+      "pageEndsHere": true,
+      "dependsOnSlot": null,
+      "width": 1536,
+      "height": 1024,
+      "canvasDecision": {
+        "provenance": "inherited-from-winner",
+        "sourceCanvas": {
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "content": "Review the run_042 placement escalation with timing, congestion, density, and area deltas; the proposed bounded changes; linked placement and timing evidence; and prior decision context. Require an engineer to approve, reject, or request a different bounded adjustment with a reason."
+    },
+    {
+      "slot": "f",
+      "pageIndex": 4,
+      "viewportOrdinal": 1,
+      "status": "succeeded",
+      "direction": "Strategy Sweep",
+      "header": null,
+      "footer": null,
+      "pageEndsHere": true,
+      "dependsOnSlot": null,
+      "width": 1536,
+      "height": 1024,
+      "canvasDecision": {
+        "provenance": "inherited-from-winner",
+        "sourceCanvas": {
+          "width": 1536,
+          "height": 1024
+        }
+      },
+      "content": "Compare concrete candidates sweep_a balanced, sweep_b timing-first, sweep_c density-guarded, and sweep_d power-first for chipcore_cpu. Show WNS, TNS, area, power, congestion, runtime, constraint violations, and completion state so an engineer can select one for replay or promotion."
+    }
+  ],
+  "packagePages": [
+    {
+      "index": 0,
+      "id": "p0-active-run-placement",
+      "kind": "source",
+      "title": "Active Run — Placement",
+      "pageType": "application",
+      "surfaceType": "web_app",
+      "purpose": "Monitor the current implementation stage, inspect execution evidence, and control an in-progress run.",
+      "startsFromWinner": true,
+      "slots": [],
+      "packageLineage": {
+        "pageIndex": 0,
+        "pageId": "p0-active-run-placement",
+        "viewportOrdinal": 1,
+        "state": "winner"
+      }
+    },
+    {
+      "index": 0,
+      "id": "p0-active-run-placement-a",
+      "kind": "additional",
+      "title": "Active Run — Placement (part 2)",
+      "pageType": "application",
+      "surfaceType": "web_app",
+      "purpose": "The global placement task reaches a proposed bounded retune after congestion repair. Show the recorded before-and-after metrics, affected constraints, and a clear action to send the decision to Human Review because timing remains unresolved.",
+      "startsFromWinner": false,
+      "slots": [
+        "a"
+      ],
+      "packageLineage": {
+        "pageIndex": 0,
+        "pageId": "p0-active-run-placement",
+        "viewportOrdinal": 2,
+        "state": "screen",
+        "slot": "a"
+      }
+    },
+    {
+      "index": 1,
+      "id": "p1-runs-history",
+      "kind": "additional",
+      "title": "Runs History",
+      "pageType": "directory",
+      "surfaceType": "web_app",
+      "purpose": "Browse a concrete run inventory for chipcore_cpu: run_039 baseline, run_040 low-power experiment, run_041 route recovery, and run_042 current implementation. Include status, commit, started time, terminal stage, PPA outcome, and filters for branch and result.",
+      "startsFromWinner": false,
+      "slots": [
+        "b"
+      ],
+      "packageLineage": {
+        "pageIndex": 1,
+        "pageId": "p1-runs-history",
+        "viewportOrdinal": 1,
+        "state": "screen",
+        "slot": "b"
+      }
+    },
+    {
+      "index": 1,
+      "id": "p1-runs-history-c",
+      "kind": "additional",
+      "title": "Runs History (part 2)",
+      "pageType": "directory",
+      "surfaceType": "web_app",
+      "purpose": "Carry run_041 route recovery forward as the selected record. Present its stage timeline, failure evidence at detailed route, retained checkpoints, and choices to resume from route or replay from floorplan with the original configuration.",
+      "startsFromWinner": false,
+      "slots": [
+        "c"
+      ],
+      "packageLineage": {
+        "pageIndex": 1,
+        "pageId": "p1-runs-history",
+        "viewportOrdinal": 2,
+        "state": "screen",
+        "slot": "c"
+      }
+    },
+    {
+      "index": 2,
+      "id": "p2-new-run",
+      "kind": "additional",
+      "title": "New Run",
+      "pageType": "application",
+      "surfaceType": "web_app",
+      "purpose": "Create a bounded, reproducible implementation run from RTL, configuration, PDK, and execution parameters.",
+      "startsFromWinner": false,
+      "slots": [
+        "d"
+      ]
+    },
+    {
+      "index": 3,
+      "id": "p3-human-review",
+      "kind": "additional",
+      "title": "Human Review",
+      "pageType": "application",
+      "surfaceType": "web_app",
+      "purpose": "Resolve a mandatory engineering escalation before an automated parameter retune can continue execution.",
+      "startsFromWinner": false,
+      "slots": [
+        "e"
+      ]
+    },
+    {
+      "index": 4,
+      "id": "p4-strategy-sweep",
+      "kind": "additional",
+      "title": "Strategy Sweep",
+      "pageType": "application",
+      "surfaceType": "web_app",
+      "purpose": "Compare controlled implementation strategies and select a candidate based on PPA and timing tradeoffs.",
+      "startsFromWinner": false,
+      "slots": [
+        "f"
+      ]
+    }
+  ]
+}
