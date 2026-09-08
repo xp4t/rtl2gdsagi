@@ -29,7 +29,7 @@ rtl2gdsagi = "rtl2gdsagi.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-"rtl2gdsagi.resources" = ["*.py", "*.md"]
+"rtl2gdsagi.resources" = ["*.py", "*.md", "*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

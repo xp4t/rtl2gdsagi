@@ -492,17 +492,135 @@ they were just where the router had room to detour.
 ### Small designs
 
 A first design is usually tiny, and a few defaults are sized for a real chip.
-The symptom is `PDN-0185: insufficient width to add straps` — the power grid
-does not fit inside a die that small. Fix it with:
+Physical geometry that fits a large block may not fit a very small core. The
+flow measures the available geometry and configured grid dimensions, explains
+the conflict in the context of the current design, and offers only validated
+typed adjustments. It does not apply a fixed set of values to every design.
 
-```yaml
-ir:
-  pdn:
-    strap_offset_um: 1.0
-    strap_pitch_um: 10.0
-    core_ring: false
-  floorplan:
-    core_utilization: 0.30    # a bigger die is also easier to route
+### Self-healing and repair modes
+
+Failures are processed in a fixed order: deterministic parser, offline
+OpenROAD message lookup, curated repair lookup, contextual analysis, typed
+repair execution, rerender, rollback, and deterministic re-verification. The
+model is used only when those layers do not already supply an executable
+answer. It never decides whether a retry passed.
+
+Choose the interaction policy with:
+
+```bash
+rtl2gdsagi run --config design.yaml --repair-policy ask
+rtl2gdsagi run --config design.yaml --repair-policy auto
+rtl2gdsagi run --config design.yaml --repair-policy manual
+```
+
+`ask` is the interactive default and offers AGI repair, manual repair,
+technical evidence, or abort for a recognized actionable failure. In a
+non-interactive process it resolves to `manual`, so CI never waits for stdin.
+`auto` authorizes curated typed repairs without prompting. `manual` records the
+analysis and stops before changing the design.
+
+The committed OpenROAD catalog is generated from upstream source and contains
+every warning, error, and critical message in that snapshot. Catalog presence
+means the ID and its provenance are known; it does not imply an automatic fix.
+Query it offline:
+
+```bash
+rtl2gdsagi errors <OPENROAD-CODE>
+rtl2gdsagi errors --tool <TOOL-PREFIX>
+rtl2gdsagi errors --known-fixes
+rtl2gdsagi errors --search "message text"
+```
+
+Executable repairs use an allowlisted action schema. They may change typed IR
+values, the run's private RTL copy, a validated tool backend, and isolated
+per-run environment/runtime state. RTL changes restart at lint and must pass
+simulation where present, synthesis, both equivalence checks, and every
+downstream physical/signoff gate. Generated scripts are recreated only by the
+trusted renderer.
+
+The source RTL, PDK libraries, signoff decks, reports, parser output, pass
+thresholds, and evidence remain immutable. There is no arbitrary-shell action.
+Rollback is derived from the executed action: floorplan inputs restart at
+floorplan, physical-grid inputs restart at their earliest consumer, working RTL
+at lint, and a KLayout backend change at gdsout.
+
+KLayout crashes receive a minimal layout-write health probe. A
+`SaltDownloadManager` startup signature is classified as a runtime fault, then
+an isolated `HOME`/XDG configuration with user configuration disabled is
+tested. Already-installed alternate executables and the pinned OpenLane
+container are eligible fallback backends only after the same health probe
+passes. Stream-out still has to produce a nonempty parseable GDS with the
+expected top, resolved references, sane layers, and a recorded hash; DRC and
+LVS consume that exact hash. The flow never installs or upgrades host packages
+on its own.
+
+#### Repair verification and design certification
+
+Repair verification follows the surface that actually changed. The trusted
+executor derives the required gates from each typed action; the model cannot
+choose a smaller test set. A physical implementation change must pass the
+synthesis equivalence boundary and every affected physical stage through post-route
+timing, GDS integrity, DRC, LVS, antenna, and routed-netlist equivalence. It
+does not require simulation merely to prove that new power-grid geometry fits.
+A KLayout runtime/backend repair instead requires a passing backend health
+probe, regenerated GDS integrity, and the DRC/LVS consumers of that exact GDS.
+
+An RTL edit has the stronger `full` scope: lint, authoritative simulation when
+available, synthesis, logical equivalence, timing, and all downstream physical
+and signoff gates. Missing authoritative functional evidence blocks promotion
+of an RTL-changing repair. No repair scope changes any pass threshold or allows
+a missing affected gate.
+
+The final report keeps three claims separate:
+
+- **Repair verified** means every gate derived from the modified surface
+  passed and the original failure did not recur.
+- **Physical signoff verified** means timing, GDS integrity, DRC, LVS,
+  antenna, and logical-identity boundaries passed for one bound candidate.
+- **Functionally specified** means an authoritative user testbench or
+  equivalent external specification evidence passed.
+
+A generated or implementation-derived testbench carries a
+`<testbench-stem>.meta.json` sidecar with
+`{"authority":"implementation_derived"}`. Its result is useful behavioral
+evidence, but it cannot assert that the implementation meets an external
+specification. A normal user-supplied testbench is authoritative by default.
+Consequently a design can be physically verified while overall certification
+remains incomplete.
+
+If the executor changes only physical implementation inputs, preserves the
+copied RTL identity, passes both equivalence boundaries, and completes every
+downstream signoff gate, the repair is stored with
+`verification_scope: physical_signoff`, `repair_verified: true`, and
+`functional_spec_verified: false` when no authoritative testbench exists.
+The memory record retains the original conditions, successful delta, resulting
+geometry, PDK/tool identities, artifact candidate, and verification basis.
+Future matching can rank that physical strategy only for compatible physical
+failures; it cannot authorize an RTL repair, it does not blindly replay the old
+numeric values, and the new design must pass current geometry checks and the
+same deterministic gates before promotion.
+
+KLayout report serialization is also version-bound. The pinned SKY130 deck
+emits both the `x.2` and `x.2c` checks under each of the names `diff_angle` and
+`tap_angle`. KLayout 0.28.2 writes 213 declaration nodes, preserving both
+descriptions, while KLayout 0.30.3 writes one declaration per name. The DRC
+parser retains the raw count and raw hash, then canonicalizes those two exact
+duplicate pairs to the approved 211-name inventory only for the approved deck
+SHA-256. A changed description, another duplicate, or an additional rule still
+fails closed, and violations attached to either duplicate name are always
+counted.
+
+The same 0.28.2 runtime rejects the PDK CDL annotation
+`topography=normal` because that reader accepts only numeric MOS parameters.
+The generated LVS reference removes only this non-electrical annotation. It
+retains device topology, nodes, model names, dimensions, multiplicity, and all
+numeric parameters; the pinned LVS deck and deterministic cross-reference
+checks remain unchanged.
+
+To refresh the offline catalog during development:
+
+```bash
+python3 scripts/update_openroad_messages.py --source /path/to/OpenROAD
 ```
 
 ---
@@ -630,10 +748,12 @@ Two limits are worth stating up front, because they bound everything below:
 - **Timing uses a single typical corner.** There is no MCMM, no OCV, and the
   constraints are generated rather than reviewed. Treat the timing numbers as
   "this flow's OpenSTA result", not as signoff timing.
-- **The self-healing loop has never run against a live model.** Every preserved
-  run used `--no-api`. The retry/rollback machinery is unit-tested against a
-  scripted agent; autonomous remediation of a real failure is **not**
-  demonstrated.
+- **Live-model repair has been exercised and verified.** A preserved
+  `claude-sonnet-5` validation repaired a mechanical syntax error in the
+  private RTL copy with `PATCH_WORKING_RTL`, then passed authoritative
+  simulation, synthesis, both LEC boundaries, timing, GDS integrity, DRC, LVS,
+  and antenna. Known deterministic failures continue to bypass the model and
+  use their curated repair paths.
 
 ### Working end to end
 

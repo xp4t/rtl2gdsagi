@@ -178,7 +178,7 @@ def check_sim(run: ToolRun, *, testbench: str = "") -> Verdict:
 # ---------------------------------------------------------- synthesis ------
 
 _YOSYS_ERR = re.compile(r"^ERROR:\s*(.*)$", re.MULTILINE)
-_YOSYS_LATCH = re.compile(r"Latch inferred|inferring latch", re.IGNORECASE)
+_YOSYS_LATCH = re.compile(r"(?<!no )latch inferred|inferring latch", re.IGNORECASE)
 # Yosys prints its statistics in two different shapes, and the one you get
 # depends on the design:
 #

@@ -168,7 +168,7 @@ class RunLog:
             FIX_ATTEMPT,
             stage=stage,
             attempt=attempt,
-            message=f"asking Claude to fix: {reason}",
+            message=f"requesting a typed repair plan: {reason}",
             level=logging.WARNING,
             **fields,
         )

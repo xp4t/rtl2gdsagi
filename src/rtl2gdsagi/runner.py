@@ -14,6 +14,7 @@ arrows that only ever connected two of eight gates (review 9.0, 20.5).
 from __future__ import annotations
 
 import shutil
+import sys
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -44,6 +45,10 @@ from .checks.tools import (
 from .checks.verdict import Verdict, VerdictKind, failed, passed, qor_low
 from .config import RunConfig
 from .errors import AgentError, Escalated, Rtl2GdsError
+from .error_knowledge.context import pdn_context
+from .error_knowledge.known_fixes import lookup_known_fix
+from .error_knowledge.matcher import match_openroad_messages
+from .error_knowledge.runtime_failures import classify_runtime_failure
 from .evidence import (
     CERTIFYING_GATES,
     GateEvidence,
@@ -80,7 +85,12 @@ from .stages import (
 )
 from .state import RunState, RunStatus, StageState, StageStatus, new_run_id
 from .taxonomy import FailureClass, Resolution, lookup, responsible_stage
-from .tools.invoker import MockInvoker, RealInvoker, ToolInvoker
+from .tools.invoker import DEFAULT_OPENLANE_IMAGE, MockInvoker, RealInvoker, ToolInvoker
+from .tools.klayout_backend import KLayoutRuntimeManager
+from .repair import (
+    ActionType, RepairAction, RepairExecutor, RepairPlan,
+    evaluate_certification, evaluate_repair,
+)
 
 
 #: Stage -> the artifact key of the report its verdict was read from.
@@ -98,7 +108,7 @@ _REPORT_KEY: dict[StageId, str] = {
 #: parser is visible in the evidence rather than silently reinterpreting an
 #: old result.
 _PARSER_CONTRACT: dict[StageId, str] = {
-    StageId.DRC: "klayout_drc.parse_drc_report/v2-inventory-bound",
+    StageId.DRC: "klayout_drc.parse_drc_report/v3-deck-bound-aliases",
     StageId.LVS: "klayout_lvs.parse_lvs_report/v2-complete+must-connect",
     StageId.ANTENNA: "tools.check_openroad/antenna-v2-both-halves",
     StageId.SIM: "tools.check_sim/v2-self-checking",
@@ -143,6 +153,8 @@ class Orchestrator:
         invoker: ToolInvoker | None = None,
         run_dir: Path | None = None,
         global_budget: int | None = None,
+        interactive: bool | None = None,
+        input_fn: Any = input,
     ) -> None:
         self.cfg = cfg
         self.run_id = new_run_id()
@@ -162,6 +174,8 @@ class Orchestrator:
             else RealInvoker(pdk_root=cfg.pdk.root, run_dir=self.run_dir)
         )
         self.agent: Agent = agent or ScriptedAgent()
+        self.interactive = sys.stdin.isatty() if interactive is None else interactive
+        self.input_fn = input_fn
         #: Deltas that survived deterministic review and were applied.
         self._accepted: list[dict[str, Any]] = []
         #: Immutable per-call model audit records, in call order.
@@ -177,6 +191,15 @@ class Orchestrator:
         self._tried: dict[StageId, list[dict[str, Any]]] = {}
         #: Where the main loop resumes after a rollback moves it backwards.
         self._resume_at: StageId = STAGE_ORDER[0]
+        self.klayout = KLayoutRuntimeManager(
+            invoker=self.invoker, run_dir=self.run_dir, pdk_root=cfg.pdk.root,
+            image=getattr(self.invoker, "openlane_image", "") or DEFAULT_OPENLANE_IMAGE,
+        )
+        self.klayout.set_backend(cfg.klayout_backend)
+        self.repair_executor = RepairExecutor(
+            ir=self.ir, zones=self.zones, work_rtl=self.work_rtl,
+            backend_setter=self.klayout.set_backend,
+        )
 
     # ---- directories -----------------------------------------------------
 
@@ -204,6 +227,9 @@ class Orchestrator:
             files=copied,
         )
         self.ledger.register("rtl_dir", self.work_rtl, stage="prepare", allow_dir=True)
+        # This is the immutable identity copied before any authorized working
+        # RTL repair. Physical-only repair records must prove it stayed equal.
+        self._initial_work_rtl_sha256 = self.ledger.get("rtl_dir").sha256
         self._register_testbenches("prepare")
 
         self.facts = characterize(
@@ -636,14 +662,33 @@ class Orchestrator:
             report, expected_top=self.cfg.top, checked_gds=gds,
             deck_sha256=deck.sha256,
         )
+        drc_record = res.to_dict()
+        drc_record["provenance"] = {
+            "deck_path": str(deck.path),
+            "deck_sha256": deck.sha256,
+            "deck_approval": deck.approved_as,
+            "pdk": self.cfg.pdk.name,
+            "pdk_root": str(self.cfg.pdk.root),
+            "pdk_revision": self.cfg.pdk.root.parent.name,
+            "klayout_backend": self.klayout.backend.name,
+            "klayout_identity": self._tool_identity(Tool.KLAYOUT),
+            "argv": list(run.argv),
+        }
         self._write(
             self.stage_dir(StageId.DRC) / "drc_summary.json",
-            __import__("json").dumps(res.to_dict(), indent=2),
+            __import__("json").dumps(drc_record, indent=2),
         )
         if res.clean:
             return passed(
                 StageId.DRC, res.summary(),
                 total_violations=0, declared_categories=res.declared_categories,
+                raw_declared_categories=res.raw_declared_categories,
+                category_inventory_sha256=res.category_inventory_sha256,
+                raw_category_inventory_sha256=res.raw_category_inventory_sha256,
+                normalized_duplicate_categories={
+                    name: list(descriptions)
+                    for name, descriptions in res.normalized_duplicate_categories.items()
+                },
                 checked_gds_sha256=gds.sha256,
             )
         return failed(
@@ -697,6 +742,8 @@ class Orchestrator:
     # ---- one stage attempt ----------------------------------------------
 
     def _execute(self, spec: StageSpec) -> StageOutcome:
+        # Tests and embedders may replace the invoker after construction.
+        self.klayout.invoker = self.invoker
         ctx = self._context(spec)
         sd = ctx.work_dir
         script: Path | None = None
@@ -736,6 +783,8 @@ class Orchestrator:
             return self._run_lvs(spec, ctx)
 
         argv = self._argv(spec, script, ctx)
+        if spec.tool is Tool.KLAYOUT:
+            argv = self.klayout.effective_argv(argv, sd)
         if not argv:
             return StageOutcome(spec.id, passed(spec.id, f"{spec.id}: nothing to run"), None, ctx.outputs)
 
@@ -746,6 +795,7 @@ class Orchestrator:
             run = self.invoker.run(
                 spec.tool, argv, cwd=sd,
                 timeout_s=self.cfg.timeout_for(spec.id), log_path=log_path,
+                env=self.klayout.effective_env() if spec.tool is Tool.KLAYOUT else None,
             )
         except TypeError:
             # Invokers from tests may not accept log_path.
@@ -755,6 +805,15 @@ class Orchestrator:
         if not log_path.is_file():
             self._write(log_path, run.combined)
         verdict = self._judge(spec, run, ctx)
+        if spec.tool is Tool.KLAYOUT and classify_runtime_failure(run) is not None:
+            runtime = classify_runtime_failure(run)
+            verdict = failed(
+                spec.id, FailureClass.TOOL_RUNTIME,
+                f"KLayout crashed ({runtime.stack_signature or runtime.failure_class.value}, exit {run.returncode})",
+                evidence=run.tail(4000),
+                runtime_class=runtime.failure_class.value,
+                stack_signature=runtime.stack_signature or "",
+            )
         return StageOutcome(spec.id, verdict, run, ctx.outputs)
 
     def _run_lvs(self, spec: StageSpec, ctx: RenderContext) -> StageOutcome:
@@ -821,15 +880,24 @@ class Orchestrator:
             # since the substrate node has no geometry. That was P0-07.
             "-rd", f"lvs_sub={SUBSTRATE_NET}",
         ]
+        argv = self.klayout.effective_argv(argv, sd)
         self.log.tool_run(str(spec.id), max(1, self.state.stage(spec.id).attempts), argv)
         log_path = sd / f"attempt_{max(1, self.state.stage(spec.id).attempts):02d}.log"
         run = self.invoker.run(
             Tool.KLAYOUT, argv, cwd=sd,
             timeout_s=self.cfg.timeout_for(spec.id), log_path=log_path,
+            env=self.klayout.effective_env(),
         )
         if not log_path.is_file():
             self._write(log_path, run.combined)
-        return StageOutcome(spec.id, self._judge_lvs(run, ctx), run, ctx.outputs)
+        runtime = classify_runtime_failure(run)
+        verdict = self._judge_lvs(run, ctx) if runtime is None else failed(
+            spec.id, FailureClass.TOOL_RUNTIME,
+            f"KLayout crashed ({runtime.stack_signature or runtime.failure_class.value}, exit {run.returncode})",
+            evidence=run.tail(4000), runtime_class=runtime.failure_class.value,
+            stack_signature=runtime.stack_signature or "",
+        )
+        return StageOutcome(spec.id, verdict, run, ctx.outputs)
 
     def _run_simulations(self, spec: StageSpec, ctx: RenderContext) -> StageOutcome:
         """Compile and *run* every testbench, then report all of them.
@@ -845,6 +913,7 @@ class Orchestrator:
         """
         sd = ctx.work_dir
         benches = self._testbenches()
+        authorities = {tb: self._testbench_authority(tb) for tb in benches}
         timeout = int(self.ir.get("sim", "timeout_s"))
         plusargs = [str(a) for a in self.ir.get("sim", "plusargs")]
 
@@ -911,6 +980,17 @@ class Orchestrator:
             "unproven": len(unproven),
             "failing": [n for n, _, _ in failures],
             "not_self_checking": unproven,
+            "authoritative_testbenches": [
+                tb.name for tb in benches if authorities[tb] == "authoritative"
+            ],
+            "implementation_derived_testbenches": [
+                tb.name for tb in benches
+                if authorities[tb] == "implementation_derived"
+            ],
+            "authoritative_passed": sum(
+                name in passes and authorities[tb] == "authoritative"
+                for tb in benches for name in [tb.name]
+            ),
         }
 
         if failures:
@@ -987,10 +1067,20 @@ class Orchestrator:
 
     # ---- diagnosis + remediation ----------------------------------------
 
-    def _diagnose(self, spec: StageSpec, verdict: Verdict, attempt: int) -> StageId | None:
+    def _diagnose(self, spec: StageSpec, verdict: Verdict, attempt: int,
+                  run: ToolRun | None = None) -> StageId | None:
         """Ask the agent, validate the proposal, apply it. Returns where to resume."""
         st = self.state.stage(spec.id)
         entry = lookup(verdict.failure) if verdict.failure else None
+
+        # Deterministic intelligence precedes model diagnosis.  A catalog hit
+        # is only metadata; only a curated recipe can execute a repair.
+        known_target = self._known_repair(spec, verdict, attempt)
+        if known_target is not None:
+            return known_target
+        runtime_target = self._runtime_repair(spec, verdict, attempt, run)
+        if runtime_target is not None:
+            return runtime_target
 
         if verdict.escalate or (entry and entry.resolution is Resolution.ESCALATE):
             raise Escalation(
@@ -1001,11 +1091,23 @@ class Orchestrator:
             )
 
         self.budget.spend(what=f"{spec.id} diagnosis")
+        agent_evidence = verdict.evidence
+        if verdict.failure is FailureClass.RTL_SYNTAX:
+            excerpts = []
+            for source in sorted(self.work_rtl.rglob("*")):
+                if source.suffix not in {".v", ".sv", ".vh", ".svh"} or not source.is_file():
+                    continue
+                excerpts.append(
+                    f"--- {source.relative_to(self.work_rtl)} ---\n"
+                    + source.read_text(encoding="utf-8", errors="replace")[:4000]
+                )
+            if excerpts:
+                agent_evidence += "\n\nWorking RTL excerpts:\n" + "\n".join(excerpts)[:6000]
         req = DiagnosisRequest(
             stage=spec.id,
             failure_class_hint=verdict.failure,
             summary=verdict.summary,
-            evidence=verdict.evidence,
+            evidence=agent_evidence,
             metrics=verdict.metrics,
             ir_section=spec.ir_section,
             # Only the values for fields the model is actually allowed to
@@ -1024,8 +1126,27 @@ class Orchestrator:
         try:
             resp = self.agent.diagnose(req)
         except AgentError as exc:
-            self.log.error(f"diagnosis failed: {exc}", stage=str(spec.id))
-            raise
+            record = {
+                "failure_domain": "agent",
+                "stage": spec.id.value,
+                "attempt": attempt,
+                "agent_error": str(exc),
+                "eda_failure": verdict.to_dict(),
+            }
+            self._write(
+                self.stage_dir(spec.id) / f"attempt_{attempt:02d}_agent_failure.json",
+                __import__("json").dumps(record, indent=2, default=str),
+            )
+            self.log.event(
+                "agent_failure", stage=str(spec.id), attempt=attempt,
+                message=f"agent response failed; EDA failure remains {verdict.summary}",
+                agent_error=str(exc), eda_failure_class=(
+                    verdict.failure.value if verdict.failure else None),
+            )
+            raise AgentError(
+                f"agent response failure after deterministic EDA failure "
+                f"{verdict.summary!r}: {exc}"
+            ) from exc
         st.api_calls += 1
         self.log.api_call(
             str(spec.id), attempt, "diagnose", resp.model,
@@ -1125,15 +1246,57 @@ class Orchestrator:
             )
             target = touched
 
-        if diag.config_delta:
+        if diag.config_delta or diag.recommended_actions:
+            rtl_sha256_before_repair = (
+                self.ledger.get("rtl_dir").sha256
+                if "rtl_dir" in self.ledger else ""
+            )
             try:
-                self.ir.apply_delta(diag.config_delta, agent=True)
-            except SchemaViolation as exc:
+                if diag.recommended_actions:
+                    planned_actions = tuple(
+                        RepairAction(
+                            ActionType(str(action["action_type"])),
+                            str(action["target"]), action.get("value"),
+                            str(action.get("reason") or "model-planned bounded repair"),
+                            str(action.get("expected_effect") or diag.reasoning),
+                        )
+                        for action in diag.recommended_actions
+                    )
+                else:
+                    planned_actions = tuple(
+                        RepairAction(
+                            ActionType.SET_IR_VALUE, f"{section}.{field}", value,
+                            reason="model-planned bounded configuration repair",
+                            expected_effect=diag.reasoning,
+                        )
+                        for section, values in diag.config_delta.items()
+                        for field, value in values.items()
+                    )
+                repair_result = self.repair_executor.execute(RepairPlan(
+                    failure_fingerprint=str(
+                        verdict.metrics.get("attempt_fingerprint") or
+                        __import__("hashlib").sha256(verdict.evidence.encode()).hexdigest()),
+                    actions=planned_actions, summary=diag.reasoning,
+                ))
+            except (SchemaViolation, SafetyViolation, ValueError) as exc:
                 self.log.error(f"rejected out-of-schema proposal: {exc}", stage=str(spec.id))
                 raise
+            if repair_result.rollback_stage is not None:
+                target = repair_result.rollback_stage
+            # A same-stage lint retry does not enter _rollback(), so refresh
+            # the directory artifact here. Otherwise the scientific no-op
+            # guard sees the pre-patch RTL hash and correctly refuses what
+            # appears to be an identical retry even though trusted code did
+            # change the working copy.
+            if repair_result.changed_files:
+                self.ledger.register(
+                    "rtl_dir", self.work_rtl, stage="repair", allow_dir=True
+                )
             st.configs_generated += 1
             self.log.config_generated(
-                str(spec.id), attempt, sorted(diag.config_delta), delta=diag.config_delta
+                str(spec.id), attempt,
+                sorted(diag.config_delta) or [a.action_type.value for a in planned_actions],
+                delta=diag.config_delta,
             )
             # One source of truth for "what was accepted and applied".
             #
@@ -1150,8 +1313,202 @@ class Orchestrator:
                     verdict.failure.value if verdict.failure else None),
                 "safety_result": "accepted",
                 "rollback_target": target.value,
+                "repair_actions": repair_result.actions,
+                "rtl_sha256_before_repair": rtl_sha256_before_repair,
+                "previous_values": repair_result.previous_values,
+                "new_values": repair_result.new_values,
             })
         return target
+
+    def _known_repair(self, spec: StageSpec, verdict: Verdict,
+                      attempt: int) -> StageId | None:
+        messages = match_openroad_messages(verdict.evidence)
+        if not messages:
+            return None
+        message = next((m for m in messages if m.severity in {"ERROR", "CRITICAL"}), messages[0])
+        floorplan = self.ledger.get("floorplan_def").path if "floorplan_def" in self.ledger else None
+        context = pdn_context(
+            verdict.evidence, facts=self.facts.to_dict(), history=self._history,
+            ir=self.ir, floorplan_def=floorplan,
+        ) if message.canonical_id == "PDN-0185" else {}
+        knowledge = lookup_known_fix(message, context)
+        self.log.note(
+            f"recognized OpenROAD {message.canonical_id}", stage=str(spec.id),
+            known_error_id=message.canonical_id, catalog_severity=message.severity,
+            catalog_source=f"{message.source_file}:{message.source_line}",
+            curated_repair=knowledge is not None,
+        )
+        if knowledge is None:
+            return None
+
+        self.log.note(knowledge.design_context_explanation, stage=str(spec.id),
+                      event_detail="design_context", **knowledge.evidence)
+        if not knowledge.proposed_delta:
+            return None
+        policy = self.cfg.repair_policy
+        choice = "auto" if policy == "auto" else "manual"
+        if policy == "ask" and self.interactive:
+            choice = self._ask_known_repair(spec, knowledge)
+        elif policy == "ask":
+            self.log.warn("repair policy ask resolved to manual because stdin is not a TTY",
+                          stage=str(spec.id))
+        self.log.event(
+            "repair_decision", stage=str(spec.id), attempt=attempt,
+            message=f"repair choice: {choice}", known_error_id=message.canonical_id,
+            repair_policy=policy, choice=choice,
+        )
+        self.state.stage(spec.id).history.append({
+            "attempt": attempt, "known_error_id": message.canonical_id,
+            "repair_choice": choice, "evidence": knowledge.evidence,
+        })
+        self.state.save()
+        if choice == "abort":
+            raise Escalation(spec.id, f"user aborted repair of {message.canonical_id}", verdict.evidence)
+        if choice == "manual":
+            raise Escalation(
+                spec.id,
+                f"{message.canonical_id} has a safe executable repair, but repair policy is manual",
+                knowledge.design_context_explanation + "\n\nProposed: " + str(knowledge.proposed_delta),
+            )
+
+        actions = tuple(
+            RepairAction(ActionType.SET_IR_VALUE, f"{section}.{field}", value,
+                         reason="curated PDN-0185 geometry repair",
+                         expected_effect="make the VDD/VSS strap geometry fit")
+            for section, values in knowledge.proposed_delta.items()
+            for field, value in values.items()
+        )
+        import hashlib
+        failure_fp = str(verdict.metrics.get("attempt_fingerprint") or
+                         hashlib.sha256(verdict.evidence.encode()).hexdigest())
+        plan = RepairPlan(failure_fp, actions,
+                          known_error_id=message.canonical_id,
+                          summary=knowledge.title)
+        result = self.repair_executor.execute(plan)
+        for key, new in result.new_values.items():
+            self.log.note(
+                f"{key} {result.previous_values.get(key)!r} -> {new!r}",
+                stage="repair", known_error_id=message.canonical_id,
+            )
+        record = {
+            "stage": spec.id.value, "attempt": attempt,
+            "known_error_id": message.canonical_id,
+            "failure_fingerprint": plan.failure_fingerprint,
+            "actions": result.actions, "previous_values": result.previous_values,
+            "new_values": result.new_values,
+            "rollback_target": result.rollback_stage.value if result.rollback_stage else None,
+            "rollback_reason": result.rollback_reason,
+            "safety_result": "accepted", "deterministic_failure_class": verdict.failure.value,
+            "before_metrics": dict(verdict.metrics),
+            "rtl_sha256_before_repair": self.ledger.get("rtl_dir").sha256,
+            "failure_geometry_evidence": dict(knowledge.evidence),
+        }
+        self._accepted.append(record)
+        self.state.stage(spec.id).history.append({"repair": record})
+        self.state.stage(spec.id).configs_generated += 1
+        self.state.save()
+        return result.rollback_stage
+
+    def _ask_known_repair(self, spec: StageSpec, knowledge: Any) -> str:
+        while True:
+            print(f"\n[{spec.id.value}] Known OpenROAD failure: {knowledge.key}")
+            print(f"\nWhat happened:\n  {knowledge.design_context_explanation}")
+            print("\nRecommended repair:")
+            for section, values in knowledge.proposed_delta.items():
+                for field, value in values.items():
+                    print(f"  {section}.{field} -> {value}")
+            print(f"\nEarliest stage that must be rerun: {knowledge.earliest_rollback_stage.value}")
+            print("\nChoose:\n  [1] Let rtl2gdsagi fix it\n  [2] I will fix it manually"
+                  "\n  [3] Show technical evidence\n  [4] Abort")
+            answer = str(self.input_fn("choice> ")).strip()
+            if answer == "1":
+                return "auto"
+            if answer == "2":
+                return "manual"
+            if answer == "3":
+                print(__import__("json").dumps(knowledge.evidence, indent=2, default=str))
+                continue
+            if answer == "4":
+                return "abort"
+            print("enter 1, 2, 3, or 4")
+
+    def _runtime_repair(self, spec: StageSpec, verdict: Verdict, attempt: int,
+                        run: ToolRun | None) -> StageId | None:
+        if verdict.failure is not FailureClass.TOOL_RUNTIME or spec.tool is not Tool.KLAYOUT or run is None:
+            return None
+        failure = classify_runtime_failure(run)
+        if failure is None:
+            return None
+        self.log.warn(
+            f"KLayout crashed with exit {failure.exit_status}; stack signature: "
+            f"{failure.stack_signature or 'unknown'}", stage=str(spec.id),
+            runtime_class=failure.failure_class.value,
+            environment_fingerprint=failure.environment_fingerprint,
+        )
+        self.log.note("running minimal KLayout health probe", stage="repair")
+        probes = [self.klayout.probe(self.klayout.backend)]
+        self.log.note(
+            f"{self.klayout.backend.name} backend health probe "
+            f"{'passed' if probes[0].healthy else 'failed'}: {probes[0].reason}",
+            stage="repair", **probes[0].to_dict(),
+        )
+        if probes[0].healthy and failure.stack_signature != "SaltDownloadManager":
+            return None
+        for candidate in self.klayout.repair_candidates():
+            if candidate.name == self.klayout.backend.name:
+                continue
+            probe = self.klayout.probe(candidate)
+            probes.append(probe)
+            self.log.note(
+                f"{candidate.name} backend health probe "
+                f"{'passed' if probe.healthy else 'failed'}: {probe.reason}",
+                stage="repair", **probe.to_dict(),
+            )
+            if not probe.healthy:
+                continue
+            action = RepairAction(
+                ActionType.SELECT_TOOL_BACKEND, "klayout", candidate.name,
+                reason=f"native KLayout is unhealthy ({failure.stack_signature or failure.failure_class.value})",
+                expected_effect="run stream-out and signoff checks in a health-probed runtime",
+            )
+            import hashlib
+            failure_fp = str(verdict.metrics.get("attempt_fingerprint") or
+                             hashlib.sha256(verdict.evidence.encode()).hexdigest())
+            result = self.repair_executor.execute(RepairPlan(
+                failure_fp, (action,),
+                summary="KLayout runtime fallback",
+            ))
+            record = {
+                "stage": spec.id.value, "attempt": attempt,
+                "failure_fingerprint": failure_fp,
+                "runtime_failure": {"class": failure.failure_class.value,
+                                    "stack_signature": failure.stack_signature,
+                                    "exit_status": failure.exit_status,
+                                    "signal": failure.signal,
+                                    "executable": failure.executable,
+                                    "version": failure.version,
+                                    "argv": list(failure.argv),
+                                    "environment_fingerprint": failure.environment_fingerprint},
+                "health_probes": [p.to_dict() for p in probes],
+                "rtl_sha256_before_repair": self.ledger.get("rtl_dir").sha256,
+                "actions": result.actions, "previous_values": result.previous_values,
+                "new_values": result.new_values,
+                "rollback_target": result.rollback_stage.value,
+                "rollback_reason": result.rollback_reason,
+                "safety_result": "accepted",
+            }
+            self._accepted.append(record)
+            self.state.stage(spec.id).history.append({"repair": record})
+            self.state.save()
+            self.log.note(f"selected validated KLayout backend {candidate.name}; retrying from gdsout",
+                          stage="repair")
+            return result.rollback_stage
+        raise Escalation(
+            spec.id,
+            "KLayout runtime repair exhausted safe installed/isolated/container backends; "
+            "installing or upgrading system software requires user action",
+            __import__("json").dumps([p.to_dict() for p in probes], indent=2),
+        )
 
     def _rollback(self, to_stage: StageId, why: str) -> None:
         """Re-run from ``to_stage``, leaving nothing downstream that looks current.
@@ -1425,6 +1782,29 @@ class Orchestrator:
                         break
         return found
 
+    @staticmethod
+    def _testbench_authority(testbench: Path) -> str:
+        """Classify explicit implementation-derived fixtures without guessing.
+
+        A normal user testbench is authoritative by default. Generated or
+        implementation-derived benches carry a sidecar named
+        ``<stem>.meta.json`` with ``authority=implementation_derived``. A bad
+        sidecar fails toward the weaker claim.
+        """
+        import json
+
+        meta = testbench.with_name(f"{testbench.stem}.meta.json")
+        if not meta.is_file():
+            return "authoritative"
+        try:
+            authority = str(json.loads(meta.read_text()).get("authority", ""))
+        except (OSError, ValueError, TypeError):
+            return "implementation_derived"
+        return (
+            "authoritative" if authority == "authoritative"
+            else "implementation_derived"
+        )
+
     def _tool_identity(self, tool: Tool) -> str:
         """Strongest deterministic identity available for a tool.
 
@@ -1435,6 +1815,15 @@ class Orchestrator:
         """
         from .manifest import probe_tool_versions
 
+        if self.cfg.mock_tools:
+            return {
+                Tool.KLAYOUT: "KLayout 0.30.3 (fixture)",
+                Tool.IVERILOG: "Icarus Verilog 12.0 (fixture)",
+                Tool.EQY: "EQY 0.49 (fixture)",
+                Tool.YOSYS: "Yosys 0.49 (fixture)",
+            }.get(tool, f"container:{getattr(self.invoker, 'openlane_image', 'fixture')}")
+        if tool is Tool.KLAYOUT and self.klayout.backend.name == "container":
+            return f"KLayout container:{self.klayout.image}"
         if tool in (Tool.OPENROAD, Tool.OPENSTA):
             image = getattr(self.invoker, "openlane_image", "")
             return f"container:{image}" if image else "container:unknown"
@@ -1460,6 +1849,7 @@ class Orchestrator:
         # into this run -- it changes whenever the sources materially change.
         if "design_facts" in self.ledger:
             env["design_facts"] = self.ledger.get("design_facts").sha256
+        env["klayout_backend"] = self.klayout.backend.name
         return env
 
 
@@ -1574,6 +1964,7 @@ class Orchestrator:
             self._history.append(
                 {"stage": spec.id.value, "attempt": st.attempts, **v.to_dict()}
             )
+            self._finalize_repair_attempt(spec, v, fp)
 
             if v.ok:
                 self._register(spec, outcome.outputs)
@@ -1600,6 +1991,7 @@ class Orchestrator:
                 return outcome
 
             # Failed a hard gate.
+            v.metrics["attempt_fingerprint"] = fp
             self.store.record_failure(fp, v.summary)
             self._tried.setdefault(spec.id, []).append(
                 {"config": self.ir.section(spec.ir_section) if spec.ir_section else {},
@@ -1626,13 +2018,92 @@ class Orchestrator:
                     v.evidence,
                 )
 
-            target = self._diagnose(spec, v, st.attempts)
+            target = self._diagnose(spec, v, st.attempts, outcome.run)
             if target != spec.id:
                 self._rollback(target, f"diagnosed root cause of {spec.id} failure")
                 self._resume_at = target
                 return None
 
+    def _finalize_repair_attempt(self, spec: StageSpec, verdict: Verdict,
+                                 attempt_fingerprint: str) -> None:
+        """Attach objective rerun evidence to the repair that caused it."""
+        import hashlib
+
+        for repair in reversed(self._accepted):
+            if repair.get("stage") != spec.id.value or "result" in repair:
+                continue
+            script = self._render_preview(spec)
+            repair.update({
+                "result": "resolved" if verdict.ok else "failed",
+                "new_failure_fingerprint": None if verdict.ok else attempt_fingerprint,
+                "after_metrics": dict(verdict.metrics),
+                "rerun_verdict": verdict.kind.value,
+                "rerun_summary": verdict.summary,
+                "generated_script_sha256": hashlib.sha256(script.encode()).hexdigest() if script else "",
+                "tool_backend": self.klayout.backend.name if spec.tool is Tool.KLAYOUT else str(spec.tool),
+                "tool_identity": self._tool_identity(spec.tool),
+            })
+            self.log.note(
+                f"repair {'resolved' if verdict.ok else 'did not resolve'} "
+                f"{repair.get('known_error_id') or spec.id.value}",
+                stage="repair", result=repair["result"],
+                failure_fingerprint=repair.get("failure_fingerprint"),
+                new_failure_fingerprint=repair.get("new_failure_fingerprint"),
+            )
+            self.state.stage(spec.id).history.append({"repair_result": dict(repair)})
+            self.state.save()
+            break
+
     # ---- signoff ---------------------------------------------------------
+
+    def _verification_stage_results(self) -> dict[StageId, str]:
+        out: dict[StageId, str] = {}
+        for sid in STAGE_ORDER:
+            state = self.state.stage(sid)
+            if state.status is StageStatus.SKIPPED:
+                out[sid] = "skipped"
+            elif state.status is StageStatus.OK and state.last_verdict == VerdictKind.PASS.value:
+                out[sid] = "pass"
+            elif state.status is StageStatus.OK:
+                out[sid] = state.last_verdict or "completed"
+            elif state.status is StageStatus.FAILED:
+                out[sid] = "failed"
+            else:
+                out[sid] = state.status.value
+        return out
+
+    def _authoritative_simulation_passed(self) -> bool:
+        if self.state.stage(StageId.SIM).last_verdict != VerdictKind.PASS.value:
+            return False
+        for item in reversed(self._history):
+            if item.get("stage") == StageId.SIM.value:
+                return int(item.get("metrics", {}).get("authoritative_passed", 0)) > 0
+        return False
+
+    @staticmethod
+    def _print_verification_summary(summary: Any) -> None:
+        print("\nVerification summary\n")
+        print("Functional specification     " + (
+            "VERIFIED" if summary.functional_spec_verified else "NOT VERIFIED"
+        ))
+        print(f"  {summary.functional_reason}\n")
+        print("Logical preservation         " + (
+            "VERIFIED" if summary.logical_identity_verified else "NOT VERIFIED"
+        ))
+        print(f"  {summary.logical_reason}\n")
+        print("Physical implementation      " + (
+            "VERIFIED" if summary.physical_signoff_verified else "NOT VERIFIED"
+        ))
+        print(f"  {summary.physical_reason}\n")
+        for repair in summary.repair_verifications:
+            name = repair.get("known_error_id") or repair.get("stage") or "repair"
+            result = "VERIFIED" if repair.get("repair_verified") else "NOT VERIFIED"
+            print(f"Repair verification          {result}")
+            print(f"  {name}; scope: {repair.get('verification_scope', 'unknown')}\n")
+        print("Overall certification        " + (
+            "COMPLETE" if summary.full_certification else "INCOMPLETE"
+        ))
+        print(f"  {summary.overall_reason}")
 
     def _signoff(self) -> None:
         """Re-verify every hard constraint against one exact GDS hash.
@@ -1646,7 +2117,9 @@ class Orchestrator:
         st.started_at = st.started_at or time.time()
         self.log.stage_start(str(StageId.SIGNOFF), gate="hard", tool="none")
 
-        problems: list[str] = []
+        integrity_problems: list[str] = []
+        functional_problems: list[str] = []
+        problems = integrity_problems
         if "final_gds" not in self.ledger:
             problems.append("no final GDS was produced")
         else:
@@ -1674,24 +2147,32 @@ class Orchestrator:
             for gate in REQUIRED_VERIFICATION:
                 gs = self.state.stage(gate)
                 why = gs.last_error or "no reason recorded"
+                target_problems = (
+                    functional_problems if gate is StageId.SIM
+                    else integrity_problems
+                )
                 if gs.status is StageStatus.SKIPPED:
-                    problems.append(
+                    target_problems.append(
                         f"{gate} was skipped ({why}); signoff requires it"
                     )
                 elif gs.status is not StageStatus.OK:
-                    problems.append(f"{gate} did not pass ({gs.status})")
+                    target_problems.append(f"{gate} did not pass ({gs.status})")
                 elif gs.last_verdict and gs.last_verdict != VerdictKind.PASS.value:
                     # "Ran without complaining" is not proof. A testbench that
                     # completes while printing no result grades as
                     # qor_below_target: enough to continue the flow, not enough
                     # to certify that the design does what it is supposed to.
-                    problems.append(
+                    target_problems.append(
                         f"{gate} completed as {gs.last_verdict} rather than a "
                         f"pass ({gs.last_error or 'nothing was proved'}); "
                         "signoff needs an explicit pass"
                     )
             for sid in sorted(self.cfg.skip_stages, key=stage_index):
-                problems.append(
+                target_problems = (
+                    functional_problems if sid is StageId.SIM
+                    else integrity_problems
+                )
+                target_problems.append(
                     f"{sid} was skipped at the user's request; a run with a "
                     "skipped stage is a measurement, not a signoff"
                 )
@@ -1707,12 +2188,16 @@ class Orchestrator:
         # re-verify it. Building the manifest is bookkeeping; re-hashing every
         # bound artifact from disk is the part that can actually catch a
         # signoff describing files that have since changed.
+        from .manifest import probe_tool_versions
+        manifest_tools = probe_tool_versions()
+        manifest_tools["klayout"] = self._tool_identity(Tool.KLAYOUT)
         manifest = ReleaseCandidateManifest.build(
             top=self.cfg.top,
             ledger=self.ledger,
             pdk=self.cfg.pdk.to_dict(),
             config=self.cfg.to_dict(),
             ir_fingerprint=self.ir.fingerprint(),
+            tools=manifest_tools,
         )
         problems += manifest.verify(self.ledger)
         problems += manifest.required_present(
@@ -1729,11 +2214,23 @@ class Orchestrator:
         # earlier attempt's file. Each hard gate therefore has to produce a
         # record naming the artifacts it consumed and the report it read, and
         # every one of those must still match this candidate.
-        problems += missing_evidence(self._evidence)
+        physical_evidence_gates = tuple(
+            gate for gate in CERTIFYING_GATES if gate is not StageId.SIM
+        )
+        problems += missing_evidence(
+            self._evidence, required=physical_evidence_gates
+        )
+        functional_problems += missing_evidence(
+            self._evidence, required=(StageId.SIM,)
+        )
         for gate in sorted(self._evidence, key=stage_index):
-            problems += self._evidence[gate].problems_against(
+            evidence_problems = self._evidence[gate].problems_against(
                 manifest_artifacts=manifest.artifacts, ledger=self.ledger,
             )
+            if gate is StageId.SIM:
+                functional_problems += evidence_problems
+            else:
+                integrity_problems += evidence_problems
         # Causal coherence across gates. Every individual record can be
         # internally valid while the set describes two different physical
         # generations -- which is exactly how two organically clean candidates
@@ -1741,6 +2238,74 @@ class Orchestrator:
         problems += lineage_problems(self._evidence)
 
         cert_id = certification_id(manifest.candidate_id, self._evidence)
+        stage_results = self._verification_stage_results()
+        authoritative_simulation = self._authoritative_simulation_passed()
+        if (
+            self.state.stage(StageId.SIM).status is StageStatus.OK
+            and not authoritative_simulation
+        ):
+            functional_problems.append(
+                "simulation passed only implementation-derived testbenches; "
+                "no authoritative specification testbench was verified"
+            )
+        repair_verifications: list[dict[str, Any]] = []
+        verified_repairs: list[dict[str, Any]] = []
+        for repair in self._accepted:
+            verified_rtl_sha256 = self.ledger.get("rtl_dir").sha256
+            rtl_before = str(repair.get("rtl_sha256_before_repair", ""))
+            evaluation_record = {
+                **repair,
+                "verified_working_rtl_sha256": verified_rtl_sha256,
+                "rtl_identity_preserved": bool(rtl_before) and (
+                    rtl_before == verified_rtl_sha256
+                ),
+            }
+            verification = evaluate_repair(
+                evaluation_record,
+                stage_results=stage_results,
+                evidence_gates=set(self._evidence),
+                integrity_problems=integrity_problems,
+                authoritative_simulation=authoritative_simulation,
+            )
+            record = {
+                **evaluation_record,
+                **verification.to_dict(),
+                "original_working_rtl_sha256": getattr(
+                    self, "_initial_work_rtl_sha256", ""
+                ),
+                "design_features": {
+                    **self.facts.to_dict(),
+                    "failure_geometry": repair.get(
+                        "failure_geometry_evidence", {}
+                    ),
+                    "successful_ir": self.ir.as_dict(),
+                },
+                "successful_ir_fingerprint": self.ir.fingerprint(),
+                "pdk": self.cfg.pdk.name,
+                "tool_backend": self.klayout.backend.name,
+                "tool_identity": self._tool_identity(Tool.KLAYOUT),
+                "candidate_id": manifest.candidate_id,
+                "certification_id": cert_id,
+            }
+            repair_verifications.append(record)
+            if verification.repair_verified:
+                verified_repairs.append(record)
+
+        certification = evaluate_certification(
+            stage_results=stage_results,
+            authoritative_simulation=authoritative_simulation,
+            integrity_problems=integrity_problems,
+            repair_verifications=repair_verifications,
+        )
+        self._write(
+            self.run_dir / "verification_summary.json",
+            __import__("json").dumps(
+                certification.to_dict(), indent=2, default=str
+            ),
+        )
+        self._print_verification_summary(certification)
+        problems = [*integrity_problems, *functional_problems]
+
         self._write(
             self.run_dir / "gate_evidence.json",
             __import__("json").dumps(
@@ -1785,6 +2350,7 @@ class Orchestrator:
                 g.value: self.state.stage(g).status.value
                 for g in (StageId.SIM, StageId.LEC_SYNTH, StageId.LEC_ROUTE)
             },
+            "certification": certification.to_dict(),
             "ir": self.ir.as_dict(),
             "ir_fingerprint": self.ir.fingerprint(),
             "problems": problems,
@@ -1794,6 +2360,18 @@ class Orchestrator:
             self.run_dir / "signoff.json",
             __import__("json").dumps(bundle, indent=2, default=str),
         )
+
+        if verified_repairs:
+            self._write(
+                self.run_dir / "verified_repairs.json",
+                __import__("json").dumps(
+                    verified_repairs, indent=2, default=str
+                ),
+            )
+            self.log.note(
+                f"promoted {len(verified_repairs)} repair(s) under action-derived verification scopes",
+                stage="repair", candidate_id=manifest.candidate_id,
+            )
 
         if problems:
             st.status = StageStatus.FAILED
@@ -1867,6 +2445,32 @@ class Orchestrator:
                 lines += ["### Tool evidence", "", "```", esc.detail[:6000], "```", ""]
         elif reason:
             lines += ["## Stopped", "", reason, ""]
+
+        verification_path = self.run_dir / "verification_summary.json"
+        if verification_path.is_file():
+            try:
+                summary = __import__("json").loads(verification_path.read_text())
+            except (OSError, ValueError):
+                summary = None
+            if summary:
+                def mark(value: bool) -> str:
+                    return "VERIFIED" if value else "NOT VERIFIED"
+                lines += [
+                    "## Verification summary", "",
+                    f"- Functional specification: **{mark(summary['functional_spec_verified'])}** — {summary['functional_reason']}",
+                    f"- Logical preservation: **{mark(summary['logical_identity_verified'])}** — {summary['logical_reason']}",
+                    f"- Physical implementation: **{mark(summary['physical_signoff_verified'])}** — {summary['physical_reason']}",
+                ]
+                for repair in summary.get("repair_verifications", []):
+                    name = repair.get("known_error_id") or repair.get("stage", "repair")
+                    lines.append(
+                        f"- Repair {name}: **{mark(repair.get('repair_verified', False))}** "
+                        f"(scope `{repair.get('verification_scope', 'unknown')}`)"
+                    )
+                lines += [
+                    f"- Overall certification: **{'COMPLETE' if summary['full_certification'] else 'INCOMPLETE'}** — {summary['overall_reason']}",
+                    "",
+                ]
 
         lines += ["## Stage status", "", "| stage | status | attempts | last error |",
                   "|---|---|---|---|"]

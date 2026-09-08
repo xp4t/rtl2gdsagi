@@ -32,6 +32,8 @@ DEFAULT_MODEL = "claude-opus-4-8"
 DEFAULT_RETRY_LIMIT = 3
 DEFAULT_FIX_CANDIDATES = 3
 DEFAULT_RUN_ROOT = Path("runs")
+REPAIR_POLICIES = frozenset({"ask", "auto", "manual"})
+KLAYOUT_BACKENDS = frozenset({"native", "native_isolated", "container"})
 
 #: Env var holding the API key. Never read into a config field, never logged.
 API_KEY_ENV = "ANTHROPIC_API_KEY"
@@ -78,6 +80,10 @@ class RunConfig:
     #: bundle, and a skipped signoff gate always fails signoff -- this is for
     #: measuring the rest of the flow, never for getting a clean result.
     skip_stages: frozenset[StageId] = frozenset()
+    #: Known repairs ask in a TTY, execute directly in auto mode, and stop in
+    #: manual mode.  ``ask`` resolves to manual when stdin is not a TTY.
+    repair_policy: str = "ask"
+    klayout_backend: str = "native"
 
     def __post_init__(self) -> None:
         # Absolute, because tools are invoked with cwd set to a stage
@@ -90,6 +96,10 @@ class RunConfig:
             raise ConfigError(f"fix_candidates must be >= 1, got {self.fix_candidates}")
         if not self.top:
             raise ConfigError("top module name is required")
+        if self.repair_policy not in REPAIR_POLICIES:
+            raise ConfigError(f"repair_policy must be one of {sorted(REPAIR_POLICIES)}")
+        if self.klayout_backend not in KLAYOUT_BACKENDS:
+            raise ConfigError(f"klayout_backend must be one of {sorted(KLAYOUT_BACKENDS)}")
 
     # ---- per-stage resolution -------------------------------------------
 
@@ -143,6 +153,8 @@ class RunConfig:
         config_path: str | os.PathLike[str] | None = None,
         mock_tools: bool | None = None,
         skip_stages: list[str] | None = None,
+        repair_policy: str | None = None,
+        klayout_backend: str | None = None,
     ) -> "RunConfig":
         """Merge config file, environment and explicit arguments."""
         fileconf: dict[str, Any] = cls.load_file(config_path) if config_path else {}
@@ -219,6 +231,8 @@ class RunConfig:
                 parse_stage(str(x))
                 for x in (skip_stages or fileconf.get("skip_stages") or [])
             ),
+            repair_policy=str(pick(repair_policy, "repair_policy", None, "ask")),
+            klayout_backend=str(pick(klayout_backend, "klayout_backend", None, "native")),
         )
 
     @staticmethod
@@ -292,6 +306,8 @@ class RunConfig:
             },
             "ir_overrides": self.ir_overrides,
             "skip_stages": sorted(s.value for s in self.skip_stages),
+            "repair_policy": self.repair_policy,
+            "klayout_backend": self.klayout_backend,
         }
 
 

@@ -146,7 +146,7 @@ GATE_CONTRACTS: dict[StageId, GateContract] = {
         consumed=("final_gds",),
         produced=("drc_report",),
         report_key="drc_report",
-        parser_contract="klayout_drc.parse_drc_report/v2-inventory-bound",
+        parser_contract="klayout_drc.parse_drc_report/v3-deck-bound-aliases",
         tool_identities=("KLayout ",),
     ),
     StageId.LVS: GateContract(

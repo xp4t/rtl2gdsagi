@@ -312,6 +312,26 @@ def unit_device_dimensions(spice: str, suffix: str = "u") -> str:
     return "\n".join(out)
 
 
+def strip_klayout_unsupported_metadata(spice: str) -> str:
+    """Remove the non-electrical ``topography=normal`` CDL annotation.
+
+    KLayout 0.28 rejects the bare word ``normal`` where its SPICE reader
+    expects a real-valued MOS parameter.  The pinned SKY130 CDL uses this exact
+    annotation, while connectivity, model, W/L, multiplicity and all numeric
+    parameters carry the LVS meaning.  Keep the rewrite deliberately narrow:
+    unknown string parameters remain visible and make the tool fail closed.
+    """
+    out: list[str] = []
+    for line in spice.splitlines():
+        stripped = line.lstrip()
+        if stripped and not stripped.startswith("*") and stripped[0] in "Mm":
+            line = " ".join(
+                token for token in line.split() if token != "topography=normal"
+            )
+        out.append(line)
+    return "\n".join(out)
+
+
 def parse_cdl_pins(cdl: str | Path) -> dict[str, list[str]]:
     """Map cell name -> its pin order, straight from the PDK's CDL.
 
@@ -465,6 +485,7 @@ def to_spice(
             defs = globalize_substrate(defs, substrate_pin, ground_net)
         defs = qualify_device_models(defs, model_prefix)
         defs = unit_device_dimensions(defs, dimension_unit)
+        defs = strip_klayout_unsupported_metadata(defs)
         lines += [
             f"* cell definitions for the {len(used)} cell type(s) this design uses",
             defs,

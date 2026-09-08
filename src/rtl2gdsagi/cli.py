@@ -67,9 +67,19 @@ def build_parser() -> argparse.ArgumentParser:
                           "hard failure escalates immediately")
     run.add_argument("--dry-run", action="store_true",
                      help="render every config and exit without running tools")
+    run.add_argument("--repair-policy", choices=("ask", "auto", "manual"), default=None,
+                     help="known-failure policy; ask uses manual in a non-TTY")
+    run.add_argument("--klayout-backend", choices=("native", "native_isolated", "container"),
+                     default=None, help="initial KLayout execution backend")
 
     sub.add_parser("stages", help="list the stage graph")
     sub.add_parser("taxonomy", help="show the failure class -> stage table")
+
+    errors = sub.add_parser("errors", help="query the offline OpenROAD failure catalog")
+    errors.add_argument("error_id", nargs="?")
+    errors.add_argument("--tool")
+    errors.add_argument("--search")
+    errors.add_argument("--known-fixes", action="store_true")
 
     schema = sub.add_parser("schema", help="show the agent-writable IR schema")
     schema.add_argument("section", nargs="?", help="limit to one section")
@@ -122,6 +132,38 @@ def cmd_schema(section: str | None) -> int:
         print(json.dumps({section: describe_section(section)}, indent=2))
         return EXIT_OK
     print(json.dumps({s: describe_section(s) for s in sorted(SCHEMA)}, indent=2))
+    return EXIT_OK
+
+
+def cmd_errors(error_id: str | None, *, tool: str | None = None,
+               search: str | None = None, known_fixes: bool = False) -> int:
+    from .error_knowledge.known_fixes import has_curated_fix
+    from .error_knowledge.openroad_catalog import OpenRoadCatalog
+
+    catalog = OpenRoadCatalog()
+    if error_id:
+        item = catalog.get(error_id)
+        if item is None:
+            print(f"unknown OpenROAD message ID {error_id}", file=sys.stderr)
+            return EXIT_ERROR
+        print(f"{item.canonical_id}  {item.severity}  OpenROAD/{item.subsystem}")
+        print(f"source: {item.source_file}:{item.source_line or '?'}")
+        print(f"message: {item.canonical_message or '-'}")
+        if item.documentation:
+            print(f"documentation: {item.documentation}")
+        curated = has_curated_fix(item.canonical_id)
+        print(f"curated executable repair: {'yes' if curated else 'no'}")
+        if curated:
+            print("allowed actions: typed IR updates")
+            print("rollback: derived from each changed IR section (PDN or floorplan)")
+        return EXIT_OK
+    rows = catalog.query(tool=tool, search=search, failures_only=True)
+    if known_fixes:
+        rows = [m for m in rows if has_curated_fix(m.canonical_id)]
+    for item in rows:
+        mark = " repair" if has_curated_fix(item.canonical_id) else ""
+        print(f"{item.canonical_id:<10} {item.severity:<8} {item.canonical_message[:100]}{mark}")
+    print(f"{len(rows)} message(s); catalog revision {catalog.metadata.revision}")
     return EXIT_OK
 
 
@@ -202,6 +244,8 @@ def cmd_run(args: argparse.Namespace) -> int:
             config_path=args.config_path,
             mock_tools=args.mock_tools or None,
             skip_stages=args.skip,
+            repair_policy=args.repair_policy,
+            klayout_backend=args.klayout_backend,
         )
     except (ConfigError, PDKError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
@@ -272,6 +316,9 @@ def main(argv: list[str] | None = None) -> int:
         return cmd_stages()
     if args.command == "taxonomy":
         return cmd_taxonomy()
+    if args.command == "errors":
+        return cmd_errors(args.error_id, tool=args.tool, search=args.search,
+                          known_fixes=args.known_fixes)
     if args.command == "schema":
         return cmd_schema(args.section)
     if args.command == "status":

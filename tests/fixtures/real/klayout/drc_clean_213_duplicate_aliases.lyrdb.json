@@ -1,0 +1,18 @@
+{
+  "tool": "klayout",
+  "version": "KLayout 0.28.2",
+  "stage": "drc",
+  "design": "shift_register",
+  "source_run": "/tmp/rtl2gdsagi-shift-register-pdn-auto-v2",
+  "deck_revision": "volare bdc9412b3e468c102d01b7cf6337be06ec6e9c9a",
+  "deck_sha256": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+  "container_image": "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+  "report_sha256": "80deed6e7dffe4a922b661ae3dab67b3b120ae64a2a6e6dedebc51cbb9d3a038",
+  "expected": {
+    "raw_declarations": 213,
+    "canonical_categories": 211,
+    "duplicates": ["diff_angle", "tap_angle"],
+    "total_violations": 0,
+    "verdict": "pass"
+  }
+}

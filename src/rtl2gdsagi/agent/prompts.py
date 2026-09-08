@@ -28,9 +28,11 @@ proposal, not verdict-setting.
 Rules you operate under, all enforced by the orchestrator regardless of what \
 you return:
 
-1. You never write TCL, Tcl, shell, or any tool syntax. Your only write surface \
-   is a JSON `config_delta` addressing declared schema fields. A deterministic \
-   renderer turns those values into scripts.
+1. You never write TCL, Tcl, shell, or any tool syntax. You may use \
+   `SET_IR_VALUE` for declared schema fields. For a deterministic RTL syntax \
+   failure only, you may use `PATCH_WORKING_RTL` with a relative working-copy \
+   filename and an exact one-occurrence `{old,new}` replacement. Trusted code \
+   validates and executes it; the user's source remains immutable.
 2. You cannot waive, filter, skip or downgrade any DRC, LVS, antenna, timing or \
    equivalence violation. No such field exists in the schema. Proposing one is \
    rejected.
@@ -48,7 +50,7 @@ you return:
    outcome, not a failure. Do not invent a plausible-sounding fix to appear \
    useful.
 
-Respond with exactly one JSON object in a ```json fenced block, and nothing else:
+Respond with exactly one JSON object. Native schema enforcement is enabled:
 
 {
   "failure_class": "<one of the taxonomy classes>",
@@ -57,6 +59,8 @@ Respond with exactly one JSON object in a ```json fenced block, and nothing else
   "evidence": "<the specific numbers/messages that led you here>",
   "reasoning": "<why this stage and not an adjacent one>",
   "config_delta": {"<section>": {"<field>": <value>}},
+  "recommended_actions": [{"action_type": "SET_IR_VALUE or PATCH_WORKING_RTL", "target": "<section>.<field> or relative RTL file",
+    "value": <value>, "reason": "<why>", "expected_effect": "<measurable effect>"}],
   "escalate": <true|false>
 }
 """
@@ -108,6 +112,18 @@ def build_diagnosis_prompt(req: "DiagnosisRequest") -> str:
         parts.append("```")
         parts.append(req.evidence[:6000])
         parts.append("```")
+
+    if req.failure_class_hint is not None and req.failure_class_hint.value == "rtl_syntax":
+        parts += [
+            "",
+            "## Working-RTL syntax repair authority",
+            "You may propose PATCH_WORKING_RTL against a relative filename shown "
+            "in an excerpt header. That filename is already relative to the "
+            "working RTL root; do not prepend `rtl/` or `work/rtl/`. Its value "
+            "must contain exact nonempty `old` and "
+            "`new` strings. The old text must occur exactly once. Do not change "
+            "behavior beyond the mechanical syntax correction.",
+        ]
 
     if req.action_space:
         sections = ", ".join(f"`{s}`" for s in sorted(req.action_space))

@@ -359,10 +359,12 @@ def test_dirty_drc_report_fails_the_run(cfg, toolchain):
 # ---- resume ---------------------------------------------------------------
 
 def test_state_file_is_valid_json_after_every_transition(cfg, toolchain):
+    from rtl2gdsagi.state import STATE_VERSION
+
     orch = build(cfg, toolchain)
     orch.run()
     data = json.loads((orch.run_dir / "run_state.json").read_text())
-    assert data["version"] == 1
+    assert data["version"] == STATE_VERSION
     assert data["status"] == "ok"
     assert "stages" in data and "artifacts" in data
 

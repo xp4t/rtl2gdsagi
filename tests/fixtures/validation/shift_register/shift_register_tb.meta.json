@@ -1,0 +1,9 @@
+{
+  "authority": "implementation_derived",
+  "basis": "behavior directly inferred from the RTL implementation",
+  "claims": [
+    "asynchronous active-high reset",
+    "positive-edge serial shift",
+    "four-bit pipeline ordering"
+  ]
+}

@@ -394,6 +394,9 @@ class Diagnosis:
     reasoning: str = ""
     #: Bounded IR delta the agent wants applied to the implicated stage.
     config_delta: dict[str, object] = field(default_factory=dict)
+    #: Typed executable actions. Models may set bounded IR or patch the private
+    #: RTL copy for deterministic syntax failures; trusted code validates both.
+    recommended_actions: list[dict[str, object]] = field(default_factory=list)
     escalated: bool = False
 
     @property
@@ -408,6 +411,7 @@ class Diagnosis:
             "confidence": self.confidence,
             "reasoning": self.reasoning,
             "config_delta": self.config_delta,
+            "recommended_actions": self.recommended_actions,
             "resolution": self.resolution.value,
             "escalated": self.escalated,
         }

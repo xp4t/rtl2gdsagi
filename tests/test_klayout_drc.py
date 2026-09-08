@@ -13,9 +13,17 @@ from pathlib import Path
 import pytest
 
 from rtl2gdsagi.artifacts import Artifact
-from rtl2gdsagi.checks.klayout_drc import DRCResult, parse_drc_report
+from rtl2gdsagi.checks.klayout_drc import (
+    APPROVED_INVENTORIES,
+    DRCResult,
+    parse_drc_report,
+)
 
 FIX = Path(__file__).parent / "fixtures" / "klayout"
+REAL = Path(__file__).parent / "fixtures" / "real" / "klayout"
+SKY130_DRC_SHA256 = (
+    "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470"
+)
 
 # Ground truth, established by an independent ElementTree pass over the file.
 DIRTY_TOTAL = 4743
@@ -214,3 +222,99 @@ def test_clean_report_carries_no_notes():
     )
     assert res.clean
     assert res.explanations() == []
+
+
+def test_real_klayout_028_duplicate_declarations_normalize_narrowly():
+    """The captured 0.28.2 report has 213 nodes but the approved 211 names.
+
+    The exact pinned deck calls output twice with each of the two names.  Newer
+    KLayout collapses those declarations; 0.28.2 preserves both descriptions.
+    """
+    report = REAL / "drc_clean_213_duplicate_aliases.lyrdb"
+    res = parse_drc_report(
+        report, expected_top="shift_register", deck_sha256=SKY130_DRC_SHA256,
+    )
+    assert res.clean
+    assert res.raw_declared_categories == 213
+    assert res.declared_categories == 211
+    assert res.inventory_verified is True
+    assert set(res.normalized_duplicate_categories) == {"diff_angle", "tap_angle"}
+    assert res.category_inventory_sha256 == APPROVED_INVENTORIES[SKY130_DRC_SHA256][1]
+    assert res.raw_category_inventory_sha256 != res.category_inventory_sha256
+    assert res.to_dict()["raw_declared_categories"] == 213
+
+
+def test_old_211_report_is_unchanged_by_alias_normalization():
+    report = REAL / "drc_clean_register.lyrdb"
+    res = parse_drc_report(
+        report, expected_top="register", deck_sha256=SKY130_DRC_SHA256,
+    )
+    assert res.clean
+    assert res.raw_declared_categories == res.declared_categories == 211
+    assert res.normalized_duplicate_categories == {}
+    assert res.raw_category_inventory_sha256 == res.category_inventory_sha256
+
+
+def test_duplicate_normalization_is_bound_to_deck_identity():
+    report = REAL / "drc_clean_213_duplicate_aliases.lyrdb"
+    res = parse_drc_report(report, expected_top="shift_register", deck_sha256="0" * 64)
+    assert not res.clean
+    assert res.raw_declared_categories == res.declared_categories == 213
+    assert any("unapproved duplicate" in problem for problem in res.problems)
+    assert any("no approved rule inventory" in problem for problem in res.problems)
+
+
+def test_changed_duplicate_description_fails_closed(tmp_path):
+    source = (REAL / "drc_clean_213_duplicate_aliases.lyrdb").read_text()
+    changed = source.replace(
+        "x.2c : non 45 degree angle diff", "unexpected rule meaning", 1,
+    )
+    report = tmp_path / "changed-description.lyrdb"
+    report.write_text(changed)
+    res = parse_drc_report(report, deck_sha256=SKY130_DRC_SHA256)
+    assert not res.clean
+    assert any("diff_angle" in problem for problem in res.problems)
+
+
+def test_actual_additional_rule_is_not_silently_added(tmp_path):
+    import xml.etree.ElementTree as ET
+
+    tree = ET.parse(REAL / "drc_clean_213_duplicate_aliases.lyrdb")
+    categories = tree.getroot().find("categories")
+    extra = ET.SubElement(categories, "category")
+    ET.SubElement(extra, "name").text = "new.signoff.rule"
+    ET.SubElement(extra, "description").text = "a genuinely additional rule"
+    ET.SubElement(extra, "categories")
+    report = tmp_path / "additional-rule.lyrdb"
+    tree.write(report, encoding="utf-8", xml_declaration=True)
+
+    res = parse_drc_report(report, deck_sha256=SKY130_DRC_SHA256)
+    assert not res.clean
+    assert res.raw_declared_categories == 214
+    assert res.declared_categories == 212
+    assert res.inventory_verified is False
+    assert any("executed rule set is not the approved one" in p for p in res.problems)
+
+
+def test_duplicate_alias_cannot_hide_a_violation(tmp_path):
+    import xml.etree.ElementTree as ET
+
+    tree = ET.parse(REAL / "drc_clean_213_duplicate_aliases.lyrdb")
+    item = ET.SubElement(tree.getroot().find("items"), "item")
+    ET.SubElement(item, "category").text = "'diff_angle'"
+    report = tmp_path / "duplicate-with-violation.lyrdb"
+    tree.write(report, encoding="utf-8", xml_declaration=True)
+
+    res = parse_drc_report(report, deck_sha256=SKY130_DRC_SHA256)
+    assert res.inventory_verified is True
+    assert not res.clean
+    assert res.total_violations == 1
+    assert res.by_category == {"diff_angle": 1}
+
+
+def test_category_hashes_are_deterministic():
+    report = REAL / "drc_clean_213_duplicate_aliases.lyrdb"
+    first = parse_drc_report(report, deck_sha256=SKY130_DRC_SHA256)
+    second = parse_drc_report(report, deck_sha256=SKY130_DRC_SHA256)
+    assert first.category_inventory_sha256 == second.category_inventory_sha256
+    assert first.raw_category_inventory_sha256 == second.raw_category_inventory_sha256

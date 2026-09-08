@@ -17,6 +17,7 @@ from rtl2gdsagi.agent.client import (
     ScriptedAgent,
     parse_diagnosis,
     resolve_model,
+    diagnosis_schema,
 )
 from rtl2gdsagi.agent.prompts import SYSTEM_PROMPT, build_diagnosis_prompt
 from rtl2gdsagi.errors import AgentError
@@ -24,6 +25,8 @@ from rtl2gdsagi.ir import SchemaViolation
 from rtl2gdsagi.stages import StageId
 from rtl2gdsagi.safety import authorized_action_space
 from rtl2gdsagi.taxonomy import FailureClass
+from rtl2gdsagi.checks.verdict import failed
+from rtl2gdsagi.stages import get_stage
 
 
 @pytest.fixture
@@ -104,6 +107,63 @@ def test_model_cannot_return_tcl_as_a_config_delta(req):
         )
 
 
+def test_model_cannot_request_an_arbitrary_shell_action(req):
+    with pytest.raises(AgentError, match="not authorized"):
+        parse_diagnosis(_resp(recommended_actions=[{
+            "action_type": "RUN_SHELL", "target": "shell", "value": "rm -rf /",
+            "reason": "bad", "expected_effect": "bad",
+        }]), req)
+
+
+def test_model_can_patch_only_working_rtl_for_syntax_failure(req):
+    req.failure_class_hint = FailureClass.RTL_SYNTAX
+    d = parse_diagnosis(_resp(
+        failure_class="rtl_syntax",
+        implicated_stage="lint",
+        config_delta={},
+        recommended_actions=[{
+            "action_type": "PATCH_WORKING_RTL",
+            "target": "broken.v",
+            "value": {"old": "assign y = a", "new": "assign y = a;"},
+            "reason": "the parser reports a missing semicolon",
+            "expected_effect": "the working RTL parses",
+        }],
+    ), req)
+    assert d.recommended_actions[0]["action_type"] == "PATCH_WORKING_RTL"
+    assert d.recommended_actions[0]["target"] == "broken.v"
+
+
+def test_working_rtl_patch_rejected_for_physical_failure(req):
+    with pytest.raises(SchemaViolation, match="only for deterministic RTL syntax"):
+        parse_diagnosis(_resp(
+            config_delta={},
+            recommended_actions=[{
+                "action_type": "PATCH_WORKING_RTL",
+                "target": "design.v",
+                "value": {"old": "a", "new": "b"},
+                "reason": "unrelated physical failure",
+                "expected_effect": "change RTL",
+            }],
+        ), req)
+
+
+def test_working_rtl_patch_target_must_be_confined(req):
+    req.failure_class_hint = FailureClass.RTL_SYNTAX
+    with pytest.raises(SchemaViolation, match="confined relative path"):
+        parse_diagnosis(_resp(
+            failure_class="rtl_syntax",
+            implicated_stage="lint",
+            config_delta={},
+            recommended_actions=[{
+                "action_type": "PATCH_WORKING_RTL",
+                "target": "../original.v",
+                "value": {"old": "a", "new": "b"},
+                "reason": "escape attempt",
+                "expected_effect": "modify original",
+            }],
+        ), req)
+
+
 def test_model_cannot_set_a_verdict(req):
     """A 'verdict' key is simply not read; it can never reach a Verdict."""
     d = parse_diagnosis(_resp(verdict="pass", clean=True), req)
@@ -151,7 +211,7 @@ def test_prompt_lists_already_tried_configs(req):
 
 
 def test_system_prompt_forbids_tool_syntax_and_waivers():
-    for phrase in ("never write TCL", "cannot waive", "never propose changes to RTL",
+    for phrase in ("never write TCL", "cannot waive", "relative working-copy",
                    "immutable ground truth", "escalate"):
         assert phrase.lower() in SYSTEM_PROMPT.lower()
 
@@ -175,3 +235,47 @@ def test_scripted_agent_records_requests(req):
     a = ScriptedAgent()
     a.diagnose(req)
     assert a.calls[0].stage is StageId.ROUTING
+
+
+def test_native_output_schema_requires_typed_repair_actions():
+    schema = diagnosis_schema()
+    assert "recommended_actions" in schema["required"]
+    action = schema["properties"]["recommended_actions"]["items"]
+    assert action["properties"]["action_type"]["enum"] == [
+        "SET_IR_VALUE", "PATCH_WORKING_RTL",
+    ]
+    assert "anyOf" in action["properties"]["value"]
+    assert schema["properties"]["confidence"] == {"type": "number"}
+    assert schema["properties"]["config_delta"]["additionalProperties"] is False
+
+
+def test_provider_errors_redact_credentials():
+    from rtl2gdsagi.agent.client import redact_sensitive_text
+
+    text = (
+        "request failed sk-ant-exampleSecret123456 "
+        "Authorization: Bearer another-secret-value"
+    )
+    redacted = redact_sensitive_text(text)
+    assert "exampleSecret" not in redacted
+    assert "another-secret" not in redacted
+    assert redacted.count("[REDACTED]") == 2
+
+
+def test_agent_failure_is_recorded_separately_from_eda_failure(cfg):
+    from rtl2gdsagi.runner import Orchestrator
+
+    class BadAgent:
+        def diagnose(self, _request):
+            raise AgentError("empty response; stop_reason=max_tokens")
+
+    orch = Orchestrator(cfg, agent=BadAgent())
+    verdict = failed(StageId.ROUTING, FailureClass.ROUTING,
+                     "router left 3 violations", evidence="violations = 3")
+    with pytest.raises(AgentError, match="agent response failure"):
+        orch._diagnose(get_stage(StageId.ROUTING), verdict, 1)
+    record = json.loads((orch.stage_dir(StageId.ROUTING) /
+                         "attempt_01_agent_failure.json").read_text())
+    assert record["failure_domain"] == "agent"
+    assert record["eda_failure"]["summary"] == "router left 3 violations"
+    orch.log.close()

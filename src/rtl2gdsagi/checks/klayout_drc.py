@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import hashlib
 import xml.etree.ElementTree as ET
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Iterable, Iterator
@@ -77,6 +78,17 @@ class DRCResult:
     total_violations: int
     #: How many rule categories the deck declared. Zero means the deck no-opped.
     declared_categories: int
+    #: Number of declaration nodes serialized in the report before narrowly
+    #: approved, deck-specific duplicate-name normalization.
+    raw_declared_categories: int | None = None
+    #: SHA-256 of the canonical category-name inventory used for signoff.
+    category_inventory_sha256: str = ""
+    #: SHA-256 of all raw category names, including duplicate declarations.
+    raw_category_inventory_sha256: str = ""
+    #: Duplicate declaration descriptions accepted under the exact deck hash.
+    normalized_duplicate_categories: dict[str, tuple[str, ...]] = field(
+        default_factory=dict
+    )
     #: True when the declared rule names matched the approved deck's inventory,
     #: False when they did not, None when no deck identity was supplied.
     inventory_verified: bool | None = None
@@ -99,9 +111,14 @@ class DRCResult:
         if self.problems:
             return "DRC report unusable: " + "; ".join(self.problems)
         if self.total_violations == 0:
+            raw = self.raw_declared_categories or self.declared_categories
+            normalization = (
+                f" ({raw} raw declarations normalized by approved aliases)"
+                if raw != self.declared_categories else ""
+            )
             return (
                 f"DRC clean: 0 violations across {self.declared_categories} rule "
-                f"categories on top cell {self.top_cell!r}"
+                f"categories{normalization} on top cell {self.top_cell!r}"
             )
         worst = ", ".join(f"{name} ({n})" for name, n in self.top_categories(3))
         return (
@@ -118,6 +135,19 @@ class DRCResult:
             "total_violations": self.total_violations,
             "violated_categories": self.violated_categories,
             "declared_categories": self.declared_categories,
+            "raw_declared_categories": (
+                self.raw_declared_categories
+                if self.raw_declared_categories is not None
+                else self.declared_categories
+            ),
+            "category_inventory_sha256": self.category_inventory_sha256,
+            "raw_category_inventory_sha256": self.raw_category_inventory_sha256,
+            "normalized_duplicate_categories": {
+                name: list(descriptions)
+                for name, descriptions in sorted(
+                    self.normalized_duplicate_categories.items()
+                )
+            },
             "by_category": dict(sorted(self.by_category.items(), key=lambda kv: -kv[1])),
             "checked_gds": self.checked_gds.to_dict() if self.checked_gds else None,
             "clean": self.clean,
@@ -170,14 +200,21 @@ def _clean_category(raw: str | None) -> str:
     return "/".join(p for p in parts if p)
 
 
-def _iter_declared(cats: ET.Element | None, prefix: str = "") -> Iterator[str]:
+def _iter_declarations(
+    cats: ET.Element | None, prefix: str = ""
+) -> Iterator[tuple[str, str]]:
     if cats is None:
         return
     for cat in cats.findall("category"):
         name = _clean_category(cat.findtext("name"))
         full = f"{prefix}{name}"
-        yield full
-        yield from _iter_declared(cat.find("categories"), prefix=f"{full}/")
+        yield full, (cat.findtext("description") or "").strip()
+        yield from _iter_declarations(cat.find("categories"), prefix=f"{full}/")
+
+
+def _iter_declared(cats: ET.Element | None, prefix: str = "") -> Iterator[str]:
+    """Compatibility iterator for callers that only need declaration names."""
+    yield from (name for name, _ in _iter_declarations(cats, prefix))
 
 
 #: deck sha256 -> (category count, sha256 of the sorted category names, label).
@@ -197,6 +234,27 @@ APPROVED_INVENTORIES: dict[str, tuple[int, str, str]] = {
         "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
         "sky130A_mr.drc (volare bdc9412b)",
     ),
+}
+
+# KLayout 0.28 serializes both calls to ``output`` below as separate category
+# declarations, while KLayout 0.30 serializes one declaration per category
+# name.  Both execute the exact deck bytes pinned above.  Item references use
+# the category name, so violations from either call still remain visible and
+# are counted.  This contract is intentionally bound to the deck hash and to
+# the exact duplicate descriptions; it is not a general duplicate filter.
+APPROVED_DUPLICATE_DECLARATIONS: dict[
+    str, dict[str, tuple[str, ...]]
+] = {
+    "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470": {
+        "diff_angle": (
+            "x.2 : non 90 degree angle diff",
+            "x.2c : non 45 degree angle diff",
+        ),
+        "tap_angle": (
+            "x.2 : non 90 degree angle tap",
+            "x.2c : non 45 degree angle tap",
+        ),
+    },
 }
 
 
@@ -248,7 +306,37 @@ def parse_drc_report(
     top_cell = (root.findtext("top-cell") or "").strip()
     generator = (root.findtext("generator") or "").strip()
 
-    declared = list(_iter_declared(root.find("categories")))
+    declarations = list(_iter_declarations(root.find("categories")))
+    raw_declared = [name for name, _ in declarations]
+    raw_digest = inventory_digest(raw_declared)
+    descriptions: dict[str, list[str]] = defaultdict(list)
+    for name, description in declarations:
+        descriptions[name].append(description)
+    duplicate_names = {
+        name for name, count in Counter(raw_declared).items() if count > 1
+    }
+    normalized_duplicates: dict[str, tuple[str, ...]] = {}
+
+    # Default to raw declarations.  Only a fully matched, deck-bound duplicate
+    # policy may collapse names for comparison with the approved inventory.
+    declared = list(raw_declared)
+    if duplicate_names:
+        policy = APPROVED_DUPLICATE_DECLARATIONS.get(deck_sha256 or "", {})
+        unexpected: list[str] = []
+        for name in sorted(duplicate_names):
+            got = tuple(descriptions[name])
+            want = policy.get(name)
+            if want is None or Counter(got) != Counter(want):
+                unexpected.append(name)
+            else:
+                normalized_duplicates[name] = got
+        if unexpected:
+            problems.append(
+                "unapproved duplicate DRC category declarations: "
+                + ", ".join(unexpected)
+            )
+        else:
+            declared = list(dict.fromkeys(raw_declared))
 
     # Prove the intended deck's whole rule set actually executed.
     inventory_ok = None
@@ -303,6 +391,10 @@ def parse_drc_report(
         by_category=counts,
         total_violations=total,
         declared_categories=len(declared),
+        raw_declared_categories=len(raw_declared),
+        category_inventory_sha256=inventory_digest(declared),
+        raw_category_inventory_sha256=raw_digest,
+        normalized_duplicate_categories=normalized_duplicates,
         inventory_verified=inventory_ok,
         checked_gds=checked_gds,
         problems=tuple(problems),

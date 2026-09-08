@@ -25,6 +25,7 @@ from rtl2gdsagi.spice import (
     parse_cdl_pins,
     parse_gate_netlist,
     qualify_device_models,
+    strip_klayout_unsupported_metadata,
     to_spice,
 )
 
@@ -193,6 +194,17 @@ def test_device_dimensions_get_an_explicit_unit(cdl, netlist):
     assert "w=0.65u" in card and "l=0.15u" in card
     bare = to_spice(netlist, "widget", cdl, dimension_unit="")
     assert "w=0.65 " in next(l for l in bare.splitlines() if l.startswith("MM1"))
+
+
+def test_only_known_nonelectrical_topography_metadata_is_removed():
+    card = (
+        "MM1 d g s b nfet w=0.65u l=0.15u topography=normal "
+        "custom=unknown"
+    )
+    cleaned = strip_klayout_unsupported_metadata(card)
+    assert "topography=normal" not in cleaned
+    assert "w=0.65u" in cleaned and "l=0.15u" in cleaned
+    assert "custom=unknown" in cleaned
 
 
 def test_ground_but_not_power_is_a_top_level_pin(cdl, netlist):

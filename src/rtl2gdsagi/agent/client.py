@@ -34,6 +34,16 @@ MODEL_ENV = "RTL2GDSAGI_MODEL"
 _JSON_BLOCK = re.compile(r"```(?:json)?\s*(\{.*?\})\s*```", re.DOTALL)
 
 
+def redact_sensitive_text(text: str) -> str:
+    """Remove credential-shaped values from provider diagnostics."""
+    out = re.sub(r"\bsk-(?:ant-)?[A-Za-z0-9_-]{8,}\b", "[REDACTED]", text)
+    return re.sub(
+        r"(?i)(authorization\s*[:=]\s*(?:bearer\s+)?)[^\s,;}]+",
+        r"\1[REDACTED]",
+        out,
+    )
+
+
 @dataclass(frozen=True)
 class CallAudit:
     """Immutable record of what the model was actually shown and returned.
@@ -59,6 +69,8 @@ class CallAudit:
     user_prompt: str = ""
     response_text: str = ""
     synthetic_transport: bool = False
+    stop_reason: str = ""
+    content_block_types: tuple[str, ...] = ()
 
     def to_dict(self, *, include_text: bool = False) -> dict[str, Any]:
         d = {
@@ -69,6 +81,8 @@ class CallAudit:
             "evidence_payload_sha256": self.evidence_payload_sha256,
             "response_sha256": self.response_sha256,
             "synthetic_transport": self.synthetic_transport,
+            "stop_reason": self.stop_reason,
+            "content_block_types": list(self.content_block_types),
         }
         if include_text:
             d["system_prompt"] = self.system_prompt
@@ -173,14 +187,32 @@ class ClaudeAgent:
                 max_tokens=self.max_tokens,
                 system=SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": user}],
+                output_config={"format": {"type": "json_schema", "schema": diagnosis_schema()}},
             )
         except Exception as exc:  # network, auth, rate limit
-            raise AgentError(f"Claude API call failed: {exc}") from exc
+            raise AgentError(
+                f"Claude API call failed: {redact_sensitive_text(str(exc))}"
+            ) from exc
 
         text = "".join(
             block.text for block in msg.content if getattr(block, "type", "") == "text"
         )
-        diag = parse_diagnosis(text, request)
+        block_types = tuple(str(getattr(block, "type", "unknown")) for block in msg.content)
+        stop_reason = str(getattr(msg, "stop_reason", "") or "")
+        if not text.strip():
+            raise AgentError(
+                "model returned no JSON text "
+                f"(stop_reason={stop_reason!r}, content_blocks={block_types!r}, "
+                f"usage={getattr(msg, 'usage', None)!r})"
+            )
+        try:
+            diag = parse_diagnosis(text, request)
+        except (AgentError, SchemaViolation) as exc:
+            raise AgentError(
+                f"malformed structured model response: {exc}; stop_reason={stop_reason!r}; "
+                f"content_blocks={block_types!r}; usage={getattr(msg, 'usage', None)!r}; "
+                f"raw={text[:1000]!r}"
+            ) from exc
         usage = getattr(msg, "usage", None)
         return AgentResponse(
             diagnosis=diag,
@@ -199,8 +231,61 @@ class ClaudeAgent:
                 user_prompt=user,
                 response_text=text,
                 synthetic_transport=getattr(self, "synthetic_transport", False),
+                stop_reason=stop_reason,
+                content_block_types=block_types,
             ),
         )
+
+
+def diagnosis_schema() -> dict[str, Any]:
+    """Schema sent through Anthropic's native structured-output API."""
+    return {
+        "type": "object", "additionalProperties": False,
+        "properties": {
+            "failure_class": {"type": "string", "enum": [f.value for f in FailureClass]},
+            "implicated_stage": {"anyOf": [{"type": "string", "enum": [s.value for s in StageId]}, {"type": "null"}]},
+            # Anthropic's structured-output subset rejects numeric bounds.
+            # parse_diagnosis still enforces the closed [0, 1] interval.
+            "confidence": {"type": "number"},
+            "evidence": {"type": "string"}, "reasoning": {"type": "string"},
+            # Native structured output requires all object schemas to close
+            # their property set. Executable changes use recommended_actions;
+            # this legacy field stays present as an explicitly empty object.
+            "config_delta": {
+                "type": "object", "properties": {},
+                "additionalProperties": False,
+            },
+            "recommended_actions": {"type": "array", "items": {
+                "type": "object", "additionalProperties": False,
+                "properties": {
+                    "action_type": {"type": "string", "enum": [
+                        "SET_IR_VALUE", "PATCH_WORKING_RTL",
+                    ]},
+                    "target": {"type": "string"},
+                    "value": {"anyOf": [
+                        {"type": "string"},
+                        {"type": "number"},
+                        {"type": "boolean"},
+                        {"type": "array", "items": {"type": "string"}},
+                        {
+                            "type": "object", "additionalProperties": False,
+                            "properties": {
+                                "old": {"type": "string"},
+                                "new": {"type": "string"},
+                            },
+                            "required": ["old", "new"],
+                        },
+                    ]},
+                    "reason": {"type": "string"},
+                    "expected_effect": {"type": "string"},
+                },
+                "required": ["action_type", "target", "value", "reason", "expected_effect"],
+            }},
+            "escalate": {"type": "boolean"},
+        },
+        "required": ["failure_class", "implicated_stage", "confidence", "evidence",
+                     "reasoning", "config_delta", "recommended_actions", "escalate"],
+    }
 
 
 def parse_diagnosis(text: str, request: DiagnosisRequest) -> Diagnosis:
@@ -247,6 +332,41 @@ def parse_diagnosis(text: str, request: DiagnosisRequest) -> Diagnosis:
         if not isinstance(vals, dict):
             raise SchemaViolation(f"config_delta.{section} must be an object")
 
+    actions = data.get("recommended_actions") or []
+    if not isinstance(actions, list):
+        raise AgentError("recommended_actions must be an array")
+    action_delta: dict[str, dict[str, Any]] = {}
+    clean_actions: list[dict[str, object]] = []
+    for action in actions:
+        if not isinstance(action, dict):
+            raise AgentError("model action must be an object")
+        action_type = str(action.get("action_type", ""))
+        if action_type not in {"SET_IR_VALUE", "PATCH_WORKING_RTL"}:
+            raise AgentError("model action type is not authorized; shell actions are forbidden")
+        target = str(action.get("target", ""))
+        if action_type == "SET_IR_VALUE":
+            parts = target.split(".")
+            if len(parts) != 2 or parts[0] not in request.action_space or parts[1] not in request.action_space[parts[0]]:
+                raise SchemaViolation(f"model action target {target!r} is outside the authorized surface")
+            action_delta.setdefault(parts[0], {})[parts[1]] = action.get("value")
+        else:
+            value = action.get("value")
+            if request.failure_class_hint is not FailureClass.RTL_SYNTAX:
+                raise SchemaViolation("working RTL patches are authorized only for deterministic RTL syntax failures")
+            path = Path(target)
+            if path.is_absolute() or ".." in path.parts or not target:
+                raise SchemaViolation(f"working RTL patch target {target!r} is not a confined relative path")
+            if not isinstance(value, dict) or set(value) != {"old", "new"}:
+                raise SchemaViolation("working RTL patch value must contain exactly old/new strings")
+            if not all(isinstance(value[k], str) and value[k] for k in ("old", "new")):
+                raise SchemaViolation("working RTL patch old/new values must be nonempty strings")
+        clean_actions.append({k: action.get(k, "") for k in
+                              ("action_type", "target", "value", "reason", "expected_effect")})
+    if action_delta:
+        if delta and delta != action_delta:
+            raise AgentError("config_delta and recommended_actions describe different changes")
+        delta = action_delta
+
     try:
         confidence = float(data.get("confidence", 0.0))
     except (TypeError, ValueError):
@@ -259,6 +379,7 @@ def parse_diagnosis(text: str, request: DiagnosisRequest) -> Diagnosis:
         confidence=confidence,
         reasoning=str(data.get("reasoning", ""))[:4000],
         config_delta=delta,
+        recommended_actions=clean_actions,
         escalated=bool(data.get("escalate", False)),
     )
 

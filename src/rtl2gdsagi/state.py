@@ -19,7 +19,7 @@ from .artifacts import ArtifactLedger
 from .stages import STAGE_ORDER, StageId
 
 STATE_FILENAME = "run_state.json"
-STATE_VERSION = 1
+STATE_VERSION = 2
 
 
 class StageStatus(str, Enum):
@@ -80,6 +80,7 @@ class StageState:
             "configs_generated": self.configs_generated,
             "api_calls": self.api_calls,
             "retry_limit": self.retry_limit,
+            "last_verdict": self.last_verdict,
             "last_error": self.last_error,
             "last_detail": self.last_detail,
             "started_at": self.started_at,
@@ -96,6 +97,7 @@ class StageState:
             configs_generated=int(d.get("configs_generated", 0)),
             api_calls=int(d.get("api_calls", 0)),
             retry_limit=int(d.get("retry_limit", 0)),
+            last_verdict=d.get("last_verdict", ""),
             last_error=d.get("last_error", ""),
             last_detail=d.get("last_detail", ""),
             started_at=d.get("started_at"),
