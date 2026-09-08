@@ -1,4 +1,0 @@
-read_verilog -sv /home/vlsilab/rtl2gdsagi/processor_16b/alu.v
-read_verilog -sv /home/vlsilab/rtl2gdsagi/processor_16b/regfile.v
-read_verilog -sv /home/vlsilab/rtl2gdsagi/processor_16b/processor_16b.v
-synth -top processor_16b
