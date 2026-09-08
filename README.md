@@ -535,6 +535,27 @@ rtl2gdsagi run --config design.yaml --repair-policy auto
 rtl2gdsagi run --config design.yaml --repair-policy manual
 ```
 
+The Claude response allowance defaults to `auto`: 8,192 tokens for small RTL,
+12,288 for medium RTL, 16,384 for large RTL, and 32,768 for designs above
+roughly 1 MiB. This leaves room for extended thinking plus the required typed
+JSON response. Override it per run, in YAML, or through the environment:
+
+```bash
+rtl2gdsagi run --config design.yaml --max-model-tokens 16384
+```
+
+```yaml
+max_model_tokens: 16384  # or auto
+```
+
+```bash
+export RTL2GDSAGI_MAX_MODEL_TOKENS=16384
+```
+
+Precedence is CLI, then config file, then environment, then automatic sizing.
+The resolved integer is recorded in `run_state.json`; it is an API response
+budget only and cannot weaken or bypass any EDA gate.
+
 `ask` is the interactive default and offers AGI repair, manual repair,
 technical evidence, or abort for a recognized actionable failure. In a
 non-interactive process it resolves to `manual`, so CI never waits for stdin.
@@ -1153,3 +1174,26 @@ If you add a check, it must fail closed. A missing report, an unparseable
 report, a report with no rules loaded, a report about a different file — all of
 those are failures, never passes. Never infer success from silence or from an
 exit code.
+
+
+---
+
+## 11. Automated Validation Corpus (my_test_designs)
+
+A comprehensive suite of 10 synthesized Verilog RTL designs has been added to validate the AGI self-healing limits and deterministic safety boundaries under `my_test_designs/`. 
+
+These designs range from simple combinational logic (decoders, priority encoders) to sequential FSMs, crossbars, and a multi-module CPU datapath. Intentional faults are injected across the EDA lifecycle (Lint, PDN, CTS, Routing, DRC, STA).
+
+### Key Test Discoveries
+
+1. **Autonomous Fault Resolution**: Claude (`claude-sonnet-5`) successfully parses deterministic tool logs (e.g. Verilator syntax errors, OpenROAD PDN/CTS constraints) and successfully generates strict, typed JSON patches to either the local RTL copy or the runtime configuration.
+2. **Boundary Enforcement**: When faced with complex equivalence issues (e.g., trying to prove equivalence on sequential CPU datapath mathematics), `eqy` times out. The pipeline securely identifies this as a `lec_mismatch` and correctly aborts execution, reporting that the issue is "not autonomously resolvable" rather than hallucinating a false pass.
+3. **Cryptographic Tool Constraints**: Even when the AGI correctly repairs the physical routing and syntax (e.g., in `01_decoder_lint`), the absolute final `signoff` stage will throw an intentional failure if run locally outside a trusted container (`lec_synth ran on unapproved tool identity 'absent'`). This proves that the strict zero-trust tapeout verification cannot be bypassed by local tool spoofs.
+
+### Running the Corpus
+
+You can independently execute the entire validation suite using the provided Python harness:
+
+```bash
+python3 my_test_designs/test_all_designs.py
+```
