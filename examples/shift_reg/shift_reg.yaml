@@ -1,0 +1,21 @@
+# Bidirectional shift register — test design for file-type tracking.
+#
+#   .venv/bin/rtl2gdsagi run --config examples/shift_reg/shift_reg.yaml --no-api
+#
+top: shift_reg
+rtl: examples/shift_reg/rtl
+
+pdk:
+  name: sky130A
+
+retry_limit: 3
+
+ir:
+  sim:
+    testbench_dir: examples/shift_reg/tb
+  pdn:
+    strap_offset_um: 1.0
+    strap_pitch_um: 10.0
+    core_ring: false
+  floorplan:
+    core_utilization: 0.30

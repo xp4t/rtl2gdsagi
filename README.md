@@ -225,6 +225,28 @@ that it currently trips the equivalence checker — see
 [section 9](#9-current-status), that is a known limitation of the tool, not a
 bug in the design.
 
+Five additional examples exercise different design patterns and self-healing
+scenarios:
+
+| example | what it is | what it tests |
+|---|---|---|
+| `examples/mux4to1/` | 4-to-1 mux with registered output | Combinational logic + FFs. Completes all 21 stages, DRC clean. |
+| `examples/alu8/` | 8-bit ALU (add/sub/and/or/xor/not/shl/shr) | Wider combinational logic. Hits a `npc.2` DRC violation without the API; with the API, Claude changes placement parameters and the re-run passes clean. |
+| `examples/shift_reg/` | Bidirectional shift register with parallel load | Sequential design. Trips the LEC false-counterexample like `counter`. |
+| `examples/toggle_ff/` | 4-bit toggle counter | Smallest sequential design. Completes all 21 stages. |
+| `examples/fifo_buf/` | Small FIFO buffer with an **intentional RTL error** | Missing wire declarations. With the API, Claude patches the working RTL copy and lint passes on retry. The original file is never touched. |
+
+```bash
+# clean run — no API needed
+.venv/bin/rtl2gdsagi run --config examples/mux4to1/mux4to1.yaml --no-api
+
+# self-healing: Claude fixes a DRC violation by adjusting placement
+.venv/bin/rtl2gdsagi run --config examples/alu8/alu8.yaml --repair-policy auto
+
+# self-healing: Claude patches the RTL to fix a lint error
+.venv/bin/rtl2gdsagi run --config examples/fifo_buf/fifo_buf.yaml --repair-policy auto
+```
+
 ### 3.1 Requirements for your design
 
 - Plain Verilog or SystemVerilog in one directory
@@ -1024,6 +1046,65 @@ Two outcomes, worded differently on purpose:
 The next thing to try is the partition alignment between gold and gate — the
 control experiment narrows the fault to how the RTL side and the mapped netlist
 are matched up, since both sides prove fine against themselves.
+
+### Self-healing observed on the test examples
+
+Five additional examples (`mux4to1`, `alu8`, `shift_reg`, `toggle_ff`,
+`fifo_buf`) were run with the API enabled (`--repair-policy auto`). Three
+distinct types of file modification were observed:
+
+**RTL patching** (`fifo_buf`). The design uses `wr_ptr_next` and
+`rd_ptr_next` without declaring them. Verilator reports 3 errors. Claude
+diagnosed `rtl_syntax` with confidence 0.97, issued `PATCH_WORKING_RTL`, and
+added two wire declarations to the run's private copy:
+
+```diff
+--- examples/fifo_buf/rtl/fifo_buf.v          (original — never touched)
++++ runs/<id>/work/rtl/fifo_buf.v             (working copy — patched)
+@@ -24,6 +24,8 @@
++    wire [1:0] wr_ptr_next;
++    wire [1:0] rd_ptr_next;
+     // BUG: wr_ptr_next and rd_ptr_next are never declared
+```
+
+Lint passed on retry. Simulation, synthesis and SDC all passed. The flow
+stopped at `lec_synth` — the same sequential false-counterexample as `counter`,
+not a consequence of the patch.
+
+**IR config change with rollback** (`alu8`). The design reached DRC with 1
+`npc.2` violation. Without the API this was a dead end. With it, Claude
+diagnosed `drc` with confidence 0.72 and changed two placement parameters:
+
+```yaml
+# before                    # after (Claude's repair)
+padding_sites: 0      →    padding_sites: 2
+target_density: 0.45   →    target_density: 0.4
+```
+
+The tool rolled back from DRC to **placement** — invalidating and re-running
+8 downstream stages (placement, CTS, routing, extraction, sta_signoff, gdsout,
+DRC, LVS). On the second pass DRC came back **clean — 0 violations across 211
+categories**. The run completed all 21 stages with full certification.
+
+**Tool backend switch** (every run). Native KLayout crashes with a
+`SaltDownloadManager` segfault (exit 11). The repair system probes three
+backends (`native`, `native_isolated`, `container`), finds only the Docker
+container healthy, switches to it, and re-verifies GDS integrity, DRC and LVS
+against the new output. This repair is deterministic and does not consume any
+API budget.
+
+**Correctly refused** (`shift_reg`). The LEC `lec_mismatch` failure is
+classified as `escalate` in the taxonomy. Claude was never called — 0 tokens
+spent, 0 budget consumed — because `rtl_functional_logic` is immutable. The
+safety boundary held.
+
+| example | stages | API calls | what changed | result |
+|---|:---:|:---:|---|---|
+| `mux4to1` | 21/21 | 0 | KLayout backend | **certified** |
+| `alu8` | 21/21 | 1 (DRC) | placement IR + backend | **certified** |
+| `toggle_ff` | 21/21 | 0 | KLayout backend | **certified** |
+| `fifo_buf` | 5/21 | 1 (lint) | working RTL copy + backend | stopped at LEC |
+| `shift_reg` | 5/21 | 0 | nothing (refused) | escalated at LEC |
 
 ---
 

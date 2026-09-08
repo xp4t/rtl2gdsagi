@@ -1,0 +1,21 @@
+# FIFO buffer — has an intentional RTL error for self-healing test.
+#
+#   .venv/bin/rtl2gdsagi run --config examples/fifo_buf/fifo_buf.yaml --repair-policy auto
+#
+top: fifo_buf
+rtl: examples/fifo_buf/rtl
+
+pdk:
+  name: sky130A
+
+retry_limit: 3
+
+ir:
+  sim:
+    testbench_dir: examples/fifo_buf/tb
+  pdn:
+    strap_offset_um: 1.0
+    strap_pitch_um: 10.0
+    core_ring: false
+  floorplan:
+    core_utilization: 0.30

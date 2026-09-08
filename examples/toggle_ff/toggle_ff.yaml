@@ -1,0 +1,21 @@
+# Toggle flip-flop counter — has a width mismatch to test self-healing.
+#
+#   .venv/bin/rtl2gdsagi run --config examples/toggle_ff/toggle_ff.yaml --repair-policy auto
+#
+top: toggle_ff
+rtl: examples/toggle_ff/rtl
+
+pdk:
+  name: sky130A
+
+retry_limit: 3
+
+ir:
+  sim:
+    testbench_dir: examples/toggle_ff/tb
+  pdn:
+    strap_offset_um: 1.0
+    strap_pitch_um: 10.0
+    core_ring: false
+  floorplan:
+    core_utilization: 0.30
