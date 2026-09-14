@@ -1,0 +1,10 @@
+top: crossbar4x4
+rtl: my_test_designs/08_crossbar_route/rtl
+model: claude-sonnet-5
+repair_policy: auto
+retry_limit: 4
+run_root: my_test_designs/08_crossbar_route/runs
+ir:
+  sim: {testbench_dir: my_test_designs/08_crossbar_route/tb}
+  floorplan: {core_utilization: 0.90}
+  routing: {droute_iters: 2}

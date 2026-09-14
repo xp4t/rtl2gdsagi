@@ -28,6 +28,7 @@ from ..stages import StageId
 from ..taxonomy import Diagnosis, FailureClass
 
 DEFAULT_MODEL = "claude-opus-4-8"
+DEFAULT_MAX_TOKENS = 8192
 API_KEY_ENV = "ANTHROPIC_API_KEY"
 MODEL_ENV = "RTL2GDSAGI_MODEL"
 
@@ -135,6 +136,9 @@ class DiagnosisRequest:
     #: validator enforces, so the prompt cannot advertise a field that would be
     #: rejected or withhold one that would be accepted.
     action_space: dict[str, dict[str, Any]] = field(default_factory=dict)
+    #: Require a concrete SET_IR_VALUE action when the deterministic policy
+    #: exposes at least one safe configuration field for this failure.
+    force_config_edit: bool = False
 
 
 def resolve_model(explicit: str | None = None) -> str:
@@ -152,7 +156,7 @@ class ClaudeAgent:
         self,
         model: str | None = None,
         *,
-        max_tokens: int = 2048,
+        max_tokens: int = DEFAULT_MAX_TOKENS,
         timeout_s: float = 120.0,
     ) -> None:
         self.model = resolve_model(model)
@@ -367,6 +371,18 @@ def parse_diagnosis(text: str, request: DiagnosisRequest) -> Diagnosis:
             raise AgentError("config_delta and recommended_actions describe different changes")
         delta = action_delta
 
+    escalated = bool(data.get("escalate", False))
+    if request.force_config_edit:
+        config_actions = [
+            action for action in clean_actions
+            if action["action_type"] == "SET_IR_VALUE"
+        ]
+        if escalated or not config_actions or not action_delta:
+            raise AgentError(
+                "forced config-edit mode requires at least one authorized "
+                "SET_IR_VALUE action and escalate=false"
+            )
+
     try:
         confidence = float(data.get("confidence", 0.0))
     except (TypeError, ValueError):
@@ -380,7 +396,7 @@ def parse_diagnosis(text: str, request: DiagnosisRequest) -> Diagnosis:
         reasoning=str(data.get("reasoning", ""))[:4000],
         config_delta=delta,
         recommended_actions=clean_actions,
-        escalated=bool(data.get("escalate", False)),
+        escalated=escalated,
     )
 
 

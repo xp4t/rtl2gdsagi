@@ -13,6 +13,7 @@ set -uo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV="$HERE/.venv"
+export PATH="$VENV/bin:$PATH"
 CHECK_ONLY=0
 [ "${1:-}" = "--check" ] && CHECK_ONLY=1
 
@@ -149,9 +150,9 @@ else
        https://github.com/YosysHQ/yosys.git "$TMP/yosys" 2>/dev/null; then
     (
       cd "$TMP/yosys" &&
-      cmake -S . -B build -DCMAKE_BUILD_TYPE=Release >/dev/null &&
+      cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DYOSYS_ENABLE_UNIT_TESTS=OFF -DCMAKE_INSTALL_PREFIX="$VENV" >/dev/null &&
       cmake --build build -j"$(nproc)" >/dev/null &&
-      sudo cmake --install build
+      cmake --install build >/dev/null
     ) && ok "yosys built and installed ($(yosys_version 2>/dev/null || echo new))" || \
       warn "yosys cmake build failed — check $TMP/yosys manually, or fall back to: sudo apt-get install yosys"
   else

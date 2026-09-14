@@ -1072,6 +1072,16 @@ class Orchestrator:
         """Ask the agent, validate the proposal, apply it. Returns where to resume."""
         st = self.state.stage(spec.id)
         entry = lookup(verdict.failure) if verdict.failure else None
+        action_space = authorized_action_space(verdict.failure)
+        force_config_edit = self.cfg.force_config_edit and bool(action_space)
+        if self.cfg.force_config_edit and not action_space:
+            self.log.warn(
+                "forced config edit is unavailable: this failure class exposes "
+                "no safe writable configuration fields",
+                stage=str(spec.id), failure_class=(
+                    verdict.failure.value if verdict.failure else None
+                ),
+            )
 
         # Deterministic intelligence precedes model diagnosis.  A catalog hit
         # is only metadata; only a curated recipe can execute a repair.
@@ -1082,7 +1092,8 @@ class Orchestrator:
         if runtime_target is not None:
             return runtime_target
 
-        if verdict.escalate or (entry and entry.resolution is Resolution.ESCALATE):
+        if ((verdict.escalate or (entry and entry.resolution is Resolution.ESCALATE))
+                and not force_config_edit):
             raise Escalation(
                 spec.id,
                 f"{verdict.failure} is not autonomously resolvable: "
@@ -1118,7 +1129,8 @@ class Orchestrator:
             pdk_context=self.cfg.pdk.prompt_context(),
             attempt=attempt,
             retry_limit=self.cfg.retry_limit_for(spec.id),
-            action_space=authorized_action_space(verdict.failure),
+            action_space=action_space,
+            force_config_edit=force_config_edit,
             tried_configs=self._tried.get(spec.id, []),
             history=self._history[-12:],
         )
@@ -1177,6 +1189,15 @@ class Orchestrator:
         self.state.stage(spec.id).history.append(
             {"attempt": attempt, "diagnosis": diag.to_dict()}
         )
+
+        # ClaudeAgent enforces this while parsing its structured response. Keep
+        # the same invariant here because custom Agent implementations can
+        # return a Diagnosis directly without passing through that parser.
+        if force_config_edit and (diag.escalated or not diag.config_delta):
+            raise AgentError(
+                "forced config-edit mode requires a non-empty authorized "
+                "configuration delta and does not accept escalation"
+            )
 
         if diag.escalated:
             raise Escalation(spec.id, f"agent escalated: {diag.reasoning}", verdict.evidence)
@@ -1346,16 +1367,17 @@ class Orchestrator:
         if not knowledge.proposed_delta:
             return None
         policy = self.cfg.repair_policy
-        choice = "auto" if policy == "auto" else "manual"
-        if policy == "ask" and self.interactive:
+        choice = "auto" if policy == "auto" or self.cfg.force_config_edit else "manual"
+        if policy == "ask" and self.interactive and not self.cfg.force_config_edit:
             choice = self._ask_known_repair(spec, knowledge)
-        elif policy == "ask":
+        elif policy == "ask" and not self.cfg.force_config_edit:
             self.log.warn("repair policy ask resolved to manual because stdin is not a TTY",
                           stage=str(spec.id))
         self.log.event(
             "repair_decision", stage=str(spec.id), attempt=attempt,
             message=f"repair choice: {choice}", known_error_id=message.canonical_id,
-            repair_policy=policy, choice=choice,
+            repair_policy=policy, force_config_edit=self.cfg.force_config_edit,
+            choice=choice,
         )
         self.state.stage(spec.id).history.append({
             "attempt": attempt, "known_error_id": message.canonical_id,
@@ -1638,6 +1660,10 @@ class Orchestrator:
             run_id=self.run_id, top=self.cfg.top, pdk=self.cfg.pdk.name,
             rtl=str(self.cfg.rtl_dir), model=self.cfg.model,
             budget=self.budget.total,
+        )
+        self.log.note(
+            "model response token allowance resolved",
+            max_model_tokens=self.cfg.max_model_tokens,
         )
         try:
             self.prepare()

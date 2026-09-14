@@ -7,6 +7,7 @@ shift_register.yaml
 shift_register/
 !tests/fixtures/validation/shift_register/
 !tests/fixtures/validation/shift_register/*
+# Generated run artifacts for any example or experiment.
 runs/
 __pycache__/
 *.pyc
@@ -29,3 +30,14 @@ processor_16b.vcd
 *.pem
 secrets/
 credentials.json
+
+# Generated preflight binaries for the isolated validation corpus.
+/validation/claude_sonnet5_corpus/build/
+
+# Third-party source/build trees unpacked locally for tool experiments.
+/OpenSTA/
+/cudd/
+/cudd_install/
+/eigen/
+/eqy/
+/swig-4.1.1/

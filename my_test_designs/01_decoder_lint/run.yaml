@@ -1,0 +1,8 @@
+top: decoder3to8
+rtl: my_test_designs/01_decoder_lint/rtl
+model: claude-sonnet-5
+repair_policy: auto
+retry_limit: 4
+run_root: my_test_designs/01_decoder_lint/runs
+ir:
+  sim: {testbench_dir: my_test_designs/01_decoder_lint/tb}

@@ -1,0 +1,10 @@
+top: mac8
+rtl: my_test_designs/06_mac_pdn/rtl
+model: claude-sonnet-5
+repair_policy: auto
+retry_limit: 4
+run_root: my_test_designs/06_mac_pdn/runs
+ir:
+  sim: {testbench_dir: my_test_designs/06_mac_pdn/tb}
+  floorplan: {core_utilization: 0.90}
+  pdn: {strap_width_um: 30.0, strap_pitch_um: 150.0, strap_offset_um: 150.0, core_ring: true}

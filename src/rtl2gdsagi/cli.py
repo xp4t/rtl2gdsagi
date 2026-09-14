@@ -53,6 +53,14 @@ def build_parser() -> argparse.ArgumentParser:
                           "already exist in this run directory")
     run.add_argument("--model", default=None,
                      help=f"Claude model (default {resolve_model()})")
+    run.add_argument("--max-model-tokens", default=None, metavar="N|auto",
+                     help="Claude response-token allowance; default auto scales "
+                          "from RTL size (8192 to 32768)")
+    run.add_argument(
+        "--force-config-edit", action="store_true", default=None,
+        help="require Claude to propose a safe runtime config change instead "
+             "of escalating when writable parameters are available",
+    )
     run.add_argument("--run-dir", default=None, help="explicit run directory")
     run.add_argument("--skip", action="append", default=None, metavar="STAGE",
                      help="skip a stage (repeatable). Recorded in the signoff "
@@ -240,6 +248,8 @@ def cmd_run(args: argparse.Namespace) -> int:
             pdk_root=args.pdk_root,
             retry_limit=args.retry_limit,
             model=args.model,
+            max_model_tokens=args.max_model_tokens,
+            force_config_edit=args.force_config_edit,
             resume_from=args.resume_from,
             config_path=args.config_path,
             mock_tools=args.mock_tools or None,
@@ -249,6 +259,14 @@ def cmd_run(args: argparse.Namespace) -> int:
         )
     except (ConfigError, PDKError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
+        return EXIT_USAGE
+
+    if args.no_api and cfg.force_config_edit:
+        print(
+            "error: --force-config-edit requires Claude and cannot be combined "
+            "with --no-api",
+            file=sys.stderr,
+        )
         return EXIT_USAGE
 
     if args.no_api:
@@ -261,7 +279,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         )
         return EXIT_USAGE
     else:
-        agent = ClaudeAgent(cfg.model)
+        agent = ClaudeAgent(cfg.model, max_tokens=cfg.max_model_tokens)
 
     orch = Orchestrator(
         cfg, agent=agent,

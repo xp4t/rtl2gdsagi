@@ -176,6 +176,27 @@ def test_escalation_flag_is_carried(req):
     assert d.escalated is True
 
 
+def test_force_config_edit_rejects_escalation_or_empty_action(req):
+    req.force_config_edit = True
+    with pytest.raises(AgentError, match="forced config-edit mode"):
+        parse_diagnosis(_resp(escalate=True, config_delta={}), req)
+    with pytest.raises(AgentError, match="forced config-edit mode"):
+        parse_diagnosis(_resp(config_delta={}), req)
+
+
+def test_force_config_edit_accepts_authorized_set_action(req):
+    req.force_config_edit = True
+    d = parse_diagnosis(_resp(config_delta={}, recommended_actions=[{
+        "action_type": "SET_IR_VALUE",
+        "target": "routing.droute_iters",
+        "value": 48,
+        "reason": "more routing iterations may close the remaining violations",
+        "expected_effect": "fewer route violations",
+    }]), req)
+    assert d.config_delta == {"routing": {"droute_iters": 48}}
+    assert not d.escalated
+
+
 def test_non_numeric_confidence_is_rejected(req):
     with pytest.raises(AgentError, match="confidence"):
         parse_diagnosis(_resp(confidence="high"), req)
@@ -210,6 +231,14 @@ def test_prompt_lists_already_tried_configs(req):
     assert "48" in p
 
 
+def test_force_config_edit_prompt_requires_an_executable_change(req):
+    req.force_config_edit = True
+    p = build_diagnosis_prompt(req)
+    assert "Forced config remediation mode" in p
+    assert "at least one concrete `SET_IR_VALUE`" in p
+    assert "set `escalate` to false" in p
+
+
 def test_system_prompt_forbids_tool_syntax_and_waivers():
     for phrase in ("never write TCL", "cannot waive", "relative working-copy",
                    "immutable ground truth", "escalate"):
@@ -229,6 +258,12 @@ def test_model_defaults_and_env_override(monkeypatch):
     monkeypatch.setenv("RTL2GDSAGI_MODEL", "claude-sonnet-5")
     assert resolve_model() == "claude-sonnet-5"
     assert resolve_model("claude-opus-5") == "claude-opus-5"  # explicit wins
+
+
+def test_claude_agent_default_response_budget_leaves_room_for_thinking():
+    from rtl2gdsagi.agent.client import ClaudeAgent
+
+    assert ClaudeAgent("claude-sonnet-5").max_tokens == 8192
 
 
 def test_scripted_agent_records_requests(req):

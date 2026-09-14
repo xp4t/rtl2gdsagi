@@ -46,9 +46,10 @@ you return:
    further than the evidence supports wastes a full physical-implementation \
    cycle; not rolling back far enough wastes several.
 6. If the evidence does not support a confident root cause, say so with low \
-   confidence and set "escalate": true. Confident escalation is a correct \
-   outcome, not a failure. Do not invent a plausible-sounding fix to appear \
-   useful.
+   confidence and set "escalate": true, unless the request explicitly enables \
+   Forced config remediation mode. In that mode, choose the safest distinct \
+   value from the supplied authorised write surface instead. Outside that \
+   explicit mode, confident escalation is a correct outcome, not a failure.
 
 Respond with exactly one JSON object. Native schema enforcement is enabled:
 
@@ -144,6 +145,18 @@ def build_diagnosis_prompt(req: "DiagnosisRequest") -> str:
         parts.append(json.dumps(req.current_config, indent=2, default=str))
         parts.append("```")
 
+    if req.force_config_edit:
+        parts += [
+            "",
+            "## Forced config remediation mode",
+            "You must propose at least one concrete `SET_IR_VALUE` action from "
+            "the authorised write surface above and set `escalate` to false. "
+            "Use the evidence, current values, schema ranges, and failed "
+            "configurations to choose the safest distinct value. A prose-only "
+            "explanation, an empty action list, or escalation is not a valid "
+            "response in this mode.",
+        ]
+
     if req.tried_configs:
         parts.append("")
         parts.append("## Already tried and failed")
@@ -181,11 +194,17 @@ def build_diagnosis_prompt(req: "DiagnosisRequest") -> str:
     parts.append("```")
 
     parts.append("")
-    parts.append(
-        "Diagnose the root cause and propose a bounded config_delta. If the "
-        "correct action is to escalate to a human, set escalate true and leave "
-        "config_delta empty."
-    )
+    if req.force_config_edit:
+        parts.append(
+            "Diagnose the root cause and return a bounded, executable config "
+            "edit using `recommended_actions`."
+        )
+    else:
+        parts.append(
+            "Diagnose the root cause and propose a bounded config_delta. If the "
+            "correct action is to escalate to a human, set escalate true and "
+            "leave config_delta empty."
+        )
     return "\n".join(parts)
 
 

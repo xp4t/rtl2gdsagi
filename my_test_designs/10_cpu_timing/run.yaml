@@ -1,0 +1,10 @@
+top: tiny_cpu
+rtl: my_test_designs/10_cpu_timing/rtl
+model: claude-sonnet-5
+repair_policy: auto
+retry_limit: 4
+run_root: my_test_designs/10_cpu_timing/runs
+ir:
+  sim: {testbench_dir: my_test_designs/10_cpu_timing/tb}
+  sdc: {default_clock_period_ns: 0.1}
+  floorplan: {core_utilization: 0.85}

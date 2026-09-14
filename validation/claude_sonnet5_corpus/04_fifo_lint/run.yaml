@@ -1,0 +1,9 @@
+top: sync_fifo
+rtl: validation/claude_sonnet5_corpus/04_fifo_lint/rtl
+model: claude-sonnet-5
+repair_policy: auto
+retry_limit: 3
+run_root: validation/claude_sonnet5_corpus/04_fifo_lint/runs
+ir:
+  sim: {testbench_dir: validation/claude_sonnet5_corpus/04_fifo_lint/tb}
+

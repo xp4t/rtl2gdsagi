@@ -81,6 +81,9 @@ def test_the_request_carries_only_computed_evidence():
         "stage", "failure_class_hint", "summary", "evidence", "metrics",
         "ir_section", "current_config", "pdk_context", "attempt",
         "retry_limit", "tried_configs", "history", "action_space",
+        # User-selected control policy, not benchmark ground truth or a
+        # hidden remedy value.
+        "force_config_edit",
     }
 
 

@@ -5,8 +5,8 @@ from __future__ import annotations
 import json
 import pytest
 
-from rtl2gdsagi.cli import main
-from rtl2gdsagi.config import RunConfig
+from rtl2gdsagi.cli import build_parser, main
+from rtl2gdsagi.config import RunConfig, resolve_max_model_tokens
 from rtl2gdsagi.errors import ConfigError
 from rtl2gdsagi.stages import STAGE_ORDER, StageId
 from rtl2gdsagi.state import RunState, StageStatus, new_run_id
@@ -36,6 +36,57 @@ def test_cli_flag_beats_config_file(design, fake_pdk, tmp_path):
     )
     cfg = RunConfig.build(config_path=cfgfile, retry_limit=9)
     assert cfg.retry_limit == 9
+
+
+def test_force_config_edit_cli_flag_and_config_persistence(design, fake_pdk):
+    args = build_parser().parse_args([
+        "run", "--rtl", str(design), "--top", "widget",
+        "--force-config-edit",
+    ])
+    assert args.force_config_edit is True
+
+    cfg = RunConfig.build(
+        rtl_dir=design, top="widget", pdk_root=fake_pdk.root,
+        force_config_edit=args.force_config_edit,
+    )
+    assert cfg.force_config_edit is True
+    assert cfg.to_dict()["force_config_edit"] is True
+
+
+def test_max_model_tokens_auto_scales_with_rtl_size(tmp_path):
+    small = tmp_path / "small"
+    small.mkdir()
+    (small / "top.v").write_text("module top; endmodule\n", encoding="utf-8")
+    assert resolve_max_model_tokens("auto", small) == 8192
+
+    medium = tmp_path / "medium"
+    medium.mkdir()
+    (medium / "top.v").write_text(" " * (40 * 1024), encoding="utf-8")
+    assert resolve_max_model_tokens("auto", medium) == 12288
+
+    large = tmp_path / "large"
+    large.mkdir()
+    (large / "top.v").write_text(" " * (300 * 1024), encoding="utf-8")
+    assert resolve_max_model_tokens("auto", large) == 16384
+
+
+def test_max_model_tokens_precedence_and_validation(design, fake_pdk, tmp_path, monkeypatch):
+    cfgfile = tmp_path / "run.yaml"
+    cfgfile.write_text(
+        f"top: widget\nrtl: {design}\nmax_model_tokens: 12288\n"
+        f"pdk: {{root: {fake_pdk.root}}}\n", encoding="utf-8",
+    )
+    monkeypatch.setenv("RTL2GDSAGI_MAX_MODEL_TOKENS", "16384")
+    assert RunConfig.build(config_path=cfgfile).max_model_tokens == 12288
+    assert RunConfig.build(config_path=cfgfile, max_model_tokens=24576).max_model_tokens == 24576
+    with pytest.raises(ConfigError, match="between 1024 and 32768"):
+        RunConfig.build(config_path=cfgfile, max_model_tokens=512)
+    with pytest.raises(ConfigError, match="integer or 'auto'"):
+        RunConfig.build(config_path=cfgfile, max_model_tokens="many")
+
+
+def test_resolved_model_token_allowance_is_persisted(cfg):
+    assert cfg.to_dict()["max_model_tokens"] == cfg.max_model_tokens
 
 
 def test_unknown_stage_in_config_is_rejected(design, fake_pdk, tmp_path):

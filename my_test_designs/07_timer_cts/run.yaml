@@ -1,0 +1,9 @@
+top: timer32
+rtl: my_test_designs/07_timer_cts/rtl
+model: claude-sonnet-5
+repair_policy: auto
+retry_limit: 4
+run_root: my_test_designs/07_timer_cts/runs
+ir:
+  sim: {testbench_dir: my_test_designs/07_timer_cts/tb}
+  cts: {root_buffer: "sky130_fd_sc_hd__clkbuf_99"}

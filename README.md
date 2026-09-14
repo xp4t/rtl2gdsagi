@@ -556,6 +556,21 @@ Precedence is CLI, then config file, then environment, then automatic sizing.
 The resolved integer is recorded in `run_state.json`; it is an API response
 budget only and cannot weaken or bypass any EDA gate.
 
+If Claude explains a repairable failure but returns no executable change, force
+it to choose a bounded configuration adjustment from the failure's authorised
+write surface:
+
+```bash
+rtl2gdsagi run --config design.yaml --force-config-edit
+```
+
+This applies the selected values to the run's validated runtime IR and
+regenerates the affected tool configurations. It does not rewrite
+`design.yaml`. The flag cannot override immutable PDK/library files, signoff
+thresholds, or failure classes for which no safe configuration field exists.
+For example, a PDN geometry failure may adjust authorised `pdn` or `floorplan`
+values and roll back to the earliest affected stage.
+
 `ask` is the interactive default and offers AGI repair, manual repair,
 technical evidence, or abort for a recognized actionable failure. In a
 non-interactive process it resolves to `manual`, so CI never waits for stdin.

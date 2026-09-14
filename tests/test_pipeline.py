@@ -8,6 +8,7 @@ refusal, and the signoff aggregator's GDS binding.
 from __future__ import annotations
 
 import json
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -308,6 +309,27 @@ def test_agent_escalation_is_honoured(cfg, toolchain):
     orch = build(cfg, toolchain, fail=fail, agent=agent)
     assert orch.run() == 3
     assert "escalated" in (orch.run_dir / "failure_report.md").read_text().lower()
+
+
+def test_force_config_edit_is_passed_to_agent_and_applied(cfg, toolchain):
+    forced_cfg = replace(cfg, force_config_edit=True)
+    agent = ScriptedAgent(diagnoses=[
+        Diagnosis(
+            failure=FailureClass.ROUTING, evidence="5 violations",
+            implicated_stage=StageId.ROUTING, confidence=0.4,
+            reasoning="try a bounded routing adjustment",
+            config_delta={"routing": {"droute_iters": 48}},
+        )
+    ])
+    fail = {StageId.ROUTING: [
+        ToolRun(argv=[], returncode=0,
+                stdout="Total number of violations: 5\n", stderr="")
+    ]}
+    orch = build(forced_cfg, toolchain, fail=fail, agent=agent)
+
+    assert orch.run() == 0
+    assert agent.calls[0].force_config_edit is True
+    assert orch.ir.get("routing", "droute_iters") == 48
 
 
 # ---- safety in the live loop ---------------------------------------------

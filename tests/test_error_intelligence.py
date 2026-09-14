@@ -77,6 +77,28 @@ def test_auto_known_fix_skips_agent_and_rolls_back_to_floorplan(cfg, toolchain):
     assert drc["checked_gds"]["sha256"]
 
 
+def test_force_config_edit_authorizes_curated_pdn_fix_under_default_policy(
+    cfg, toolchain,
+):
+    cfg = replace(cfg, force_config_edit=True, repair_policy="ask")
+    agent = ScriptedAgent()
+    orch = Orchestrator(cfg, agent=agent, interactive=False)
+    orch.invoker = toolchain(orch, fail={StageId.PDN: [
+        ToolRun(argv=["openroad"], returncode=1, stdout=PDN_LOG, stderr="")
+    ]})
+
+    assert orch.run() == 0
+    assert agent.calls == []
+    assert orch.invoker.stage_calls[StageId.FLOORPLAN] == 2
+    decisions = [
+        json.loads(line)
+        for line in (orch.run_dir / "run.jsonl").read_text().splitlines()
+        if '"event": "repair_decision"' in line
+    ]
+    assert decisions[0]["choice"] == "auto"
+    assert decisions[0]["force_config_edit"] is True
+
+
 def test_physical_repair_is_promoted_without_simulation(cfg, toolchain, tmp_path):
     rtl = tmp_path / "rtl_without_tb"
     rtl.mkdir()

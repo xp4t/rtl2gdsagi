@@ -29,6 +29,9 @@ from .pdk import PDKConfig
 from .stages import STAGE_ORDER, StageId, parse_stage
 
 DEFAULT_MODEL = "claude-opus-4-8"
+DEFAULT_MAX_MODEL_TOKENS = 8192
+MIN_MAX_MODEL_TOKENS = 1024
+MAX_MAX_MODEL_TOKENS = 32768
 DEFAULT_RETRY_LIMIT = 3
 DEFAULT_FIX_CANDIDATES = 3
 DEFAULT_RUN_ROOT = Path("runs")
@@ -39,6 +42,8 @@ KLAYOUT_BACKENDS = frozenset({"native", "native_isolated", "container"})
 API_KEY_ENV = "ANTHROPIC_API_KEY"
 #: Env var overriding the model string.
 MODEL_ENV = "RTL2GDSAGI_MODEL"
+#: Integer response-token allowance, or ``auto`` for RTL-size-based selection.
+MAX_MODEL_TOKENS_ENV = "RTL2GDSAGI_MAX_MODEL_TOKENS"
 
 _PDK_OVERRIDE_KEYS = (
     "liberty", "tech_lef", "cell_lef", "drc_deck", "lvs_deck",
@@ -65,6 +70,8 @@ class RunConfig:
     fix_candidates: int = DEFAULT_FIX_CANDIDATES
     timeout_s: int = 3600
     model: str = DEFAULT_MODEL
+    max_model_tokens: int = DEFAULT_MAX_MODEL_TOKENS
+    force_config_edit: bool = False
     run_root: Path = DEFAULT_RUN_ROOT
     resume_from: StageId | None = None
     stage_overrides: dict[StageId, StageOverrides] = field(default_factory=dict)
@@ -96,6 +103,11 @@ class RunConfig:
             raise ConfigError(f"fix_candidates must be >= 1, got {self.fix_candidates}")
         if not self.top:
             raise ConfigError("top module name is required")
+        if not MIN_MAX_MODEL_TOKENS <= self.max_model_tokens <= MAX_MAX_MODEL_TOKENS:
+            raise ConfigError(
+                f"max_model_tokens must be between {MIN_MAX_MODEL_TOKENS} and "
+                f"{MAX_MAX_MODEL_TOKENS}, got {self.max_model_tokens}"
+            )
         if self.repair_policy not in REPAIR_POLICIES:
             raise ConfigError(f"repair_policy must be one of {sorted(REPAIR_POLICIES)}")
         if self.klayout_backend not in KLAYOUT_BACKENDS:
@@ -148,6 +160,8 @@ class RunConfig:
         retry_limit: int | None = None,
         fix_candidates: int | None = None,
         model: str | None = None,
+        max_model_tokens: int | str | None = None,
+        force_config_edit: bool | None = None,
         run_root: str | os.PathLike[str] | None = None,
         resume_from: str | None = None,
         config_path: str | os.PathLike[str] | None = None,
@@ -210,8 +224,14 @@ class RunConfig:
 
         resume_val = resume_from if resume_from is not None else fileconf.get("resume_from")
 
+        rtl_path = Path(rtl_val).expanduser().resolve()
+        max_tokens_raw = pick(
+            max_model_tokens, "max_model_tokens", MAX_MODEL_TOKENS_ENV, "auto"
+        )
+        resolved_max_tokens = resolve_max_model_tokens(max_tokens_raw, rtl_path)
+
         return cls(
-            rtl_dir=Path(rtl_val),
+            rtl_dir=rtl_path,
             top=str(top_val),
             pdk=pdk,
             retry_limit=int(pick(retry_limit, "retry_limit", None, DEFAULT_RETRY_LIMIT)),
@@ -220,6 +240,10 @@ class RunConfig:
             ),
             timeout_s=int(fileconf.get("timeout_s") or 3600),
             model=str(pick(model, "model", MODEL_ENV, DEFAULT_MODEL)),
+            max_model_tokens=resolved_max_tokens,
+            force_config_edit=bool(pick(
+                force_config_edit, "force_config_edit", None, False
+            )),
             run_root=Path(pick(run_root, "run_root", None, DEFAULT_RUN_ROOT)),
             resume_from=parse_stage(str(resume_val)) if resume_val else None,
             stage_overrides=stage_overrides,
@@ -299,6 +323,8 @@ class RunConfig:
             "retry_limit": self.retry_limit,
             "fix_candidates": self.fix_candidates,
             "model": self.model,
+            "max_model_tokens": self.max_model_tokens,
+            "force_config_edit": self.force_config_edit,
             "mock_tools": self.mock_tools,
             "resume_from": self.resume_from.value if self.resume_from else None,
             "effective_retry_limits": {
@@ -321,3 +347,36 @@ def _pos_int(value: Any, label: str) -> int | None:
     if n < 1:
         raise ConfigError(f"{label} must be >= 1, got {n}")
     return n
+
+
+def resolve_max_model_tokens(value: Any, rtl_dir: Path) -> int:
+    """Resolve an explicit limit or choose one from the RTL corpus size.
+
+    The diagnostic prompt contains bounded excerpts rather than the entire RTL,
+    so the tiers deliberately grow slowly.  The 8k floor leaves room for
+    extended-thinking models to think and still emit the required JSON.
+    """
+    if value is None or (isinstance(value, str) and value.strip().lower() == "auto"):
+        files = [
+            p for p in rtl_dir.rglob("*")
+            if p.is_file() and p.suffix.lower() in {".v", ".sv", ".vh", ".svh"}
+        ] if rtl_dir.is_dir() else []
+        source_bytes = sum(p.stat().st_size for p in files)
+        complexity = source_bytes + len(files) * 4096
+        if complexity <= 32 * 1024:
+            return 8192
+        if complexity <= 256 * 1024:
+            return 12288
+        if complexity <= 1024 * 1024:
+            return 16384
+        return 32768
+    try:
+        tokens = int(value)
+    except (TypeError, ValueError):
+        raise ConfigError("max_model_tokens must be an integer or 'auto'") from None
+    if not MIN_MAX_MODEL_TOKENS <= tokens <= MAX_MAX_MODEL_TOKENS:
+        raise ConfigError(
+            f"max_model_tokens must be between {MIN_MAX_MODEL_TOKENS} and "
+            f"{MAX_MAX_MODEL_TOKENS}, got {tokens}"
+        )
+    return tokens

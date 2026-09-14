@@ -1,0 +1,12 @@
+top: crossbar8
+rtl: validation/claude_sonnet5_corpus/08_routing_congestion/rtl
+model: claude-sonnet-5
+repair_policy: auto
+retry_limit: 4
+run_root: validation/claude_sonnet5_corpus/08_routing_congestion/runs
+ir:
+  sim: {testbench_dir: validation/claude_sonnet5_corpus/08_routing_congestion/tb}
+  floorplan: {core_utilization: 0.90}
+  placement: {target_density: 0.99, routability_driven: false}
+  routing: {max_layer: 1, droute_iters: 1, global_effort: low}
+
