@@ -1192,23 +1192,3 @@ exit code.
 
 
 ---
-
-## 11. Automated Validation Corpus (my_test_designs)
-
-A comprehensive suite of 10 synthesized Verilog RTL designs has been added to validate the AGI self-healing limits and deterministic safety boundaries under `my_test_designs/`. 
-
-These designs range from simple combinational logic (decoders, priority encoders) to sequential FSMs, crossbars, and a multi-module CPU datapath. Intentional faults are injected across the EDA lifecycle (Lint, PDN, CTS, Routing, DRC, STA).
-
-### Key Test Discoveries
-
-1. **Autonomous Fault Resolution**: Claude (`claude-sonnet-5`) successfully parses deterministic tool logs (e.g. Verilator syntax errors, OpenROAD PDN/CTS constraints) and successfully generates strict, typed JSON patches to either the local RTL copy or the runtime configuration.
-2. **Boundary Enforcement**: When faced with complex equivalence issues (e.g., trying to prove equivalence on sequential CPU datapath mathematics), `eqy` times out. The pipeline securely identifies this as a `lec_mismatch` and correctly aborts execution, reporting that the issue is "not autonomously resolvable" rather than hallucinating a false pass.
-3. **Cryptographic Tool Constraints**: Even when the AGI correctly repairs the physical routing and syntax (e.g., in `01_decoder_lint`), the absolute final `signoff` stage will throw an intentional failure if run locally outside a trusted container (`lec_synth ran on unapproved tool identity 'absent'`). This proves that the strict zero-trust tapeout verification cannot be bypassed by local tool spoofs.
-
-### Running the Corpus
-
-You can independently execute the entire validation suite using the provided Python harness:
-
-```bash
-python3 my_test_designs/test_all_designs.py
-```
