@@ -1,9 +1,0 @@
-top: pwm_core
-rtl: my_test_designs/09_pwm_drc/rtl
-model: claude-sonnet-5
-repair_policy: auto
-retry_limit: 4
-run_root: my_test_designs/09_pwm_drc/runs
-ir:
-  sim: {testbench_dir: my_test_designs/09_pwm_drc/tb}
-  routing: {insert_filler: false}
