@@ -303,19 +303,25 @@ else
 
   echo "  building OpenSTA..."
   TMP="$(mktemp -d)"
+  STA_LOG="/tmp/rtl2gdsagi-sta-build.log"
   if git clone -q --depth 1 https://github.com/The-OpenROAD-Project/OpenSTA.git "$TMP/OpenSTA" 2>/dev/null; then
     CUDD_ARG=()
     cudd_is_ready && CUDD_ARG=(-DCUDD_DIR="$CUDD_PREFIX")
+    # BUILD_TESTS is ON by default and hard-requires `find_package(GTest REQUIRED)`.
+    # Ubuntu's libgtest-dev package ships sources, not pre-built libs, so that
+    # find_package fails on a fresh system — and we don't need STA's own test
+    # suite for this flow, so just turn it off.
     if (
       mkdir -p "$TMP/OpenSTA/build" && cd "$TMP/OpenSTA/build" &&
-      cmake "${CUDD_ARG[@]}" -DCMAKE_INSTALL_PREFIX="$VENV" .. >/dev/null &&
-      make -j"$(nproc)" >/dev/null &&
-      make install >/dev/null
-    ); then
+      cmake "${CUDD_ARG[@]}" -DBUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX="$VENV" .. &&
+      make -j"$(nproc)" &&
+      make install
+    ) >"$STA_LOG" 2>&1; then
       ok "sta built and installed ($VENV/bin/sta)"
     else
-      warn "OpenSTA build failed — check $TMP/OpenSTA manually, or install it system-wide instead:
-        cd $TMP/OpenSTA/build && cmake ${CUDD_ARG[*]:-} .. && make -j\$(nproc) && sudo make install"
+      warn "OpenSTA build failed (see $STA_LOG). Manual retry:
+        git clone https://github.com/The-OpenROAD-Project/OpenSTA && cd OpenSTA && mkdir build && cd build &&
+        cmake ${CUDD_ARG[*]:-} -DBUILD_TESTS=OFF .. && make -j\$(nproc) && sudo make install"
     fi
   else
     warn "could not clone The-OpenROAD-Project/OpenSTA (optional network issue)"
@@ -334,7 +340,10 @@ else
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
     sudo chmod a+r /etc/apt/keyrings/docker.asc
     DOCKER_ARCH="$(dpkg --print-architecture)"
-    DOCKER_CODENAME="$(. /etc/os-release && echo "${VERSION_CODENAME:-}")"
+    # On Ubuntu derivatives (Linux Mint, etc.) VERSION_CODENAME is the
+    # distro's own codename (e.g. "zena"), which Docker's repo has no suite
+    # for — UBUNTU_CODENAME is the underlying Ubuntu base it actually needs.
+    DOCKER_CODENAME="$(. /etc/os-release && echo "${UBUNTU_CODENAME:-${VERSION_CODENAME:-}}")"
     echo "deb [arch=$DOCKER_ARCH signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $DOCKER_CODENAME stable" \
       | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
     sudo apt-get update -qq
@@ -372,20 +381,26 @@ else
 fi
 
 step "3/5  Python environment"
-if [ ! -d "$VENV" ]; then
+if [ ! -x "$VENV/bin/pip" ]; then
   if ! python3 -m venv --upgrade-deps "$VENV" 2>/tmp/rtl2gdsagi-venv-err.log; then
     warn "venv creation failed (see /tmp/rtl2gdsagi-venv-err.log) — likely missing ensurepip; retrying after installing python3-venv/python3-pip"
     sudo apt-get update -qq && sudo apt-get install -y python3-venv python3-pip
     python3 -m venv --upgrade-deps "$VENV" || warn "venv creation still failing — try manually: python3 -m venv $VENV"
   fi
 fi
-"$VENV/bin/pip" install -q --upgrade pip setuptools wheel
-"$VENV/bin/pip" install -q -e "$HERE" && ok "rtl2gdsagi installed" || \
-  warn "install failed — try: $VENV/bin/pip install -e $HERE"
+if [ -x "$VENV/bin/pip" ]; then
+  "$VENV/bin/pip" install -q --upgrade pip setuptools wheel
+  "$VENV/bin/pip" install -q -e "$HERE" && ok "rtl2gdsagi installed" || \
+    warn "install failed — try: $VENV/bin/pip install -e $HERE"
+else
+  warn "no working pip in $VENV — skipping rtl2gdsagi install (fix the venv above, then re-run)"
+fi
 
 step "4/5  SKY130 PDK"
 if [ -d "$HOME/.volare/sky130A/libs.ref" ]; then
   ok "already installed"
+elif [ ! -x "$VENV/bin/pip" ]; then
+  warn "no working pip in $VENV — skipping PDK install (fix the venv above, then re-run)"
 else
   echo "  installing (a few hundred MB, one time)..."
   "$VENV/bin/pip" install -q volare
@@ -396,6 +411,8 @@ fi
 step "5/5  Formal equivalence (optional)"
 if [ -x "$VENV/bin/sby" ] && [ -x "$VENV/bin/z3" ]; then
   ok "sby and z3 already in the venv"
+elif [ ! -x "$VENV/bin/pip" ]; then
+  warn "no working pip in $VENV — skipping z3 install (fix the venv above, then re-run)"
 else
   Z3_LOG="/tmp/rtl2gdsagi-z3-install.log"
   if "$VENV/bin/pip" install -q click z3-solver >"$Z3_LOG" 2>&1; then
