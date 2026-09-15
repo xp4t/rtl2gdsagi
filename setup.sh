@@ -27,6 +27,19 @@ step() { printf '\n\033[1m%s\033[0m\n' "$1"; }
 
 have() { command -v "$1" >/dev/null 2>&1; }
 
+# `usermod -aG docker $USER` only takes effect in NEW login sessions — the
+# current shell's process credentials don't change until you log out and
+# back in. `sg docker -c '...'` runs a single command with the docker group
+# active right now instead, so this script (freshly adding the user to the
+# group a few lines earlier) can still use docker immediately.
+docker_do() {
+  if id -nG 2>/dev/null | tr ' ' '\n' | grep -qx docker; then
+    "$@"
+  else
+    sg docker -c "$*"
+  fi
+}
+
 # version_ge A B -> true if A >= B (dotted version strings)
 version_ge() { [ "$(printf '%s\n%s\n' "$2" "$1" | sort -V | head -n1)" = "$2" ]; }
 
@@ -116,7 +129,7 @@ report() {
   fi
   if have openroad; then
     ok "openroad (native)"
-  elif have docker && docker image inspect "$OPENLANE_IMAGE" >/dev/null 2>&1; then
+  elif have docker && docker_do docker image inspect "$OPENLANE_IMAGE" >/dev/null 2>&1; then
     ok "openroad (via docker OpenLane image, for full place & route)"
   elif have docker; then
     warn "docker present but the OpenLane image is not pulled yet"
@@ -302,18 +315,50 @@ fi
 
 if have openroad; then
   ok "openroad already present (native)"
-elif have docker; then
-  if docker image inspect "$OPENLANE_IMAGE" >/dev/null 2>&1; then
-    ok "OpenLane image already pulled (full place & route via docker)"
-  else
-    echo "  pulling the OpenLane image for full place & route (about 1 GB, one time)..."
-    docker pull "$OPENLANE_IMAGE" >/dev/null 2>&1 && ok "pulled" || \
-      warn "pull failed — check 'docker run hello-world' works for your user"
-  fi
 else
-  warn "no docker and no native openroad (place & route). Install docker:"
-  echo "      sudo apt-get install -y docker.io"
-  echo "      sudo usermod -aG docker \$USER   # then log out and back in"
+  if ! have docker; then
+    echo "  docker not found — installing Docker Engine from Docker's official apt repository"
+    sudo apt-get update -qq
+    sudo apt-get install -y ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+    DOCKER_ARCH="$(dpkg --print-architecture)"
+    DOCKER_CODENAME="$(. /etc/os-release && echo "${VERSION_CODENAME:-}")"
+    echo "deb [arch=$DOCKER_ARCH signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $DOCKER_CODENAME stable" \
+      | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+    sudo apt-get update -qq
+    if sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin; then
+      ok "docker engine installed (docker-ce)"
+    else
+      warn "docker-ce install failed — falling back to Ubuntu's docker.io package"
+      sudo apt-get install -y docker.io || warn "docker install failed — install manually and re-run"
+    fi
+    sudo systemctl enable --now docker >/dev/null 2>&1
+  fi
+
+  if have docker; then
+    getent group docker >/dev/null 2>&1 || sudo groupadd docker
+    # (checks the account's group list in /etc/group, not this shell's
+    # active groups — that's what docker_do checks, further down)
+    if id -nG "$USER" | tr ' ' '\n' | grep -qx docker; then
+      ok "$USER already in the docker group"
+    else
+      echo "  adding $USER to the docker group"
+      sudo usermod -aG docker "$USER"
+      ok "added $USER to the docker group (using 'sg docker' below — no logout/login needed for this script)"
+    fi
+
+    if docker_do docker image inspect "$OPENLANE_IMAGE" >/dev/null 2>&1; then
+      ok "OpenLane image already pulled (full place & route via docker)"
+    else
+      echo "  pulling the OpenLane image for full place & route (about 1 GB, one time)..."
+      docker_do docker pull "$OPENLANE_IMAGE" >/dev/null 2>&1 && ok "pulled" || \
+        warn "pull failed — check docker works with: sg docker -c 'docker run hello-world'"
+    fi
+  else
+    warn "docker install did not succeed — install manually, e.g.: sudo apt-get install -y docker.io"
+  fi
 fi
 
 step "3/5  Python environment"
@@ -373,5 +418,10 @@ Add --dry-run to generate every tool script without running anything.
 
 Note: OpenSTA was built against cudd at $CUDD_PREFIX. If you ever rebuild
 OpenSTA by hand, pass that path again with -DCUDD_DIR=$CUDD_PREFIX.
+
+Note: if this run just added you to the docker group, plain "docker ..."
+commands in THIS shell still won't see it until you log out and back in.
+Use "sg docker -c 'docker ...'" (or open a new terminal) until then — new
+shells after your next login won't need that.
 ------------------------------------------------------------------
 EOF
