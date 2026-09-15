@@ -276,15 +276,25 @@ else
   else
     echo "  building cudd $CUDD_VERSION..."
     TMP="$(mktemp -d)"
+    CUDD_LOG="/tmp/rtl2gdsagi-cudd-build.log"
     if git clone -q https://github.com/cuddorg/cudd.git "$TMP/cudd" 2>/dev/null; then
-      (
+      if (
         cd "$TMP/cudd" &&
         git checkout -q "$CUDD_VERSION" &&
-        ./configure --prefix="$CUDD_PREFIX" >/dev/null &&
-        make -j"$(nproc)" >/dev/null &&
-        make install >/dev/null
-      ) && ok "cudd installed — note this path, OpenSTA needs it: $CUDD_PREFIX" || \
-        warn "cudd build failed — OpenSTA will be built without BDD support (slower conditional-arc handling)"
+        # cudd's checked-in `configure` was generated with automake 1.14 and
+        # hardcodes a call to `aclocal-1.14`, which doesn't exist once apt
+        # gives you a newer automake (1.16+ on Ubuntu 22.04/24.04). Rebuilding
+        # the autotools files with whatever aclocal/automake/libtool we
+        # actually have avoids the "aclocal-1.14: command not found" error.
+        { ! have autoreconf || autoreconf -fi; } &&
+        ./configure --prefix="$CUDD_PREFIX" &&
+        make -j"$(nproc)" &&
+        make install
+      ) >"$CUDD_LOG" 2>&1; then
+        ok "cudd installed — note this path, OpenSTA needs it: $CUDD_PREFIX"
+      else
+        warn "cudd build failed (see $CUDD_LOG) — OpenSTA will be built without BDD support (slower conditional-arc handling)"
+      fi
     else
       warn "could not clone cuddorg/cudd (optional network issue)"
     fi
@@ -387,7 +397,12 @@ step "5/5  Formal equivalence (optional)"
 if [ -x "$VENV/bin/sby" ] && [ -x "$VENV/bin/z3" ]; then
   ok "sby and z3 already in the venv"
 else
-  "$VENV/bin/pip" install -q click z3-solver && ok "z3 installed"
+  Z3_LOG="/tmp/rtl2gdsagi-z3-install.log"
+  if "$VENV/bin/pip" install -q click z3-solver >"$Z3_LOG" 2>&1; then
+    ok "z3 installed"
+  else
+    warn "z3 install failed (see $Z3_LOG) — try: $VENV/bin/pip install click z3-solver"
+  fi
   if [ ! -x "$VENV/bin/sby" ]; then
     TMP="$(mktemp -d)"
     if git clone -q --depth 1 https://github.com/YosysHQ/sby.git "$TMP/sby" 2>/dev/null; then
@@ -399,8 +414,25 @@ else
     rm -rf "$TMP"
   fi
 fi
-have eqy || warn "eqy not found (optional but recommended):
+
+if have eqy || [ -x "$VENV/bin/eqy" ]; then
+  ok "eqy already installed"
+else
+  echo "  building eqy (needs the yosys built in step 1b — uses yosys-config)..."
+  EQY_LOG="/tmp/rtl2gdsagi-eqy-build.log"
+  TMP="$(mktemp -d)"
+  if git clone -q --depth 1 https://github.com/YosysHQ/eqy.git "$TMP/eqy" 2>/dev/null; then
+    if (cd "$TMP/eqy" && make PREFIX="$VENV" && make install PREFIX="$VENV") >"$EQY_LOG" 2>&1; then
+      ok "eqy installed"
+    else
+      warn "eqy build failed (see $EQY_LOG; optional — formal equivalence signoff needs it). Manual retry:
       git clone https://github.com/YosysHQ/eqy && cd eqy && make && sudo make install"
+    fi
+  else
+    warn "could not clone YosysHQ/eqy (optional network issue)"
+  fi
+  rm -rf "$TMP"
+fi
 
 echo
 report
