@@ -13,7 +13,10 @@ set -uo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV="$HERE/.venv"
-export PATH="$VENV/bin:$PATH"
+# /snap/bin goes on PATH too: once cmake is installed via snap (step 1a) it
+# must shadow any older apt/system cmake for the rest of this script AND for
+# any later manual re-run.
+export PATH="$VENV/bin:/snap/bin:$PATH"
 CHECK_ONLY=0
 [ "${1:-}" = "--check" ] && CHECK_ONLY=1
 
@@ -24,12 +27,26 @@ step() { printf '\n\033[1m%s\033[0m\n' "$1"; }
 
 have() { command -v "$1" >/dev/null 2>&1; }
 
+# version_ge A B -> true if A >= B (dotted version strings)
+version_ge() { [ "$(printf '%s\n%s\n' "$2" "$1" | sort -V | head -n1)" = "$2" ]; }
+
 # Debian/Ubuntu apt yosys is frequently too old for this flow (missing passes /
 # stale JSON frontend behavior), so yosys is built from source via CMake
 # instead of apt. YOSYS_MIN_VERSION gates whether an apt/existing install is
 # accepted as-is or rebuilt.
 YOSYS_MIN_VERSION="0.44"
 YOSYS_GIT_REF="main"
+
+# Ubuntu 22.04's apt cmake is 3.22.x, but Yosys' own CMake build requires
+# 3.28+. CMAKE_MIN_VERSION gates whether we need to fetch a newer cmake via
+# snap (the officially recommended route: `sudo snap install cmake --classic`)
+# instead of relying on apt.
+CMAKE_MIN_VERSION="3.28"
+
+# CUDD is the BDD library OpenSTA links against. Built from source once and
+# reused; its install prefix is what OpenSTA's -DCUDD_DIR needs to find it.
+CUDD_VERSION="3.0.0"
+CUDD_PREFIX="$VENV/opt/cudd-$CUDD_VERSION"
 
 yosys_version() {
   have yosys || return 1
@@ -40,17 +57,42 @@ yosys_is_recent() {
   local v
   v="$(yosys_version)" || return 1
   [ -n "$v" ] || return 1
-  # true if $v >= YOSYS_MIN_VERSION
-  [ "$(printf '%s\n%s\n' "$YOSYS_MIN_VERSION" "$v" | sort -V | head -n1)" = "$YOSYS_MIN_VERSION" ]
+  version_ge "$v" "$YOSYS_MIN_VERSION"
 }
+
+cmake_version() {
+  have cmake || return 1
+  cmake --version 2>/dev/null | head -n1 | grep -oE '[0-9]+\.[0-9]+(\.[0-9]+)?' | head -n1
+}
+
+cmake_is_recent() {
+  local v
+  v="$(cmake_version)" || return 1
+  [ -n "$v" ] || return 1
+  version_ge "$v" "$CMAKE_MIN_VERSION"
+}
+
+sta_is_ready() { have sta || [ -x "$VENV/bin/sta" ]; }
+cudd_is_ready() { [ -f "$CUDD_PREFIX/lib/libcudd.a" ] || [ -f "$CUDD_PREFIX/lib64/libcudd.a" ]; }
 
 # --------------------------------------------------------------- report ----
 
 report() {
   step "Tools"
-  for t in verilator iverilog klayout; do
+  for t in verilator iverilog klayout git; do
     have "$t" && ok "$t" || miss "$t   (apt-get install $t)"
   done
+  have pip3 && ok "pip3" || miss "pip3   (apt-get install python3-pip)"
+  python3 -c 'import venv' 2>/dev/null && ok "python3-venv" || miss "python3-venv   (apt-get install python3-venv)"
+
+  if cmake_is_recent; then
+    ok "cmake $(cmake_version) (>= $CMAKE_MIN_VERSION)"
+  elif have cmake; then
+    miss "cmake $(cmake_version) is older than $CMAKE_MIN_VERSION (needed to build yosys: sudo snap install cmake --classic)"
+  else
+    miss "cmake   (sudo snap install cmake --classic)"
+  fi
+
   if yosys_is_recent; then
     ok "yosys $(yosys_version) (>= $YOSYS_MIN_VERSION)"
   elif have yosys; then
@@ -62,16 +104,24 @@ report() {
   [ -x "$VENV/bin/sby" ] && ok "sby (in venv)" || warn "sby   (optional: stronger equivalence proofs)"
   [ -x "$VENV/bin/z3" ]  && ok "z3 (in venv)"  || warn "z3    (optional: SMT solver for sby)"
 
-  if have openroad && have sta; then
-    ok "openroad + sta (native)"
-  elif have docker; then
-    if docker image inspect "$OPENLANE_IMAGE" >/dev/null 2>&1; then
-      ok "openroad + sta (via docker image)"
-    else
-      warn "docker present but the OpenLane image is not pulled yet"
-    fi
+  if cudd_is_ready; then
+    ok "cudd $CUDD_VERSION ($CUDD_PREFIX)"
   else
-    miss "openroad/sta   (install docker, or build them natively)"
+    warn "cudd   (optional but recommended: gives sta BDD support; built automatically in step 2)"
+  fi
+  if sta_is_ready; then
+    ok "sta ($(command -v sta 2>/dev/null || echo "$VENV/bin/sta"))"
+  else
+    miss "sta   (built automatically in step 2 from OpenSTA + cudd)"
+  fi
+  if have openroad; then
+    ok "openroad (native)"
+  elif have docker && docker image inspect "$OPENLANE_IMAGE" >/dev/null 2>&1; then
+    ok "openroad (via docker OpenLane image, for full place & route)"
+  elif have docker; then
+    warn "docker present but the OpenLane image is not pulled yet"
+  else
+    miss "openroad   (install docker for full place & route, or build natively)"
   fi
 
   step "PDK"
@@ -108,12 +158,15 @@ fi
 
 # -------------------------------------------------------------- install ----
 
-step "1/6  System packages"
+step "1/5  System packages"
 MISSING=()
 for t in verilator iverilog klayout git; do
   have "$t" || MISSING+=("$t")
 done
+# python3-venv provides the `venv` module; python3-pip provides pip3 for
+# bootstrapping inside it. Both are frequently absent on minimal/fresh images.
 python3 -c 'import venv' 2>/dev/null || MISSING+=(python3-venv)
+have pip3 || MISSING+=(python3-pip)
 if [ ${#MISSING[@]} -gt 0 ]; then
   echo "  installing: ${MISSING[*]}"
   sudo apt-get update -qq && sudo apt-get install -y "${MISSING[@]}" || \
@@ -122,7 +175,31 @@ else
   ok "already present"
 fi
 
-step "1b/6  Yosys (from source, CMake)"
+step "1a/5  CMake version"
+if cmake_is_recent; then
+  ok "cmake $(cmake_version) already satisfies >= $CMAKE_MIN_VERSION"
+else
+  if have cmake; then
+    warn "apt/existing cmake ($(cmake_version)) is older than $CMAKE_MIN_VERSION — Yosys' build needs a newer one"
+  else
+    echo "  cmake not found"
+  fi
+  have snap || { echo "  snapd not found — installing it"; sudo apt-get update -qq && sudo apt-get install -y snapd; }
+  if have snap; then
+    echo "  installing latest cmake via snap (classic confinement)..."
+    sudo snap install cmake --classic >/dev/null 2>&1
+    hash -r
+    if cmake_is_recent; then
+      ok "cmake $(cmake_version) installed via snap"
+    else
+      warn "snap install of cmake failed or is still old — install manually: sudo snap install cmake --classic"
+    fi
+  else
+    warn "no snapd available — install cmake >= $CMAKE_MIN_VERSION manually (snap is the recommended route on Ubuntu 22.04)"
+  fi
+fi
+
+step "1b/5  Yosys (from source, CMake)"
 if yosys_is_recent; then
   ok "yosys $(yosys_version) already satisfies >= $YOSYS_MIN_VERSION"
 else
@@ -130,6 +207,9 @@ else
     warn "apt/existing yosys ($(yosys_version)) is older than $YOSYS_MIN_VERSION — building from source"
   else
     echo "  yosys not found — building from source"
+  fi
+  if ! cmake_is_recent; then
+    warn "cmake is still older than $CMAKE_MIN_VERSION — this build will likely fail (see step 1a above)"
   fi
   BUILD_DEPS=(build-essential cmake clang bison flex libreadline-dev gawk \
               tcl-dev libffi-dev git graphviz xdot pkg-config python3 \
@@ -161,30 +241,94 @@ else
   rm -rf "$TMP"
 fi
 
-step "2/6  OpenROAD and OpenSTA"
-if have openroad && have sta; then
-  ok "native install found"
+step "2/5  OpenSTA (via CUDD) and OpenROAD"
+if sta_is_ready; then
+  ok "sta already present ($(command -v sta 2>/dev/null || echo "$VENV/bin/sta"))"
+else
+  echo "  sta not found — building OpenSTA from source (needs CUDD for BDD support)"
+  STA_BUILD_DEPS=(build-essential automake autoconf libtool \
+                   tcl-dev swig bison flex libeigen3-dev libz-dev)
+  MISSING_STA_DEPS=()
+  for p in "${STA_BUILD_DEPS[@]}"; do
+    dpkg -s "$p" >/dev/null 2>&1 || MISSING_STA_DEPS+=("$p")
+  done
+  if [ ${#MISSING_STA_DEPS[@]} -gt 0 ]; then
+    echo "  installing build deps: ${MISSING_STA_DEPS[*]}"
+    sudo apt-get update -qq && sudo apt-get install -y "${MISSING_STA_DEPS[@]}" || \
+      warn "apt-get failed to install some build deps; the builds below may fail"
+  fi
+
+  if cudd_is_ready; then
+    ok "cudd $CUDD_VERSION already built at $CUDD_PREFIX"
+  else
+    echo "  building cudd $CUDD_VERSION..."
+    TMP="$(mktemp -d)"
+    if git clone -q https://github.com/cuddorg/cudd.git "$TMP/cudd" 2>/dev/null; then
+      (
+        cd "$TMP/cudd" &&
+        git checkout -q "$CUDD_VERSION" &&
+        ./configure --prefix="$CUDD_PREFIX" >/dev/null &&
+        make -j"$(nproc)" >/dev/null &&
+        make install >/dev/null
+      ) && ok "cudd installed — note this path, OpenSTA needs it: $CUDD_PREFIX" || \
+        warn "cudd build failed — OpenSTA will be built without BDD support (slower conditional-arc handling)"
+    else
+      warn "could not clone cuddorg/cudd (optional network issue)"
+    fi
+    rm -rf "$TMP"
+  fi
+
+  echo "  building OpenSTA..."
+  TMP="$(mktemp -d)"
+  if git clone -q --depth 1 https://github.com/The-OpenROAD-Project/OpenSTA.git "$TMP/OpenSTA" 2>/dev/null; then
+    CUDD_ARG=()
+    cudd_is_ready && CUDD_ARG=(-DCUDD_DIR="$CUDD_PREFIX")
+    if (
+      mkdir -p "$TMP/OpenSTA/build" && cd "$TMP/OpenSTA/build" &&
+      cmake "${CUDD_ARG[@]}" -DCMAKE_INSTALL_PREFIX="$VENV" .. >/dev/null &&
+      make -j"$(nproc)" >/dev/null &&
+      make install >/dev/null
+    ); then
+      ok "sta built and installed ($VENV/bin/sta)"
+    else
+      warn "OpenSTA build failed — check $TMP/OpenSTA manually, or install it system-wide instead:
+        cd $TMP/OpenSTA/build && cmake ${CUDD_ARG[*]:-} .. && make -j\$(nproc) && sudo make install"
+    fi
+  else
+    warn "could not clone The-OpenROAD-Project/OpenSTA (optional network issue)"
+  fi
+  rm -rf "$TMP"
+fi
+
+if have openroad; then
+  ok "openroad already present (native)"
 elif have docker; then
   if docker image inspect "$OPENLANE_IMAGE" >/dev/null 2>&1; then
-    ok "OpenLane image already pulled"
+    ok "OpenLane image already pulled (full place & route via docker)"
   else
-    echo "  pulling the OpenLane image (about 1 GB, one time)..."
+    echo "  pulling the OpenLane image for full place & route (about 1 GB, one time)..."
     docker pull "$OPENLANE_IMAGE" >/dev/null 2>&1 && ok "pulled" || \
       warn "pull failed — check 'docker run hello-world' works for your user"
   fi
 else
-  warn "no docker and no native openroad. Install docker:"
+  warn "no docker and no native openroad (place & route). Install docker:"
   echo "      sudo apt-get install -y docker.io"
   echo "      sudo usermod -aG docker \$USER   # then log out and back in"
 fi
 
-step "3/6  Python environment"
-[ -d "$VENV" ] || python3 -m venv "$VENV"
-"$VENV/bin/pip" install -q --upgrade pip
+step "3/5  Python environment"
+if [ ! -d "$VENV" ]; then
+  if ! python3 -m venv --upgrade-deps "$VENV" 2>/tmp/rtl2gdsagi-venv-err.log; then
+    warn "venv creation failed (see /tmp/rtl2gdsagi-venv-err.log) — likely missing ensurepip; retrying after installing python3-venv/python3-pip"
+    sudo apt-get update -qq && sudo apt-get install -y python3-venv python3-pip
+    python3 -m venv --upgrade-deps "$VENV" || warn "venv creation still failing — try manually: python3 -m venv $VENV"
+  fi
+fi
+"$VENV/bin/pip" install -q --upgrade pip setuptools wheel
 "$VENV/bin/pip" install -q -e "$HERE" && ok "rtl2gdsagi installed" || \
   warn "install failed — try: $VENV/bin/pip install -e $HERE"
 
-step "5/6  SKY130 PDK"
+step "4/5  SKY130 PDK"
 if [ -d "$HOME/.volare/sky130A/libs.ref" ]; then
   ok "already installed"
 else
@@ -194,7 +338,7 @@ else
     warn "volare failed — see https://github.com/efabless/volare"
 fi
 
-step "6/6  Formal equivalence (optional)"
+step "5/5  Formal equivalence (optional)"
 if [ -x "$VENV/bin/sby" ] && [ -x "$VENV/bin/z3" ]; then
   ok "sby and z3 already in the venv"
 else
@@ -226,5 +370,8 @@ Ready. Try it:
 
 Add --no-api if you have not set ANTHROPIC_API_KEY.
 Add --dry-run to generate every tool script without running anything.
+
+Note: OpenSTA was built against cudd at $CUDD_PREFIX. If you ever rebuild
+OpenSTA by hand, pass that path again with -DCUDD_DIR=$CUDD_PREFIX.
 ------------------------------------------------------------------
 EOF
