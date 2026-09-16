@@ -1,6 +1,7 @@
 // A small FIFO-like buffer — intentionally has a Verilator lint error:
 // undeclared signal 'wr_ptr_next' used in the always block.
 // The self-healing should patch the working RTL copy to declare it.
+`timescale 1ns/1ps
 `default_nettype none
 
 module fifo_buf (
