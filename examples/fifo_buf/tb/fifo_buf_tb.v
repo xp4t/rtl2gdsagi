@@ -18,7 +18,9 @@ module fifo_buf_tb;
         .o_full(full), .o_empty(empty)
     );
 
+    /* verilator lint_off BLKSEQ */
     always #5 clk = ~clk;
+    /* verilator lint_on BLKSEQ */
 
     task check_flags(input got_full, input want_full, input got_empty, input want_empty, input [255:0] what);
         begin
@@ -38,7 +40,6 @@ module fifo_buf_tb;
 
         rst_n = 1'b1;
 
-        // Write 4 items
         wr_en = 1'b1;
         data_in = 8'hAA; @(negedge clk);
         data_in = 8'hBB; @(negedge clk);
@@ -48,7 +49,6 @@ module fifo_buf_tb;
 
         check_flags(full, 1'b1, empty, 1'b0, "full after 4 writes");
 
-        // Read all 4
         rd_en = 1'b1;
         @(negedge clk);
         if (data_out !== 8'hAA) begin
