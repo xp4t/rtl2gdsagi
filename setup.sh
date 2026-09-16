@@ -472,5 +472,20 @@ Note: if this run just added you to the docker group, plain "docker ..."
 commands in THIS shell still won't see it until you log out and back in.
 Use "sg docker -c 'docker ...'" (or open a new terminal) until then — new
 shells after your next login won't need that.
+
+Note: to run "rtl2gdsagi" (and yosys/sta/sby/eqy) from any directory
+instead of typing the full $VENV/bin/... path, add this to the END of
+~/.bashrc, then restart your shell (or run: source ~/.bashrc):
+
+    export PATH="\$PATH:$VENV/bin"
+
+Appending it (as above, not putting it first) is what makes this safe
+despite $VENV/bin also containing python/python3/pip: PATH is searched
+left-to-right, so your system's own python3/pip still win everywhere else
+on this machine — only names PATH doesn't already resolve (rtl2gdsagi,
+and yosys/sta/sby/eqy if you have no other copies) get picked up from
+here. The one exception: if you'd separately apt-installed a yosys or
+openroad before running this script, that older copy would still win
+over the one built here when called bare — run "which yosys" to check.
 ------------------------------------------------------------------
 EOF
