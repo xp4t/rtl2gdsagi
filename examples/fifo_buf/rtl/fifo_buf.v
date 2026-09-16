@@ -14,10 +14,12 @@ module fifo_buf (
     output wire       o_empty
 );
 
-    reg [7:0] mem [0:3];
-    reg [1:0] wr_ptr;
-    reg [1:0] rd_ptr;
-    reg [2:0] count;
+reg [7:0] mem [0:3];
+reg [1:0] wr_ptr;
+reg [1:0] rd_ptr;
+reg [2:0] count;
+wire [1:0] wr_ptr_next;
+wire [1:0] rd_ptr_next;
 
     assign o_full  = (count == 3'd4);
     assign o_empty = (count == 3'd0);
