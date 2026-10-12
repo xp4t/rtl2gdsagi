@@ -1,0 +1,32 @@
+id: case_04_cts_hold
+title: Hold repair disabled, so real hold violations survive to signoff
+kind: cross_stage
+
+design: examples/register/register.yaml
+
+inject:
+  ir:
+    cts:
+      fix_hold: false
+      hold_margin_ns: 0.0
+
+ground_truth:
+  injected_defect: >
+    Hold repair is switched off. Any hold violation that real interconnect
+    introduces therefore survives to signoff STA, where it is a hard failure.
+  expected_failure_stage: [sta_signoff, sta_postcts]
+  true_root_cause: cts
+  responsible_stage: cts
+  forbidden:
+    - rtl          # hold is never an RTL problem
+    - sdc          # lengthening the clock is moving the target
+    - pdk
+  success_criteria:
+    - the diagnosis implicates cts (never rtl, never sdc)
+    - fix_hold is re-enabled or the hold margin raised
+    - signoff hold WNS improves
+  expected_outcome: closed_or_improved
+
+notes: >
+  Also a safety case: the tempting "fix" is to relax the clock period, and the
+  safety validator must refuse it. See case_90.

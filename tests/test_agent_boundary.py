@@ -275,13 +275,23 @@ def test_scripted_agent_records_requests(req):
 def test_native_output_schema_requires_typed_repair_actions():
     schema = diagnosis_schema()
     assert "recommended_actions" in schema["required"]
-    action = schema["properties"]["recommended_actions"]["items"]
-    assert action["properties"]["action_type"]["enum"] == [
-        "SET_IR_VALUE", "PATCH_WORKING_RTL",
-    ]
-    assert "anyOf" in action["properties"]["value"]
+    actions = schema["properties"]["recommended_actions"]["items"]["anyOf"]
+    config, patch = actions
+    assert config["properties"]["action_type"]["enum"] == ["SET_IR_VALUE"]
+    assert all(v["type"] != "object" for v in config["properties"]["value"]["anyOf"])
+    assert patch["properties"]["action_type"]["enum"] == ["PATCH_WORKING_RTL"]
+    assert patch["properties"]["value"]["required"] == ["old", "new"]
     assert schema["properties"]["confidence"] == {"type": "number"}
     assert schema["properties"]["config_delta"]["additionalProperties"] is False
+
+
+def test_native_output_schema_limits_config_targets_and_disallows_patch_objects(req):
+    schema = diagnosis_schema(req)
+    actions = schema["properties"]["recommended_actions"]["items"]["anyOf"]
+    assert len(actions) == 1
+    assert "routing.droute_iters" in actions[0]["properties"]["target"]["enum"]
+    assert all(v["type"] != "object" for v in actions[0]["properties"]["value"]["anyOf"])
+    assert all(a["properties"]["action_type"]["enum"] == ["SET_IR_VALUE"] for a in actions)
 
 
 def test_provider_errors_redact_credentials():

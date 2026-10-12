@@ -1,0 +1,15 @@
+{
+  "design": "shift1024",
+  "only_DEF_change_after_alias_substitution": true,
+  "variant_counts": [
+    {
+      "L1M1_PR_MR": 3651,
+      "L1M1_PR": 0
+    },
+    {
+      "L1M1_PR_MR": 0,
+      "L1M1_PR": 3651
+    }
+  ],
+  "interpretation": "Diagnostic via-name substitution is not part of reported repeat normalization. This does not establish geometric equivalence of the via variants or isolate a threading cause."
+}

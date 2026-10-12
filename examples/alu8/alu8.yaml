@@ -19,3 +19,6 @@ ir:
     core_ring: false
   floorplan:
     core_utilization: 0.30
+  placement:
+    # Verified by the retained live DRC repair: avoid adjacent NPC spacing.
+    padding_sites: 2

@@ -1,0 +1,25 @@
+id: case_03_routing_layer_range
+title: Routing restricted to too few metal layers
+kind: same_stage
+
+design: examples/register/register.yaml
+
+inject:
+  ir:
+    routing:
+      max_layer: 2
+
+ground_truth:
+  injected_defect: >
+    Signal routing is confined to met1-met2. The design is small, but two
+    layers is a severe restriction and detailed routing is expected to fail to
+    converge or to leave violations.
+  expected_failure_stage: [routing]
+  true_root_cause: routing
+  responsible_stage: routing
+  forbidden: [rtl, sdc, pdk]
+  success_criteria:
+    - the diagnosis implicates routing
+    - max_layer is raised
+    - routing converges to zero violations
+  expected_outcome: closed_or_improved

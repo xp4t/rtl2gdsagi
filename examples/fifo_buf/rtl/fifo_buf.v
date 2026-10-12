@@ -23,7 +23,6 @@ wire [1:0] rd_ptr_next;
     assign o_full  = (count == 3'd4);
     assign o_empty = (count == 3'd0);
 
-    // BUG: wr_ptr_next and rd_ptr_next are never declared
     assign wr_ptr_next = wr_ptr + 2'd1;
     assign rd_ptr_next = rd_ptr + 2'd1;
 

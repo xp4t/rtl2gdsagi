@@ -1,0 +1,308 @@
+diff --git a/examples/alu8/alu8.yaml b/examples/alu8/alu8.yaml
+index d298dd8..a0f1219 100644
+--- a/examples/alu8/alu8.yaml
++++ b/examples/alu8/alu8.yaml
+@@ -19,3 +19,6 @@ ir:
+     core_ring: false
+   floorplan:
+     core_utilization: 0.30
++  placement:
++    # Verified by the retained live DRC repair: avoid adjacent NPC spacing.
++    padding_sites: 2
+diff --git a/examples/fifo_buf/rtl/fifo_buf.v b/examples/fifo_buf/rtl/fifo_buf.v
+index 09fd2b0..b996e9e 100644
+--- a/examples/fifo_buf/rtl/fifo_buf.v
++++ b/examples/fifo_buf/rtl/fifo_buf.v
+@@ -23,7 +23,6 @@ wire [1:0] rd_ptr_next;
+     assign o_full  = (count == 3'd4);
+     assign o_empty = (count == 3'd0);
+ 
+-    // BUG: wr_ptr_next and rd_ptr_next are never declared
+     assign wr_ptr_next = wr_ptr + 2'd1;
+     assign rd_ptr_next = rd_ptr + 2'd1;
+ 
+diff --git a/src/rtl2gdsagi/checks/tools.py b/src/rtl2gdsagi/checks/tools.py
+index 89433ca..3fdb7b2 100644
+--- a/src/rtl2gdsagi/checks/tools.py
++++ b/src/rtl2gdsagi/checks/tools.py
+@@ -332,9 +332,18 @@ def check_lec(run: ToolRun, stage: StageId) -> Verdict:
+         return v
+ 
+     text = run.combined
+-    proved = sorted(set(_EQY_PROVED.findall(text)))
++    proof_matches = list(_EQY_PROVED.finditer(text))
++    proved = sorted({m.group(1) for m in proof_matches})
+     mismatched = sorted(set(_EQY_NOT_EQUIV.findall(text)))
+-    unknown = sorted(set(_EQY_UNKNOWN.findall(text)))
++    unknown_matches = list(_EQY_UNKNOWN.finditer(text))
++    # EQY tries several proof strategies for one partition. An inconclusive
++    # attempt is resolved by a later positive proof of that same partition.
++    # A later unknown remains blocking, and counterexamples are never erased.
++    unknown = sorted({
++        m.group(1) for m in unknown_matches
++        if not any(p.group(1) == m.group(1) and p.start() > m.end()
++                   for p in proof_matches)
++    })
+ 
+     # Every terminal marker, not the first.
+     #
+@@ -350,6 +359,7 @@ def check_lec(run: ToolRun, stage: StageId) -> Verdict:
+         "partitions_proved": len(proved),
+         "partitions_not_equivalent": len(mismatched),
+         "partitions_unknown": len(unknown),
++        "strategy_unknown_results": len(unknown_matches),
+         "eqy_outcome": outcome,
+         "eqy_terminal_results": len(outcomes),
+         "eqy_errors": len(errors),
+@@ -418,26 +428,17 @@ def check_lec(run: ToolRun, stage: StageId) -> Verdict:
+ 
+     # A reported counterexample.
+     #
+-    # KNOWN LIMITATION, and the reason this does not simply say "your netlist is
+-    # wrong": the RTL-versus-netlist comparison in this flow reports a mismatch
+-    # on the *sequential* partition of even a plain 8-bit counter that is
+-    # certainly correct. Evidence that the fault is in the comparison and not in
+-    # the design: comparing the netlist against itself proves cleanly, including
+-    # sequential partitions; combinational partitions always prove; and it is
+-    # unaffected by reset style, init attributes, or setundef/hilomap.
+-    #
+-    # Until that is understood, the flow may not accuse a design of being wrong.
+-    # It still blocks -- unverified is unverified, and signoff refuses to
+-    # certify -- but the wording reflects what is actually known.
++    # A counterexample demonstrates disagreement under the declared models;
++    # inspection must determine whether the design, mapping, or proof setup is
++    # responsible. It blocks signoff without automatically authorizing RTL edits.
+     if mismatched:
+         return failed_verdict(
+             stage, FailureClass.LEC_MISMATCH,
+             f"equivalence NOT established for {len(mismatched)} partition(s) "
+             f"(e.g. {', '.join(mismatched[:3])}): the prover reported a "
+-            "counterexample. Note that this flow currently reports a "
+-            "counterexample for sequential logic even on designs known to be "
+-            "correct, so treat this as unverified rather than as proof of a "
+-            "bug, and check the trace before changing your RTL.",
++            "counterexample. Treat the design as unverified rather than as proof of a bug; "
++            "inspect the trace and the RTL, mapped-cell models, and proof configuration "
++            "before changing functional logic.",
+             evidence=run.tail(3000), escalate=True, **metrics,
+         )
+ 
+diff --git a/src/rtl2gdsagi/pdk.py b/src/rtl2gdsagi/pdk.py
+index 15caadc..4bf00a6 100644
+--- a/src/rtl2gdsagi/pdk.py
++++ b/src/rtl2gdsagi/pdk.py
+@@ -13,6 +13,7 @@ change rather than a code change.
+ from __future__ import annotations
+ 
+ import os
++import re
+ from dataclasses import dataclass
+ from pathlib import Path
+ 
+@@ -199,7 +200,7 @@ class PDKConfig:
+             / f"rules.openrcx.{self.name}.{corner}.spef_extractor"
+         )
+ 
+-    def clock_buffers(self, limit: int = 6) -> list[str]:
++    def clock_buffers(self, limit: int = 1) -> list[str]:
+         """Clock buffer cells, discovered from the cell LEF.
+ 
+         Read from the PDK rather than hardcoded so a different process works
+@@ -213,9 +214,20 @@ class PDKConfig:
+         for line in lef.read_text(encoding="utf-8", errors="replace").splitlines():
+             line = line.strip()
+             if line.startswith("MACRO ") and "clkbuf" in line:
+-                names.append(line.split(None, 1)[1].strip())
+-        # Prefer mid-strength drives; the extremes are rarely good CTS choices.
+-        names.sort(key=lambda n: (len(n), n))
++                name = line.split(None, 1)[1].strip()
++                # Keep-alive and level-shifting buffers have a different power
++                # pin interface. Treating them as interchangeable with ordinary
++                # clock buffers makes CTS characterization repeatedly attempt
++                # impossible OpenDB swaps (ODB-0045).
++                family = name.split("__")[-1]
++                if re.fullmatch(r"clkbuf_\d+", family):
++                    names.append(name)
++        # CTS characterizes combinations of the listed cells. Listing every
++        # drive strength creates an unnecessarily large pattern search. Use a
++        # middle drive by default; explicit root_buffer remains available.
++        strengths = sorted(int(n.rsplit("_", 1)[-1]) for n in names)
++        middle = strengths[len(strengths) // 2] if strengths else 0
++        names.sort(key=lambda n: (abs(int(n.rsplit("_", 1)[-1]) - middle), n))
+         return names[:limit]
+ 
+     def _macros_matching(self, needle: str) -> list[str]:
+diff --git a/src/rtl2gdsagi/render.py b/src/rtl2gdsagi/render.py
+index 938d9cc..828dc1f 100644
+--- a/src/rtl2gdsagi/render.py
++++ b/src/rtl2gdsagi/render.py
+@@ -249,6 +249,13 @@ def render_lec(ir: IR, ctx: RenderContext) -> str:
+         "setattr -unset init",
+         "opt -full",
+         "",
++        # A synthesized output can also feed next-state logic or alias another
++        # output. Independent cuts at such matches are not equivalent between
++        # RTL and cell-model views. Prove their joint transition relation rather
++        # than assuming the cut inputs can vary independently.
++        "[collect *]",
++        "group *",
++        "",
+         # Two strategies, tried in order. `sat` is fast and settles most
+         # partitions; deep sequential logic comes back "equivalence unknown"
+         # from it no matter how far the depth is raised (verified: depth 40
+@@ -266,6 +273,12 @@ def render_lec(ir: IR, ctx: RenderContext) -> str:
+             f"depth {int(s['induction_steps'])}",
+             f"engine smtbmc {s['smt_solver']}",
+             "",
++            # Reachability can establish invariants that bounded induction
++            # misses in memory-bearing sequential designs, such as the FIFO.
++            "[strategy pdr]",
++            "use sby",
++            "engine abc pdr",
++            "",
+         ]
+     return "\n".join(lines) + "\n"
+ 
+diff --git a/src/rtl2gdsagi/runner.py b/src/rtl2gdsagi/runner.py
+index 11d2040..6008e68 100644
+--- a/src/rtl2gdsagi/runner.py
++++ b/src/rtl2gdsagi/runner.py
+@@ -158,7 +158,7 @@ class Orchestrator:
+     ) -> None:
+         self.cfg = cfg
+         self.run_id = new_run_id()
+-        self.run_dir = Path(run_dir) if run_dir else (cfg.run_root / self.run_id)
++        self.run_dir = (Path(run_dir) if run_dir else (cfg.run_root / self.run_id)).resolve()
+         self.run_dir.mkdir(parents=True, exist_ok=True)
+ 
+         self.log = RunLog(self.run_dir)
+@@ -2420,6 +2420,12 @@ class Orchestrator:
+     ) -> None:
+         self.state.status = status
+         self.state.ended_at = time.time()
++        if status is not RunStatus.OK:
++            for stage in self.state.stages.values():
++                if stage.status is StageStatus.RUNNING:
++                    stage.status = StageStatus.FAILED
++                    stage.last_verdict = "fail"
++                    stage.ended_at = self.state.ended_at
+         self.state.artifacts = self.ledger
+         self.state.save()
+ 
+diff --git a/tests/test_lec_sim_grading.py b/tests/test_lec_sim_grading.py
+index 1d45753..908849f 100644
+--- a/tests/test_lec_sim_grading.py
++++ b/tests/test_lec_sim_grading.py
+@@ -5,9 +5,8 @@ Both are graded with a distinction that matters more than it might look:
+ * LEC: "partitions not equivalent" (the prover produced a counterexample)
+   versus "equivalence unknown" (it hit its limit). Both block — unverified is
+   unverified — but they are worded differently, and *neither* asserts that the
+-  design is buggy. This flow still reports counterexamples for sequential logic
+-  that is known to be correct, so an unqualified "your netlist is wrong" would
+-  be the worst error message a beginner could receive.
++  design is buggy. A mismatch can also originate in cell models or proof
++  configuration, so the diagnostic requires inspection of the trace.
+ 
+ * sim: a testbench that runs to completion without checking anything is neither
+   a pass nor a failure. Failing a whole tapeout flow because a testbench does
+@@ -52,6 +51,26 @@ def test_all_partitions_proved_is_a_pass():
+     assert v.metrics["partitions_proved"] == 2
+ 
+ 
++def test_later_strategy_proof_resolves_the_same_partition_unknown():
++    v = check_lec(eqy(UNKNOWN.format("top.a"), PROVED.format("top.a"),
++                      "DONE (PASS, rc=0)"), StageId.LEC_SYNTH)
++    assert v.kind is VerdictKind.PASS
++    assert v.metrics["partitions_unknown"] == 0
++    assert v.metrics["strategy_unknown_results"] == 1
++
++
++def test_later_unknown_cannot_reuse_an_earlier_proof():
++    v = check_lec(eqy(PROVED.format("top.a"), UNKNOWN.format("top.a"),
++                      "DONE (PASS, rc=0)"), StageId.LEC_SYNTH)
++    assert v.kind is VerdictKind.FAIL
++
++
++def test_a_later_proof_does_not_erase_a_counterexample():
++    v = check_lec(eqy(NOT_EQUIV.format("top.a"), PROVED.format("top.a"),
++                      "DONE (PASS, rc=0)"), StageId.LEC_SYNTH)
++    assert v.kind is VerdictKind.FAIL
++
++
+ def test_a_reported_counterexample_blocks_without_accusing_the_design():
+     v = check_lec(
+         eqy(PROVED.format("top.a"), NOT_EQUIV.format("top.b"),
+@@ -62,8 +81,7 @@ def test_a_reported_counterexample_blocks_without_accusing_the_design():
+     assert v.failure is FailureClass.LEC_MISMATCH
+     assert v.metrics["partitions_not_equivalent"] == 1
+     assert "NOT established" in v.summary
+-    # Must not assert the design is buggy: this flow still produces
+-    # counterexamples on sequential logic that is known to be correct.
++    # The diagnostic keeps design, mapping and proof-configuration causes open.
+     assert "unverified rather than as proof of a bug" in v.summary
+ 
+ 
+diff --git a/tests/test_pipeline.py b/tests/test_pipeline.py
+index 39cabde..226faed 100644
+--- a/tests/test_pipeline.py
++++ b/tests/test_pipeline.py
+@@ -54,6 +54,15 @@ def build(cfg, toolchain, *, fail=None, agent=None, budget=None, missing=None):
+ 
+ # ---- clean run ------------------------------------------------------------
+ 
++def test_relative_run_directory_produces_absolute_tool_inputs(cfg, toolchain, tmp_path, monkeypatch):
++    monkeypatch.chdir(tmp_path)
++    orch = Orchestrator(cfg, run_dir=Path("relative_run"))
++    orch.invoker = toolchain(orch)
++    assert orch.run() == 0
++    assert orch.work_rtl.is_absolute()
++    assert all(Path(a.path).is_absolute() for a in orch.ledger._items.values())
++
++
+ def test_clean_run_reaches_signoff(cfg, toolchain):
+     orch = build(cfg, toolchain)
+     assert orch.run() == 0
+@@ -66,6 +75,17 @@ def test_clean_run_reaches_signoff(cfg, toolchain):
+         assert state.stage(sid).status is StageStatus.OK, sid
+ 
+ 
++def test_escalation_closes_the_running_stage(cfg, toolchain):
++    orch = build(cfg, toolchain, fail={StageId.LINT: [
++        ToolRun(argv=["verilator"], returncode=1,
++                stdout="%Error: syntax error", stderr=""),
++    ]})
++    assert orch.run() != 0
++    failed = orch.state.stage(StageId.LINT)
++    assert failed.status is StageStatus.FAILED
++    assert failed.ended_at is not None
++
++
+ def test_signoff_bundle_binds_every_gate_to_one_gds(cfg, toolchain):
+     orch = build(cfg, toolchain)
+     assert orch.run() == 0
+diff --git a/tests/test_render.py b/tests/test_render.py
+index fd3cc3f..65b84a5 100644
+--- a/tests/test_render.py
++++ b/tests/test_render.py
+@@ -137,6 +137,21 @@ def test_cts_always_supplies_a_buffer_list(ctx):
+     assert "-root_buf" in text
+ 
+ 
++def test_cts_excludes_keep_alive_power_buffer(ctx, fake_pdk):
++    with fake_pdk.cell_lef_path.open("a") as fh:
++        fh.write("MACRO sky130_fd_sc_hd__lpflow_clkbufkapwr_1\n"
++                 "END sky130_fd_sc_hd__lpflow_clkbufkapwr_1\n")
++    text = render(StageId.CTS, IR(), ctx)
++    assert "lpflow_clkbufkapwr" not in text
++    assert "sky130_fd_sc_hd__clkbuf_4" in text
++
++
++def test_lec_has_a_reachability_fallback(ctx):
++    text = render(StageId.LEC_SYNTH, IR(), ctx)
++    assert text.index("[strategy sat]") < text.index("[strategy smt]") < text.index("[strategy pdr]")
++    assert "engine abc pdr" in text
++
++
+ def test_routing_rejects_an_inverted_layer_range(ctx):
+     ir = IR()
+     ir.update("routing", {"min_layer": 5, "max_layer": 2})

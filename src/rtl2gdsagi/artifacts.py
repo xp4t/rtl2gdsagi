@@ -115,12 +115,13 @@ class Artifact:
 
     @property
     def is_dir(self) -> bool:
-        return self.sha256 == "" and self.path.is_dir()
+        return self.path.is_dir()
 
     def unchanged(self) -> bool:
         """True if the file on disk still matches what we registered."""
         if self.is_dir:
-            return self.path.is_dir()
+            digest, size = tree_sha256(self.path)
+            return digest == self.sha256 and size == self.size
         if not self.path.is_file():
             return False
         if self.path.stat().st_size != self.size:

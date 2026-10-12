@@ -26,7 +26,7 @@ from .agent.client import (
     ScriptedAgent,
     write_audit,
 )
-from .artifacts import ArtifactError, ArtifactLedger
+from .artifacts import ArtifactError, ArtifactLedger, sha256_file
 from .characterize import DesignFacts, characterize, suggest_starting_ir
 from .checkpoints import CheckpointStore, fingerprint_attempt
 from .checks import gds as gdsread, klayout_drc, klayout_lvs
@@ -158,7 +158,7 @@ class Orchestrator:
     ) -> None:
         self.cfg = cfg
         self.run_id = new_run_id()
-        self.run_dir = Path(run_dir) if run_dir else (cfg.run_root / self.run_id)
+        self.run_dir = (Path(run_dir) if run_dir else (cfg.run_root / self.run_id)).resolve()
         self.run_dir.mkdir(parents=True, exist_ok=True)
 
         self.log = RunLog(self.run_dir)
@@ -227,6 +227,16 @@ class Orchestrator:
             files=copied,
         )
         self.ledger.register("rtl_dir", self.work_rtl, stage="prepare", allow_dir=True)
+        # These files alter the meaning of GDS stream-out, DRC and LVS. Bind
+        # their exact bytes to the release candidate and each consuming gate.
+        for key, path in (
+            ("layer_map", self.cfg.pdk.layer_map_path),
+            ("drc_deck", self.cfg.pdk.drc_deck_path),
+            ("lvs_deck", self.cfg.pdk.lvs_deck_path),
+        ):
+            if not path.is_file():
+                raise FileNotFoundError(f"required PDK input {key} is missing: {path}")
+            self.ledger.register(key, path, stage="prepare")
         # This is the immutable identity copied before any authorized working
         # RTL repair. Physical-only repair records must prove it stayed equal.
         self._initial_work_rtl_sha256 = self.ledger.get("rtl_dir").sha256
@@ -617,6 +627,37 @@ class Orchestrator:
             total_capacitance=res.total_capacitance,
         )
 
+    def _klayout_invocation_problem(self, run: ToolRun, ctx: RenderContext,
+                                    kind: str) -> str | None:
+        """Bind native arguments to the selected input bytes, before grading."""
+        params: dict[str, list[str]] = {}
+        decks = []
+        for i, arg in enumerate(run.argv[:-1]):
+            value = run.argv[i + 1]
+            if arg == "-rd" and "=" in value:
+                key, text = value.split("=", 1)
+                params.setdefault(key, []).append(text)
+            elif arg == "-r":
+                decks.append(value)
+        gds = self.ledger.get("final_gds")
+        expected_deck = (self.cfg.pdk.drc_deck_path if kind == "drc"
+                         else self.cfg.pdk.lvs_deck_path)
+        obligations = [("input", params.get("input", []), gds.sha256),
+                       ("deck", decks, sha256_file(expected_deck))]
+        for label, paths, expected in obligations:
+            if len(paths) != 1:
+                return f"{kind} invocation must identify exactly one {label}; found {len(paths)}"
+            path = Path(paths[0])
+            if not path.is_absolute():
+                path = ctx.work_dir / path
+            if not path.is_file():
+                return f"{kind} invocation {label} is missing: {path}"
+            actual = sha256_file(path)
+            if actual != expected:
+                return (f"{kind} invocation consumed {label} {actual[:12]}, but the "
+                        f"selected candidate requires {expected[:12]}")
+        return None
+
     def _judge_drc(self, run: ToolRun, ctx: RenderContext) -> Verdict:
         """Bind the DRC report to the exact GDS gdsout produced.
 
@@ -641,6 +682,9 @@ class Orchestrator:
                 "clean result out of a run that failed",
                 evidence=run.tail(2500),
             )
+        problem = self._klayout_invocation_problem(run, ctx, "drc")
+        if problem:
+            return failed(StageId.DRC, FailureClass.DRC, problem)
         gds = self.ledger.get("final_gds")
         gds.assert_unchanged()
         report = Path(ctx.out("drc_report"))
@@ -701,6 +745,9 @@ class Orchestrator:
         )
 
     def _judge_lvs(self, run: ToolRun, ctx: RenderContext) -> Verdict:
+        problem = self._klayout_invocation_problem(run, ctx, "lvs")
+        if problem:
+            return failed(StageId.LVS, FailureClass.LVS, problem)
         gds = self.ledger.get("final_gds")
         gds.assert_unchanged()
         deck = audit_deck(self.cfg.pdk.lvs_deck_path, kind="lvs")
@@ -1562,6 +1609,13 @@ class Orchestrator:
         # the ledger is rebuilt from stage checkpoints, which never held them.
         self.ledger.register("rtl_dir", self.work_rtl, stage="prepare", allow_dir=True)
         self._register_testbenches("prepare")
+        for key, path in (
+            ("layer_map", self.cfg.pdk.layer_map_path),
+            ("drc_deck", self.cfg.pdk.drc_deck_path),
+            ("lvs_deck", self.cfg.pdk.lvs_deck_path),
+        ):
+            if path is not None and path.is_file():
+                self.ledger.register(key, path, stage="prepare")
         facts = self.stage_dir(StageId.CHARACTERIZE) / "facts.json"
         if facts.is_file():
             self.ledger.register("design_facts", facts, stage="characterize")
@@ -2420,6 +2474,12 @@ class Orchestrator:
     ) -> None:
         self.state.status = status
         self.state.ended_at = time.time()
+        if status is not RunStatus.OK:
+            for stage in self.state.stages.values():
+                if stage.status is StageStatus.RUNNING:
+                    stage.status = StageStatus.FAILED
+                    stage.last_verdict = "fail"
+                    stage.ended_at = self.state.ended_at
         self.state.artifacts = self.ledger
         self.state.save()
 

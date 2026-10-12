@@ -1,0 +1,15 @@
+{
+  "implementation_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "repair_cohort_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+  "implementation_manifests": [
+    "runs/padding_release_pair_a/experiment_manifest.json",
+    "runs/padding_release_pair_b/experiment_manifest.json",
+    "runs/shift_scale_pair_a/experiment_manifest.json",
+    "runs/shift_scale_pair_b/experiment_manifest.json"
+  ],
+  "repair_manifests": [
+    "runs/live_repair_study/experiment_manifest.json",
+    "runs/live_drc_study/experiment_manifest.json"
+  ],
+  "source_scope": "Final paired implementation runs use one unchanged src snapshot; repair trials use the separately archived prior snapshot. Failed scale experiments are not relabeled as final flows."
+}

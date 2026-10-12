@@ -1,0 +1,18 @@
+{
+  "designs": 7,
+  "largest_cells": 1024,
+  "stages": 21,
+  "native_attack_cases": 18,
+  "live_episodes": 9,
+  "verified_repairs": 7,
+  "provider_calls": 20,
+  "references": 13,
+  "tests": {
+    "tests": 969,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 15,
+    "passed": 954
+  },
+  "scope": "Registered numerical and file assertions; semantic review is separately disclosed."
+}

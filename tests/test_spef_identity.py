@@ -183,6 +183,29 @@ def test_name_map_is_parsed_and_resolved():
     assert resolve_net_name("literal_name", nm) == "literal_name"
 
 
+def test_hierarchical_punctuation_escapes_preserve_net_identity(tmp_path):
+    def_name = r"lanes\[0\].unit_alu.result_wide\[0\]"
+    spef_name = r"lanes\[0\]\.unit_alu\.result_wide\[0\]"
+    spef = write_spef(tmp_path, _d_net(1, spef_name), names=[spef_name])
+    res = validate_spef(spef, expected_design="register",
+                        routed_def=write_def(tmp_path, nets=[def_name]))
+    assert res.ok and res.coverage == 1.0
+    assert res.resolved_net_names == ("lanes[0].unit_alu.result_wide[0]",)
+    # An actual different lane remains a missing and extra net.
+    spef.write_text(spef.read_text().replace(r"lanes\[0\]", r"lanes\[1\]"))
+    wrong = validate_spef(spef, expected_design="register",
+                          routed_def=write_def(tmp_path, nets=[def_name]))
+    assert not wrong.ok and wrong.missing and wrong.extra
+
+
+def test_differently_escaped_duplicate_names_still_fail(tmp_path):
+    names = [r"unit.result", r"unit\.result"]
+    spef = write_spef(tmp_path, _d_net(1,names[0])+_d_net(2,names[1]), names=names)
+    res = validate_spef(spef, expected_design="register",
+                        routed_def=write_def(tmp_path, nets=["unit.result"]))
+    assert not res.ok and res.duplicates == ("unit.result",)
+
+
 # ---- the STA half ----------------------------------------------------------
 
 ANNOTATED = (

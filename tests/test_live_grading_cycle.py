@@ -99,7 +99,8 @@ def _run_tree(tmp_path, *, attempt2_value=32, before=2, after=0):
             "floorplan_def", "pdn_def", "cts_def", "sdc", "routed_def",
             "routed_netlist", "spef", "final_gds", "sim_result", "drc_report",
             "lvs_report", "antenna_report", "extracted_netlist",
-            "gds_summary", "lvs_reference")
+            "gds_summary", "lvs_reference", "layer_map", "drc_deck",
+            "lvs_deck")
     shared, paths = {}, {}
     for k in keys:
         f = art_dir / f"{k}.bin"

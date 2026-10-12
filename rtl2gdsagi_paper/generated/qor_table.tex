@@ -1,0 +1,14 @@
+\begin{table}[htbp]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Measured implementation results. Cell area is the synthesis-library area; die area comes from routed DEF. Timing uses extracted parasitics.}\label{tab:qor}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Design & Cells & Cell area & Die area & Setup slack & Hold slack \\
+ & & ($\mu$m$^2$) & ($\mu$m$^2$) & (ns) & (ns) \\
+\midrule
+register & 22 & 292.78 & 2393.17 & 6.954 & 1.204 \\
+mux4to1 & 48 & 480.46 & 3602.40 & 6.952 & 1.203 \\
+alu8 & 133 & 1018.48 & 6125.41 & 5.256 & 1.192 \\
+counter & 47 & 416.65 & 3279.28 & 4.911 & 0.494 \\
+shift\_reg & 16 & 380.36 & 3091.92 & 6.892 & 0.554 \\
+fifo\_buf & 109 & 1721.65 & 9169.02 & 6.396 & 0.273 \\
+shift1024 & 1024 & 25624.58 & 115705.42 & 5.553 & 0.049 \\
+\bottomrule\end{tabular}\end{table}

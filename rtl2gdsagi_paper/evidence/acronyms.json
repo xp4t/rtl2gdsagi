@@ -1,0 +1,218 @@
+{
+  "checker": "ars-acronym-check/1.0",
+  "input": "rtl2gdsagi_paper/evidence/manuscript.txt",
+  "input_sha256": "500c745674e536e490dea5d3cf436ce4fa3dcd8068f08b3f5eddf9ce6a90b3be",
+  "status": "partial",
+  "allowlist": {
+    "default": 29,
+    "user": []
+  },
+  "coverage": {
+    "body": "checked",
+    "abstract_en": "not_in_input",
+    "abstract_zh": "not_in_input"
+  },
+  "scope_lines": {
+    "body": [
+      [
+        1,
+        284
+      ]
+    ]
+  },
+  "unread_sections": [],
+  "coverage_limits": [
+    {
+      "scope": "body",
+      "line": 21,
+      "acronym": "RTL",
+      "reason": "unconfirmed_definition"
+    },
+    {
+      "scope": "body",
+      "line": 29,
+      "acronym": "FIFO",
+      "reason": "unconfirmed_definition"
+    },
+    {
+      "scope": "body",
+      "line": 107,
+      "acronym": "DRC",
+      "reason": "unconfirmed_definition"
+    },
+    {
+      "scope": "body",
+      "line": 108,
+      "acronym": "LVS",
+      "reason": "unconfirmed_definition"
+    },
+    {
+      "scope": "body",
+      "line": 175,
+      "acronym": "CTS",
+      "reason": "unconfirmed_definition"
+    }
+  ],
+  "findings": [
+    {
+      "scope": "body",
+      "line": 2,
+      "rule": "undefined",
+      "acronym": "GDS",
+      "expansion": null,
+      "occurrences": 3
+    },
+    {
+      "scope": "body",
+      "line": 4,
+      "rule": "undefined",
+      "acronym": "SG2",
+      "expansion": null,
+      "occurrences": 1
+    },
+    {
+      "scope": "body",
+      "line": 4,
+      "rule": "undefined",
+      "acronym": "TV1",
+      "expansion": null,
+      "occurrences": 1
+    },
+    {
+      "scope": "body",
+      "line": 7,
+      "rule": "undefined",
+      "acronym": "NIELIT",
+      "expansion": null,
+      "occurrences": 4
+    },
+    {
+      "scope": "body",
+      "line": 22,
+      "rule": "undefined",
+      "acronym": "GDSII",
+      "expansion": null,
+      "occurrences": 2
+    },
+    {
+      "scope": "body",
+      "line": 71,
+      "rule": "undefined",
+      "acronym": "EQY",
+      "expansion": null,
+      "occurrences": 6
+    },
+    {
+      "scope": "body",
+      "line": 87,
+      "rule": "undefined",
+      "acronym": "SHA",
+      "expansion": null,
+      "occurrences": 1
+    },
+    {
+      "scope": "body",
+      "line": 134,
+      "rule": "undefined",
+      "acronym": "EDA",
+      "expansion": null,
+      "occurrences": 1
+    },
+    {
+      "scope": "body",
+      "line": 134,
+      "rule": "undefined",
+      "acronym": "ROAD",
+      "expansion": null,
+      "occurrences": 2
+    },
+    {
+      "scope": "body",
+      "line": 157,
+      "rule": "undefined",
+      "acronym": "LEC",
+      "expansion": null,
+      "occurrences": 2
+    },
+    {
+      "scope": "body",
+      "line": 157,
+      "rule": "undefined",
+      "acronym": "SYNTH",
+      "expansion": null,
+      "occurrences": 2
+    },
+    {
+      "scope": "body",
+      "line": 161,
+      "rule": "undefined",
+      "acronym": "XML",
+      "expansion": null,
+      "occurrences": 1
+    },
+    {
+      "scope": "body",
+      "line": 193,
+      "rule": "undefined",
+      "acronym": "ODB",
+      "expansion": null,
+      "occurrences": 1
+    },
+    {
+      "scope": "body",
+      "line": 204,
+      "rule": "undefined",
+      "acronym": "HTTP",
+      "expansion": null,
+      "occurrences": 1
+    },
+    {
+      "scope": "body",
+      "line": 236,
+      "rule": "undefined",
+      "acronym": "PROV",
+      "expansion": null,
+      "occurrences": 3
+    },
+    {
+      "scope": "body",
+      "line": 258,
+      "rule": "undefined",
+      "acronym": "AI",
+      "expansion": null,
+      "occurrences": 2
+    },
+    {
+      "scope": "body",
+      "line": 273,
+      "rule": "undefined",
+      "acronym": "CEDA",
+      "expansion": null,
+      "occurrences": 1
+    },
+    {
+      "scope": "body",
+      "line": 273,
+      "rule": "undefined",
+      "acronym": "ICCAD",
+      "expansion": null,
+      "occurrences": 1
+    },
+    {
+      "scope": "body",
+      "line": 273,
+      "rule": "undefined",
+      "acronym": "IEEE",
+      "expansion": null,
+      "occurrences": 3
+    },
+    {
+      "scope": "body",
+      "line": 274,
+      "rule": "undefined",
+      "acronym": "ACM",
+      "expansion": null,
+      "occurrences": 2
+    }
+  ]
+}

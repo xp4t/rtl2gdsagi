@@ -1,0 +1,6 @@
+# Preserve machine CSV and raw exported/patch evidence bytes. Their intentional
+# CRLF, PDF-layout spacing and unified-diff context are not source formatting.
+rtl2gdsagi_paper/evidence/*.csv -whitespace
+rtl2gdsagi_paper/evidence/manuscript.txt -whitespace
+rtl2gdsagi_paper/evidence/tool_fixes.patch -whitespace
+rtl2gdsagi_paper/evidence/*.xml -whitespace

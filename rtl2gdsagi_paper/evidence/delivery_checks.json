@@ -1,0 +1,14 @@
+{
+  "manuscript_sha256": "6c144a237a968a8fcdfcc94ccbe050dc2abe11665219f799c7c7473f2a9ed5f3",
+  "main_pdf_sha256": "0172a884774af03bd7e0c27758d2d71bf0e4f0730a6d3091ac9888b1e823e7b0",
+  "fresh_overleaf_build": "passed from /tmp/rtl2gdsagi-overleaf-submission-v3",
+  "fresh_overleaf_pdf_pages": 12,
+  "numerical_audit": "passed",
+  "final_reviews": [
+    "REVIEW_3.md",
+    "REVIEW_4.md",
+    "REVIEW_5.md"
+  ],
+  "archive_check": "9055 file hashes passed in the preceding package; final package rechecked separately before publication",
+  "publication": "pending; see publication_receipt.json after release verification"
+}

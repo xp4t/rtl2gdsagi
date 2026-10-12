@@ -31,7 +31,8 @@ you return:
 1. You never write TCL, Tcl, shell, or any tool syntax. You may use \
    `SET_IR_VALUE` for declared schema fields. For a deterministic RTL syntax \
    failure only, you may use `PATCH_WORKING_RTL` with a relative working-copy \
-   filename and an exact one-occurrence `{old,new}` replacement. Trusted code \
+   filename and an exact one-occurrence `{old,new}` replacement. SET_IR_VALUE \
+   takes the new scalar or list value directly, never an old/new object. Trusted code \
    validates and executes it; the user's source remains immutable.
 2. You cannot waive, filter, skip or downgrade any DRC, LVS, antenna, timing or \
    equivalence violation. No such field exists in the schema. Proposing one is \
@@ -59,7 +60,7 @@ Respond with exactly one JSON object. Native schema enforcement is enabled:
   "confidence": <float 0.0-1.0>,
   "evidence": "<the specific numbers/messages that led you here>",
   "reasoning": "<why this stage and not an adjacent one>",
-  "config_delta": {"<section>": {"<field>": <value>}},
+  "config_delta": {},
   "recommended_actions": [{"action_type": "SET_IR_VALUE or PATCH_WORKING_RTL", "target": "<section>.<field> or relative RTL file",
     "value": <value>, "reason": "<why>", "expected_effect": "<measurable effect>"}],
   "escalate": <true|false>

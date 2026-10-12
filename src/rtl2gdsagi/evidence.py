@@ -135,7 +135,7 @@ GATE_CONTRACTS: dict[StageId, GateContract] = {
     ),
     StageId.GDSOUT: GateContract(
         StageId.GDSOUT,
-        consumed=("routed_def",),
+        consumed=("routed_def", "layer_map"),
         produced=("final_gds",),
         report_key="gds_summary",
         parser_contract="gds.check_final_gds/v1",
@@ -143,7 +143,7 @@ GATE_CONTRACTS: dict[StageId, GateContract] = {
     ),
     StageId.DRC: GateContract(
         StageId.DRC,
-        consumed=("final_gds",),
+        consumed=("final_gds", "drc_deck"),
         produced=("drc_report",),
         report_key="drc_report",
         parser_contract="klayout_drc.parse_drc_report/v3-deck-bound-aliases",
@@ -151,7 +151,7 @@ GATE_CONTRACTS: dict[StageId, GateContract] = {
     ),
     StageId.LVS: GateContract(
         StageId.LVS,
-        consumed=("final_gds", "routed_netlist"),
+        consumed=("final_gds", "routed_netlist", "lvs_deck"),
         produced=("lvs_report", "extracted_netlist", "lvs_reference"),
         report_key="lvs_report",
         parser_contract="klayout_lvs.parse_lvs_report/v2-complete+must-connect",

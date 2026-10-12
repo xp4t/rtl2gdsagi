@@ -1,0 +1,1213 @@
+{
+  "manifest": {
+    "git_base": "a006861bb2b7eb6c676907cbdcb3ba0514e276e5",
+    "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+    "consistent_source": true,
+    "selected_runs": [
+      {
+        "run_dir": "runs/padding_release_pair_a/register",
+        "repeat_run_dir": "runs/padding_release_pair_b/register"
+      },
+      {
+        "run_dir": "runs/padding_release_pair_a/mux4to1",
+        "repeat_run_dir": "runs/padding_release_pair_b/mux4to1"
+      },
+      {
+        "run_dir": "runs/padding_release_pair_a/alu8",
+        "repeat_run_dir": "runs/padding_release_pair_b/alu8"
+      },
+      {
+        "run_dir": "runs/padding_release_pair_a/counter",
+        "repeat_run_dir": "runs/padding_release_pair_b/counter"
+      },
+      {
+        "run_dir": "runs/padding_release_pair_a/shift_reg",
+        "repeat_run_dir": "runs/padding_release_pair_b/shift_reg"
+      },
+      {
+        "run_dir": "runs/padding_release_pair_a/fifo_buf",
+        "repeat_run_dir": "runs/padding_release_pair_b/fifo_buf"
+      },
+      {
+        "run_dir": "runs/shift_scale_pair_a/shift1024",
+        "repeat_run_dir": "runs/shift_scale_pair_b/shift1024"
+      }
+    ],
+    "batch_manifests": [
+      "runs/padding_release_pair_a/experiment_manifest.json",
+      "runs/padding_release_pair_b/experiment_manifest.json",
+      "runs/shift_scale_pair_a/experiment_manifest.json",
+      "runs/shift_scale_pair_b/experiment_manifest.json"
+    ],
+    "environment": {
+      "python": "3.10.12",
+      "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+      "logical_cpus": 48,
+      "openroad_commit": "41a51eaf4ca2171c92ff38afb91eb37bbd3f36da",
+      "opensta_version": "3.1.0",
+      "klayout_version": "0.28.2",
+      "container_image": "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+      "container_id": "sha256:d7e2bdd21e757e3f0b15d6ea08c36d9a96653c31b4fb2fafd4de88c9b6a3f3fa",
+      "pdk_root": "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+      "pdk_file_hashes": {
+        "libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib": "e66aab4e0a3eef8d0b13eb5b75aaadb725ba78b032203342eb1e419a2c111baf",
+        "libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef": "1a18b353fb5457caf0eca5b3cb28b2c0c9bbacdbbdeee7c4fc64a115932066c2",
+        "libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef": "b1f9c7fae3b58dbf063cffc2f2b3b570a02a056ccc9345abec24c4db57ab21ae",
+        "libs.tech/klayout/drc/sky130A_mr.drc": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+        "libs.tech/klayout/lvs/sky130.lvs": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+      }
+    },
+    "formal_controls": {
+      "counter_grouped": "runs/formal_controls_final/counter/PASS",
+      "shift_grouped": "runs/formal_controls_final/shift/PASS",
+      "counter_mutant": "runs/formal_controls_final/counter_mutant/FAIL"
+    },
+    "repair_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+    "repair_run": "runs/live_drc_study/drc_1",
+    "repair_reproduction_config": "benchmarks/signoff/alu8_unpadded.yaml",
+    "failed_attempts": [
+      "runs/accum_density_pair_a/accum_bank32",
+      "runs/accum_margin80_pair_a/accum_bank32",
+      "runs/accum_margin80_pair_b/accum_bank32",
+      "runs/accum_pair/accum_bank32",
+      "runs/accum_spacing_pair_a/accum_bank32",
+      "runs/alu_bank16_signoff_v1",
+      "runs/closure_counter_pilot",
+      "runs/closure_shift_pilot",
+      "runs/conservative_ant_pair_a/accum_bank32",
+      "runs/conservative_ant_pair_b/accum_bank32",
+      "runs/fifo_signoff_final/fifo_buf",
+      "runs/five_design_signoff_v1/alu8",
+      "runs/mul32_scale_signoff_v1",
+      "runs/padding_release_pair_a/accum_bank32",
+      "runs/padding_release_pair_b/accum_bank32",
+      "runs/paper_register_fault_api_20261012",
+      "runs/paper_register_live_abs_20261012",
+      "runs/passive_fill_pair_a/accum_bank32",
+      "runs/passive_fill_pair_b/accum_bank32",
+      "runs/pipeline2048_scale_probe_v1",
+      "runs/publication_pair_a/alu_bank16",
+      "runs/submission_pair_a/accum_bank32"
+    ]
+  },
+  "runs": [
+    {
+      "design": "register",
+      "run_dir": "runs/padding_release_pair_a/register",
+      "run_id": "2026-10-12T13-34-40Z",
+      "stages_passed": 21,
+      "clean": true,
+      "synthesis_cells": 22,
+      "synthesis_area_um2": 292.7808,
+      "die_area_um2": 2393.1664,
+      "routed_components": 96,
+      "wire_length_um": 776.0,
+      "setup_wns_ns": 6.954045980331954,
+      "hold_wns_ns": 1.2036106896272638,
+      "setup_tns_ns": 0.0,
+      "hold_tns_ns": 0.0,
+      "spef_nets": 35,
+      "spef_coverage": 1.0,
+      "route_violations": 0,
+      "drc_violations": 0,
+      "initial_drc_violations": 0,
+      "drc_categories": 211,
+      "lvs_match": true,
+      "lec_synthesis_partitions": 1,
+      "lec_route_partitions": 1,
+      "antenna_net_violations": 0,
+      "antenna_pin_violations": 0,
+      "authoritative_testbenches": 1,
+      "gds_bytes": 134950,
+      "elapsed_s": 32.037540435791016,
+      "model_calls": 0,
+      "provider_model": "disabled",
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "candidate_id": "352bf9c7e099a2133b727c59e471d5b68f32e88b3cea17e947faa6a2edc69c6c",
+      "certification_id": "afe3d179c659ba3251d40f676dac4fe30c5106d27abef3cc1305a382da8e80ce",
+      "gds_sha256": "54a81fd247d4e6d61708122d2ef368ce41214e9849dc4af413ee81996eff10dc",
+      "signoff_sha256": "735846190c0c74f63be3b73ee4574fc548a322bd816eca7519de2feca958cb1d",
+      "gate_evidence_sha256": "db1aef1234b39cca48cb46fa3dc1d8d611d791835055fbee44bbe641e43378b3",
+      "run_log_sha256": "9a99934d34b53f9d4aad3c7deac238cde520f8e30d754607ad93cdae2227ddd8",
+      "timing_checkpoints": {
+        "sta_pre": {
+          "setup_wns": 7.116841983839815,
+          "hold_wns": 1.4544089677601217
+        },
+        "sta_postcts": {
+          "setup_wns": 6.97761734807902,
+          "hold_wns": 1.220036106674228
+        },
+        "sta_signoff": {
+          "setup_wns": 6.954045980331954,
+          "hold_wns": 1.2036106896272638
+        }
+      },
+      "repair_verifications": [],
+      "tools": {
+        "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+        "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+        "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+        "eqy": "EQY v0.68-2-g4a72eb9",
+        "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+      },
+      "timing_parameters": {
+        "default_clock_period_ns": 10.0,
+        "clock_uncertainty_ns": 0.25,
+        "input_delay_frac": 0.2,
+        "output_delay_frac": 0.2,
+        "output_load_pf": 0.05
+      },
+      "physical_parameters": {
+        "floorplan": {
+          "core_utilization": 0.35,
+          "aspect_ratio": 1.0,
+          "core_margin_um": 10.0,
+          "io_mode": "random_equidistant",
+          "tapcell_distance_um": 13.0
+        },
+        "placement": {
+          "target_density": 0.45,
+          "effort": "medium",
+          "max_displacement_um": 50.0,
+          "routability_driven": true,
+          "padding_sites": 0,
+          "congestion_overflow_limit": 0.15
+        },
+        "cts": {
+          "target_skew_ns": 0.2,
+          "max_fanout": 16,
+          "root_buffer": "",
+          "balance_levels": true,
+          "hold_margin_ns": 0.05,
+          "fix_hold": true,
+          "fix_setup": false,
+          "setup_margin_ns": 0.05
+        },
+        "routing": {
+          "num_threads": 1,
+          "antenna_ratio_margin_pct": 0,
+          "antenna_repair_iterations": 1,
+          "min_layer": 1,
+          "max_layer": 5,
+          "global_effort": "medium",
+          "droute_iters": 32,
+          "insert_filler": true,
+          "insert_diodes": true
+        }
+      }
+    },
+    {
+      "design": "mux4to1",
+      "run_dir": "runs/padding_release_pair_a/mux4to1",
+      "run_id": "2026-10-12T13-35-12Z",
+      "stages_passed": 21,
+      "clean": true,
+      "synthesis_cells": 48,
+      "synthesis_area_um2": 480.4608,
+      "die_area_um2": 3602.4004,
+      "routed_components": 203,
+      "wire_length_um": 2106.0,
+      "setup_wns_ns": 6.951571515184687,
+      "hold_wns_ns": 1.2027376102160061,
+      "setup_tns_ns": 0.0,
+      "hold_tns_ns": 0.0,
+      "spef_nets": 87,
+      "spef_coverage": 1.0,
+      "route_violations": 0,
+      "drc_violations": 0,
+      "initial_drc_violations": 0,
+      "drc_categories": 211,
+      "lvs_match": true,
+      "lec_synthesis_partitions": 1,
+      "lec_route_partitions": 1,
+      "antenna_net_violations": 0,
+      "antenna_pin_violations": 0,
+      "authoritative_testbenches": 1,
+      "gds_bytes": 165900,
+      "elapsed_s": 47.649617433547974,
+      "model_calls": 0,
+      "provider_model": "disabled",
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "candidate_id": "d12d21340ec120c4302a7f9a464c33bdb983d71beec3a1a783fc7a789bfbfeef",
+      "certification_id": "146244f7494c78f1b3a671b8e49452d640ecc939b49efb487f850aacf227bb35",
+      "gds_sha256": "dae85dc55a304661cabfdc37daaa6d066c4c94c47d48dff3882ae8041ceb81e3",
+      "signoff_sha256": "39ceab64d8c03c699c355c97b423fec62b251a8ef3c16403393ceac3d9972d64",
+      "gate_evidence_sha256": "e979e79252c271a0de31c3ffb5b03613bb1fd9480aea89d608b351e4630592ae",
+      "run_log_sha256": "d765f63339c031fe25358daeee5b1e66f453aae2ea854ea9f9c0fbb0206070d0",
+      "timing_checkpoints": {
+        "sta_pre": {
+          "setup_wns": 7.1640526649849745,
+          "hold_wns": 1.4544089677601217
+        },
+        "sta_postcts": {
+          "setup_wns": 6.97761734807902,
+          "hold_wns": 1.220036106674228
+        },
+        "sta_signoff": {
+          "setup_wns": 6.951571515184687,
+          "hold_wns": 1.2027376102160061
+        }
+      },
+      "repair_verifications": [],
+      "tools": {
+        "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+        "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+        "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+        "eqy": "EQY v0.68-2-g4a72eb9",
+        "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+      },
+      "timing_parameters": {
+        "default_clock_period_ns": 10.0,
+        "clock_uncertainty_ns": 0.25,
+        "input_delay_frac": 0.2,
+        "output_delay_frac": 0.2,
+        "output_load_pf": 0.05
+      },
+      "physical_parameters": {
+        "floorplan": {
+          "core_utilization": 0.3,
+          "aspect_ratio": 1.0,
+          "core_margin_um": 10.0,
+          "io_mode": "random_equidistant",
+          "tapcell_distance_um": 13.0
+        },
+        "placement": {
+          "target_density": 0.45,
+          "effort": "medium",
+          "max_displacement_um": 50.0,
+          "routability_driven": true,
+          "padding_sites": 0,
+          "congestion_overflow_limit": 0.15
+        },
+        "cts": {
+          "target_skew_ns": 0.2,
+          "max_fanout": 16,
+          "root_buffer": "",
+          "balance_levels": true,
+          "hold_margin_ns": 0.05,
+          "fix_hold": true,
+          "fix_setup": false,
+          "setup_margin_ns": 0.05
+        },
+        "routing": {
+          "num_threads": 1,
+          "antenna_ratio_margin_pct": 0,
+          "antenna_repair_iterations": 1,
+          "min_layer": 1,
+          "max_layer": 5,
+          "global_effort": "medium",
+          "droute_iters": 32,
+          "insert_filler": true,
+          "insert_diodes": true
+        }
+      }
+    },
+    {
+      "design": "alu8",
+      "run_dir": "runs/padding_release_pair_a/alu8",
+      "run_id": "2026-10-12T13-36-00Z",
+      "stages_passed": 21,
+      "clean": true,
+      "synthesis_cells": 133,
+      "synthesis_area_um2": 1018.4768,
+      "die_area_um2": 6125.410225,
+      "routed_components": 486,
+      "wire_length_um": 4860.0,
+      "setup_wns_ns": 5.256095707444678,
+      "hold_wns_ns": 1.1918519841739923,
+      "setup_tns_ns": 0.0,
+      "hold_tns_ns": 0.0,
+      "spef_nets": 157,
+      "spef_coverage": 1.0,
+      "route_violations": 0,
+      "drc_violations": 0,
+      "initial_drc_violations": 0,
+      "drc_categories": 211,
+      "lvs_match": true,
+      "lec_synthesis_partitions": 1,
+      "lec_route_partitions": 1,
+      "antenna_net_violations": 0,
+      "antenna_pin_violations": 0,
+      "authoritative_testbenches": 1,
+      "gds_bytes": 510196,
+      "elapsed_s": 75.3121292591095,
+      "model_calls": 0,
+      "provider_model": "disabled",
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "candidate_id": "1065e1fb3aa91ef4adcd42cb73db1623ce222c6d0f742165ae70cae24ee246d0",
+      "certification_id": "661ff214cdd00669737f626fd63a5ecec67f68ec18a83afc978a5cf52030a67c",
+      "gds_sha256": "704b4faccbb078b582f73e57f873ae3d387ce0386291d1eea63d9153704603a0",
+      "signoff_sha256": "9d781a55d5743f76a364c8505c2c41540f9d5b303c394f5c7a5528ab52c2ed32",
+      "gate_evidence_sha256": "cdcc36cb1ee1b2b656e38252844a56615770f45ca48788c289dbc9607d2e1fb6",
+      "run_log_sha256": "d43eeebd034e751b3f228a8e29b89ecb5935fd066fd4bc626277c8332cc4a27d",
+      "timing_checkpoints": {
+        "sta_pre": {
+          "setup_wns": 5.2444405858025345,
+          "hold_wns": 1.4544089677601217
+        },
+        "sta_postcts": {
+          "setup_wns": 5.493439192361577,
+          "hold_wns": 1.2140058191231258
+        },
+        "sta_signoff": {
+          "setup_wns": 5.256095707444678,
+          "hold_wns": 1.1918519841739923
+        }
+      },
+      "repair_verifications": [],
+      "tools": {
+        "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+        "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+        "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+        "eqy": "EQY v0.68-2-g4a72eb9",
+        "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+      },
+      "timing_parameters": {
+        "default_clock_period_ns": 10.0,
+        "clock_uncertainty_ns": 0.25,
+        "input_delay_frac": 0.2,
+        "output_delay_frac": 0.2,
+        "output_load_pf": 0.05
+      },
+      "physical_parameters": {
+        "floorplan": {
+          "core_utilization": 0.3,
+          "aspect_ratio": 1.0,
+          "core_margin_um": 10.0,
+          "io_mode": "random_equidistant",
+          "tapcell_distance_um": 13.0
+        },
+        "placement": {
+          "target_density": 0.45,
+          "effort": "medium",
+          "max_displacement_um": 50.0,
+          "routability_driven": true,
+          "padding_sites": 2,
+          "congestion_overflow_limit": 0.15
+        },
+        "cts": {
+          "target_skew_ns": 0.2,
+          "max_fanout": 16,
+          "root_buffer": "",
+          "balance_levels": true,
+          "hold_margin_ns": 0.05,
+          "fix_hold": true,
+          "fix_setup": false,
+          "setup_margin_ns": 0.05
+        },
+        "routing": {
+          "num_threads": 1,
+          "antenna_ratio_margin_pct": 0,
+          "antenna_repair_iterations": 1,
+          "min_layer": 1,
+          "max_layer": 5,
+          "global_effort": "medium",
+          "droute_iters": 32,
+          "insert_filler": true,
+          "insert_diodes": true
+        }
+      }
+    },
+    {
+      "design": "counter",
+      "run_dir": "runs/padding_release_pair_a/counter",
+      "run_id": "2026-10-12T13-37-15Z",
+      "stages_passed": 21,
+      "clean": true,
+      "synthesis_cells": 47,
+      "synthesis_area_um2": 416.6496,
+      "die_area_um2": 3279.280225,
+      "routed_components": 154,
+      "wire_length_um": 1320.0,
+      "setup_wns_ns": 4.910823442448645,
+      "hold_wns_ns": 0.493968824270453,
+      "setup_tns_ns": 0.0,
+      "hold_tns_ns": 0.0,
+      "spef_nets": 62,
+      "spef_coverage": 1.0,
+      "route_violations": 0,
+      "drc_violations": 0,
+      "initial_drc_violations": 0,
+      "drc_categories": 211,
+      "lvs_match": true,
+      "lec_synthesis_partitions": 1,
+      "lec_route_partitions": 1,
+      "antenna_net_violations": 0,
+      "antenna_pin_violations": 0,
+      "authoritative_testbenches": 1,
+      "gds_bytes": 244080,
+      "elapsed_s": 39.18094754219055,
+      "model_calls": 0,
+      "provider_model": "disabled",
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "candidate_id": "da08e21cd538fd843d538fdee930c28fd598c067e47ed950a513468763e3fa2b",
+      "certification_id": "a67337f06f619700d95fba523403bdb89e7145e195dd20daeb84b958152734f5",
+      "gds_sha256": "0fdb89c29acb8049445289c362d62ecaa35b164c92718a7c4abc14c0a4b8a0ba",
+      "signoff_sha256": "ef53dde99c0e6393fc272eec5e991ffa5e15e5c668fa2a6b0345db796b265b01",
+      "gate_evidence_sha256": "a839bd750b64023ea4d618acf37e2ff345080fca24e1e3cb75b9ec0bee2d2c9c",
+      "run_log_sha256": "3e836dab853380660926c3c3851e668d8ee1836007a23a6a6a890dc8a2c97a27",
+      "timing_checkpoints": {
+        "sta_pre": {
+          "setup_wns": 3.955345496419031,
+          "hold_wns": 0.5342422766500441
+        },
+        "sta_postcts": {
+          "setup_wns": 4.944888638521254,
+          "hold_wns": 0.4765175611197221
+        },
+        "sta_signoff": {
+          "setup_wns": 4.910823442448645,
+          "hold_wns": 0.493968824270453
+        }
+      },
+      "repair_verifications": [],
+      "tools": {
+        "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+        "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+        "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+        "eqy": "EQY v0.68-2-g4a72eb9",
+        "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+      },
+      "timing_parameters": {
+        "default_clock_period_ns": 10.0,
+        "clock_uncertainty_ns": 0.25,
+        "input_delay_frac": 0.2,
+        "output_delay_frac": 0.2,
+        "output_load_pf": 0.05
+      },
+      "physical_parameters": {
+        "floorplan": {
+          "core_utilization": 0.3,
+          "aspect_ratio": 1.0,
+          "core_margin_um": 10.0,
+          "io_mode": "random_equidistant",
+          "tapcell_distance_um": 13.0
+        },
+        "placement": {
+          "target_density": 0.45,
+          "effort": "medium",
+          "max_displacement_um": 50.0,
+          "routability_driven": true,
+          "padding_sites": 0,
+          "congestion_overflow_limit": 0.15
+        },
+        "cts": {
+          "target_skew_ns": 0.2,
+          "max_fanout": 16,
+          "root_buffer": "",
+          "balance_levels": true,
+          "hold_margin_ns": 0.05,
+          "fix_hold": true,
+          "fix_setup": false,
+          "setup_margin_ns": 0.05
+        },
+        "routing": {
+          "num_threads": 1,
+          "antenna_ratio_margin_pct": 0,
+          "antenna_repair_iterations": 1,
+          "min_layer": 1,
+          "max_layer": 5,
+          "global_effort": "medium",
+          "droute_iters": 32,
+          "insert_filler": true,
+          "insert_diodes": true
+        }
+      }
+    },
+    {
+      "design": "shift_reg",
+      "run_dir": "runs/padding_release_pair_a/shift_reg",
+      "run_id": "2026-10-12T13-37-54Z",
+      "stages_passed": 21,
+      "clean": true,
+      "synthesis_cells": 16,
+      "synthesis_area_um2": 380.3648,
+      "die_area_um2": 3091.916025,
+      "routed_components": 107,
+      "wire_length_um": 1223.0,
+      "setup_wns_ns": 6.89172649566197,
+      "hold_wns_ns": 0.5538434867487662,
+      "setup_tns_ns": 0.0,
+      "hold_tns_ns": 0.0,
+      "spef_nets": 32,
+      "spef_coverage": 1.0,
+      "route_violations": 0,
+      "drc_violations": 0,
+      "initial_drc_violations": 0,
+      "drc_categories": 211,
+      "lvs_match": true,
+      "lec_synthesis_partitions": 1,
+      "lec_route_partitions": 1,
+      "antenna_net_violations": 0,
+      "antenna_pin_violations": 0,
+      "authoritative_testbenches": 1,
+      "gds_bytes": 120252,
+      "elapsed_s": 31.919728994369507,
+      "model_calls": 0,
+      "provider_model": "disabled",
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "candidate_id": "5be9f4f6a22155c6549d03d3942f6122a88a179b647b4a8dc5d5e1874852659d",
+      "certification_id": "ab3b92f99662dd07b5ce9e76219563f16c1900a38653f03d680aaf6af1013c7e",
+      "gds_sha256": "a7ea60f36bf04a190df2986ade535c398c1999ed3fb0fced112f73c768358ee6",
+      "signoff_sha256": "cfa632e053318cf357966f8329da8851e31a93d107f8f5d5c4c46cb52ca1d20b",
+      "gate_evidence_sha256": "aa34022159f01546dd2cb4a58bf26c3cdb77e45b849bca15e72a8ce91d49d404",
+      "run_log_sha256": "e9d6b27e6948ded9a717fb537e3956ad71117391a482b1e99b3022c0cbfd5bba",
+      "timing_checkpoints": {
+        "sta_pre": {
+          "setup_wns": 6.8443417315416255,
+          "hold_wns": 0.7075343844407124
+        },
+        "sta_postcts": {
+          "setup_wns": 6.9161203166489384,
+          "hold_wns": 0.5285517728652381
+        },
+        "sta_signoff": {
+          "setup_wns": 6.89172649566197,
+          "hold_wns": 0.5538434867487662
+        }
+      },
+      "repair_verifications": [],
+      "tools": {
+        "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+        "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+        "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+        "eqy": "EQY v0.68-2-g4a72eb9",
+        "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+      },
+      "timing_parameters": {
+        "default_clock_period_ns": 10.0,
+        "clock_uncertainty_ns": 0.25,
+        "input_delay_frac": 0.2,
+        "output_delay_frac": 0.2,
+        "output_load_pf": 0.05
+      },
+      "physical_parameters": {
+        "floorplan": {
+          "core_utilization": 0.3,
+          "aspect_ratio": 1.0,
+          "core_margin_um": 10.0,
+          "io_mode": "random_equidistant",
+          "tapcell_distance_um": 13.0
+        },
+        "placement": {
+          "target_density": 0.45,
+          "effort": "medium",
+          "max_displacement_um": 50.0,
+          "routability_driven": true,
+          "padding_sites": 0,
+          "congestion_overflow_limit": 0.15
+        },
+        "cts": {
+          "target_skew_ns": 0.2,
+          "max_fanout": 16,
+          "root_buffer": "",
+          "balance_levels": true,
+          "hold_margin_ns": 0.05,
+          "fix_hold": true,
+          "fix_setup": false,
+          "setup_margin_ns": 0.05
+        },
+        "routing": {
+          "num_threads": 1,
+          "antenna_ratio_margin_pct": 0,
+          "antenna_repair_iterations": 1,
+          "min_layer": 1,
+          "max_layer": 5,
+          "global_effort": "medium",
+          "droute_iters": 32,
+          "insert_filler": true,
+          "insert_diodes": true
+        }
+      }
+    },
+    {
+      "design": "fifo_buf",
+      "run_dir": "runs/padding_release_pair_a/fifo_buf",
+      "run_id": "2026-10-12T13-38-26Z",
+      "stages_passed": 21,
+      "clean": true,
+      "synthesis_cells": 109,
+      "synthesis_area_um2": 1721.6512,
+      "die_area_um2": 9169.020025,
+      "routed_components": 546,
+      "wire_length_um": 4130.0,
+      "setup_wns_ns": 6.39570192686983,
+      "hold_wns_ns": 0.27279373976304955,
+      "setup_tns_ns": 0.0,
+      "hold_tns_ns": 0.0,
+      "spef_nets": 126,
+      "spef_coverage": 1.0,
+      "route_violations": 0,
+      "drc_violations": 0,
+      "initial_drc_violations": 0,
+      "drc_categories": 211,
+      "lvs_match": true,
+      "lec_synthesis_partitions": 1,
+      "lec_route_partitions": 1,
+      "antenna_net_violations": 0,
+      "antenna_pin_violations": 0,
+      "authoritative_testbenches": 1,
+      "gds_bytes": 498290,
+      "elapsed_s": 54.67341709136963,
+      "model_calls": 0,
+      "provider_model": "disabled",
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "candidate_id": "cc659290a4d0bb9cda780cc056d8d82f95040c1fb2258f361409c6a4ec782eae",
+      "certification_id": "048a8f2bfef6bfab18095774e9c558dd4c986f89e839fd247cd1191e0abedf57",
+      "gds_sha256": "1026a8c5e74be3d8fcc7fa4a312b88c91afb0a31da55c0b0958e204f6249c0b8",
+      "signoff_sha256": "b3157e57a725c454489e2e3c61566921de466bed93971245708c33c58dae55ec",
+      "gate_evidence_sha256": "ed66cef7dc911d69db5f3f63a7f838f3657e31451e969e65a5eb9dff35fabb4e",
+      "run_log_sha256": "8fd01d56043fe316f8a985f76c219763d593591b557d2718262c67046aa4c9b0",
+      "timing_checkpoints": {
+        "sta_pre": {
+          "setup_wns": 6.180105491174337,
+          "hold_wns": 0.20523629210368285
+        },
+        "sta_postcts": {
+          "setup_wns": 6.470361762852137,
+          "hold_wns": 0.2596983257503248
+        },
+        "sta_signoff": {
+          "setup_wns": 6.39570192686983,
+          "hold_wns": 0.27279373976304955
+        }
+      },
+      "repair_verifications": [],
+      "tools": {
+        "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+        "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+        "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+        "eqy": "EQY v0.68-2-g4a72eb9",
+        "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+      },
+      "timing_parameters": {
+        "default_clock_period_ns": 10.0,
+        "clock_uncertainty_ns": 0.25,
+        "input_delay_frac": 0.2,
+        "output_delay_frac": 0.2,
+        "output_load_pf": 0.05
+      },
+      "physical_parameters": {
+        "floorplan": {
+          "core_utilization": 0.3,
+          "aspect_ratio": 1.0,
+          "core_margin_um": 10.0,
+          "io_mode": "random_equidistant",
+          "tapcell_distance_um": 13.0
+        },
+        "placement": {
+          "target_density": 0.45,
+          "effort": "medium",
+          "max_displacement_um": 50.0,
+          "routability_driven": true,
+          "padding_sites": 0,
+          "congestion_overflow_limit": 0.15
+        },
+        "cts": {
+          "target_skew_ns": 0.2,
+          "max_fanout": 16,
+          "root_buffer": "",
+          "balance_levels": true,
+          "hold_margin_ns": 0.05,
+          "fix_hold": true,
+          "fix_setup": false,
+          "setup_margin_ns": 0.05
+        },
+        "routing": {
+          "num_threads": 1,
+          "antenna_ratio_margin_pct": 0,
+          "antenna_repair_iterations": 1,
+          "min_layer": 1,
+          "max_layer": 5,
+          "global_effort": "medium",
+          "droute_iters": 32,
+          "insert_filler": true,
+          "insert_diodes": true
+        }
+      }
+    },
+    {
+      "design": "shift1024",
+      "run_dir": "runs/shift_scale_pair_a/shift1024",
+      "run_id": "2026-10-12T13-48-26Z",
+      "stages_passed": 21,
+      "clean": true,
+      "synthesis_cells": 1024,
+      "synthesis_area_um2": 25624.576,
+      "die_area_um2": 115705.424025,
+      "routed_components": 13526,
+      "wire_length_um": 32246.0,
+      "setup_wns_ns": 5.553176298203248,
+      "hold_wns_ns": 0.049477201514033384,
+      "setup_tns_ns": 0.0,
+      "hold_tns_ns": 0.0,
+      "spef_nets": 1210,
+      "spef_coverage": 1.0,
+      "route_violations": 0,
+      "drc_violations": 0,
+      "initial_drc_violations": 0,
+      "drc_categories": 211,
+      "lvs_match": true,
+      "lec_synthesis_partitions": 1,
+      "lec_route_partitions": 1,
+      "antenna_net_violations": 0,
+      "antenna_pin_violations": 0,
+      "authoritative_testbenches": 1,
+      "gds_bytes": 3388648,
+      "elapsed_s": 114.34101271629333,
+      "model_calls": 0,
+      "provider_model": "disabled",
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "candidate_id": "18a20b91d069443f41a6d8456ff221ffd34a7c65fdb6de393cf99f56166036bc",
+      "certification_id": "fb172cd14014c556204d847257d02f82c54dc8677b44a227bfc5e603ccfd9d4d",
+      "gds_sha256": "8d6420cb304b6d7560b04302ebbb58b1c9c06b507f9da94a20d617551982490a",
+      "signoff_sha256": "7c69f20075daa6d9d6ec3eac98bac9ec744197db9835c28c981fd560a7469a33",
+      "gate_evidence_sha256": "a07e9f0928bb031a355df75dd012a72fba903a33a02e77d3d635574626364b3d",
+      "run_log_sha256": "8f7f766b2682526878aaf6a5ae6419c203f473422fd3dfee4d1d0a597a352f43",
+      "timing_checkpoints": {
+        "sta_pre": {
+          "setup_wns": 7.1640526649849745,
+          "hold_wns": 0.08120954139017024
+        },
+        "sta_postcts": {
+          "setup_wns": 6.695541643967231,
+          "hold_wns": 0.06532552461647623
+        },
+        "sta_signoff": {
+          "setup_wns": 5.553176298203248,
+          "hold_wns": 0.049477201514033384
+        }
+      },
+      "repair_verifications": [],
+      "tools": {
+        "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+        "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+        "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+        "eqy": "EQY v0.68-2-g4a72eb9",
+        "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+      },
+      "timing_parameters": {
+        "default_clock_period_ns": 10.0,
+        "clock_uncertainty_ns": 0.25,
+        "input_delay_frac": 0.2,
+        "output_delay_frac": 0.2,
+        "output_load_pf": 0.05
+      },
+      "physical_parameters": {
+        "floorplan": {
+          "core_utilization": 0.25,
+          "aspect_ratio": 1.0,
+          "core_margin_um": 10.0,
+          "io_mode": "random_equidistant",
+          "tapcell_distance_um": 13.0
+        },
+        "placement": {
+          "target_density": 0.35,
+          "effort": "medium",
+          "max_displacement_um": 50.0,
+          "routability_driven": true,
+          "padding_sites": 2,
+          "congestion_overflow_limit": 0.15
+        },
+        "cts": {
+          "target_skew_ns": 0.2,
+          "max_fanout": 16,
+          "root_buffer": "",
+          "balance_levels": true,
+          "hold_margin_ns": 0.05,
+          "fix_hold": true,
+          "fix_setup": false,
+          "setup_margin_ns": 0.05
+        },
+        "routing": {
+          "num_threads": 8,
+          "antenna_ratio_margin_pct": 80,
+          "antenna_repair_iterations": 8,
+          "min_layer": 1,
+          "max_layer": 5,
+          "global_effort": "medium",
+          "droute_iters": 32,
+          "insert_filler": true,
+          "insert_diodes": true
+        }
+      }
+    }
+  ],
+  "repair_run": {
+    "design": "alu8",
+    "run_dir": "runs/live_drc_study/drc_1",
+    "run_id": "2026-10-12T12-25-37Z",
+    "stages_passed": 21,
+    "clean": true,
+    "synthesis_cells": 133,
+    "synthesis_area_um2": 1018.4768,
+    "die_area_um2": 6125.410225,
+    "routed_components": 484,
+    "wire_length_um": 4679.0,
+    "setup_wns_ns": 5.271593089039112,
+    "hold_wns_ns": 1.1921981517228608,
+    "setup_tns_ns": 0.0,
+    "hold_tns_ns": 0.0,
+    "spef_nets": 157,
+    "spef_coverage": 1.0,
+    "route_violations": 0,
+    "drc_violations": 0,
+    "initial_drc_violations": 1,
+    "drc_categories": 211,
+    "lvs_match": true,
+    "lec_synthesis_partitions": 1,
+    "lec_route_partitions": 1,
+    "antenna_net_violations": 0,
+    "antenna_pin_violations": 0,
+    "authoritative_testbenches": 1,
+    "gds_bytes": 513352,
+    "elapsed_s": 168.80425310134888,
+    "model_calls": 1,
+    "provider_model": "claude-sonnet-5",
+    "model_input_tokens": 6999,
+    "model_output_tokens": 1403,
+    "candidate_id": "023143e7c479975bb6773c349a543abcaad23dadff17d32b72319d9fe4385900",
+    "certification_id": "67e8763700222279315dff417413deb386a033c6c6945c8fbfc12e5f1e6ce7de",
+    "gds_sha256": "539f5deada4cddaa077548af72f684eb917afd38f5344b4c3be80369305dbe08",
+    "signoff_sha256": "0fce154025c7fe591bf0a0d1793a9b17cc16fdf7817b6e9612bb3ce99d01cefa",
+    "gate_evidence_sha256": "4433201e3d708c524dd9090345fc24628f48fb869584439b300ad9aeec3e5073",
+    "run_log_sha256": "1c2918ee0d1295f11d4917504b3305757399d043fe6c6a9871c3555b7b569df8",
+    "timing_checkpoints": {
+      "sta_pre": {
+        "setup_wns": 5.2444405858025345,
+        "hold_wns": 1.4544089677601217
+      },
+      "sta_postcts": {
+        "setup_wns": 5.493439192361577,
+        "hold_wns": 1.2140058191231258
+      },
+      "sta_signoff": {
+        "setup_wns": 5.271593089039112,
+        "hold_wns": 1.1921981517228608
+      }
+    },
+    "repair_verifications": [
+      {
+        "stage": "drc",
+        "attempt": 1,
+        "delta": {
+          "placement": {
+            "padding_sites": 2
+          }
+        },
+        "deterministic_failure_class": "drc",
+        "safety_result": "accepted",
+        "rollback_target": "placement",
+        "repair_actions": [
+          {
+            "action_type": "SET_IR_VALUE",
+            "target": "placement.padding_sites",
+            "value": 2,
+            "reason": "Zero cell padding leaves insufficient space between adjacent standard cells for via/contact landing, causing local-interconnect (npc) minimum-spacing violations at DRC signoff.",
+            "expected_effect": "Re-placement with 2 sites of padding per cell should eliminate the npc.2 spacing violation by giving the router adequate clearance, without materially increasing area or hurting timing given current low utilization (33%)."
+          }
+        ],
+        "rtl_sha256_before_repair": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+        "previous_values": {
+          "placement.padding_sites": 0
+        },
+        "new_values": {
+          "placement.padding_sites": 2
+        },
+        "result": "resolved",
+        "new_failure_fingerprint": null,
+        "after_metrics": {
+          "total_violations": 0,
+          "declared_categories": 211,
+          "raw_declared_categories": 213,
+          "category_inventory_sha256": "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
+          "raw_category_inventory_sha256": "235e677ec82aa1d81d520b14b2f0041653f740fcb7aef0c849bb782bb37300cd",
+          "normalized_duplicate_categories": {
+            "diff_angle": [
+              "x.2 : non 90 degree angle diff",
+              "x.2c : non 45 degree angle diff"
+            ],
+            "tap_angle": [
+              "x.2 : non 90 degree angle tap",
+              "x.2c : non 45 degree angle tap"
+            ]
+          },
+          "checked_gds_sha256": "539f5deada4cddaa077548af72f684eb917afd38f5344b4c3be80369305dbe08"
+        },
+        "rerun_verdict": "pass",
+        "rerun_summary": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
+        "generated_script_sha256": "",
+        "tool_backend": "container",
+        "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+        "verified_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+        "rtl_identity_preserved": true,
+        "repair_verified": true,
+        "verification_scope": "physical_signoff",
+        "modified_surfaces": [
+          "placement"
+        ],
+        "required_gates": [
+          "lec_synth",
+          "placement",
+          "cts",
+          "sta_postcts",
+          "routing",
+          "extraction",
+          "sta_signoff",
+          "gdsout",
+          "drc",
+          "lvs",
+          "antenna",
+          "lec_route"
+        ],
+        "rtl_modified": false,
+        "passed_gates": [
+          "lec_synth",
+          "placement",
+          "cts",
+          "sta_postcts",
+          "routing",
+          "extraction",
+          "sta_signoff",
+          "gdsout",
+          "drc",
+          "lvs",
+          "antenna",
+          "lec_route"
+        ],
+        "unavailable_gates": [],
+        "failed_gates": [],
+        "functional_spec_verified": true,
+        "physical_signoff_verified": true,
+        "logical_identity_verified": true,
+        "verification_basis": [
+          "lec_synth: deterministic PASS",
+          "placement: deterministic PASS",
+          "cts: deterministic PASS",
+          "sta_postcts: deterministic PASS",
+          "routing: deterministic PASS",
+          "extraction: deterministic PASS",
+          "sta_signoff: deterministic PASS",
+          "gdsout: deterministic PASS",
+          "drc: deterministic PASS",
+          "lvs: deterministic PASS",
+          "antenna: deterministic PASS",
+          "lec_route: deterministic PASS"
+        ],
+        "promotion_reason": [
+          "all 12 action-derived gates passed",
+          "RTL unchanged; specification simulation is outside this repair scope"
+        ],
+        "original_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+        "design_features": {
+          "top": "alu8",
+          "sources": [
+            "/home/vlsi/rtl2gdsagi/runs/live_drc_study/drc_1/work/rtl/alu8.v"
+          ],
+          "modules": [
+            "alu8"
+          ],
+          "clocks": [
+            {
+              "name": "i_clk",
+              "period_ns": 10.0
+            }
+          ],
+          "clock_domains": 1,
+          "resets": [
+            "i_rst_n"
+          ],
+          "inputs": [
+            "i_clk",
+            "i_rst_n",
+            "i_a",
+            "i_b",
+            "i_op"
+          ],
+          "outputs": [
+            "o_result",
+            "o_carry",
+            "o_zero"
+          ],
+          "instances": {},
+          "memories": [],
+          "always_blocks": 2,
+          "total_lines": 50,
+          "warnings": [],
+          "failure_geometry": {},
+          "successful_ir": {
+            "lint": {
+              "fail_on_warning": false,
+              "waived_rules": [],
+              "timescale": "1ns/1ps"
+            },
+            "sim": {
+              "timeout_s": 600,
+              "testbench_glob": "*_tb.v",
+              "testbench_dir": "examples/alu8/tb",
+              "plusargs": []
+            },
+            "sdc": {
+              "default_clock_period_ns": 10.0,
+              "clock_uncertainty_ns": 0.25,
+              "input_delay_frac": 0.2,
+              "output_delay_frac": 0.2,
+              "output_load_pf": 0.05
+            },
+            "synthesis": {
+              "strategy": "AREA0",
+              "flatten": true,
+              "max_fanout": 10,
+              "adder_type": "yosys",
+              "share_resources": true,
+              "dff_map": true
+            },
+            "lec": {
+              "induction_steps": 8,
+              "timeout_s": 900,
+              "smt_solver": "z3"
+            },
+            "sta": {
+              "corners": [
+                "tt_025C_1v80"
+              ],
+              "derate_setup": 0.0,
+              "derate_hold": 0.0,
+              "slack_guardband_ns": 0.0,
+              "max_paths": 20
+            },
+            "floorplan": {
+              "core_utilization": 0.3,
+              "aspect_ratio": 1.0,
+              "core_margin_um": 10.0,
+              "io_mode": "random_equidistant",
+              "tapcell_distance_um": 13.0
+            },
+            "pdn": {
+              "strap_width_um": 1.6,
+              "strap_pitch_um": 10.0,
+              "strap_offset_um": 1.0,
+              "core_ring": false,
+              "ir_drop_budget_mv": 50.0
+            },
+            "placement": {
+              "target_density": 0.45,
+              "effort": "medium",
+              "max_displacement_um": 50.0,
+              "routability_driven": true,
+              "padding_sites": 2,
+              "congestion_overflow_limit": 0.15
+            },
+            "cts": {
+              "target_skew_ns": 0.2,
+              "max_fanout": 16,
+              "root_buffer": "",
+              "balance_levels": true,
+              "hold_margin_ns": 0.05,
+              "fix_hold": true,
+              "fix_setup": false,
+              "setup_margin_ns": 0.05
+            },
+            "routing": {
+              "min_layer": 1,
+              "max_layer": 5,
+              "global_effort": "medium",
+              "droute_iters": 32,
+              "insert_filler": true,
+              "insert_diodes": true
+            },
+            "extraction": {
+              "corner": "nom",
+              "min_net_coverage": 0.5
+            },
+            "gdsout": {
+              "merge_mode": "full"
+            },
+            "drc": {
+              "threads": 4,
+              "deep_mode": true
+            },
+            "lvs": {
+              "threads": 4,
+              "deep_mode": true
+            },
+            "antenna": {
+              "threads": 4
+            }
+          }
+        },
+        "successful_ir_fingerprint": "b159f970afed12a2ad52df72c1f20dfbf246d3718a5c63578fb7dba5dd52b6ab",
+        "pdk": "sky130A",
+        "candidate_id": "023143e7c479975bb6773c349a543abcaad23dadff17d32b72319d9fe4385900",
+        "certification_id": "67e8763700222279315dff417413deb386a033c6c6945c8fbfc12e5f1e6ce7de"
+      }
+    ],
+    "tools": {
+      "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+      "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+      "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+      "eqy": "EQY v0.68-2-g4a72eb9",
+      "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+    },
+    "timing_parameters": {
+      "default_clock_period_ns": 10.0,
+      "clock_uncertainty_ns": 0.25,
+      "input_delay_frac": 0.2,
+      "output_delay_frac": 0.2,
+      "output_load_pf": 0.05
+    },
+    "physical_parameters": {
+      "floorplan": {
+        "core_utilization": 0.3,
+        "aspect_ratio": 1.0,
+        "core_margin_um": 10.0,
+        "io_mode": "random_equidistant",
+        "tapcell_distance_um": 13.0
+      },
+      "placement": {
+        "target_density": 0.45,
+        "effort": "medium",
+        "max_displacement_um": 50.0,
+        "routability_driven": true,
+        "padding_sites": 2,
+        "congestion_overflow_limit": 0.15
+      },
+      "cts": {
+        "target_skew_ns": 0.2,
+        "max_fanout": 16,
+        "root_buffer": "",
+        "balance_levels": true,
+        "hold_margin_ns": 0.05,
+        "fix_hold": true,
+        "fix_setup": false,
+        "setup_margin_ns": 0.05
+      },
+      "routing": {
+        "min_layer": 1,
+        "max_layer": 5,
+        "global_effort": "medium",
+        "droute_iters": 32,
+        "insert_filler": true,
+        "insert_diodes": true
+      }
+    }
+  },
+  "tests": {
+    "tests": 969,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 15,
+    "passed": 954
+  },
+  "pytest_sha256": "878f57d35bd98b393afb710fd5b9ed4316b0fc5f59043fe3194deafad4e24a16",
+  "current_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "source_matches_extraction": true
+}

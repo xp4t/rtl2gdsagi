@@ -332,9 +332,18 @@ def check_lec(run: ToolRun, stage: StageId) -> Verdict:
         return v
 
     text = run.combined
-    proved = sorted(set(_EQY_PROVED.findall(text)))
+    proof_matches = list(_EQY_PROVED.finditer(text))
+    proved = sorted({m.group(1) for m in proof_matches})
     mismatched = sorted(set(_EQY_NOT_EQUIV.findall(text)))
-    unknown = sorted(set(_EQY_UNKNOWN.findall(text)))
+    unknown_matches = list(_EQY_UNKNOWN.finditer(text))
+    # EQY tries several proof strategies for one partition. An inconclusive
+    # attempt is resolved by a later positive proof of that same partition.
+    # A later unknown remains blocking, and counterexamples are never erased.
+    unknown = sorted({
+        m.group(1) for m in unknown_matches
+        if not any(p.group(1) == m.group(1) and p.start() > m.end()
+                   for p in proof_matches)
+    })
 
     # Every terminal marker, not the first.
     #
@@ -350,6 +359,7 @@ def check_lec(run: ToolRun, stage: StageId) -> Verdict:
         "partitions_proved": len(proved),
         "partitions_not_equivalent": len(mismatched),
         "partitions_unknown": len(unknown),
+        "strategy_unknown_results": len(unknown_matches),
         "eqy_outcome": outcome,
         "eqy_terminal_results": len(outcomes),
         "eqy_errors": len(errors),
@@ -418,26 +428,17 @@ def check_lec(run: ToolRun, stage: StageId) -> Verdict:
 
     # A reported counterexample.
     #
-    # KNOWN LIMITATION, and the reason this does not simply say "your netlist is
-    # wrong": the RTL-versus-netlist comparison in this flow reports a mismatch
-    # on the *sequential* partition of even a plain 8-bit counter that is
-    # certainly correct. Evidence that the fault is in the comparison and not in
-    # the design: comparing the netlist against itself proves cleanly, including
-    # sequential partitions; combinational partitions always prove; and it is
-    # unaffected by reset style, init attributes, or setundef/hilomap.
-    #
-    # Until that is understood, the flow may not accuse a design of being wrong.
-    # It still blocks -- unverified is unverified, and signoff refuses to
-    # certify -- but the wording reflects what is actually known.
+    # A counterexample demonstrates disagreement under the declared models;
+    # inspection must determine whether the design, mapping, or proof setup is
+    # responsible. It blocks signoff without automatically authorizing RTL edits.
     if mismatched:
         return failed_verdict(
             stage, FailureClass.LEC_MISMATCH,
             f"equivalence NOT established for {len(mismatched)} partition(s) "
             f"(e.g. {', '.join(mismatched[:3])}): the prover reported a "
-            "counterexample. Note that this flow currently reports a "
-            "counterexample for sequential logic even on designs known to be "
-            "correct, so treat this as unverified rather than as proof of a "
-            "bug, and check the trace before changing your RTL.",
+            "counterexample. Treat the design as unverified rather than as proof of a bug; "
+            "inspect the trace and the RTL, mapped-cell models, and proof configuration "
+            "before changing functional logic.",
             evidence=run.tail(3000), escalate=True, **metrics,
         )
 

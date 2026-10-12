@@ -1,0 +1,22 @@
+top: shift1024
+rtl: examples/shift1024/rtl
+pdk:
+  name: sky130A
+  filler_prefixes: [fill]
+retry_limit: 3
+ir:
+  sim:
+    testbench_dir: examples/shift1024/tb
+  floorplan:
+    core_utilization: 0.25
+  placement:
+    padding_sites: 2
+    target_density: 0.35
+  pdn:
+    strap_offset_um: 1.0
+    strap_pitch_um: 10.0
+    core_ring: false
+  routing:
+    num_threads: 8
+    antenna_ratio_margin_pct: 80
+    antenna_repair_iterations: 8

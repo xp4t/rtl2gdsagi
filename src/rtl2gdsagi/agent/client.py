@@ -191,7 +191,7 @@ class ClaudeAgent:
                 max_tokens=self.max_tokens,
                 system=SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": user}],
-                output_config={"format": {"type": "json_schema", "schema": diagnosis_schema()}},
+                output_config={"format": {"type": "json_schema", "schema": diagnosis_schema(request)}},
             )
         except Exception as exc:  # network, auth, rate limit
             raise AgentError(
@@ -241,8 +241,42 @@ class ClaudeAgent:
         )
 
 
-def diagnosis_schema() -> dict[str, Any]:
+def diagnosis_schema(request: DiagnosisRequest | None = None) -> dict[str, Any]:
     """Schema sent through Anthropic's native structured-output API."""
+    def action(kind: str, target: dict, value: dict) -> dict:
+        return {
+            "type": "object", "additionalProperties": False,
+            "properties": {
+                "action_type": {"type": "string", "enum": [kind]},
+                "target": target, "value": value,
+                "reason": {"type": "string"},
+                "expected_effect": {"type": "string"},
+            },
+            "required": ["action_type", "target", "value", "reason", "expected_effect"],
+        }
+
+    target: dict[str, Any] = {"type": "string"}
+    if request is not None:
+        targets = [f"{section}.{field_name}" for section, fields in request.action_space.items()
+                   for field_name in fields]
+        if targets:
+            target["enum"] = sorted(targets)
+    # Keep the provider grammar compact. One branch per field exceeded its
+    # grammar compiler limit in a live setup trial. Field-specific type,
+    # range and authorization checks remain in the deterministic parser.
+    variants = [action("SET_IR_VALUE", target, {"anyOf": [
+        {"type": "string"}, {"type": "number"}, {"type": "boolean"},
+        {"type": "array", "items": {"type": "string"}},
+    ]})]
+    # An old/new replacement belongs exclusively to an RTL text patch. The
+    # previous shared value union also allowed it for scalar configuration
+    # fields, which a live timing trial emitted and the safety gate rejected.
+    if request is None or request.failure_class_hint is FailureClass.RTL_SYNTAX:
+        variants.append(action("PATCH_WORKING_RTL", {"type": "string"}, {
+            "type": "object", "additionalProperties": False,
+            "properties": {"old": {"type": "string"}, "new": {"type": "string"}},
+            "required": ["old", "new"],
+        }))
     return {
         "type": "object", "additionalProperties": False,
         "properties": {
@@ -259,32 +293,7 @@ def diagnosis_schema() -> dict[str, Any]:
                 "type": "object", "properties": {},
                 "additionalProperties": False,
             },
-            "recommended_actions": {"type": "array", "items": {
-                "type": "object", "additionalProperties": False,
-                "properties": {
-                    "action_type": {"type": "string", "enum": [
-                        "SET_IR_VALUE", "PATCH_WORKING_RTL",
-                    ]},
-                    "target": {"type": "string"},
-                    "value": {"anyOf": [
-                        {"type": "string"},
-                        {"type": "number"},
-                        {"type": "boolean"},
-                        {"type": "array", "items": {"type": "string"}},
-                        {
-                            "type": "object", "additionalProperties": False,
-                            "properties": {
-                                "old": {"type": "string"},
-                                "new": {"type": "string"},
-                            },
-                            "required": ["old", "new"],
-                        },
-                    ]},
-                    "reason": {"type": "string"},
-                    "expected_effect": {"type": "string"},
-                },
-                "required": ["action_type", "target", "value", "reason", "expected_effect"],
-            }},
+            "recommended_actions": {"type": "array", "items": {"anyOf": variants}},
             "escalate": {"type": "boolean"},
         },
         "required": ["failure_class", "implicated_stage", "confidence", "evidence",

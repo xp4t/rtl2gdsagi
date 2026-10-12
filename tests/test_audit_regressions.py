@@ -367,6 +367,7 @@ def test_the_sdc_reference_clock_is_stable_across_processes():
     """
     import subprocess
     import sys
+    import os
 
     snippet = (
         "from rtl2gdsagi.ir import IR\n"
@@ -382,7 +383,10 @@ def test_the_sdc_reference_clock_is_stable_across_processes():
     )
     seen = {
         subprocess.run([sys.executable, "-c", snippet],
-                       capture_output=True, text=True, check=True).stdout.strip()
+                       capture_output=True, text=True, check=True,
+                       cwd=Path(__file__).resolve().parents[1],
+                       env={**os.environ, "PYTHONPATH": str(
+                           Path(__file__).resolve().parents[1] / "src")}).stdout.strip()
         for _ in range(6)
     }
     assert len(seen) == 1, f"SDC differed between processes: {seen}"

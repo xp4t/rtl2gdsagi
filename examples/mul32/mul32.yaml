@@ -1,0 +1,10 @@
+top: mul32
+rtl: examples/mul32/rtl
+pdk:
+  name: sky130A
+retry_limit: 2
+ir:
+  sim:
+    testbench_dir: examples/mul32/tb
+  floorplan:
+    core_utilization: 0.35

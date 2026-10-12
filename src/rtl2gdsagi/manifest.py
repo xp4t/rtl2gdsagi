@@ -64,6 +64,11 @@ BOUND_ARTIFACTS: tuple[str, ...] = (
     "lvs_report",
     "antenna_report",
     "sim_result",
+    # Physical verification is meaningful only with the exact rule decks and
+    # stream-out layer mapping that interpreted the candidate geometry.
+    "layer_map",
+    "drc_deck",
+    "lvs_deck",
 )
 
 #: How to ask each tool its version. Cheap, and only run once per manifest.

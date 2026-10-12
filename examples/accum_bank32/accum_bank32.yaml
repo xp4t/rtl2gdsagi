@@ -1,0 +1,22 @@
+top: accum_bank32
+rtl: examples/accum_bank32/rtl
+pdk:
+  name: sky130A
+  filler_prefixes: [fill]
+retry_limit: 3
+ir:
+  sim:
+    testbench_dir: examples/accum_bank32/tb
+  floorplan:
+    core_utilization: 0.20
+  placement:
+    padding_sites: 4
+    target_density: 0.35
+  pdn:
+    strap_offset_um: 1.0
+    strap_pitch_um: 10.0
+    core_ring: false
+  routing:
+    num_threads: 8
+    antenna_ratio_margin_pct: 80
+    antenna_repair_iterations: 8

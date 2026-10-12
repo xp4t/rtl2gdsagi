@@ -1,0 +1,7 @@
+legacy/
+__pycache__/
+*.aux
+*.out
+*.fls
+*.fdb_latexmk
+*.log

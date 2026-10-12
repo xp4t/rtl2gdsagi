@@ -1,0 +1,192 @@
+[
+  {
+    "table_id": "H1",
+    "run_dir": "runs/alu8_api_closure_v1",
+    "prospective": false,
+    "clean": true,
+    "valid_provider_responses": 1,
+    "provider_errors": [],
+    "input_tokens": 6930,
+    "output_tokens": 1527,
+    "requested_stages": [
+      "drc"
+    ],
+    "terminal_status": "ok"
+  },
+  {
+    "table_id": "H2",
+    "run_dir": "runs/alu8_drc_api_repeat_v2",
+    "prospective": false,
+    "clean": false,
+    "valid_provider_responses": 0,
+    "provider_errors": [
+      {
+        "ts": 1791806759.5451465,
+        "event": "agent_failure",
+        "stage": "drc",
+        "attempt": 1,
+        "message": "agent response failed; EDA failure remains DRC FAILED: 1 violations in 1 of 211 categories on top cell 'alu8'; worst: npc.2 (1)",
+        "agent_error": "Claude API call failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CfxK99Utk9W9e9Ur6yB8W'}",
+        "eda_failure_class": "drc"
+      }
+    ],
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "requested_stages": [],
+    "terminal_status": "failed"
+  },
+  {
+    "table_id": "H3",
+    "run_dir": "runs/alu8_drc_api_repeat_v3",
+    "prospective": false,
+    "clean": true,
+    "valid_provider_responses": 1,
+    "provider_errors": [],
+    "input_tokens": 6937,
+    "output_tokens": 1558,
+    "requested_stages": [
+      "drc"
+    ],
+    "terminal_status": "ok"
+  },
+  {
+    "table_id": "H4",
+    "run_dir": "runs/alu8_drc_typed_trial3",
+    "prospective": false,
+    "clean": true,
+    "valid_provider_responses": 1,
+    "provider_errors": [],
+    "input_tokens": 8586,
+    "output_tokens": 1110,
+    "requested_stages": [
+      "drc"
+    ],
+    "terminal_status": "ok"
+  },
+  {
+    "table_id": "H5",
+    "run_dir": "runs/alu8_timing_api_3ns_v1",
+    "prospective": false,
+    "clean": false,
+    "valid_provider_responses": 0,
+    "provider_errors": [
+      {
+        "ts": 1791805904.7325604,
+        "event": "agent_failure",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "agent response failed; EDA failure remains signoff setup WNS -0.3262ns is below the 0.0000ns guardband",
+        "agent_error": "Claude API call failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CfxJ48jEvGHSBxxUCYoxD'}",
+        "eda_failure_class": "setup"
+      }
+    ],
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "requested_stages": [],
+    "terminal_status": "failed"
+  },
+  {
+    "table_id": "H6",
+    "run_dir": "runs/alu8_timing_api_3ns_v3",
+    "prospective": false,
+    "clean": false,
+    "valid_provider_responses": 0,
+    "provider_errors": [
+      {
+        "ts": 1791806738.0329893,
+        "event": "agent_failure",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "agent response failed; EDA failure remains signoff setup WNS -0.3262ns is below the 0.0000ns guardband",
+        "agent_error": "Claude API call failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CfxK7ZWSh2tSUXYckruC4'}",
+        "eda_failure_class": "setup"
+      }
+    ],
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "requested_stages": [],
+    "terminal_status": "failed"
+  },
+  {
+    "table_id": "H7",
+    "run_dir": "runs/alu8_timing_api_3ns_v4",
+    "prospective": false,
+    "clean": false,
+    "valid_provider_responses": 1,
+    "provider_errors": [],
+    "input_tokens": 9014,
+    "output_tokens": 1662,
+    "requested_stages": [
+      "sta_signoff"
+    ],
+    "terminal_status": "failed"
+  },
+  {
+    "table_id": "H8",
+    "run_dir": "runs/alu8_timing_typed_trial1",
+    "prospective": false,
+    "clean": false,
+    "valid_provider_responses": 0,
+    "provider_errors": [
+      {
+        "ts": 1791807544.4766514,
+        "event": "agent_failure",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "agent response failed; EDA failure remains signoff setup WNS -0.3262ns is below the 0.0000ns guardband",
+        "agent_error": "Claude API call failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'The compiled grammar is too large, which would cause performance issues. Simplify your tool schemas or reduce the number of strict tools.'}, 'request_id': 'req_011CfxL8yppprGN7JTyC2ib2'}",
+        "eda_failure_class": "setup"
+      }
+    ],
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "requested_stages": [],
+    "terminal_status": "failed"
+  },
+  {
+    "table_id": "H9",
+    "run_dir": "runs/paper_fifo_live_20261012",
+    "prospective": false,
+    "clean": false,
+    "valid_provider_responses": 0,
+    "provider_errors": [
+      {
+        "ts": 1791785933.1768062,
+        "event": "agent_failure",
+        "stage": "lint",
+        "attempt": 1,
+        "message": "agent response failed; EDA failure remains verilator reported 2 error(s): GENERIC",
+        "agent_error": "Claude API call failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CfwrfwnPXJciM5J8UKc1s'}",
+        "eda_failure_class": "rtl_syntax"
+      }
+    ],
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "requested_stages": [],
+    "terminal_status": "failed"
+  },
+  {
+    "table_id": "H10",
+    "run_dir": "runs/paper_register_fault_api_20261012",
+    "prospective": false,
+    "clean": false,
+    "valid_provider_responses": 1,
+    "provider_errors": [
+      {
+        "ts": 1791786304.6886075,
+        "event": "agent_failure",
+        "stage": "cts",
+        "attempt": 1,
+        "message": "agent response failed; EDA failure remains cts was killed (likely out of memory)",
+        "agent_error": "malformed structured model response: model action target 'cts.target_skew_ns' is outside the authorized surface; stop_reason='end_turn'; content_blocks=('thinking', 'text'); usage=Usage(cache_creation=CacheCreation(ephemeral_1h_input_tokens=0, ephemeral_5m_input_tokens=0), cache_creation_input_tokens=0, cache_read_input_tokens=0, inference_geo='global', input_tokens=7049, output_tokens=1744, output_tokens_details=OutputTokensDetails(thinking_tokens=811), server_tool_use=None, service_tier='standard'); raw='{\"failure_class\":\"cts\",\"implicated_stage\":\"cts\",\"confidence\":0.72,\"evidence\":\"CTS log shows pattern generation runaway to 600,000+ patterns for a mere 22-cell/293um2 design, accompanied by thousands of repeated \\'Failed(termSize) to swap\\' buffer-resizing warnings before the process was OOM-killed. This pattern count is wildly disproportionate to design size and indicates the clock-tree synthesis heuristic is not converging rather than simply running out of system memory under normal load.\",\"reasoning\":\"A 22-cell design should never require hundreds of thousands of CTS patterns; this is a sign that the solver is thrashing trying to meet an infeasible constraint (target_skew_ns=0.2ns combined with balance_levels=true), repeatedly attempting buffer substitutions that fail (ODB-0045) and retrying without convergence, which drives unbounded memory growth. That is a CTS configuration/convergence problem, not a transient infrastructure fault, so classifying purely as tool_runtime/environment_f'",
+        "eda_failure_class": "tool_runtime"
+      }
+    ],
+    "input_tokens": 5089,
+    "output_tokens": 422,
+    "requested_stages": [
+      "lint"
+    ],
+    "terminal_status": "failed"
+  }
+]

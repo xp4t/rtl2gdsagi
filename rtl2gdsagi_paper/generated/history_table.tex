@@ -1,0 +1,16 @@
+\begin{table}[htbp]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{All retained earlier live API episodes. API errors include authentication, transport and response validation. The catalog preserves their distinct protocols.}\label{tab:history}
+\begin{tabular}{@{}llrl@{}}\toprule
+Case & First requested stage & Responses & Outcome \\
+\midrule
+H1 & drc & 1 & Verified \\
+H2 & drc & 0 & Stopped; API error \\
+H3 & drc & 1 & Verified \\
+H4 & drc & 1 & Verified \\
+H5 & sta\_signoff & 0 & Stopped; API error \\
+H6 & sta\_signoff & 0 & Stopped; API error \\
+H7 & sta\_signoff & 1 & Stopped; action rejected \\
+H8 & sta\_signoff & 0 & Stopped; API error \\
+H9 & lint & 0 & Stopped; API error \\
+H10 & lint & 1 & Stopped; API error \\
+\bottomrule\end{tabular}\end{table}

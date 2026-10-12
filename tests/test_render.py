@@ -137,6 +137,23 @@ def test_cts_always_supplies_a_buffer_list(ctx):
     assert "-root_buf" in text
 
 
+def test_cts_excludes_keep_alive_power_buffer(ctx, fake_pdk):
+    with fake_pdk.cell_lef_path.open("a") as fh:
+        fh.write("MACRO sky130_fd_sc_hd__lpflow_clkbufkapwr_1\n"
+                 "END sky130_fd_sc_hd__lpflow_clkbufkapwr_1\n")
+    text = render(StageId.CTS, IR(), ctx)
+    assert "lpflow_clkbufkapwr" not in text
+    assert "sky130_fd_sc_hd__clkbuf_4" in text
+
+
+def test_lec_has_a_reachability_fallback(ctx):
+    text = render(StageId.LEC_SYNTH, IR(), ctx)
+    assert text.index("[strategy sat]") < text.index("[strategy smt]") < text.index("[strategy pdr]")
+    assert "engine abc pdr" in text
+    assert "[options]\nsplitnets on" in text
+    assert "[collect *]\ngroup *" in text
+
+
 def test_routing_rejects_an_inverted_layer_range(ctx):
     ir = IR()
     ir.update("routing", {"min_layer": 5, "max_layer": 2})
@@ -349,6 +366,24 @@ def test_gdsout_uses_the_pdk_layer_map(ctx):
            text.index("cfg.map_file") < text.index("opt)")
 
 
+def test_sdc_config_period_overrides_characterized_default(ctx):
+    ir = IR()
+    ir.update("sdc", {"default_clock_period_ns": 3.25}, agent=False)
+    ctx.facts["clocks"] = [{"name": "clk", "period_ns": 10.0}]
+    text = render(StageId.SDC, ir, ctx)
+    assert "create_clock -name clk -period 3.2500" in text
+
+
+def test_padding_survives_native_process_boundaries(ctx):
+    ir = IR()
+    ir.update("placement", {"padding_sites": 4})
+    command = "set_placement_padding -global -left 4 -right 4"
+    for stage in (StageId.PLACEMENT, StageId.CTS, StageId.ROUTING):
+        text = render(stage, ir, ctx)
+        assert command in text
+        assert text.index(command) < text.index("detailed_placement")
+
+
 def test_pdn_ties_the_grid_down_to_the_cell_rails(ctx):
     """A power grid that only connects to itself powers nothing.
 
@@ -423,17 +458,45 @@ def test_a_design_with_no_clock_passes_no_target(ctx):
     assert "-D" not in line
 
 
-def test_the_tightest_clock_sets_the_synthesis_target(ctx):
-    """A multi-clock design must be synthesised for its fastest domain."""
+def test_sdc_config_sets_the_synthesis_target_over_characterized_default(ctx):
     ir = IR()
     ir.update("synthesis", {"strategy": "DELAY0"})
+    ir.update("sdc", {"default_clock_period_ns": 3.25}, agent=False)
     ctx.facts["clocks"] = [
-        {"name": "slow", "period_ns": 40.0},
-        {"name": "fast", "period_ns": 8.0},
+        {"name": "clk", "period_ns": 10.0},
     ]
     line = next(l for l in render(StageId.SYNTHESIS, ir, ctx).splitlines()
                 if l.startswith("abc "))
-    assert "-D 8000" in line
+    assert "-D 3250" in line
+
+
+def test_synthesis_strategies_change_executable_mapping(ctx):
+    lines = []
+    for strategy in ("AREA0", "AREA1", "AREA2", "DELAY0", "DELAY1", "DELAY2", "DELAY3"):
+        ir = IR()
+        ir.update("synthesis", {"strategy": strategy})
+        lines.append(next(line for line in render(StageId.SYNTHESIS, ir, ctx).splitlines()
+                          if line.startswith("abc ")))
+    assert len(set(lines)) == 7
+
+
+def test_setup_repair_preserves_constraints_and_precedes_hold_repair(ctx):
+    ir = IR()
+    ir.update("cts", {"fix_setup": True, "setup_margin_ns": 0.1})
+    text = render(StageId.CTS, ir, ctx)
+    assert "read_sdc " in text and "set_clock_uncertainty" not in text
+    assert "repair_timing -setup -setup_margin 0.1000" in text
+    assert text.index("repair_timing -setup") < text.index("repair_timing -hold")
+
+
+def test_antenna_prediction_margin_changes_repair_and_preserves_final_check(ctx):
+    ir=IR()
+    ir.update("routing",{"antenna_ratio_margin_pct":80,"antenna_repair_iterations":4})
+    route=render(StageId.ROUTING,ir,ctx)
+    assert "-ratio_margin 80 -iterations 4" in route
+    assert route.index("repair_antennas") < route.index("detailed_route")
+    antenna=render(StageId.ANTENNA,ir,ctx)
+    assert "check_antennas" in antenna and "-ratio_margin" not in antenna
 
 
 def test_cts_repairs_hold_after_the_clock_tree_exists(ctx):

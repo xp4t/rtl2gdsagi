@@ -1,0 +1,5271 @@
+{
+  "protocol": "three repeats per failure type; retained native rechecks; no API errors excluded from this prospective cohort",
+  "source_manifests": [
+    {
+      "source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+      "started_at": 1791807680.5211,
+      "model": "claude-sonnet-5",
+      "provider": "Anthropic",
+      "trials": {
+        "timing_1": {
+          "failure_type": "timing",
+          "replicate": 1,
+          "command": [
+            "/usr/bin/python3",
+            "-m",
+            "rtl2gdsagi.cli",
+            "run",
+            "--config",
+            "/home/vlsi/rtl2gdsagi/benchmarks/signoff/alu8_timing_3ns.yaml",
+            "--pdk-root",
+            "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+            "--model",
+            "claude-sonnet-5",
+            "--repair-policy",
+            "auto",
+            "--retry-limit",
+            "3",
+            "--klayout-backend",
+            "container",
+            "--run-dir",
+            "/home/vlsi/rtl2gdsagi/runs/live_repair_study/timing_1"
+          ],
+          "run_dir": "runs/live_repair_study/timing_1",
+          "exit_code": 0,
+          "status": "ok",
+          "elapsed_s": 223.90665340423584
+        },
+        "timing_2": {
+          "failure_type": "timing",
+          "replicate": 2,
+          "command": [
+            "/usr/bin/python3",
+            "-m",
+            "rtl2gdsagi.cli",
+            "run",
+            "--config",
+            "/home/vlsi/rtl2gdsagi/benchmarks/signoff/alu8_timing_3ns.yaml",
+            "--pdk-root",
+            "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+            "--model",
+            "claude-sonnet-5",
+            "--repair-policy",
+            "auto",
+            "--retry-limit",
+            "3",
+            "--klayout-backend",
+            "container",
+            "--run-dir",
+            "/home/vlsi/rtl2gdsagi/runs/live_repair_study/timing_2"
+          ],
+          "run_dir": "runs/live_repair_study/timing_2",
+          "exit_code": 3,
+          "status": "failed",
+          "elapsed_s": 329.0275228023529
+        },
+        "pdn_1": {
+          "failure_type": "pdn",
+          "replicate": 1,
+          "command": [
+            "/usr/bin/python3",
+            "-m",
+            "rtl2gdsagi.cli",
+            "run",
+            "--config",
+            "/home/vlsi/rtl2gdsagi/benchmarks/signoff/register_pdn_fault.yaml",
+            "--pdk-root",
+            "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+            "--model",
+            "claude-sonnet-5",
+            "--repair-policy",
+            "auto",
+            "--retry-limit",
+            "3",
+            "--klayout-backend",
+            "container",
+            "--run-dir",
+            "/home/vlsi/rtl2gdsagi/runs/live_repair_study/pdn_1"
+          ],
+          "run_dir": "runs/live_repair_study/pdn_1",
+          "exit_code": 0,
+          "status": "ok",
+          "elapsed_s": 54.56428241729736
+        },
+        "pdn_2": {
+          "failure_type": "pdn",
+          "replicate": 2,
+          "command": [
+            "/usr/bin/python3",
+            "-m",
+            "rtl2gdsagi.cli",
+            "run",
+            "--config",
+            "/home/vlsi/rtl2gdsagi/benchmarks/signoff/register_pdn_fault.yaml",
+            "--pdk-root",
+            "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+            "--model",
+            "claude-sonnet-5",
+            "--repair-policy",
+            "auto",
+            "--retry-limit",
+            "3",
+            "--klayout-backend",
+            "container",
+            "--run-dir",
+            "/home/vlsi/rtl2gdsagi/runs/live_repair_study/pdn_2"
+          ],
+          "run_dir": "runs/live_repair_study/pdn_2",
+          "exit_code": 0,
+          "status": "ok",
+          "elapsed_s": 50.100075483322144
+        },
+        "pdn_3": {
+          "failure_type": "pdn",
+          "replicate": 3,
+          "command": [
+            "/usr/bin/python3",
+            "-m",
+            "rtl2gdsagi.cli",
+            "run",
+            "--config",
+            "/home/vlsi/rtl2gdsagi/benchmarks/signoff/register_pdn_fault.yaml",
+            "--pdk-root",
+            "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+            "--model",
+            "claude-sonnet-5",
+            "--repair-policy",
+            "auto",
+            "--retry-limit",
+            "3",
+            "--klayout-backend",
+            "container",
+            "--run-dir",
+            "/home/vlsi/rtl2gdsagi/runs/live_repair_study/pdn_3"
+          ],
+          "run_dir": "runs/live_repair_study/pdn_3",
+          "exit_code": 0,
+          "status": "ok",
+          "elapsed_s": 50.13490653038025
+        },
+        "timing_3": {
+          "failure_type": "timing",
+          "replicate": 3,
+          "command": [
+            "/usr/bin/python3",
+            "-m",
+            "rtl2gdsagi.cli",
+            "run",
+            "--config",
+            "/home/vlsi/rtl2gdsagi/benchmarks/signoff/alu8_timing_3ns.yaml",
+            "--pdk-root",
+            "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+            "--model",
+            "claude-sonnet-5",
+            "--repair-policy",
+            "auto",
+            "--retry-limit",
+            "3",
+            "--klayout-backend",
+            "container",
+            "--run-dir",
+            "/home/vlsi/rtl2gdsagi/runs/live_repair_study/timing_3"
+          ],
+          "run_dir": "runs/live_repair_study/timing_3",
+          "exit_code": 3,
+          "status": "failed",
+          "elapsed_s": 699.0826120376587
+        }
+      },
+      "ended_at": 1791808603.5135138,
+      "consistent_source": true
+    },
+    {
+      "source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+      "started_at": 1791807937.1129515,
+      "model": "claude-sonnet-5",
+      "provider": "Anthropic",
+      "trials": {
+        "drc_1": {
+          "failure_type": "drc",
+          "replicate": 1,
+          "command": [
+            "/usr/bin/python3",
+            "-m",
+            "rtl2gdsagi.cli",
+            "run",
+            "--config",
+            "/home/vlsi/rtl2gdsagi/benchmarks/signoff/alu8_unpadded.yaml",
+            "--pdk-root",
+            "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+            "--model",
+            "claude-sonnet-5",
+            "--repair-policy",
+            "auto",
+            "--retry-limit",
+            "3",
+            "--klayout-backend",
+            "container",
+            "--run-dir",
+            "/home/vlsi/rtl2gdsagi/runs/live_drc_study/drc_1"
+          ],
+          "run_dir": "runs/live_drc_study/drc_1",
+          "exit_code": 0,
+          "status": "ok",
+          "elapsed_s": 169.08793997764587
+        },
+        "drc_2": {
+          "failure_type": "drc",
+          "replicate": 2,
+          "command": [
+            "/usr/bin/python3",
+            "-m",
+            "rtl2gdsagi.cli",
+            "run",
+            "--config",
+            "/home/vlsi/rtl2gdsagi/benchmarks/signoff/alu8_unpadded.yaml",
+            "--pdk-root",
+            "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+            "--model",
+            "claude-sonnet-5",
+            "--repair-policy",
+            "auto",
+            "--retry-limit",
+            "3",
+            "--klayout-backend",
+            "container",
+            "--run-dir",
+            "/home/vlsi/rtl2gdsagi/runs/live_drc_study/drc_2"
+          ],
+          "run_dir": "runs/live_drc_study/drc_2",
+          "exit_code": 0,
+          "status": "ok",
+          "elapsed_s": 189.8361041545868
+        },
+        "drc_3": {
+          "failure_type": "drc",
+          "replicate": 3,
+          "command": [
+            "/usr/bin/python3",
+            "-m",
+            "rtl2gdsagi.cli",
+            "run",
+            "--config",
+            "/home/vlsi/rtl2gdsagi/benchmarks/signoff/alu8_unpadded.yaml",
+            "--pdk-root",
+            "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+            "--model",
+            "claude-sonnet-5",
+            "--repair-policy",
+            "auto",
+            "--retry-limit",
+            "3",
+            "--klayout-backend",
+            "container",
+            "--run-dir",
+            "/home/vlsi/rtl2gdsagi/runs/live_drc_study/drc_3"
+          ],
+          "run_dir": "runs/live_drc_study/drc_3",
+          "exit_code": 0,
+          "status": "ok",
+          "elapsed_s": 158.40719747543335
+        }
+      },
+      "ended_at": 1791808264.611038,
+      "consistent_source": true
+    }
+  ],
+  "trials": [
+    {
+      "failure_type": "drc",
+      "replicate": 1,
+      "run_dir": "runs/live_drc_study/drc_1",
+      "state": "ok",
+      "fully_verified": true,
+      "model_calls": 1,
+      "input_tokens": 6999,
+      "output_tokens": 1403,
+      "initial_check": {
+        "ts": 1791808016.228866,
+        "event": "result_check",
+        "stage": "drc",
+        "attempt": 1,
+        "message": "DRC FAILED: 1 violations in 1 of 211 categories on top cell 'alu8'; worst: npc.2 (1)",
+        "ok": false,
+        "kind": "fail",
+        "total_violations": 1,
+        "violated_categories": 1,
+        "checked_gds_sha256": "83342e9c786e9b469e20e4aba94437d625cb0faed9cf3461d6c745b9b7b4c22a"
+      },
+      "latest_target_check": {
+        "ts": 1791808094.4513695,
+        "event": "result_check",
+        "stage": "drc",
+        "attempt": 1,
+        "message": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
+        "ok": true,
+        "kind": "pass",
+        "total_violations": 0,
+        "declared_categories": 211,
+        "raw_declared_categories": 213,
+        "category_inventory_sha256": "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
+        "raw_category_inventory_sha256": "235e677ec82aa1d81d520b14b2f0041653f740fcb7aef0c849bb782bb37300cd",
+        "checked_gds_sha256": "539f5deada4cddaa077548af72f684eb917afd38f5344b4c3be80369305dbe08"
+      },
+      "proposals": [
+        {
+          "delta": {
+            "placement": {
+              "padding_sites": 2
+            }
+          },
+          "origin_stage": "drc",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "target_pass",
+          "native_failure": null,
+          "target_result": {
+            "ts": 1791808094.4513695,
+            "event": "result_check",
+            "stage": "drc",
+            "attempt": 1,
+            "message": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
+            "ok": true,
+            "kind": "pass",
+            "total_violations": 0,
+            "declared_categories": 211,
+            "raw_declared_categories": 213,
+            "category_inventory_sha256": "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
+            "raw_category_inventory_sha256": "235e677ec82aa1d81d520b14b2f0041653f740fcb7aef0c849bb782bb37300cd",
+            "checked_gds_sha256": "539f5deada4cddaa077548af72f684eb917afd38f5344b4c3be80369305dbe08"
+          }
+        }
+      ],
+      "metrics": {
+        "design": "alu8",
+        "run_dir": "runs/live_drc_study/drc_1",
+        "run_id": "2026-10-12T12-25-37Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 133,
+        "synthesis_area_um2": 1018.4768,
+        "die_area_um2": 6125.410225,
+        "routed_components": 484,
+        "wire_length_um": 4679.0,
+        "setup_wns_ns": 5.271593089039112,
+        "hold_wns_ns": 1.1921981517228608,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 157,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 1,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 513352,
+        "elapsed_s": 168.80425310134888,
+        "model_calls": 1,
+        "provider_model": "claude-sonnet-5",
+        "model_input_tokens": 6999,
+        "model_output_tokens": 1403,
+        "candidate_id": "023143e7c479975bb6773c349a543abcaad23dadff17d32b72319d9fe4385900",
+        "certification_id": "67e8763700222279315dff417413deb386a033c6c6945c8fbfc12e5f1e6ce7de",
+        "gds_sha256": "539f5deada4cddaa077548af72f684eb917afd38f5344b4c3be80369305dbe08",
+        "signoff_sha256": "0fce154025c7fe591bf0a0d1793a9b17cc16fdf7817b6e9612bb3ce99d01cefa",
+        "gate_evidence_sha256": "4433201e3d708c524dd9090345fc24628f48fb869584439b300ad9aeec3e5073",
+        "run_log_sha256": "1c2918ee0d1295f11d4917504b3305757399d043fe6c6a9871c3555b7b569df8",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": 5.2444405858025345,
+            "hold_wns": 1.4544089677601217
+          },
+          "sta_postcts": {
+            "setup_wns": 5.493439192361577,
+            "hold_wns": 1.2140058191231258
+          },
+          "sta_signoff": {
+            "setup_wns": 5.271593089039112,
+            "hold_wns": 1.1921981517228608
+          }
+        },
+        "repair_verifications": [
+          {
+            "stage": "drc",
+            "attempt": 1,
+            "delta": {
+              "placement": {
+                "padding_sites": 2
+              }
+            },
+            "deterministic_failure_class": "drc",
+            "safety_result": "accepted",
+            "rollback_target": "placement",
+            "repair_actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "placement.padding_sites",
+                "value": 2,
+                "reason": "Zero cell padding leaves insufficient space between adjacent standard cells for via/contact landing, causing local-interconnect (npc) minimum-spacing violations at DRC signoff.",
+                "expected_effect": "Re-placement with 2 sites of padding per cell should eliminate the npc.2 spacing violation by giving the router adequate clearance, without materially increasing area or hurting timing given current low utilization (33%)."
+              }
+            ],
+            "rtl_sha256_before_repair": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "previous_values": {
+              "placement.padding_sites": 0
+            },
+            "new_values": {
+              "placement.padding_sites": 2
+            },
+            "result": "resolved",
+            "new_failure_fingerprint": null,
+            "after_metrics": {
+              "total_violations": 0,
+              "declared_categories": 211,
+              "raw_declared_categories": 213,
+              "category_inventory_sha256": "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
+              "raw_category_inventory_sha256": "235e677ec82aa1d81d520b14b2f0041653f740fcb7aef0c849bb782bb37300cd",
+              "normalized_duplicate_categories": {
+                "diff_angle": [
+                  "x.2 : non 90 degree angle diff",
+                  "x.2c : non 45 degree angle diff"
+                ],
+                "tap_angle": [
+                  "x.2 : non 90 degree angle tap",
+                  "x.2c : non 45 degree angle tap"
+                ]
+              },
+              "checked_gds_sha256": "539f5deada4cddaa077548af72f684eb917afd38f5344b4c3be80369305dbe08"
+            },
+            "rerun_verdict": "pass",
+            "rerun_summary": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
+            "generated_script_sha256": "",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "rtl_identity_preserved": true,
+            "repair_verified": true,
+            "verification_scope": "physical_signoff",
+            "modified_surfaces": [
+              "placement"
+            ],
+            "required_gates": [
+              "lec_synth",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "lec_synth",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "lec_synth: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS"
+            ],
+            "promotion_reason": [
+              "all 12 action-derived gates passed",
+              "RTL unchanged; specification simulation is outside this repair scope"
+            ],
+            "original_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "design_features": {
+              "top": "alu8",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_drc_study/drc_1/work/rtl/alu8.v"
+              ],
+              "modules": [
+                "alu8"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_a",
+                "i_b",
+                "i_op"
+              ],
+              "outputs": [
+                "o_result",
+                "o_carry",
+                "o_zero"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 2,
+              "total_lines": 50,
+              "warnings": [],
+              "failure_geometry": {},
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "examples/alu8/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 10.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "AREA0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.3,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 1.0,
+                  "core_ring": false,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.45,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 2,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 32,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "b159f970afed12a2ad52df72c1f20dfbf246d3718a5c63578fb7dba5dd52b6ab",
+            "pdk": "sky130A",
+            "candidate_id": "023143e7c479975bb6773c349a543abcaad23dadff17d32b72319d9fe4385900",
+            "certification_id": "67e8763700222279315dff417413deb386a033c6c6945c8fbfc12e5f1e6ce7de"
+          }
+        ],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 10.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.3,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.45,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 2,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "terminal_failures": []
+    },
+    {
+      "failure_type": "drc",
+      "replicate": 2,
+      "run_dir": "runs/live_drc_study/drc_2",
+      "state": "ok",
+      "fully_verified": true,
+      "model_calls": 1,
+      "input_tokens": 6999,
+      "output_tokens": 3175,
+      "initial_check": {
+        "ts": 1791808016.1644185,
+        "event": "result_check",
+        "stage": "drc",
+        "attempt": 1,
+        "message": "DRC FAILED: 1 violations in 1 of 211 categories on top cell 'alu8'; worst: npc.2 (1)",
+        "ok": false,
+        "kind": "fail",
+        "total_violations": 1,
+        "violated_categories": 1,
+        "checked_gds_sha256": "83342e9c786e9b469e20e4aba94437d625cb0faed9cf3461d6c745b9b7b4c22a"
+      },
+      "latest_target_check": {
+        "ts": 1791808115.0143743,
+        "event": "result_check",
+        "stage": "drc",
+        "attempt": 1,
+        "message": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
+        "ok": true,
+        "kind": "pass",
+        "total_violations": 0,
+        "declared_categories": 211,
+        "raw_declared_categories": 213,
+        "category_inventory_sha256": "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
+        "raw_category_inventory_sha256": "235e677ec82aa1d81d520b14b2f0041653f740fcb7aef0c849bb782bb37300cd",
+        "checked_gds_sha256": "2e1f9fd9f784c8757a582b4f2d94c99dd503c4a9e8ae462ca03c6f649e59e3e8"
+      },
+      "proposals": [
+        {
+          "delta": {
+            "placement": {
+              "padding_sites": 2
+            }
+          },
+          "origin_stage": "drc",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "target_pass",
+          "native_failure": null,
+          "target_result": {
+            "ts": 1791808115.0143743,
+            "event": "result_check",
+            "stage": "drc",
+            "attempt": 1,
+            "message": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
+            "ok": true,
+            "kind": "pass",
+            "total_violations": 0,
+            "declared_categories": 211,
+            "raw_declared_categories": 213,
+            "category_inventory_sha256": "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
+            "raw_category_inventory_sha256": "235e677ec82aa1d81d520b14b2f0041653f740fcb7aef0c849bb782bb37300cd",
+            "checked_gds_sha256": "2e1f9fd9f784c8757a582b4f2d94c99dd503c4a9e8ae462ca03c6f649e59e3e8"
+          }
+        }
+      ],
+      "metrics": {
+        "design": "alu8",
+        "run_dir": "runs/live_drc_study/drc_2",
+        "run_id": "2026-10-12T12-25-37Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 133,
+        "synthesis_area_um2": 1018.4768,
+        "die_area_um2": 6125.410225,
+        "routed_components": 484,
+        "wire_length_um": 4679.0,
+        "setup_wns_ns": 5.271593089039112,
+        "hold_wns_ns": 1.1921981517228608,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 157,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 1,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 513352,
+        "elapsed_s": 189.5508337020874,
+        "model_calls": 1,
+        "provider_model": "claude-sonnet-5",
+        "model_input_tokens": 6999,
+        "model_output_tokens": 3175,
+        "candidate_id": "1e89d409234921e4c1c8eda07bb2c6d2938af97aa965c1476df8256ca96f7f2c",
+        "certification_id": "1ed1e85f7e14358007d7ebd8d8c221cd4d1d061b0473cbc9d46d82f65ec85228",
+        "gds_sha256": "2e1f9fd9f784c8757a582b4f2d94c99dd503c4a9e8ae462ca03c6f649e59e3e8",
+        "signoff_sha256": "14bc22ba7b6b2b461828b4cb74e8c18befd3763e629e659b999bec945fe0d66d",
+        "gate_evidence_sha256": "6fb50d255ecb2a1adee578e684560636a607fd524c3e9432b558a09e0b91e379",
+        "run_log_sha256": "ba3120544991329b0208fd42f73d01612ca7d70b25d6d5267b4f433925984d1f",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": 5.2444405858025345,
+            "hold_wns": 1.4544089677601217
+          },
+          "sta_postcts": {
+            "setup_wns": 5.493439192361577,
+            "hold_wns": 1.2140058191231258
+          },
+          "sta_signoff": {
+            "setup_wns": 5.271593089039112,
+            "hold_wns": 1.1921981517228608
+          }
+        },
+        "repair_verifications": [
+          {
+            "stage": "drc",
+            "attempt": 1,
+            "delta": {
+              "placement": {
+                "padding_sites": 2
+              }
+            },
+            "deterministic_failure_class": "drc",
+            "safety_result": "accepted",
+            "rollback_target": "placement",
+            "repair_actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "placement.padding_sites",
+                "value": 2,
+                "reason": "Zero padding sites leaves no lateral clearance between adjacent standard cells for local interconnect/contact geometry, producing the npc.2 spacing violation seen in DRC. Adding modest site padding restores clearance without materially changing density (target_density 0.45 has headroom).",
+                "expected_effect": "Eliminates the single npc.2 spacing violation at signoff DRC by giving the router/placer room for contact-layer geometry between abutting cells, while keeping utilization and routability stable."
+              }
+            ],
+            "rtl_sha256_before_repair": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "previous_values": {
+              "placement.padding_sites": 0
+            },
+            "new_values": {
+              "placement.padding_sites": 2
+            },
+            "result": "resolved",
+            "new_failure_fingerprint": null,
+            "after_metrics": {
+              "total_violations": 0,
+              "declared_categories": 211,
+              "raw_declared_categories": 213,
+              "category_inventory_sha256": "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
+              "raw_category_inventory_sha256": "235e677ec82aa1d81d520b14b2f0041653f740fcb7aef0c849bb782bb37300cd",
+              "normalized_duplicate_categories": {
+                "diff_angle": [
+                  "x.2 : non 90 degree angle diff",
+                  "x.2c : non 45 degree angle diff"
+                ],
+                "tap_angle": [
+                  "x.2 : non 90 degree angle tap",
+                  "x.2c : non 45 degree angle tap"
+                ]
+              },
+              "checked_gds_sha256": "2e1f9fd9f784c8757a582b4f2d94c99dd503c4a9e8ae462ca03c6f649e59e3e8"
+            },
+            "rerun_verdict": "pass",
+            "rerun_summary": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
+            "generated_script_sha256": "",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "rtl_identity_preserved": true,
+            "repair_verified": true,
+            "verification_scope": "physical_signoff",
+            "modified_surfaces": [
+              "placement"
+            ],
+            "required_gates": [
+              "lec_synth",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "lec_synth",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "lec_synth: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS"
+            ],
+            "promotion_reason": [
+              "all 12 action-derived gates passed",
+              "RTL unchanged; specification simulation is outside this repair scope"
+            ],
+            "original_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "design_features": {
+              "top": "alu8",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_drc_study/drc_2/work/rtl/alu8.v"
+              ],
+              "modules": [
+                "alu8"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_a",
+                "i_b",
+                "i_op"
+              ],
+              "outputs": [
+                "o_result",
+                "o_carry",
+                "o_zero"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 2,
+              "total_lines": 50,
+              "warnings": [],
+              "failure_geometry": {},
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "examples/alu8/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 10.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "AREA0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.3,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 1.0,
+                  "core_ring": false,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.45,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 2,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 32,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "b159f970afed12a2ad52df72c1f20dfbf246d3718a5c63578fb7dba5dd52b6ab",
+            "pdk": "sky130A",
+            "candidate_id": "1e89d409234921e4c1c8eda07bb2c6d2938af97aa965c1476df8256ca96f7f2c",
+            "certification_id": "1ed1e85f7e14358007d7ebd8d8c221cd4d1d061b0473cbc9d46d82f65ec85228"
+          }
+        ],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 10.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.3,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.45,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 2,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "terminal_failures": []
+    },
+    {
+      "failure_type": "drc",
+      "replicate": 3,
+      "run_dir": "runs/live_drc_study/drc_3",
+      "state": "ok",
+      "fully_verified": true,
+      "model_calls": 1,
+      "input_tokens": 7003,
+      "output_tokens": 1443,
+      "initial_check": {
+        "ts": 1791808183.6021712,
+        "event": "result_check",
+        "stage": "drc",
+        "attempt": 1,
+        "message": "DRC FAILED: 1 violations in 1 of 211 categories on top cell 'alu8'; worst: npc.2 (1)",
+        "ok": false,
+        "kind": "fail",
+        "total_violations": 1,
+        "violated_categories": 1,
+        "checked_gds_sha256": "e5776b91159faedf17b3ddf1e8bb185ac482ed5bf08f3b5e6455ad05fb08c276"
+      },
+      "latest_target_check": {
+        "ts": 1791808253.6363335,
+        "event": "result_check",
+        "stage": "drc",
+        "attempt": 1,
+        "message": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
+        "ok": true,
+        "kind": "pass",
+        "total_violations": 0,
+        "declared_categories": 211,
+        "raw_declared_categories": 213,
+        "category_inventory_sha256": "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
+        "raw_category_inventory_sha256": "235e677ec82aa1d81d520b14b2f0041653f740fcb7aef0c849bb782bb37300cd",
+        "checked_gds_sha256": "928c20b534884ca60b1712dc7c01b63f5623d7c01fbed30ec0f28ccd85e03593"
+      },
+      "proposals": [
+        {
+          "delta": {
+            "placement": {
+              "padding_sites": 2
+            },
+            "routing": {
+              "droute_iters": 48
+            }
+          },
+          "origin_stage": "drc",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "target_pass",
+          "native_failure": null,
+          "target_result": {
+            "ts": 1791808253.6363335,
+            "event": "result_check",
+            "stage": "drc",
+            "attempt": 1,
+            "message": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
+            "ok": true,
+            "kind": "pass",
+            "total_violations": 0,
+            "declared_categories": 211,
+            "raw_declared_categories": 213,
+            "category_inventory_sha256": "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
+            "raw_category_inventory_sha256": "235e677ec82aa1d81d520b14b2f0041653f740fcb7aef0c849bb782bb37300cd",
+            "checked_gds_sha256": "928c20b534884ca60b1712dc7c01b63f5623d7c01fbed30ec0f28ccd85e03593"
+          }
+        }
+      ],
+      "metrics": {
+        "design": "alu8",
+        "run_dir": "runs/live_drc_study/drc_3",
+        "run_id": "2026-10-12T12-28-26Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 133,
+        "synthesis_area_um2": 1018.4768,
+        "die_area_um2": 6125.410225,
+        "routed_components": 484,
+        "wire_length_um": 4679.0,
+        "setup_wns_ns": 5.271593089039112,
+        "hold_wns_ns": 1.1921981517228608,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 157,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 1,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 513352,
+        "elapsed_s": 158.15035843849182,
+        "model_calls": 1,
+        "provider_model": "claude-sonnet-5",
+        "model_input_tokens": 7003,
+        "model_output_tokens": 1443,
+        "candidate_id": "e4f7ed3de98a9688c9a0d1bad35d4511407d4baefb6fcff85409d4e9cce6b16b",
+        "certification_id": "d2e3b8f56ea6d95184fa5f917f7474984a7aad41a3672c88d1f4df95c086df2a",
+        "gds_sha256": "928c20b534884ca60b1712dc7c01b63f5623d7c01fbed30ec0f28ccd85e03593",
+        "signoff_sha256": "813d1c2dede864b07396b0e51af104d96c22ec8ff4195e51525891642177f869",
+        "gate_evidence_sha256": "d820d9efe387f0806f14baae93cf5218bc1ad5372b53dafae75df2eacb78bc53",
+        "run_log_sha256": "f1b622c452348e2cb5507f9a3b6d55bb6a8a95c42347af3b2d5bcc43386a0b38",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": 5.2444405858025345,
+            "hold_wns": 1.4544089677601217
+          },
+          "sta_postcts": {
+            "setup_wns": 5.493439192361577,
+            "hold_wns": 1.2140058191231258
+          },
+          "sta_signoff": {
+            "setup_wns": 5.271593089039112,
+            "hold_wns": 1.1921981517228608
+          }
+        },
+        "repair_verifications": [
+          {
+            "stage": "drc",
+            "attempt": 1,
+            "delta": {
+              "placement": {
+                "padding_sites": 2
+              },
+              "routing": {
+                "droute_iters": 48
+              }
+            },
+            "deterministic_failure_class": "drc",
+            "safety_result": "accepted",
+            "rollback_target": "placement",
+            "repair_actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "placement.padding_sites",
+                "value": 2,
+                "reason": "Zero padding sites left no slack between adjacent standard cells, which is the documented cause of local-interconnect/poly spacing (npc.*) violations surviving to signoff even when the router completes cleanly.",
+                "expected_effect": "Adds 2 blank sites of margin per cell edge, giving the detailed router and resulting geometry enough clearance to resolve the single npc.2 spacing violation on re-run."
+              },
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "routing.droute_iters",
+                "value": 48,
+                "reason": "Increasing detailed-route iterations gives the router more opportunity to legalize geometry around the added cell padding and resolve any residual tight spacing without changing routing layers.",
+                "expected_effect": "Allows the detailed router additional passes to clean up local spacing issues introduced by cell repacking, reducing risk of new DRC violations from the padding change."
+              }
+            ],
+            "rtl_sha256_before_repair": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "previous_values": {
+              "placement.padding_sites": 0,
+              "routing.droute_iters": 32
+            },
+            "new_values": {
+              "placement.padding_sites": 2,
+              "routing.droute_iters": 48
+            },
+            "result": "resolved",
+            "new_failure_fingerprint": null,
+            "after_metrics": {
+              "total_violations": 0,
+              "declared_categories": 211,
+              "raw_declared_categories": 213,
+              "category_inventory_sha256": "cfa36171d93a4eccc91eee907f301e05b217f635a0c322b3feed96beedfe4e13",
+              "raw_category_inventory_sha256": "235e677ec82aa1d81d520b14b2f0041653f740fcb7aef0c849bb782bb37300cd",
+              "normalized_duplicate_categories": {
+                "diff_angle": [
+                  "x.2 : non 90 degree angle diff",
+                  "x.2c : non 45 degree angle diff"
+                ],
+                "tap_angle": [
+                  "x.2 : non 90 degree angle tap",
+                  "x.2c : non 45 degree angle tap"
+                ]
+              },
+              "checked_gds_sha256": "928c20b534884ca60b1712dc7c01b63f5623d7c01fbed30ec0f28ccd85e03593"
+            },
+            "rerun_verdict": "pass",
+            "rerun_summary": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
+            "generated_script_sha256": "",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "rtl_identity_preserved": true,
+            "repair_verified": true,
+            "verification_scope": "physical_signoff",
+            "modified_surfaces": [
+              "placement",
+              "routing"
+            ],
+            "required_gates": [
+              "lec_synth",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "lec_synth",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "lec_synth: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS"
+            ],
+            "promotion_reason": [
+              "all 12 action-derived gates passed",
+              "RTL unchanged; specification simulation is outside this repair scope"
+            ],
+            "original_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "design_features": {
+              "top": "alu8",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_drc_study/drc_3/work/rtl/alu8.v"
+              ],
+              "modules": [
+                "alu8"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_a",
+                "i_b",
+                "i_op"
+              ],
+              "outputs": [
+                "o_result",
+                "o_carry",
+                "o_zero"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 2,
+              "total_lines": 50,
+              "warnings": [],
+              "failure_geometry": {},
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "examples/alu8/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 10.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "AREA0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.3,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 1.0,
+                  "core_ring": false,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.45,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 2,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 48,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "83731c7bc244aafa11a9ece3e01b1fabbc9e41e3361c4d4404fb57ef6351d5dc",
+            "pdk": "sky130A",
+            "candidate_id": "e4f7ed3de98a9688c9a0d1bad35d4511407d4baefb6fcff85409d4e9cce6b16b",
+            "certification_id": "d2e3b8f56ea6d95184fa5f917f7474984a7aad41a3672c88d1f4df95c086df2a"
+          }
+        ],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 10.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.3,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.45,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 2,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 48,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "terminal_failures": []
+    },
+    {
+      "failure_type": "pdn",
+      "replicate": 1,
+      "run_dir": "runs/live_repair_study/pdn_1",
+      "state": "ok",
+      "fully_verified": true,
+      "model_calls": 1,
+      "input_tokens": 7544,
+      "output_tokens": 1418,
+      "initial_check": {
+        "ts": 1791808014.2171822,
+        "event": "result_check",
+        "stage": "pdn",
+        "attempt": 1,
+        "message": "OpenROAD reported 1 error(s): PDN-0185",
+        "ok": false,
+        "kind": "fail",
+        "warnings": 1
+      },
+      "latest_target_check": {
+        "ts": 1791808037.2590334,
+        "event": "result_check",
+        "stage": "pdn",
+        "attempt": 2,
+        "message": "PDN structurally sound: nets VGND, VPWR, 12 follow-pin rail segment(s), 54 via(s). IR drop, EM and current density are NOT verified.",
+        "ok": true,
+        "kind": "pass",
+        "via_count": 54
+      },
+      "proposals": [
+        {
+          "delta": {
+            "pdn": {
+              "core_ring": true
+            }
+          },
+          "origin_stage": "pdn",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "target_pass",
+          "native_failure": null,
+          "target_result": {
+            "ts": 1791808037.2590334,
+            "event": "result_check",
+            "stage": "pdn",
+            "attempt": 2,
+            "message": "PDN structurally sound: nets VGND, VPWR, 12 follow-pin rail segment(s), 54 via(s). IR drop, EM and current density are NOT verified.",
+            "ok": true,
+            "kind": "pass",
+            "via_count": 54
+          }
+        }
+      ],
+      "metrics": {
+        "design": "register",
+        "run_dir": "runs/live_repair_study/pdn_1",
+        "run_id": "2026-10-12T12-26-49Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 22,
+        "synthesis_area_um2": 292.7808,
+        "die_area_um2": 2680.650625,
+        "routed_components": 110,
+        "wire_length_um": 805.0,
+        "setup_wns_ns": 6.950756611461565,
+        "hold_wns_ns": 1.2015013768431229,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 35,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 0,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 136918,
+        "elapsed_s": 54.227648973464966,
+        "model_calls": 1,
+        "provider_model": "claude-sonnet-5",
+        "model_input_tokens": 7544,
+        "model_output_tokens": 1418,
+        "candidate_id": "9b42300b40959eee56e2fe26d3c1cd885383dfbe75dedff1a1e70bd2bb4f6f72",
+        "certification_id": "09cc2bb534d108687f132f2493a19107f8b6041b3ff7f2a097c043711123eb7a",
+        "gds_sha256": "0c50b9e6383da83243d757052a8f123f46726f4492fed07433ee5f36157dffc9",
+        "signoff_sha256": "637fa6ac87d100dd6be7e90ce128040ff40c6fa5146688498b8ebe70b5f35678",
+        "gate_evidence_sha256": "a191e5552ee92d611d62f67de17be0a3b94de803d2d79dd1f1c2c3abbd35b0b6",
+        "run_log_sha256": "6a0e78edcd91451f8b44ddac264ebe4599aeed9696759b62509bba81136ed7bb",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": 7.116841983839815,
+            "hold_wns": 1.4544089677601217
+          },
+          "sta_postcts": {
+            "setup_wns": 6.97761734807902,
+            "hold_wns": 1.220036106674228
+          },
+          "sta_signoff": {
+            "setup_wns": 6.950756611461565,
+            "hold_wns": 1.2015013768431229
+          }
+        },
+        "repair_verifications": [
+          {
+            "stage": "pdn",
+            "attempt": 1,
+            "known_error_id": "PDN-0185",
+            "failure_fingerprint": "07b417a757576bd6dda071cacf807547ac53a6540bc76067dd15fa29e8d83f4e",
+            "actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "pdn.strap_offset_um",
+                "value": 21.42,
+                "reason": "curated PDN-0185 geometry repair",
+                "expected_effect": "make the VDD/VSS strap geometry fit"
+              },
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "floorplan.core_utilization",
+                "value": 0.29,
+                "reason": "curated PDN-0185 geometry repair",
+                "expected_effect": "make the VDD/VSS strap geometry fit"
+              }
+            ],
+            "previous_values": {
+              "pdn.strap_offset_um": 50.0,
+              "floorplan.core_utilization": 0.35
+            },
+            "new_values": {
+              "pdn.strap_offset_um": 21.42,
+              "floorplan.core_utilization": 0.29
+            },
+            "rollback_target": "floorplan",
+            "rollback_reason": "earliest consumer of: floorplan, pdn",
+            "safety_result": "accepted",
+            "deterministic_failure_class": "pdn",
+            "before_metrics": {
+              "warnings": 1,
+              "attempt_fingerprint": "07b417a757576bd6dda071cacf807547ac53a6540bc76067dd15fa29e8d83f4e"
+            },
+            "rtl_sha256_before_repair": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "failure_geometry_evidence": {
+              "available_width_um": 28.52,
+              "strap_layer": "met4",
+              "total_strap_width_um": 6.6,
+              "configured_offset_um": 50.0,
+              "required_width_um": 56.6,
+              "top": "register",
+              "rtl_kind": "tiny sequential block",
+              "synthesized_cells": 22,
+              "standard_cell_area_um2": 292.7808,
+              "core_dimensions_um": [
+                48.92,
+                48.92
+              ],
+              "core_utilization": 0.35,
+              "strap_width_um": 1.6,
+              "strap_pitch_um": 10.0,
+              "strap_offset_um": 50.0,
+              "core_ring": false
+            },
+            "result": "failed",
+            "new_failure_fingerprint": "0f30522e463e2ce4660f4435fd8b579dba664ec809656715d4cdd953a688a67e",
+            "after_metrics": {
+              "via_count": 36
+            },
+            "rerun_verdict": "fail",
+            "rerun_summary": "PDN structurally invalid: VPWR has no STRIPE geometry on met5, which the minimum PDN contract requires for every supply; this grid has no upper distribution for that net; VGND has no STRIPE geometry on met5, which the minimum PDN contract requires for every supply; this grid has no upper distribution for that net; VPWR has no met4-to-met5 via (via5_6_*): the supply is not continuously connected from the standard-cell rails up to the distribution layers; VGND has no met4-to-met5 via (via5_6_*): the supply is not continuously connected from the standard-cell rails up to the distribution layers",
+            "generated_script_sha256": "89185e2943e8f345de0db043194a3329e4626c9c1adb4fb88207d941d6d2bad8",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "rtl_identity_preserved": true,
+            "repair_verified": false,
+            "verification_scope": "physical_signoff",
+            "modified_surfaces": [
+              "pdn",
+              "floorplan"
+            ],
+            "required_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route",
+              "floorplan"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route",
+              "floorplan"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "lec_synth: deterministic PASS",
+              "pdn: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS",
+              "floorplan: deterministic PASS"
+            ],
+            "promotion_reason": [],
+            "original_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "design_features": {
+              "top": "register",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_repair_study/pdn_1/work/rtl/register.v"
+              ],
+              "modules": [
+                "register"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_data"
+              ],
+              "outputs": [
+                "o_data"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 1,
+              "total_lines": 22,
+              "warnings": [],
+              "failure_geometry": {
+                "available_width_um": 28.52,
+                "strap_layer": "met4",
+                "total_strap_width_um": 6.6,
+                "configured_offset_um": 50.0,
+                "required_width_um": 56.6,
+                "top": "register",
+                "rtl_kind": "tiny sequential block",
+                "synthesized_cells": 22,
+                "standard_cell_area_um2": 292.7808,
+                "core_dimensions_um": [
+                  48.92,
+                  48.92
+                ],
+                "core_utilization": 0.35,
+                "strap_width_um": 1.6,
+                "strap_pitch_um": 10.0,
+                "strap_offset_um": 50.0,
+                "core_ring": false
+              },
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "examples/register/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 10.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "AREA0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.29,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 21.42,
+                  "core_ring": true,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.45,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 0,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 32,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "26433cc3766c9c0cf1da8adef56d5b3039473f37f81bb894003b7d33b0f90c19",
+            "pdk": "sky130A",
+            "candidate_id": "9b42300b40959eee56e2fe26d3c1cd885383dfbe75dedff1a1e70bd2bb4f6f72",
+            "certification_id": "09cc2bb534d108687f132f2493a19107f8b6041b3ff7f2a097c043711123eb7a"
+          },
+          {
+            "stage": "pdn",
+            "attempt": 1,
+            "delta": {
+              "pdn": {
+                "core_ring": true
+              }
+            },
+            "deterministic_failure_class": "pdn",
+            "safety_result": "accepted",
+            "rollback_target": "pdn",
+            "repair_actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "pdn.core_ring",
+                "value": true,
+                "reason": "The PDN grid currently has no met5 distribution and no met4-to-met5 vias for either supply net; core_ring=false removes the top-level ring that normally provides this geometry and via stack.",
+                "expected_effect": "Generates a met5 core power ring with via5_6_* connections down to the met4 straps, satisfying the minimum PDN contract (STRIPE geometry on met5 for VPWR/VGND, continuous rail-to-distribution connectivity)."
+              }
+            ],
+            "rtl_sha256_before_repair": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "previous_values": {
+              "pdn.core_ring": false
+            },
+            "new_values": {
+              "pdn.core_ring": true
+            },
+            "result": "resolved",
+            "new_failure_fingerprint": null,
+            "after_metrics": {
+              "power_nets": [
+                "VPWR"
+              ],
+              "ground_nets": [
+                "VGND"
+              ],
+              "via_count": 54
+            },
+            "rerun_verdict": "pass",
+            "rerun_summary": "PDN structurally sound: nets VGND, VPWR, 12 follow-pin rail segment(s), 54 via(s). IR drop, EM and current density are NOT verified.",
+            "generated_script_sha256": "c9d4e31a5b242b0075e20f6504398f92d6e5df4c83fb1565da422987a0564bb5",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "rtl_identity_preserved": true,
+            "repair_verified": true,
+            "verification_scope": "physical_signoff",
+            "modified_surfaces": [
+              "pdn"
+            ],
+            "required_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "lec_synth: deterministic PASS",
+              "pdn: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS"
+            ],
+            "promotion_reason": [
+              "all 13 action-derived gates passed",
+              "RTL unchanged; specification simulation is outside this repair scope"
+            ],
+            "original_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "design_features": {
+              "top": "register",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_repair_study/pdn_1/work/rtl/register.v"
+              ],
+              "modules": [
+                "register"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_data"
+              ],
+              "outputs": [
+                "o_data"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 1,
+              "total_lines": 22,
+              "warnings": [],
+              "failure_geometry": {},
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "examples/register/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 10.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "AREA0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.29,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 21.42,
+                  "core_ring": true,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.45,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 0,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 32,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "26433cc3766c9c0cf1da8adef56d5b3039473f37f81bb894003b7d33b0f90c19",
+            "pdk": "sky130A",
+            "candidate_id": "9b42300b40959eee56e2fe26d3c1cd885383dfbe75dedff1a1e70bd2bb4f6f72",
+            "certification_id": "09cc2bb534d108687f132f2493a19107f8b6041b3ff7f2a097c043711123eb7a"
+          }
+        ],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 10.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.29,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.45,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 0,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "terminal_failures": []
+    },
+    {
+      "failure_type": "pdn",
+      "replicate": 2,
+      "run_dir": "runs/live_repair_study/pdn_2",
+      "state": "ok",
+      "fully_verified": true,
+      "model_calls": 1,
+      "input_tokens": 7547,
+      "output_tokens": 1263,
+      "initial_check": {
+        "ts": 1791808068.3756146,
+        "event": "result_check",
+        "stage": "pdn",
+        "attempt": 1,
+        "message": "OpenROAD reported 1 error(s): PDN-0185",
+        "ok": false,
+        "kind": "fail",
+        "warnings": 1
+      },
+      "latest_target_check": {
+        "ts": 1791808087.8509803,
+        "event": "result_check",
+        "stage": "pdn",
+        "attempt": 2,
+        "message": "PDN structurally sound: nets VGND, VPWR, 12 follow-pin rail segment(s), 54 via(s). IR drop, EM and current density are NOT verified.",
+        "ok": true,
+        "kind": "pass",
+        "via_count": 54
+      },
+      "proposals": [
+        {
+          "delta": {
+            "pdn": {
+              "core_ring": true
+            }
+          },
+          "origin_stage": "pdn",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "target_pass",
+          "native_failure": null,
+          "target_result": {
+            "ts": 1791808087.8509803,
+            "event": "result_check",
+            "stage": "pdn",
+            "attempt": 2,
+            "message": "PDN structurally sound: nets VGND, VPWR, 12 follow-pin rail segment(s), 54 via(s). IR drop, EM and current density are NOT verified.",
+            "ok": true,
+            "kind": "pass",
+            "via_count": 54
+          }
+        }
+      ],
+      "metrics": {
+        "design": "register",
+        "run_dir": "runs/live_repair_study/pdn_2",
+        "run_id": "2026-10-12T12-27-44Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 22,
+        "synthesis_area_um2": 292.7808,
+        "die_area_um2": 2680.650625,
+        "routed_components": 110,
+        "wire_length_um": 805.0,
+        "setup_wns_ns": 6.950756611461565,
+        "hold_wns_ns": 1.2015013768431229,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 35,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 0,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 136918,
+        "elapsed_s": 49.79443311691284,
+        "model_calls": 1,
+        "provider_model": "claude-sonnet-5",
+        "model_input_tokens": 7547,
+        "model_output_tokens": 1263,
+        "candidate_id": "54cc82ca4371d49ca1ee35da5dd98dcdeef63fccea9687d92740041d8b02f3e8",
+        "certification_id": "41c54c9864b01dd072fa3ab8bcc1e432d0a987fbcaa2c1720bb0a11e4fa271cc",
+        "gds_sha256": "25eb6cf1b8c4ec1981329b07b6fa29f84ca14bb34ea5af15e7ae8a34cca4137c",
+        "signoff_sha256": "96bedfc7aab1921f2586a23db7db819c7e16d1aff026c4fffc03e838cac18ce7",
+        "gate_evidence_sha256": "4e4311418dc1d3907554d371a873d07dd3dd85fed8cb365225794545dfdd1ed0",
+        "run_log_sha256": "01d59a34835eca93f948714040ab7327d8b22ed8de1db516b587c396eb905ef0",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": 7.116841983839815,
+            "hold_wns": 1.4544089677601217
+          },
+          "sta_postcts": {
+            "setup_wns": 6.97761734807902,
+            "hold_wns": 1.220036106674228
+          },
+          "sta_signoff": {
+            "setup_wns": 6.950756611461565,
+            "hold_wns": 1.2015013768431229
+          }
+        },
+        "repair_verifications": [
+          {
+            "stage": "pdn",
+            "attempt": 1,
+            "known_error_id": "PDN-0185",
+            "failure_fingerprint": "c0b65c1a63dfdc26fb4ef5beb83fdc52c758c33eb22d9925d0955abd35d095ce",
+            "actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "pdn.strap_offset_um",
+                "value": 21.42,
+                "reason": "curated PDN-0185 geometry repair",
+                "expected_effect": "make the VDD/VSS strap geometry fit"
+              },
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "floorplan.core_utilization",
+                "value": 0.29,
+                "reason": "curated PDN-0185 geometry repair",
+                "expected_effect": "make the VDD/VSS strap geometry fit"
+              }
+            ],
+            "previous_values": {
+              "pdn.strap_offset_um": 50.0,
+              "floorplan.core_utilization": 0.35
+            },
+            "new_values": {
+              "pdn.strap_offset_um": 21.42,
+              "floorplan.core_utilization": 0.29
+            },
+            "rollback_target": "floorplan",
+            "rollback_reason": "earliest consumer of: floorplan, pdn",
+            "safety_result": "accepted",
+            "deterministic_failure_class": "pdn",
+            "before_metrics": {
+              "warnings": 1,
+              "attempt_fingerprint": "c0b65c1a63dfdc26fb4ef5beb83fdc52c758c33eb22d9925d0955abd35d095ce"
+            },
+            "rtl_sha256_before_repair": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "failure_geometry_evidence": {
+              "available_width_um": 28.52,
+              "strap_layer": "met4",
+              "total_strap_width_um": 6.6,
+              "configured_offset_um": 50.0,
+              "required_width_um": 56.6,
+              "top": "register",
+              "rtl_kind": "tiny sequential block",
+              "synthesized_cells": 22,
+              "standard_cell_area_um2": 292.7808,
+              "core_dimensions_um": [
+                48.92,
+                48.92
+              ],
+              "core_utilization": 0.35,
+              "strap_width_um": 1.6,
+              "strap_pitch_um": 10.0,
+              "strap_offset_um": 50.0,
+              "core_ring": false
+            },
+            "result": "failed",
+            "new_failure_fingerprint": "08def5f34ee63aec11975cd13a7c9e68295fa0837704b848b4d62f6a7135f6c7",
+            "after_metrics": {
+              "via_count": 36
+            },
+            "rerun_verdict": "fail",
+            "rerun_summary": "PDN structurally invalid: VPWR has no STRIPE geometry on met5, which the minimum PDN contract requires for every supply; this grid has no upper distribution for that net; VGND has no STRIPE geometry on met5, which the minimum PDN contract requires for every supply; this grid has no upper distribution for that net; VPWR has no met4-to-met5 via (via5_6_*): the supply is not continuously connected from the standard-cell rails up to the distribution layers; VGND has no met4-to-met5 via (via5_6_*): the supply is not continuously connected from the standard-cell rails up to the distribution layers",
+            "generated_script_sha256": "82fa94a9836496054947cee828fd156401d2b7f728f7234a902acffdab8fdcef",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "rtl_identity_preserved": true,
+            "repair_verified": false,
+            "verification_scope": "physical_signoff",
+            "modified_surfaces": [
+              "pdn",
+              "floorplan"
+            ],
+            "required_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route",
+              "floorplan"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route",
+              "floorplan"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "lec_synth: deterministic PASS",
+              "pdn: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS",
+              "floorplan: deterministic PASS"
+            ],
+            "promotion_reason": [],
+            "original_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "design_features": {
+              "top": "register",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_repair_study/pdn_2/work/rtl/register.v"
+              ],
+              "modules": [
+                "register"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_data"
+              ],
+              "outputs": [
+                "o_data"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 1,
+              "total_lines": 22,
+              "warnings": [],
+              "failure_geometry": {
+                "available_width_um": 28.52,
+                "strap_layer": "met4",
+                "total_strap_width_um": 6.6,
+                "configured_offset_um": 50.0,
+                "required_width_um": 56.6,
+                "top": "register",
+                "rtl_kind": "tiny sequential block",
+                "synthesized_cells": 22,
+                "standard_cell_area_um2": 292.7808,
+                "core_dimensions_um": [
+                  48.92,
+                  48.92
+                ],
+                "core_utilization": 0.35,
+                "strap_width_um": 1.6,
+                "strap_pitch_um": 10.0,
+                "strap_offset_um": 50.0,
+                "core_ring": false
+              },
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "examples/register/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 10.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "AREA0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.29,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 21.42,
+                  "core_ring": true,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.45,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 0,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 32,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "26433cc3766c9c0cf1da8adef56d5b3039473f37f81bb894003b7d33b0f90c19",
+            "pdk": "sky130A",
+            "candidate_id": "54cc82ca4371d49ca1ee35da5dd98dcdeef63fccea9687d92740041d8b02f3e8",
+            "certification_id": "41c54c9864b01dd072fa3ab8bcc1e432d0a987fbcaa2c1720bb0a11e4fa271cc"
+          },
+          {
+            "stage": "pdn",
+            "attempt": 1,
+            "delta": {
+              "pdn": {
+                "core_ring": true
+              }
+            },
+            "deterministic_failure_class": "pdn",
+            "safety_result": "accepted",
+            "rollback_target": "pdn",
+            "repair_actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "pdn.core_ring",
+                "value": true,
+                "reason": "Both failed PDN attempts had core_ring=false and both lack any met5 STRIPE geometry and met4-met5 vias; enabling the core ring should instantiate the top-level met5 distribution ring/straps and the connecting vias required by the minimum PDN contract.",
+                "expected_effect": "PDN generation produces met5 STRIPE geometry for VPWR/VGND and via5_6_* vias connecting met4 to met5, resolving the structural validity errors."
+              }
+            ],
+            "rtl_sha256_before_repair": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "previous_values": {
+              "pdn.core_ring": false
+            },
+            "new_values": {
+              "pdn.core_ring": true
+            },
+            "result": "resolved",
+            "new_failure_fingerprint": null,
+            "after_metrics": {
+              "power_nets": [
+                "VPWR"
+              ],
+              "ground_nets": [
+                "VGND"
+              ],
+              "via_count": 54
+            },
+            "rerun_verdict": "pass",
+            "rerun_summary": "PDN structurally sound: nets VGND, VPWR, 12 follow-pin rail segment(s), 54 via(s). IR drop, EM and current density are NOT verified.",
+            "generated_script_sha256": "df652c09cd714c893371bf1ccb14b546a106c72d6c1a26368e7abf0ec14dd85a",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "rtl_identity_preserved": true,
+            "repair_verified": true,
+            "verification_scope": "physical_signoff",
+            "modified_surfaces": [
+              "pdn"
+            ],
+            "required_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "lec_synth: deterministic PASS",
+              "pdn: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS"
+            ],
+            "promotion_reason": [
+              "all 13 action-derived gates passed",
+              "RTL unchanged; specification simulation is outside this repair scope"
+            ],
+            "original_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "design_features": {
+              "top": "register",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_repair_study/pdn_2/work/rtl/register.v"
+              ],
+              "modules": [
+                "register"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_data"
+              ],
+              "outputs": [
+                "o_data"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 1,
+              "total_lines": 22,
+              "warnings": [],
+              "failure_geometry": {},
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "examples/register/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 10.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "AREA0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.29,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 21.42,
+                  "core_ring": true,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.45,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 0,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 32,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "26433cc3766c9c0cf1da8adef56d5b3039473f37f81bb894003b7d33b0f90c19",
+            "pdk": "sky130A",
+            "candidate_id": "54cc82ca4371d49ca1ee35da5dd98dcdeef63fccea9687d92740041d8b02f3e8",
+            "certification_id": "41c54c9864b01dd072fa3ab8bcc1e432d0a987fbcaa2c1720bb0a11e4fa271cc"
+          }
+        ],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 10.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.29,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.45,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 0,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "terminal_failures": []
+    },
+    {
+      "failure_type": "pdn",
+      "replicate": 3,
+      "run_dir": "runs/live_repair_study/pdn_3",
+      "state": "ok",
+      "fully_verified": true,
+      "model_calls": 1,
+      "input_tokens": 7543,
+      "output_tokens": 1375,
+      "initial_check": {
+        "ts": 1791808118.9636915,
+        "event": "result_check",
+        "stage": "pdn",
+        "attempt": 1,
+        "message": "OpenROAD reported 1 error(s): PDN-0185",
+        "ok": false,
+        "kind": "fail",
+        "warnings": 1
+      },
+      "latest_target_check": {
+        "ts": 1791808139.242521,
+        "event": "result_check",
+        "stage": "pdn",
+        "attempt": 2,
+        "message": "PDN structurally sound: nets VGND, VPWR, 12 follow-pin rail segment(s), 54 via(s). IR drop, EM and current density are NOT verified.",
+        "ok": true,
+        "kind": "pass",
+        "via_count": 54
+      },
+      "proposals": [
+        {
+          "delta": {
+            "pdn": {
+              "core_ring": true
+            }
+          },
+          "origin_stage": "pdn",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "target_pass",
+          "native_failure": null,
+          "target_result": {
+            "ts": 1791808139.242521,
+            "event": "result_check",
+            "stage": "pdn",
+            "attempt": 2,
+            "message": "PDN structurally sound: nets VGND, VPWR, 12 follow-pin rail segment(s), 54 via(s). IR drop, EM and current density are NOT verified.",
+            "ok": true,
+            "kind": "pass",
+            "via_count": 54
+          }
+        }
+      ],
+      "metrics": {
+        "design": "register",
+        "run_dir": "runs/live_repair_study/pdn_3",
+        "run_id": "2026-10-12T12-28-34Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 22,
+        "synthesis_area_um2": 292.7808,
+        "die_area_um2": 2680.650625,
+        "routed_components": 110,
+        "wire_length_um": 805.0,
+        "setup_wns_ns": 6.950756611461565,
+        "hold_wns_ns": 1.2015013768431229,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 35,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 0,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 136918,
+        "elapsed_s": 49.82528209686279,
+        "model_calls": 1,
+        "provider_model": "claude-sonnet-5",
+        "model_input_tokens": 7543,
+        "model_output_tokens": 1375,
+        "candidate_id": "a7973f9c76cf02790d89ce292bec17f2b9d239c4f8cd5aaebcfb0ac9dd245e93",
+        "certification_id": "b6261da9c6d7810b46846558b86a65c5afcf77f9424a736f2e52398baa310193",
+        "gds_sha256": "b487d96408371297177d1ef39b157afceb3db79525dbe6617f73ffd2d5f33b82",
+        "signoff_sha256": "2b9cc20ab04bd0149717dccaa6b6bc5c6903d4c1b9965f7ca6719b1ce76fc083",
+        "gate_evidence_sha256": "b2587219d80c83d1161b5f689f8b2e0943aee2cf2936df5e4f2e45f393d3dc0a",
+        "run_log_sha256": "3d453baea851e5b945ccc563c8e6031ebcb523c8b457cb4a5d8b709585d50d05",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": 7.116841983839815,
+            "hold_wns": 1.4544089677601217
+          },
+          "sta_postcts": {
+            "setup_wns": 6.97761734807902,
+            "hold_wns": 1.220036106674228
+          },
+          "sta_signoff": {
+            "setup_wns": 6.950756611461565,
+            "hold_wns": 1.2015013768431229
+          }
+        },
+        "repair_verifications": [
+          {
+            "stage": "pdn",
+            "attempt": 1,
+            "known_error_id": "PDN-0185",
+            "failure_fingerprint": "9cd9f2b1bdc6b12abb1b98ae7d2f8b6f9942af39dffeae817d17f50aab68813b",
+            "actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "pdn.strap_offset_um",
+                "value": 21.42,
+                "reason": "curated PDN-0185 geometry repair",
+                "expected_effect": "make the VDD/VSS strap geometry fit"
+              },
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "floorplan.core_utilization",
+                "value": 0.29,
+                "reason": "curated PDN-0185 geometry repair",
+                "expected_effect": "make the VDD/VSS strap geometry fit"
+              }
+            ],
+            "previous_values": {
+              "pdn.strap_offset_um": 50.0,
+              "floorplan.core_utilization": 0.35
+            },
+            "new_values": {
+              "pdn.strap_offset_um": 21.42,
+              "floorplan.core_utilization": 0.29
+            },
+            "rollback_target": "floorplan",
+            "rollback_reason": "earliest consumer of: floorplan, pdn",
+            "safety_result": "accepted",
+            "deterministic_failure_class": "pdn",
+            "before_metrics": {
+              "warnings": 1,
+              "attempt_fingerprint": "9cd9f2b1bdc6b12abb1b98ae7d2f8b6f9942af39dffeae817d17f50aab68813b"
+            },
+            "rtl_sha256_before_repair": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "failure_geometry_evidence": {
+              "available_width_um": 28.52,
+              "strap_layer": "met4",
+              "total_strap_width_um": 6.6,
+              "configured_offset_um": 50.0,
+              "required_width_um": 56.6,
+              "top": "register",
+              "rtl_kind": "tiny sequential block",
+              "synthesized_cells": 22,
+              "standard_cell_area_um2": 292.7808,
+              "core_dimensions_um": [
+                48.92,
+                48.92
+              ],
+              "core_utilization": 0.35,
+              "strap_width_um": 1.6,
+              "strap_pitch_um": 10.0,
+              "strap_offset_um": 50.0,
+              "core_ring": false
+            },
+            "result": "failed",
+            "new_failure_fingerprint": "f5c354a0a607110026e7280b9045f30e5d070c307a2971a1640431bd6fd55326",
+            "after_metrics": {
+              "via_count": 36
+            },
+            "rerun_verdict": "fail",
+            "rerun_summary": "PDN structurally invalid: VPWR has no STRIPE geometry on met5, which the minimum PDN contract requires for every supply; this grid has no upper distribution for that net; VGND has no STRIPE geometry on met5, which the minimum PDN contract requires for every supply; this grid has no upper distribution for that net; VPWR has no met4-to-met5 via (via5_6_*): the supply is not continuously connected from the standard-cell rails up to the distribution layers; VGND has no met4-to-met5 via (via5_6_*): the supply is not continuously connected from the standard-cell rails up to the distribution layers",
+            "generated_script_sha256": "cfcde87e0f40a5768cda69c2ddc676a5c4b583c59a50cb336c9f8d0e84a0794f",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "rtl_identity_preserved": true,
+            "repair_verified": false,
+            "verification_scope": "physical_signoff",
+            "modified_surfaces": [
+              "pdn",
+              "floorplan"
+            ],
+            "required_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route",
+              "floorplan"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route",
+              "floorplan"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "lec_synth: deterministic PASS",
+              "pdn: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS",
+              "floorplan: deterministic PASS"
+            ],
+            "promotion_reason": [],
+            "original_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "design_features": {
+              "top": "register",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_repair_study/pdn_3/work/rtl/register.v"
+              ],
+              "modules": [
+                "register"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_data"
+              ],
+              "outputs": [
+                "o_data"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 1,
+              "total_lines": 22,
+              "warnings": [],
+              "failure_geometry": {
+                "available_width_um": 28.52,
+                "strap_layer": "met4",
+                "total_strap_width_um": 6.6,
+                "configured_offset_um": 50.0,
+                "required_width_um": 56.6,
+                "top": "register",
+                "rtl_kind": "tiny sequential block",
+                "synthesized_cells": 22,
+                "standard_cell_area_um2": 292.7808,
+                "core_dimensions_um": [
+                  48.92,
+                  48.92
+                ],
+                "core_utilization": 0.35,
+                "strap_width_um": 1.6,
+                "strap_pitch_um": 10.0,
+                "strap_offset_um": 50.0,
+                "core_ring": false
+              },
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "examples/register/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 10.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "AREA0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.29,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 21.42,
+                  "core_ring": true,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.45,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 0,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 32,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "26433cc3766c9c0cf1da8adef56d5b3039473f37f81bb894003b7d33b0f90c19",
+            "pdk": "sky130A",
+            "candidate_id": "a7973f9c76cf02790d89ce292bec17f2b9d239c4f8cd5aaebcfb0ac9dd245e93",
+            "certification_id": "b6261da9c6d7810b46846558b86a65c5afcf77f9424a736f2e52398baa310193"
+          },
+          {
+            "stage": "pdn",
+            "attempt": 1,
+            "delta": {
+              "pdn": {
+                "core_ring": true
+              }
+            },
+            "deterministic_failure_class": "pdn",
+            "safety_result": "accepted",
+            "rollback_target": "pdn",
+            "repair_actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "pdn.core_ring",
+                "value": true,
+                "reason": "Enabling the core power ring is required to generate top-layer (met5) stripe geometry and the via stack connecting met4 straps to the met5 ring; with core_ring disabled the grid has no mechanism to extend to met5, matching the 'no upper distribution for that net' errors.",
+                "expected_effect": "PDN generation produces met5 STRIPE geometry for VPWR/VGND and creates via5_6_* vias connecting met4 to met5, resolving the structural invalidity."
+              }
+            ],
+            "rtl_sha256_before_repair": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "previous_values": {
+              "pdn.core_ring": false
+            },
+            "new_values": {
+              "pdn.core_ring": true
+            },
+            "result": "resolved",
+            "new_failure_fingerprint": null,
+            "after_metrics": {
+              "power_nets": [
+                "VPWR"
+              ],
+              "ground_nets": [
+                "VGND"
+              ],
+              "via_count": 54
+            },
+            "rerun_verdict": "pass",
+            "rerun_summary": "PDN structurally sound: nets VGND, VPWR, 12 follow-pin rail segment(s), 54 via(s). IR drop, EM and current density are NOT verified.",
+            "generated_script_sha256": "0cdb36356738c66ff9ba17a06f00962ae4230843a6cdf95c53f4f9eaa78a5dc2",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "rtl_identity_preserved": true,
+            "repair_verified": true,
+            "verification_scope": "physical_signoff",
+            "modified_surfaces": [
+              "pdn"
+            ],
+            "required_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "lec_synth",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "lec_synth: deterministic PASS",
+              "pdn: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS"
+            ],
+            "promotion_reason": [
+              "all 13 action-derived gates passed",
+              "RTL unchanged; specification simulation is outside this repair scope"
+            ],
+            "original_working_rtl_sha256": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+            "design_features": {
+              "top": "register",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_repair_study/pdn_3/work/rtl/register.v"
+              ],
+              "modules": [
+                "register"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_data"
+              ],
+              "outputs": [
+                "o_data"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 1,
+              "total_lines": 22,
+              "warnings": [],
+              "failure_geometry": {},
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "examples/register/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 10.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "AREA0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.29,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 21.42,
+                  "core_ring": true,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.45,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 0,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 32,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "26433cc3766c9c0cf1da8adef56d5b3039473f37f81bb894003b7d33b0f90c19",
+            "pdk": "sky130A",
+            "candidate_id": "a7973f9c76cf02790d89ce292bec17f2b9d239c4f8cd5aaebcfb0ac9dd245e93",
+            "certification_id": "b6261da9c6d7810b46846558b86a65c5afcf77f9424a736f2e52398baa310193"
+          }
+        ],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 10.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.29,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.45,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 0,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "terminal_failures": []
+    },
+    {
+      "failure_type": "timing",
+      "replicate": 1,
+      "run_dir": "runs/live_repair_study/timing_1",
+      "state": "ok",
+      "fully_verified": true,
+      "model_calls": 2,
+      "input_tokens": 18619,
+      "output_tokens": 4597,
+      "initial_check": {
+        "ts": 1791807731.5366757,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.3262ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.32619152746597474,
+        "setup_tns": -0.48688454646111406,
+        "hold_wns": 0.2745894700450162,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "latest_target_check": {
+        "ts": 1791807886.775804,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "timing met: setup WNS 0.0016ns, hold WNS 0.3432ns",
+        "ok": true,
+        "kind": "pass",
+        "setup_wns": 0.0015860646578364705,
+        "setup_tns": 0.0,
+        "hold_wns": 0.343179799846767,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "proposals": [
+        {
+          "delta": {
+            "synthesis": {
+              "strategy": "DELAY0"
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791807802.040997,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.0505ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.050545569160845676,
+            "setup_tns": -0.06152034611425816,
+            "hold_wns": 0.32275813490964284,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          },
+          "target_result": {
+            "ts": 1791807802.040997,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.0505ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.050545569160845676,
+            "setup_tns": -0.06152034611425816,
+            "hold_wns": 0.32275813490964284,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          }
+        },
+        {
+          "delta": {
+            "placement": {
+              "target_density": 0.55,
+              "padding_sites": 1
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "target_pass",
+          "native_failure": null,
+          "target_result": {
+            "ts": 1791807886.775804,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "timing met: setup WNS 0.0016ns, hold WNS 0.3432ns",
+            "ok": true,
+            "kind": "pass",
+            "setup_wns": 0.0015860646578364705,
+            "setup_tns": 0.0,
+            "hold_wns": 0.343179799846767,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          }
+        }
+      ],
+      "metrics": {
+        "design": "alu8",
+        "run_dir": "runs/live_repair_study/timing_1",
+        "run_id": "2026-10-12T12-21-20Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 200,
+        "synthesis_area_um2": 1223.6736,
+        "die_area_um2": 7033.338225,
+        "routed_components": 662,
+        "wire_length_um": 4477.0,
+        "setup_wns_ns": 0.0015860646578364705,
+        "hold_wns_ns": 0.343179799846767,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 225,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 0,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 491098,
+        "elapsed_s": 223.619291305542,
+        "model_calls": 2,
+        "provider_model": "claude-sonnet-5",
+        "model_input_tokens": 18619,
+        "model_output_tokens": 4597,
+        "candidate_id": "a3afe26f342c49c7b442966078fb8310ac6c1a1912702050239493a2c0ff6d41",
+        "certification_id": "0a3cdf01e2f08f2adce57f5cc04cbb4c779fee477e7a3c233b78ae50ce760186",
+        "gds_sha256": "ba8c5bed8e0051922a6cf0520e19ec96c3915f1dfc8c2b8b0d7acfaf500f6660",
+        "signoff_sha256": "56cad6654eef838d1196fd4c26cb791d2b118ff23aa7c8ae02e6f4da9353ef7a",
+        "gate_evidence_sha256": "9309e1fe1c5697ddb92f0a5f69bbf4d301a6b5a12929d6bf1057caa8da22b979",
+        "run_log_sha256": "a62057eb7029ef97dafc4cc02a8df6cebbd10ec07fbc5c1351f4ebe8b48844b6",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": -0.5303682088071997,
+            "hold_wns": 0.054408978862352214
+          },
+          "sta_postcts": {
+            "setup_wns": 0.27452729755387884,
+            "hold_wns": 0.3220430124836811
+          },
+          "sta_signoff": {
+            "setup_wns": 0.0015860646578364705,
+            "hold_wns": 0.343179799846767
+          }
+        },
+        "repair_verifications": [
+          {
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "delta": {
+              "synthesis": {
+                "strategy": "DELAY0"
+              }
+            },
+            "deterministic_failure_class": "setup",
+            "safety_result": "accepted",
+            "rollback_target": "synthesis",
+            "repair_actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "synthesis.strategy",
+                "value": "DELAY0",
+                "reason": "Pre-layout and signoff setup slack are consistent in magnitude, indicating the critical path delay originates in the area-optimized ABC mapping (AREA0) rather than from placement or routing parasitics. Switching to a delay-oriented mapping strategy should reduce logic-stage delay on the critical path.",
+                "expected_effect": "Reduced combinational delay on the dominant setup-critical path, raising pre-layout and signoff setup WNS toward 0ns without touching RTL or SDC."
+              }
+            ],
+            "rtl_sha256_before_repair": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "previous_values": {
+              "synthesis.strategy": "AREA0"
+            },
+            "new_values": {
+              "synthesis.strategy": "DELAY0"
+            },
+            "result": "failed",
+            "new_failure_fingerprint": "d20a0bb59d60ab23fadd9a9f172ab74af5858cde58990224fe0fd060245c88ef",
+            "after_metrics": {
+              "setup_wns": -0.050545569160845676,
+              "setup_tns": -0.06152034611425816,
+              "hold_wns": 0.32275813490964284,
+              "hold_tns": 0.0,
+              "unannotated_drivers": 0,
+              "partially_unannotated_drivers": 0,
+              "unconstrained_endpoints": 0,
+              "no_clocks": false
+            },
+            "rerun_verdict": "fail",
+            "rerun_summary": "signoff setup WNS -0.0505ns is below the 0.0000ns guardband",
+            "generated_script_sha256": "44a2cd2abddf7a5d1342dedc402247079f527cc4d3f0018d3d0a064bc01b021f",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "rtl_identity_preserved": true,
+            "repair_verified": false,
+            "verification_scope": "logical",
+            "modified_surfaces": [
+              "synthesis"
+            ],
+            "required_gates": [
+              "synthesis",
+              "lec_synth",
+              "sta_pre",
+              "floorplan",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "synthesis",
+              "lec_synth",
+              "floorplan",
+              "pdn",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [
+              "sta_pre"
+            ],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "synthesis: deterministic PASS",
+              "lec_synth: deterministic PASS",
+              "floorplan: deterministic PASS",
+              "pdn: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS"
+            ],
+            "promotion_reason": [
+              "failed gates: sta_pre"
+            ],
+            "original_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "design_features": {
+              "top": "alu8",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_repair_study/timing_1/work/rtl/alu8.v"
+              ],
+              "modules": [
+                "alu8"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_a",
+                "i_b",
+                "i_op"
+              ],
+              "outputs": [
+                "o_result",
+                "o_carry",
+                "o_zero"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 2,
+              "total_lines": 50,
+              "warnings": [],
+              "failure_geometry": {},
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "/home/vlsi/rtl2gdsagi/examples/alu8/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 3.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "DELAY0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.3,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 1.0,
+                  "core_ring": false,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.55,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 1,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 32,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "975d413cd6c5fa21e331e102778dccc0971a047bd4e0d5e1bbb96581206012ae",
+            "pdk": "sky130A",
+            "candidate_id": "a3afe26f342c49c7b442966078fb8310ac6c1a1912702050239493a2c0ff6d41",
+            "certification_id": "0a3cdf01e2f08f2adce57f5cc04cbb4c779fee477e7a3c233b78ae50ce760186"
+          },
+          {
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "delta": {
+              "placement": {
+                "target_density": 0.55,
+                "padding_sites": 1
+              }
+            },
+            "deterministic_failure_class": "setup",
+            "safety_result": "accepted",
+            "rollback_target": "placement",
+            "repair_actions": [
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "placement.target_density",
+                "value": 0.55,
+                "reason": "Current density (0.45) is looser than the tool default, likely increasing wirelength on the critical reconvergent paths that only degrade after real routing; raising it toward default should shorten nets and recover the lost ~0.32ns margin.",
+                "expected_effect": "Reduced wirelength/parasitic delay on critical paths, moving signoff setup WNS from -0.05ns back toward the +0.1 to +0.2ns range seen conceptually at post-CTS."
+              },
+              {
+                "action_type": "SET_IR_VALUE",
+                "target": "placement.padding_sites",
+                "value": 1,
+                "reason": "Reducing cell padding from 2 to 1 site tightens placement further, shortening interconnect on the affected paths while still leaving room for routing (insert_filler and routability_driven remain enabled to avoid DRC regressions).",
+                "expected_effect": "Marginal further wirelength reduction on critical nets, helping close the remaining -0.05ns setup gap without reopening DRC spacing issues."
+              }
+            ],
+            "rtl_sha256_before_repair": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "previous_values": {
+              "placement.target_density": 0.45,
+              "placement.padding_sites": 2
+            },
+            "new_values": {
+              "placement.target_density": 0.55,
+              "placement.padding_sites": 1
+            },
+            "result": "resolved",
+            "new_failure_fingerprint": null,
+            "after_metrics": {
+              "setup_wns": 0.0015860646578364705,
+              "setup_tns": 0.0,
+              "hold_wns": 0.343179799846767,
+              "hold_tns": 0.0,
+              "unannotated_drivers": 0,
+              "partially_unannotated_drivers": 0,
+              "unconstrained_endpoints": 0,
+              "no_clocks": false
+            },
+            "rerun_verdict": "pass",
+            "rerun_summary": "timing met: setup WNS 0.0016ns, hold WNS 0.3432ns",
+            "generated_script_sha256": "44a2cd2abddf7a5d1342dedc402247079f527cc4d3f0018d3d0a064bc01b021f",
+            "tool_backend": "container",
+            "tool_identity": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+            "verified_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "rtl_identity_preserved": true,
+            "repair_verified": true,
+            "verification_scope": "physical_signoff",
+            "modified_surfaces": [
+              "placement"
+            ],
+            "required_gates": [
+              "lec_synth",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "rtl_modified": false,
+            "passed_gates": [
+              "lec_synth",
+              "placement",
+              "cts",
+              "sta_postcts",
+              "routing",
+              "extraction",
+              "sta_signoff",
+              "gdsout",
+              "drc",
+              "lvs",
+              "antenna",
+              "lec_route"
+            ],
+            "unavailable_gates": [],
+            "failed_gates": [],
+            "functional_spec_verified": true,
+            "physical_signoff_verified": true,
+            "logical_identity_verified": true,
+            "verification_basis": [
+              "lec_synth: deterministic PASS",
+              "placement: deterministic PASS",
+              "cts: deterministic PASS",
+              "sta_postcts: deterministic PASS",
+              "routing: deterministic PASS",
+              "extraction: deterministic PASS",
+              "sta_signoff: deterministic PASS",
+              "gdsout: deterministic PASS",
+              "drc: deterministic PASS",
+              "lvs: deterministic PASS",
+              "antenna: deterministic PASS",
+              "lec_route: deterministic PASS"
+            ],
+            "promotion_reason": [
+              "all 12 action-derived gates passed",
+              "RTL unchanged; specification simulation is outside this repair scope"
+            ],
+            "original_working_rtl_sha256": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+            "design_features": {
+              "top": "alu8",
+              "sources": [
+                "/home/vlsi/rtl2gdsagi/runs/live_repair_study/timing_1/work/rtl/alu8.v"
+              ],
+              "modules": [
+                "alu8"
+              ],
+              "clocks": [
+                {
+                  "name": "i_clk",
+                  "period_ns": 10.0
+                }
+              ],
+              "clock_domains": 1,
+              "resets": [
+                "i_rst_n"
+              ],
+              "inputs": [
+                "i_clk",
+                "i_rst_n",
+                "i_a",
+                "i_b",
+                "i_op"
+              ],
+              "outputs": [
+                "o_result",
+                "o_carry",
+                "o_zero"
+              ],
+              "instances": {},
+              "memories": [],
+              "always_blocks": 2,
+              "total_lines": 50,
+              "warnings": [],
+              "failure_geometry": {},
+              "successful_ir": {
+                "lint": {
+                  "fail_on_warning": false,
+                  "waived_rules": [],
+                  "timescale": "1ns/1ps"
+                },
+                "sim": {
+                  "timeout_s": 600,
+                  "testbench_glob": "*_tb.v",
+                  "testbench_dir": "/home/vlsi/rtl2gdsagi/examples/alu8/tb",
+                  "plusargs": []
+                },
+                "sdc": {
+                  "default_clock_period_ns": 3.0,
+                  "clock_uncertainty_ns": 0.25,
+                  "input_delay_frac": 0.2,
+                  "output_delay_frac": 0.2,
+                  "output_load_pf": 0.05
+                },
+                "synthesis": {
+                  "strategy": "DELAY0",
+                  "flatten": true,
+                  "max_fanout": 10,
+                  "adder_type": "yosys",
+                  "share_resources": true,
+                  "dff_map": true
+                },
+                "lec": {
+                  "induction_steps": 8,
+                  "timeout_s": 900,
+                  "smt_solver": "z3"
+                },
+                "sta": {
+                  "corners": [
+                    "tt_025C_1v80"
+                  ],
+                  "derate_setup": 0.0,
+                  "derate_hold": 0.0,
+                  "slack_guardband_ns": 0.0,
+                  "max_paths": 20
+                },
+                "floorplan": {
+                  "core_utilization": 0.3,
+                  "aspect_ratio": 1.0,
+                  "core_margin_um": 10.0,
+                  "io_mode": "random_equidistant",
+                  "tapcell_distance_um": 13.0
+                },
+                "pdn": {
+                  "strap_width_um": 1.6,
+                  "strap_pitch_um": 10.0,
+                  "strap_offset_um": 1.0,
+                  "core_ring": false,
+                  "ir_drop_budget_mv": 50.0
+                },
+                "placement": {
+                  "target_density": 0.55,
+                  "effort": "medium",
+                  "max_displacement_um": 50.0,
+                  "routability_driven": true,
+                  "padding_sites": 1,
+                  "congestion_overflow_limit": 0.15
+                },
+                "cts": {
+                  "target_skew_ns": 0.2,
+                  "max_fanout": 16,
+                  "root_buffer": "",
+                  "balance_levels": true,
+                  "hold_margin_ns": 0.05,
+                  "fix_hold": true,
+                  "fix_setup": false,
+                  "setup_margin_ns": 0.05
+                },
+                "routing": {
+                  "min_layer": 1,
+                  "max_layer": 5,
+                  "global_effort": "medium",
+                  "droute_iters": 32,
+                  "insert_filler": true,
+                  "insert_diodes": true
+                },
+                "extraction": {
+                  "corner": "nom",
+                  "min_net_coverage": 0.5
+                },
+                "gdsout": {
+                  "merge_mode": "full"
+                },
+                "drc": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "lvs": {
+                  "threads": 4,
+                  "deep_mode": true
+                },
+                "antenna": {
+                  "threads": 4
+                }
+              }
+            },
+            "successful_ir_fingerprint": "975d413cd6c5fa21e331e102778dccc0971a047bd4e0d5e1bbb96581206012ae",
+            "pdk": "sky130A",
+            "candidate_id": "a3afe26f342c49c7b442966078fb8310ac6c1a1912702050239493a2c0ff6d41",
+            "certification_id": "0a3cdf01e2f08f2adce57f5cc04cbb4c779fee477e7a3c233b78ae50ce760186"
+          }
+        ],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 3.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.3,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.55,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 1,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "terminal_failures": []
+    },
+    {
+      "failure_type": "timing",
+      "replicate": 2,
+      "run_dir": "runs/live_repair_study/timing_2",
+      "state": "failed",
+      "fully_verified": false,
+      "model_calls": 3,
+      "input_tokens": 28142,
+      "output_tokens": 11181,
+      "initial_check": {
+        "ts": 1791807731.447244,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.3262ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.32619152746597474,
+        "setup_tns": -0.48688454646111406,
+        "hold_wns": 0.2745894700450162,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "latest_target_check": {
+        "ts": 1791807921.160019,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.0306ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.030571990249132944,
+        "setup_tns": -0.030571990249132944,
+        "hold_wns": 0.3204570866037266,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "proposals": [
+        {
+          "delta": {
+            "synthesis": {
+              "strategy": "DELAY0"
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791807802.477331,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.0505ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.050545569160845676,
+            "setup_tns": -0.06152034611425816,
+            "hold_wns": 0.32275813490964284,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          },
+          "target_result": {
+            "ts": 1791807802.477331,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.0505ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.050545569160845676,
+            "setup_tns": -0.06152034611425816,
+            "hold_wns": 0.32275813490964284,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          }
+        },
+        {
+          "delta": {
+            "placement": {
+              "target_density": 0.4
+            },
+            "cts": {
+              "fix_setup": true
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791807921.160019,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.0306ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.030571990249132944,
+            "setup_tns": -0.030571990249132944,
+            "hold_wns": 0.3204570866037266,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          },
+          "target_result": {
+            "ts": 1791807921.160019,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.0306ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.030571990249132944,
+            "setup_tns": -0.030571990249132944,
+            "hold_wns": 0.3204570866037266,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          }
+        },
+        {
+          "delta": {
+            "placement": {
+              "target_density": 0.45
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "required_target_unavailable",
+          "native_failure": null,
+          "target_result": null
+        }
+      ],
+      "metrics": null,
+      "terminal_failures": [
+        "sta_signoff"
+      ]
+    },
+    {
+      "failure_type": "timing",
+      "replicate": 3,
+      "run_dir": "runs/live_repair_study/timing_3",
+      "state": "failed",
+      "fully_verified": false,
+      "model_calls": 9,
+      "input_tokens": 83910,
+      "output_tokens": 24309,
+      "initial_check": {
+        "ts": 1791807958.1178272,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.3262ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.32619152746597474,
+        "setup_tns": -0.48688454646111406,
+        "hold_wns": 0.2745894700450162,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "latest_target_check": {
+        "ts": 1791808530.807413,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.3333ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.33329739911375333,
+        "setup_tns": -0.710339362991758,
+        "hold_wns": 0.38293463928131266,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "proposals": [
+        {
+          "delta": {
+            "synthesis": {
+              "strategy": "DELAY1"
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791808025.267857,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.2654ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.2653686234755111,
+            "setup_tns": -0.5742553262118445,
+            "hold_wns": 0.38145190863441564,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          },
+          "target_result": {
+            "ts": 1791808025.267857,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.2654ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.2653686234755111,
+            "setup_tns": -0.5742553262118445,
+            "hold_wns": 0.38145190863441564,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          }
+        },
+        {
+          "delta": {
+            "placement": {
+              "target_density": 0.55,
+              "routability_driven": true
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791808131.2131622,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.3251ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.3251234928860792,
+            "setup_tns": -0.7969485297260558,
+            "hold_wns": 0.37436249604344257,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          },
+          "target_result": {
+            "ts": 1791808131.2131622,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.3251ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.3251234928860792,
+            "setup_tns": -0.7969485297260558,
+            "hold_wns": 0.37436249604344257,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          }
+        },
+        {
+          "delta": {
+            "synthesis": {
+              "strategy": "DELAY3"
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791808209.1658995,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.5790ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.578962671969388,
+            "setup_tns": -1.7809685341691686,
+            "hold_wns": 0.4094497912170032,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          },
+          "target_result": {
+            "ts": 1791808209.1658995,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.5790ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.578962671969388,
+            "setup_tns": -1.7809685341691686,
+            "hold_wns": 0.4094497912170032,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          }
+        },
+        {
+          "delta": {
+            "placement": {
+              "target_density": 0.45,
+              "padding_sites": 4
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791808248.4808612,
+            "event": "result_check",
+            "stage": "placement",
+            "attempt": 1,
+            "message": "OpenROAD reported 1 error(s): DPL-0036",
+            "ok": false,
+            "kind": "fail",
+            "warnings": 3
+          },
+          "target_result": null
+        },
+        {
+          "delta": {
+            "placement": {
+              "padding_sites": 2,
+              "target_density": 0.4
+            }
+          },
+          "origin_stage": "placement",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791808305.409953,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.4133ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.4133014047985395,
+            "setup_tns": -1.2308276968233964,
+            "hold_wns": 0.38529858172335263,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          },
+          "target_result": {
+            "ts": 1791808276.250716,
+            "event": "result_check",
+            "stage": "placement",
+            "attempt": 2,
+            "message": "placement completed",
+            "ok": true,
+            "kind": "pass",
+            "warnings": 3,
+            "overflow": 0.09998,
+            "overflow_iterations": 38,
+            "overflow_converged": true
+          }
+        },
+        {
+          "delta": {
+            "placement": {
+              "target_density": 0.55,
+              "padding_sites": 1
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791808388.0998433,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.2964ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.2964455431705239,
+            "setup_tns": -0.6000404787326227,
+            "hold_wns": 0.3866316543022975,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          },
+          "target_result": {
+            "ts": 1791808388.0998433,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.2964ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.2964455431705239,
+            "setup_tns": -0.6000404787326227,
+            "hold_wns": 0.3866316543022975,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          }
+        },
+        {
+          "delta": {
+            "placement": {
+              "target_density": 0.45,
+              "routability_driven": true
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791808451.7124155,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.3026ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.30262260220963255,
+            "setup_tns": -0.7403138311921387,
+            "hold_wns": 0.3815588786258636,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          },
+          "target_result": {
+            "ts": 1791808451.7124155,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.3026ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.30262260220963255,
+            "setup_tns": -0.7403138311921387,
+            "hold_wns": 0.3815588786258636,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          }
+        },
+        {
+          "delta": {
+            "placement": {
+              "target_density": 0.6,
+              "routability_driven": true
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "native_failure",
+          "native_failure": {
+            "ts": 1791808530.807413,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.3333ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.33329739911375333,
+            "setup_tns": -0.710339362991758,
+            "hold_wns": 0.38293463928131266,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          },
+          "target_result": {
+            "ts": 1791808530.807413,
+            "event": "result_check",
+            "stage": "sta_signoff",
+            "attempt": 1,
+            "message": "signoff setup WNS -0.3333ns is below the 0.0000ns guardband",
+            "ok": false,
+            "kind": "fail",
+            "setup_wns": -0.33329739911375333,
+            "setup_tns": -0.710339362991758,
+            "hold_wns": 0.38293463928131266,
+            "hold_tns": 0.0,
+            "unannotated_drivers": 0,
+            "partially_unannotated_drivers": 0,
+            "unconstrained_endpoints": 0,
+            "no_clocks": false
+          }
+        },
+        {
+          "delta": {
+            "synthesis": {
+              "share_resources": false
+            },
+            "cts": {
+              "fix_setup": true
+            }
+          },
+          "origin_stage": "sta_signoff",
+          "naive_no_recheck_promotes": true,
+          "native_recheck": "required_target_unavailable",
+          "native_failure": null,
+          "target_result": null
+        }
+      ],
+      "metrics": null,
+      "terminal_failures": [
+        "sta_signoff"
+      ]
+    }
+  ],
+  "by_failure_type": {
+    "drc": {
+      "trials": 3,
+      "verified": 3,
+      "escalated": 0
+    },
+    "pdn": {
+      "trials": 3,
+      "verified": 3,
+      "escalated": 0
+    },
+    "timing": {
+      "trials": 3,
+      "verified": 1,
+      "escalated": 2
+    }
+  },
+  "episodes": 9,
+  "verified": 7,
+  "escalated": 2,
+  "provider_calls": 20,
+  "input_tokens": 174306,
+  "output_tokens": 50164,
+  "no_recheck_baseline": {
+    "promotions": 20,
+    "confirmed_native_failures": 11,
+    "required_target_unavailable": 2
+  },
+  "all_retained_live_episodes": [
+    {
+      "run_dir": "runs/alu8_api_closure_v1",
+      "prospective": false,
+      "clean": true,
+      "valid_provider_responses": 1,
+      "provider_errors": [],
+      "input_tokens": 6930,
+      "output_tokens": 1527,
+      "requested_stages": [
+        "drc"
+      ],
+      "terminal_status": "ok"
+    },
+    {
+      "run_dir": "runs/alu8_drc_api_repeat_v2",
+      "prospective": false,
+      "clean": false,
+      "valid_provider_responses": 0,
+      "provider_errors": [
+        {
+          "ts": 1791806759.5451465,
+          "event": "agent_failure",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "agent response failed; EDA failure remains DRC FAILED: 1 violations in 1 of 211 categories on top cell 'alu8'; worst: npc.2 (1)",
+          "agent_error": "Claude API call failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CfxK99Utk9W9e9Ur6yB8W'}",
+          "eda_failure_class": "drc"
+        }
+      ],
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "requested_stages": [],
+      "terminal_status": "failed"
+    },
+    {
+      "run_dir": "runs/alu8_drc_api_repeat_v3",
+      "prospective": false,
+      "clean": true,
+      "valid_provider_responses": 1,
+      "provider_errors": [],
+      "input_tokens": 6937,
+      "output_tokens": 1558,
+      "requested_stages": [
+        "drc"
+      ],
+      "terminal_status": "ok"
+    },
+    {
+      "run_dir": "runs/alu8_drc_typed_trial3",
+      "prospective": false,
+      "clean": true,
+      "valid_provider_responses": 1,
+      "provider_errors": [],
+      "input_tokens": 8586,
+      "output_tokens": 1110,
+      "requested_stages": [
+        "drc"
+      ],
+      "terminal_status": "ok"
+    },
+    {
+      "run_dir": "runs/alu8_timing_api_3ns_v1",
+      "prospective": false,
+      "clean": false,
+      "valid_provider_responses": 0,
+      "provider_errors": [
+        {
+          "ts": 1791805904.7325604,
+          "event": "agent_failure",
+          "stage": "sta_signoff",
+          "attempt": 1,
+          "message": "agent response failed; EDA failure remains signoff setup WNS -0.3262ns is below the 0.0000ns guardband",
+          "agent_error": "Claude API call failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CfxJ48jEvGHSBxxUCYoxD'}",
+          "eda_failure_class": "setup"
+        }
+      ],
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "requested_stages": [],
+      "terminal_status": "failed"
+    },
+    {
+      "run_dir": "runs/alu8_timing_api_3ns_v3",
+      "prospective": false,
+      "clean": false,
+      "valid_provider_responses": 0,
+      "provider_errors": [
+        {
+          "ts": 1791806738.0329893,
+          "event": "agent_failure",
+          "stage": "sta_signoff",
+          "attempt": 1,
+          "message": "agent response failed; EDA failure remains signoff setup WNS -0.3262ns is below the 0.0000ns guardband",
+          "agent_error": "Claude API call failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CfxK7ZWSh2tSUXYckruC4'}",
+          "eda_failure_class": "setup"
+        }
+      ],
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "requested_stages": [],
+      "terminal_status": "failed"
+    },
+    {
+      "run_dir": "runs/alu8_timing_api_3ns_v4",
+      "prospective": false,
+      "clean": false,
+      "valid_provider_responses": 1,
+      "provider_errors": [],
+      "input_tokens": 9014,
+      "output_tokens": 1662,
+      "requested_stages": [
+        "sta_signoff"
+      ],
+      "terminal_status": "failed"
+    },
+    {
+      "run_dir": "runs/alu8_timing_typed_trial1",
+      "prospective": false,
+      "clean": false,
+      "valid_provider_responses": 0,
+      "provider_errors": [
+        {
+          "ts": 1791807544.4766514,
+          "event": "agent_failure",
+          "stage": "sta_signoff",
+          "attempt": 1,
+          "message": "agent response failed; EDA failure remains signoff setup WNS -0.3262ns is below the 0.0000ns guardband",
+          "agent_error": "Claude API call failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'The compiled grammar is too large, which would cause performance issues. Simplify your tool schemas or reduce the number of strict tools.'}, 'request_id': 'req_011CfxL8yppprGN7JTyC2ib2'}",
+          "eda_failure_class": "setup"
+        }
+      ],
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "requested_stages": [],
+      "terminal_status": "failed"
+    },
+    {
+      "run_dir": "runs/live_drc_study/drc_1",
+      "prospective": true,
+      "clean": true,
+      "valid_provider_responses": 1,
+      "provider_errors": [],
+      "input_tokens": 6999,
+      "output_tokens": 1403,
+      "requested_stages": [
+        "drc"
+      ],
+      "terminal_status": "ok"
+    },
+    {
+      "run_dir": "runs/live_drc_study/drc_2",
+      "prospective": true,
+      "clean": true,
+      "valid_provider_responses": 1,
+      "provider_errors": [],
+      "input_tokens": 6999,
+      "output_tokens": 3175,
+      "requested_stages": [
+        "drc"
+      ],
+      "terminal_status": "ok"
+    },
+    {
+      "run_dir": "runs/live_drc_study/drc_3",
+      "prospective": true,
+      "clean": true,
+      "valid_provider_responses": 1,
+      "provider_errors": [],
+      "input_tokens": 7003,
+      "output_tokens": 1443,
+      "requested_stages": [
+        "drc"
+      ],
+      "terminal_status": "ok"
+    },
+    {
+      "run_dir": "runs/live_repair_study/pdn_1",
+      "prospective": true,
+      "clean": true,
+      "valid_provider_responses": 1,
+      "provider_errors": [],
+      "input_tokens": 7544,
+      "output_tokens": 1418,
+      "requested_stages": [
+        "pdn"
+      ],
+      "terminal_status": "ok"
+    },
+    {
+      "run_dir": "runs/live_repair_study/pdn_2",
+      "prospective": true,
+      "clean": true,
+      "valid_provider_responses": 1,
+      "provider_errors": [],
+      "input_tokens": 7547,
+      "output_tokens": 1263,
+      "requested_stages": [
+        "pdn"
+      ],
+      "terminal_status": "ok"
+    },
+    {
+      "run_dir": "runs/live_repair_study/pdn_3",
+      "prospective": true,
+      "clean": true,
+      "valid_provider_responses": 1,
+      "provider_errors": [],
+      "input_tokens": 7543,
+      "output_tokens": 1375,
+      "requested_stages": [
+        "pdn"
+      ],
+      "terminal_status": "ok"
+    },
+    {
+      "run_dir": "runs/live_repair_study/timing_1",
+      "prospective": true,
+      "clean": true,
+      "valid_provider_responses": 2,
+      "provider_errors": [],
+      "input_tokens": 18619,
+      "output_tokens": 4597,
+      "requested_stages": [
+        "sta_signoff",
+        "sta_signoff"
+      ],
+      "terminal_status": "ok"
+    },
+    {
+      "run_dir": "runs/live_repair_study/timing_2",
+      "prospective": true,
+      "clean": false,
+      "valid_provider_responses": 3,
+      "provider_errors": [],
+      "input_tokens": 28142,
+      "output_tokens": 11181,
+      "requested_stages": [
+        "sta_signoff",
+        "sta_signoff",
+        "sta_signoff"
+      ],
+      "terminal_status": "failed"
+    },
+    {
+      "run_dir": "runs/live_repair_study/timing_3",
+      "prospective": true,
+      "clean": false,
+      "valid_provider_responses": 9,
+      "provider_errors": [],
+      "input_tokens": 83910,
+      "output_tokens": 24309,
+      "requested_stages": [
+        "sta_signoff",
+        "sta_signoff",
+        "sta_signoff",
+        "sta_signoff",
+        "placement",
+        "sta_signoff",
+        "sta_signoff",
+        "sta_signoff",
+        "sta_signoff"
+      ],
+      "terminal_status": "failed"
+    },
+    {
+      "run_dir": "runs/paper_fifo_live_20261012",
+      "prospective": false,
+      "clean": false,
+      "valid_provider_responses": 0,
+      "provider_errors": [
+        {
+          "ts": 1791785933.1768062,
+          "event": "agent_failure",
+          "stage": "lint",
+          "attempt": 1,
+          "message": "agent response failed; EDA failure remains verilator reported 2 error(s): GENERIC",
+          "agent_error": "Claude API call failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CfwrfwnPXJciM5J8UKc1s'}",
+          "eda_failure_class": "rtl_syntax"
+        }
+      ],
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "requested_stages": [],
+      "terminal_status": "failed"
+    },
+    {
+      "run_dir": "runs/paper_register_fault_api_20261012",
+      "prospective": false,
+      "clean": false,
+      "valid_provider_responses": 1,
+      "provider_errors": [
+        {
+          "ts": 1791786304.6886075,
+          "event": "agent_failure",
+          "stage": "cts",
+          "attempt": 1,
+          "message": "agent response failed; EDA failure remains cts was killed (likely out of memory)",
+          "agent_error": "malformed structured model response: model action target 'cts.target_skew_ns' is outside the authorized surface; stop_reason='end_turn'; content_blocks=('thinking', 'text'); usage=Usage(cache_creation=CacheCreation(ephemeral_1h_input_tokens=0, ephemeral_5m_input_tokens=0), cache_creation_input_tokens=0, cache_read_input_tokens=0, inference_geo='global', input_tokens=7049, output_tokens=1744, output_tokens_details=OutputTokensDetails(thinking_tokens=811), server_tool_use=None, service_tier='standard'); raw='{\"failure_class\":\"cts\",\"implicated_stage\":\"cts\",\"confidence\":0.72,\"evidence\":\"CTS log shows pattern generation runaway to 600,000+ patterns for a mere 22-cell/293um2 design, accompanied by thousands of repeated \\'Failed(termSize) to swap\\' buffer-resizing warnings before the process was OOM-killed. This pattern count is wildly disproportionate to design size and indicates the clock-tree synthesis heuristic is not converging rather than simply running out of system memory under normal load.\",\"reasoning\":\"A 22-cell design should never require hundreds of thousands of CTS patterns; this is a sign that the solver is thrashing trying to meet an infeasible constraint (target_skew_ns=0.2ns combined with balance_levels=true), repeatedly attempting buffer substitutions that fail (ODB-0045) and retrying without convergence, which drives unbounded memory growth. That is a CTS configuration/convergence problem, not a transient infrastructure fault, so classifying purely as tool_runtime/environment_f'",
+          "eda_failure_class": "tool_runtime"
+        }
+      ],
+      "input_tokens": 5089,
+      "output_tokens": 422,
+      "requested_stages": [
+        "lint"
+      ],
+      "terminal_status": "failed"
+    }
+  ]
+}

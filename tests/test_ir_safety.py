@@ -122,7 +122,7 @@ def test_fingerprint_is_stable_and_sensitive():
 
 def test_fingerprint_can_scope_to_sections():
     a, b = IR(), IR()
-    b.update("cts", {"target_skew_ns": 0.9})
+    b.update("cts", {"hold_margin_ns": 0.9})
     assert a.fingerprint(["floorplan"]) == b.fingerprint(["floorplan"])
     assert a.fingerprint(["cts"]) != b.fingerprint(["cts"])
 

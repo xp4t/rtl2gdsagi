@@ -4,8 +4,7 @@
 
 If you've written Verilog that works on an FPGA and wondered "could this be an
 actual chip?", this tool takes you the rest of the way: from your `.v` files to
-a GDSII layout on the open-source SkyWater 130 nm process, running every
-signoff check a real tapeout needs.
+a GDSII layout on the open-source SkyWater 130 nm process, running the native verification gates declared by this flow.
 
 You need to know basic Linux. You do **not** need to know TCL, OpenROAD,
 KLayout, or how any of the EDA tools work. The tool writes all of that for you.
@@ -220,10 +219,8 @@ self-checking testbench. It takes a few minutes.
 
 `examples/counter/` is a step up: a counter with load and enable, and a
 testbench that checks reset, counting, hold, load, overflow and wraparound.
-Worth reading as a model for writing your own self-checking testbench. Note
-that it currently trips the equivalence checker — see
-[section 9](#9-current-status), that is a known limitation of the tool, not a
-bug in the design.
+It now passes synthesis and routed equivalence and all 21 stages. The
+partition-cut problem that previously blocked this example has been corrected.
 
 Five additional examples exercise different design patterns and self-healing
 scenarios:
@@ -231,20 +228,20 @@ scenarios:
 | example | what it is | what it tests |
 |---|---|---|
 | `examples/mux4to1/` | 4-to-1 mux with registered output | Combinational logic + FFs. Completes all 21 stages, DRC clean. |
-| `examples/alu8/` | 8-bit ALU (add/sub/and/or/xor/not/shl/shr) | Wider combinational logic. Hits a `npc.2` DRC violation without the API; with the API, Claude changes placement parameters and the re-run passes clean. |
-| `examples/shift_reg/` | Bidirectional shift register with parallel load | Sequential design. Trips the LEC false-counterexample like `counter`. |
+| `examples/alu8/` | 8-bit ALU | Completes all 21 stages with the verified two-site placement padding. The unpadded configuration is retained in `benchmarks/signoff/alu8_unpadded.yaml` for repair reproduction. |
+| `examples/shift_reg/` | Bidirectional shift register with parallel load | Completes all 21 stages, including both equivalence boundaries. |
 | `examples/toggle_ff/` | 4-bit toggle counter | Smallest sequential design. Completes all 21 stages. |
-| `examples/fifo_buf/` | Small FIFO buffer with an **intentional RTL error** | Missing wire declarations. With the API, Claude patches the working RTL copy and lint passes on retry. The original file is never touched. |
+| `examples/fifo_buf/` | Four-entry FIFO | Completes all 21 stages. Reachability proof resolves the bounded-induction limitation. |
 
 ```bash
 # clean run — no API needed
 .venv/bin/rtl2gdsagi run --config examples/mux4to1/mux4to1.yaml --no-api
 
-# self-healing: Claude fixes a DRC violation by adjusting placement
-.venv/bin/rtl2gdsagi run --config examples/alu8/alu8.yaml --repair-policy auto
+# reproduce the live physical repair from the original unpadded configuration
+.venv/bin/rtl2gdsagi run --config benchmarks/signoff/alu8_unpadded.yaml --repair-policy auto
 
-# self-healing: Claude patches the RTL to fix a lint error
-.venv/bin/rtl2gdsagi run --config examples/fifo_buf/fifo_buf.yaml --repair-policy auto
+# memory-bearing FIFO, including reachability proof
+.venv/bin/rtl2gdsagi run --config examples/fifo_buf/fifo_buf.yaml --no-api
 ```
 
 ### 3.1 Requirements for your design
@@ -782,6 +779,26 @@ them by rewriting your logic.
 
 ## 9. Current status
 
+The final validation on 12 October 2026 completed **all 21 stages with clean
+signoff for seven distinct designs**: `register`, `mux4to1`, `alu8`, `counter`,
+`shift_reg`, `fifo_buf`, and the 1,024-cell `shift1024`. Every selected run passed simulation, both formal
+boundaries, extracted-parasitic timing, GDS integrity, DRC, LVS and antenna.
+The full regression suite reports **954 passed, 15 skipped, no failures or
+errors**. The skips refer to absent archived calibration or OV7670 fixtures.
+
+The reproducible commands are in `scripts/run_signoff_benchmark.py`; measured
+values and hash/certification receipts are in
+`rtl2gdsagi_paper/evidence/signoff_metrics.csv` and `live_results.json`.
+The selected paired directories are recorded in
+`rtl2gdsagi_paper/evidence/experiment_manifest.json`: six designs in
+`runs/padding_release_pair_{a,b}/` and `shift1024` in
+`runs/shift_scale_pair_{a,b}/`. The native fault study blocks all 18 fixtures
+accepted by its explicitly defined status/count comparator. The nine live
+repair episodes produce seven fully verified repairs and two escalations;
+20 authorized proposals are separately evaluated against a no-recheck comparator.
+The following older troubleshooting notes concern historical development and
+larger-design investigations; they do not replace these current measurements.
+
 Honest picture, tested on a real design (an OV7670 camera controller, 929 cells)
 against the real SKY130 PDK.
 
@@ -985,7 +1002,7 @@ the grid to them (`add_pdn_connect -layers {met1 met4}`). Afterwards the via
 stack is complete — 6 vias on 68/44, then 69/44, 70/44, 71/44 — and DRC is
 unchanged at 1 violation.
 
-### LVS runs, but does not yet match
+### Historical LVS investigation on the larger camera design
 
 It reads both netlists, extracts the design, and produces a real comparison.
 Everything up to the verdict works; the verdict is still `Netlists don't match`.
@@ -1027,61 +1044,16 @@ One more thing worth knowing: the LVS runset has **no `$top_cell` variable**
 (the DRC runset does). It infers the top cell, so the GDS must contain exactly
 one — which is why stream-out prunes every cell the design does not use.
 
-**Formal equivalence (LEC)**: working, and **not yet trustworthy on every
-design**. Read this before believing what it tells you.
+**Formal equivalence (LEC)** now proves both boundaries on all seven selected
+examples. The renderer groups matched signals so related outputs remain part
+of one transition relation. SAT and SMT induction are followed by an ABC PDR
+reachability strategy when needed. An earlier inconclusive strategy is resolved
+only by a later proof of the same partition; later unknowns, errors, and
+counterexamples still block acceptance. A deliberately corrupted counter
+netlist fails the updated proof configuration.
 
-The infrastructure works. SKY130's cell models use Verilog UDPs that Yosys
-cannot parse — the thing that blocks a naive equivalence check — and a vendored
-preprocessor (`formal_pdk_proc.py`, from EQY's own SKY130 example) handles them.
-Memories are lowered to logic on *both* sides so the comparison stays fair. Two
-strategies are tried: fast SAT, then SMT via `sby` + `z3`.
-
-It proves plenty. An 8-bit register with an asynchronous reset proves cleanly,
-end to end, inside the flow. But an 8-bit counter with load and enable inputs —
-also certainly correct — comes back with a counterexample.
-
-| design | sequential? | LEC result |
-|---|---|---|
-| register, async reset (`o_data <= i_data + 1`) | yes | **proved** |
-| counter with load + enable mux chain | yes | counterexample |
-| any combinational partition | no | **proved** |
-
-Evidence that the fault is in the comparison rather than the design:
-
-| experiment | result |
-|---|---|
-| netlist compared against **itself** | **proves cleanly**, sequential partitions included |
-| async reset → sync reset | no change |
-| stripping `init` attributes from both sides | no change |
-| removing `setundef -zero` / `hilomap` from synthesis | no change |
-
-So the setup is sound, and the fault is specific to matching the RTL side
-against the mapped netlist for some next-state logic. Unresolved.
-
-**Because of this, the tool does not tell you your design is broken.** It says
-equivalence was *not established*, notes that this flow produces false
-counterexamples on sequential logic, and asks you to look at the trace before
-changing any RTL. Signoff still refuses to certify — unverified is unverified —
-but an unqualified "your netlist is wrong" would be the worst thing this tool
-could say to someone learning.
-
-On the larger OV7670 design the picture is different again: 11 partitions
-proved, the rest "equivalence unknown" (z3 reports basecase PASS, induction
-FAIL, so k-induction is not strong enough), and **zero** counterexamples.
-Raising `lec.induction_steps` from 8 to 40 changed nothing but the runtime.
-
-Two outcomes, worded differently on purpose:
-
-| EQY says | the tool says |
-|---|---|
-| `partitions not equivalent` | "equivalence NOT established … the prover reported a counterexample … treat as unverified rather than proof of a bug" |
-| `equivalence unknown` | "could not be proved … **this is not evidence that the netlist is wrong**" |
-
-### If you are picking this up
-
-The next thing to try is the partition alignment between gold and gate — the
-control experiment narrows the fault to how the RTL side and the mapped netlist
-are matched up, since both sides prove fine against themselves.
+The historical larger-camera proof remains outside this seven-design validation.
+Unknown equivalence remains unverified and blocks signoff.
 
 ### Self-healing observed on the test examples
 

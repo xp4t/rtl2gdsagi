@@ -5,9 +5,8 @@ Both are graded with a distinction that matters more than it might look:
 * LEC: "partitions not equivalent" (the prover produced a counterexample)
   versus "equivalence unknown" (it hit its limit). Both block — unverified is
   unverified — but they are worded differently, and *neither* asserts that the
-  design is buggy. This flow still reports counterexamples for sequential logic
-  that is known to be correct, so an unqualified "your netlist is wrong" would
-  be the worst error message a beginner could receive.
+  design is buggy. A mismatch can also originate in cell models or proof
+  configuration, so the diagnostic requires inspection of the trace.
 
 * sim: a testbench that runs to completion without checking anything is neither
   a pass nor a failure. Failing a whole tapeout flow because a testbench does
@@ -52,6 +51,26 @@ def test_all_partitions_proved_is_a_pass():
     assert v.metrics["partitions_proved"] == 2
 
 
+def test_later_strategy_proof_resolves_the_same_partition_unknown():
+    v = check_lec(eqy(UNKNOWN.format("top.a"), PROVED.format("top.a"),
+                      "DONE (PASS, rc=0)"), StageId.LEC_SYNTH)
+    assert v.kind is VerdictKind.PASS
+    assert v.metrics["partitions_unknown"] == 0
+    assert v.metrics["strategy_unknown_results"] == 1
+
+
+def test_later_unknown_cannot_reuse_an_earlier_proof():
+    v = check_lec(eqy(PROVED.format("top.a"), UNKNOWN.format("top.a"),
+                      "DONE (PASS, rc=0)"), StageId.LEC_SYNTH)
+    assert v.kind is VerdictKind.FAIL
+
+
+def test_a_later_proof_does_not_erase_a_counterexample():
+    v = check_lec(eqy(NOT_EQUIV.format("top.a"), PROVED.format("top.a"),
+                      "DONE (PASS, rc=0)"), StageId.LEC_SYNTH)
+    assert v.kind is VerdictKind.FAIL
+
+
 def test_a_reported_counterexample_blocks_without_accusing_the_design():
     v = check_lec(
         eqy(PROVED.format("top.a"), NOT_EQUIV.format("top.b"),
@@ -62,8 +81,7 @@ def test_a_reported_counterexample_blocks_without_accusing_the_design():
     assert v.failure is FailureClass.LEC_MISMATCH
     assert v.metrics["partitions_not_equivalent"] == 1
     assert "NOT established" in v.summary
-    # Must not assert the design is buggy: this flow still produces
-    # counterexamples on sequential logic that is known to be correct.
+    # The diagnostic keeps design, mapping and proof-configuration causes open.
     assert "unverified rather than as proof of a bug" in v.summary
 
 

@@ -1,0 +1,13 @@
+\begin{table}[htbp]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Paired hashes. GDS (dates zeroed) changes only library/structure date payloads; full digests are supplied in the artifact.}\label{tab:reproducibility}
+\begin{tabular}{@{}lllll@{}}\toprule
+Design & Routed DEF & SPEF & Raw GDS & Dates zeroed \\
+\midrule
+register & Same & Same & Different & Same \\
+mux4to1 & Same & Same & Different & Same \\
+alu8 & Same & Same & Different & Same \\
+counter & Same & Same & Different & Same \\
+shift\_reg & Same & Same & Different & Same \\
+fifo\_buf & Same & Same & Different & Same \\
+shift1024 & Different & Same & Different & Different \\
+\bottomrule\end{tabular}\end{table}

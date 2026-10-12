@@ -1,0 +1,899 @@
+[
+  {
+    "run_dir": "runs/accum_density_pair_a/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 16,
+    "synthesis": {
+      "ts": 1791811810.211988,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791811987.4965637,
+      "event": "result_check",
+      "stage": "drc",
+      "attempt": 1,
+      "message": "DRC FAILED: 9 violations in 1 of 211 categories on top cell 'accum_bank32'; worst: npc.2 (9)",
+      "ok": false,
+      "kind": "fail",
+      "total_violations": 9,
+      "violated_categories": 1,
+      "checked_gds_sha256": "5c5030e1863ceaad16997384363ea1772e18e90f5e017b56b6b678682adadb6f"
+    },
+    "terminal_event": {
+      "ts": 1791811987.5341315,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 16
+    }
+  },
+  {
+    "run_dir": "runs/accum_margin80_pair_a/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 12,
+    "synthesis": {
+      "ts": 1791812977.9163635,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791813004.1768556,
+      "event": "result_check",
+      "stage": "routing",
+      "attempt": 1,
+      "message": "OpenROAD reported 1 error(s): DPL-0036",
+      "ok": false,
+      "kind": "fail",
+      "warnings": 7
+    },
+    "terminal_event": {
+      "ts": 1791813004.2387803,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 12
+    }
+  },
+  {
+    "run_dir": "runs/accum_margin80_pair_b/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 12,
+    "synthesis": {
+      "ts": 1791812979.0807974,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791813005.394869,
+      "event": "result_check",
+      "stage": "routing",
+      "attempt": 1,
+      "message": "OpenROAD reported 1 error(s): DPL-0036",
+      "ok": false,
+      "kind": "fail",
+      "warnings": 7
+    },
+    "terminal_event": {
+      "ts": 1791813005.4567137,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 12
+    }
+  },
+  {
+    "run_dir": "runs/accum_pair/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 5,
+    "synthesis": {
+      "ts": 1791810912.822255,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791811097.1130378,
+      "event": "result_check",
+      "stage": "lec_synth",
+      "attempt": 1,
+      "message": "equivalence could not be proved for 1 partition(s) (e.g. accum_bank32.o_data): the prover reached its limit without finding either a proof or a counterexample. This is not evidence that the netlist is wrong. Raise lec.induction_steps, or install an SMT solver so a stronger strategy is available.",
+      "ok": false,
+      "kind": "fail",
+      "partitions_proved": 0,
+      "partitions_not_equivalent": 0,
+      "partitions_unknown": 1,
+      "strategy_unknown_results": 1,
+      "eqy_terminal_results": 0,
+      "eqy_errors": 0
+    },
+    "terminal_event": {
+      "ts": 1791811097.167127,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 0,
+        "remaining": 24
+      },
+      "stages_ok": 5
+    }
+  },
+  {
+    "run_dir": "runs/accum_spacing_pair_a/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 12,
+    "synthesis": {
+      "ts": 1791811715.3615608,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791811747.863624,
+      "event": "result_check",
+      "stage": "routing",
+      "attempt": 1,
+      "message": "OpenROAD reported 1 error(s): GRT-0118",
+      "ok": false,
+      "kind": "fail",
+      "warnings": 1
+    },
+    "terminal_event": {
+      "ts": 1791811747.9544709,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 12
+    }
+  },
+  {
+    "run_dir": "runs/alu_bank16_signoff_v1",
+    "recorded_status": "failed",
+    "completed_stages": 18,
+    "synthesis": {
+      "ts": 1791806773.6329608,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 2156 cells, 16294um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 2156,
+      "area_um2": 16294.3776,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791809216.1190104,
+      "event": "result_check",
+      "stage": "antenna",
+      "attempt": 1,
+      "message": "antenna violations: 18 net(s), 18 pin(s)",
+      "ok": false,
+      "kind": "fail",
+      "warnings": 1,
+      "antenna_net_violations": 18,
+      "antenna_pin_violations": 18,
+      "antenna_results": 1
+    },
+    "terminal_event": {
+      "ts": 1791809216.1653116,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 18
+    }
+  },
+  {
+    "run_dir": "runs/closure_counter_pilot",
+    "recorded_status": "failed",
+    "completed_stages": 5,
+    "synthesis": {
+      "ts": 1791787390.9286616,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 47 cells, 417um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 47,
+      "area_um2": 416.6496,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791787392.768541,
+      "event": "result_check",
+      "stage": "lec_synth",
+      "attempt": 1,
+      "message": "equivalence NOT established for 1 partition(s) (e.g. counter.o_count): the prover reported a counterexample. Note that this flow currently reports a counterexample for sequential logic even on designs known to be correct, so treat this as unverified rather than as proof of a bug, and check the trace before changing your RTL.",
+      "ok": false,
+      "kind": "fail",
+      "partitions_proved": 1,
+      "partitions_not_equivalent": 1,
+      "partitions_unknown": 1,
+      "eqy_outcome": "FAIL",
+      "eqy_terminal_results": 1,
+      "eqy_errors": 0
+    },
+    "terminal_event": {
+      "ts": 1791787392.8235855,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 0,
+        "remaining": 24
+      },
+      "stages_ok": 5
+    }
+  },
+  {
+    "run_dir": "runs/closure_shift_pilot",
+    "recorded_status": "failed",
+    "completed_stages": 5,
+    "synthesis": {
+      "ts": 1791787390.8686602,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 16 cells, 380um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 16,
+      "area_um2": 380.3648,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791787392.4089696,
+      "event": "result_check",
+      "stage": "lec_synth",
+      "attempt": 1,
+      "message": "equivalence NOT established for 2 partition(s) (e.g. shift_reg.o_data, shift_reg.o_serial_out): the prover reported a counterexample. Note that this flow currently reports a counterexample for sequential logic even on designs known to be correct, so treat this as unverified rather than as proof of a bug, and check the trace before changing your RTL.",
+      "ok": false,
+      "kind": "fail",
+      "partitions_proved": 0,
+      "partitions_not_equivalent": 2,
+      "partitions_unknown": 1,
+      "eqy_outcome": "FAIL",
+      "eqy_terminal_results": 1,
+      "eqy_errors": 0
+    },
+    "terminal_event": {
+      "ts": 1791787392.463698,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 0,
+        "remaining": 24
+      },
+      "stages_ok": 5
+    }
+  },
+  {
+    "run_dir": "runs/conservative_ant_pair_a/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 12,
+    "synthesis": {
+      "ts": 1791812830.954017,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791812894.734873,
+      "event": "result_check",
+      "stage": "routing",
+      "attempt": 1,
+      "message": "OpenROAD reported 1 error(s): DPL-0036",
+      "ok": false,
+      "kind": "fail",
+      "warnings": 47
+    },
+    "terminal_event": {
+      "ts": 1791812894.8085876,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 12
+    }
+  },
+  {
+    "run_dir": "runs/conservative_ant_pair_b/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 12,
+    "synthesis": {
+      "ts": 1791812832.125473,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791812893.7423425,
+      "event": "result_check",
+      "stage": "routing",
+      "attempt": 1,
+      "message": "OpenROAD reported 1 error(s): DPL-0036",
+      "ok": false,
+      "kind": "fail",
+      "warnings": 47
+    },
+    "terminal_event": {
+      "ts": 1791812893.81282,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 12
+    }
+  },
+  {
+    "run_dir": "runs/fifo_signoff_final/fifo_buf",
+    "recorded_status": "failed",
+    "completed_stages": 5,
+    "synthesis": {
+      "ts": 1791789326.4068167,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 109 cells, 1722um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 109,
+      "area_um2": 1721.6512,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791789339.4849336,
+      "event": "result_check",
+      "stage": "lec_synth",
+      "attempt": 1,
+      "message": "equivalence could not be proved for 1 partition(s) (e.g. fifo_buf.o_data): the prover reached its limit without finding either a proof or a counterexample. This is not evidence that the netlist is wrong. Raise lec.induction_steps, or install an SMT solver so a stronger strategy is available.",
+      "ok": false,
+      "kind": "fail",
+      "partitions_proved": 0,
+      "partitions_not_equivalent": 0,
+      "partitions_unknown": 1,
+      "eqy_outcome": "FAIL",
+      "eqy_terminal_results": 1,
+      "eqy_errors": 0
+    },
+    "terminal_event": {
+      "ts": 1791789339.5398269,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 0,
+        "remaining": 24
+      },
+      "stages_ok": 5
+    }
+  },
+  {
+    "run_dir": "runs/five_design_signoff_v1/alu8",
+    "recorded_status": "failed",
+    "completed_stages": 16,
+    "synthesis": {
+      "ts": 1791787920.8715198,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 133 cells, 1018um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 133,
+      "area_um2": 1018.4768,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791787994.609944,
+      "event": "result_check",
+      "stage": "drc",
+      "attempt": 1,
+      "message": "DRC FAILED: 1 violations in 1 of 211 categories on top cell 'alu8'; worst: npc.2 (1)",
+      "ok": false,
+      "kind": "fail",
+      "total_violations": 1,
+      "violated_categories": 1,
+      "checked_gds_sha256": "e9db9ab1c7e2d0aa37ce6a2ad02f99bbb5c1e31a87ea56b07e65e39339464226"
+    },
+    "terminal_event": {
+      "ts": 1791787994.656929,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 16
+    }
+  },
+  {
+    "run_dir": "runs/mul32_scale_signoff_v1",
+    "recorded_status": "failed",
+    "completed_stages": 5,
+    "synthesis": {
+      "ts": 1791805919.7419515,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 5093 cells, 34094um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 5093,
+      "area_um2": 34093.9488,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791806763.55265,
+      "event": "result_check",
+      "stage": "lec_synth",
+      "attempt": 1,
+      "message": "the equivalence check produced no verdict; refusing to assume the netlist matches the RTL",
+      "ok": false,
+      "kind": "fail",
+      "partitions_proved": 0,
+      "partitions_not_equivalent": 0,
+      "partitions_unknown": 0,
+      "strategy_unknown_results": 0,
+      "eqy_terminal_results": 0,
+      "eqy_errors": 0
+    },
+    "terminal_event": {
+      "ts": 1791806763.6123092,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 16,
+        "spent": 0,
+        "remaining": 16
+      },
+      "stages_ok": 5
+    }
+  },
+  {
+    "run_dir": "runs/padding_release_pair_a/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 16,
+    "synthesis": {
+      "ts": 1791812081.789307,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791812356.4610653,
+      "event": "result_check",
+      "stage": "drc",
+      "attempt": 1,
+      "message": "DRC FAILED: 8 violations in 1 of 211 categories on top cell 'accum_bank32'; worst: npc.2 (8)",
+      "ok": false,
+      "kind": "fail",
+      "total_violations": 8,
+      "violated_categories": 1,
+      "checked_gds_sha256": "c3d701dbff1467934db370b4e657c8d676fec98f00fabb49ddaa15a730f861a9"
+    },
+    "terminal_event": {
+      "ts": 1791812356.498829,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 16
+    }
+  },
+  {
+    "run_dir": "runs/padding_release_pair_b/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 16,
+    "synthesis": {
+      "ts": 1791812083.0405114,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791812358.3309054,
+      "event": "result_check",
+      "stage": "drc",
+      "attempt": 1,
+      "message": "DRC FAILED: 8 violations in 1 of 211 categories on top cell 'accum_bank32'; worst: npc.2 (8)",
+      "ok": false,
+      "kind": "fail",
+      "total_violations": 8,
+      "violated_categories": 1,
+      "checked_gds_sha256": "728dfca1f9bb481ed2480360f8dd6ff292b262ad6bb9a879ac1ba2b47ddfb871"
+    },
+    "terminal_event": {
+      "ts": 1791812358.368448,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 16
+    }
+  },
+  {
+    "run_dir": "runs/paper_register_fault_api_20261012",
+    "recorded_status": "failed",
+    "completed_stages": 10,
+    "synthesis": {
+      "ts": 1791786122.9453783,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 22 cells, 293um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 22,
+      "area_um2": 292.7808,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791786283.5514257,
+      "event": "result_check",
+      "stage": "cts",
+      "attempt": 1,
+      "message": "cts was killed (likely out of memory)",
+      "ok": false,
+      "kind": "fail"
+    },
+    "terminal_event": {
+      "ts": 1791786304.7039995,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 2,
+        "remaining": 22
+      },
+      "stages_ok": 10
+    }
+  },
+  {
+    "run_dir": "runs/paper_register_live_abs_20261012",
+    "recorded_status": "failed",
+    "completed_stages": 10,
+    "synthesis": {
+      "ts": 1791785953.6902,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 22 cells, 293um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 22,
+      "area_um2": 292.7808,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791786283.5771925,
+      "event": "result_check",
+      "stage": "cts",
+      "attempt": 1,
+      "message": "cts was killed (likely out of memory)",
+      "ok": false,
+      "kind": "fail"
+    },
+    "terminal_event": {
+      "ts": 1791786283.6339583,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 10
+    }
+  },
+  {
+    "run_dir": "runs/passive_fill_pair_a/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 18,
+    "synthesis": {
+      "ts": 1791812484.9251282,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791812763.0669136,
+      "event": "result_check",
+      "stage": "antenna",
+      "attempt": 1,
+      "message": "antenna violations: 3 net(s), 3 pin(s)",
+      "ok": false,
+      "kind": "fail",
+      "warnings": 1,
+      "antenna_net_violations": 3,
+      "antenna_pin_violations": 3,
+      "antenna_results": 1
+    },
+    "terminal_event": {
+      "ts": 1791812763.1223013,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 18
+    }
+  },
+  {
+    "run_dir": "runs/passive_fill_pair_b/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 18,
+    "synthesis": {
+      "ts": 1791812486.1157727,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791812763.8113668,
+      "event": "result_check",
+      "stage": "antenna",
+      "attempt": 1,
+      "message": "antenna violations: 3 net(s), 3 pin(s)",
+      "ok": false,
+      "kind": "fail",
+      "warnings": 1,
+      "antenna_net_violations": 3,
+      "antenna_pin_violations": 3,
+      "antenna_results": 1
+    },
+    "terminal_event": {
+      "ts": 1791812763.8650448,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 18
+    }
+  },
+  {
+    "run_dir": "runs/pipeline2048_scale_probe_v1",
+    "recorded_status": "running",
+    "completed_stages": 5,
+    "synthesis": {
+      "ts": 1791805533.0803752,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 4096 cells, 58937um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 4096,
+      "area_um2": 58936.5248,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791805617.3858066,
+      "event": "result_check",
+      "stage": "lec_synth",
+      "attempt": 1,
+      "message": "the equivalence run could not start: A problem occurred during equivalence check.",
+      "ok": false,
+      "kind": "fail",
+      "partitions_proved": 0,
+      "partitions_not_equivalent": 0,
+      "partitions_unknown": 0,
+      "strategy_unknown_results": 0,
+      "eqy_terminal_results": 0,
+      "eqy_errors": 1
+    },
+    "terminal_event": null
+  },
+  {
+    "run_dir": "runs/publication_pair_a/alu_bank16",
+    "recorded_status": "failed",
+    "completed_stages": 18,
+    "synthesis": {
+      "ts": 1791807833.7632499,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 2156 cells, 16294um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 2156,
+      "area_um2": 16294.3776,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791810454.3029754,
+      "event": "result_check",
+      "stage": "antenna",
+      "attempt": 1,
+      "message": "antenna violations: 19 net(s), 23 pin(s)",
+      "ok": false,
+      "kind": "fail",
+      "warnings": 1,
+      "antenna_net_violations": 19,
+      "antenna_pin_violations": 23,
+      "antenna_results": 1
+    },
+    "terminal_event": {
+      "ts": 1791810454.3540995,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 18
+    }
+  },
+  {
+    "run_dir": "runs/submission_pair_a/accum_bank32",
+    "recorded_status": "failed",
+    "completed_stages": 16,
+    "synthesis": {
+      "ts": 1791811308.212887,
+      "event": "result_check",
+      "stage": "synthesis",
+      "attempt": 1,
+      "message": "synthesis clean: 1995 cells, 17425um2",
+      "ok": true,
+      "kind": "pass",
+      "cells": 1995,
+      "area_um2": 17425.4624,
+      "latches_inferred": false
+    },
+    "latest_failed_check": {
+      "ts": 1791811478.2881546,
+      "event": "result_check",
+      "stage": "drc",
+      "attempt": 1,
+      "message": "DRC FAILED: 1 violations in 1 of 211 categories on top cell 'accum_bank32'; worst: npc.2 (1)",
+      "ok": false,
+      "kind": "fail",
+      "total_violations": 1,
+      "violated_categories": 1,
+      "checked_gds_sha256": "5e79f83e5ed049c37739cda18fd5ed1fdb6f2687234580982d2e86ee2ff96fb2"
+    },
+    "terminal_event": {
+      "ts": 1791811478.3328764,
+      "event": "run_end",
+      "message": "pipeline finished: failed",
+      "status": "failed",
+      "budget": {
+        "total": 24,
+        "spent": 1,
+        "remaining": 23
+      },
+      "stages_ok": 16
+    }
+  }
+]

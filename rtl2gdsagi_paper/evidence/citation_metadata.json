@@ -1,0 +1,643 @@
+[
+  {
+    "doi": "10.1109/TCAD.2024.3383347",
+    "title": [
+      "ChatEDA: A Large Language Model Powered Autonomous Agent for EDA"
+    ],
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0001-7090-0600",
+        "authenticated-orcid": false,
+        "given": "Haoyuan",
+        "family": "Wu",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Basic Software Research Department, Shanghai Artificial Intelligence Laboratory, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0009-4909-6588",
+        "authenticated-orcid": false,
+        "given": "Zhuolun",
+        "family": "He",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science and Engineering, The Chinese University of Hong Kong, Hong Kong, SAR"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7763-7507",
+        "authenticated-orcid": false,
+        "given": "Xinyun",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science and Engineering, The Chinese University of Hong Kong, Hong Kong, SAR"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xufeng",
+        "family": "Yao",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science and Engineering, The Chinese University of Hong Kong, Hong Kong, SAR"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-1159-1611",
+        "authenticated-orcid": false,
+        "given": "Su",
+        "family": "Zheng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science and Engineering, The Chinese University of Hong Kong, Hong Kong, SAR"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Haisheng",
+        "family": "Zheng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Basic Software Research Department, Shanghai Artificial Intelligence Laboratory, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-6406-4810",
+        "authenticated-orcid": false,
+        "given": "Bei",
+        "family": "Yu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science and Engineering, The Chinese University of Hong Kong, Hong Kong, SAR"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          10
+        ]
+      ]
+    },
+    "volume": "43",
+    "issue": "10",
+    "page": "3184-3197",
+    "URL": "https://doi.org/10.1109/tcad.2024.3383347"
+  },
+  {
+    "doi": "10.1109/MLCAD65511.2025.11189204",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "doi": "10.1109/ACCESS.2026.3730896",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "doi": "10.1145/3316781.3326334",
+    "title": [
+      "Toward an Open-Source Digital Flow"
+    ],
+    "authors": [
+      {
+        "given": "Tutu",
+        "family": "Ajayi",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "U. Michigan"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Vidya A.",
+        "family": "Chhabria",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "U. Minnesota"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Mateus",
+        "family": "Foga\u00e7a",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "PGMicro/UFRGS"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Soheil",
+        "family": "Hashemi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Brown U."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Abdelrahman",
+        "family": "Hosny",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Brown U."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andrew B.",
+        "family": "Kahng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "UC San Diego"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Minsoo",
+        "family": "Kim",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "UC San Diego"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jeongsup",
+        "family": "Lee",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "U. Michigan"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Uday",
+        "family": "Mallappa",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "UC San Diego"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Marina",
+        "family": "Neseem",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Brown U."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Geraldo",
+        "family": "Pradipta",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "U. Minnesota"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sherief",
+        "family": "Reda",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Brown U."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Mehdi",
+        "family": "Saligane",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "U. Michigan"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sachin S.",
+        "family": "Sapatnekar",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "U. Minnesota"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Carl",
+        "family": "Sechen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "U. Texas-Dallas"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Mohamed",
+        "family": "Shalan",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "American U. in Cairo"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "William",
+        "family": "Swartz",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "U. Texas-Dallas"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Lutong",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "UC San Diego"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zhehong",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "U. Michigan"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Mingyu",
+        "family": "Woo",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "UC San Diego"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Bangqi",
+        "family": "Xu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "UC San Diego"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Proceedings of the 56th Annual Design Automation Conference 2019"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2019,
+          6,
+          2
+        ]
+      ]
+    },
+    "volume": null,
+    "issue": null,
+    "page": "1-4",
+    "URL": "https://doi.org/10.1145/3316781.3326334"
+  },
+  {
+    "doi": "10.1145/3400302.3415735",
+    "title": [
+      "Building OpenLANE"
+    ],
+    "authors": [
+      {
+        "given": "Mohamed",
+        "family": "Shalan",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "The American University in Cairo"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tim",
+        "family": "Edwards",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "eFabless Corporation"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Proceedings of the 39th International Conference on Computer-Aided Design"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2020,
+          11,
+          2
+        ]
+      ]
+    },
+    "volume": null,
+    "issue": null,
+    "page": "1-6",
+    "URL": "https://doi.org/10.1145/3400302.3415735"
+  },
+  {
+    "doi": "10.1109/ICCAD51958.2021.9643541",
+    "title": [
+      "METRICS2.1 and Flow Tuning in the IEEE CEDA Robust Design Flow and OpenROAD ICCAD Special Session Paper"
+    ],
+    "authors": [
+      {
+        "given": "Jinwook",
+        "family": "Jung",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andrew B.",
+        "family": "Kahng",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Seungwon",
+        "family": "Kim",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ravi",
+        "family": "Varadarajan",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "2021 IEEE/ACM International Conference On Computer Aided Design (ICCAD)"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2021,
+          11,
+          1
+        ]
+      ]
+    },
+    "volume": null,
+    "issue": null,
+    "page": "1-9",
+    "URL": "https://doi.org/10.1109/iccad51958.2021.9643541"
+  }
+]

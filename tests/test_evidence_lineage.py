@@ -88,6 +88,9 @@ def test_corrected_input_contracts():
     assert "floorplan_def" in GATE_CONTRACTS[StageId.PDN].consumed
     # LVS binds the schematic it compared against.
     assert "routed_netlist" in GATE_CONTRACTS[StageId.LVS].consumed
+    assert "layer_map" in GATE_CONTRACTS[StageId.GDSOUT].consumed
+    assert "drc_deck" in GATE_CONTRACTS[StageId.DRC].consumed
+    assert "lvs_deck" in GATE_CONTRACTS[StageId.LVS].consumed
 
 
 # ---- reproduction 1: present but empty ------------------------------------

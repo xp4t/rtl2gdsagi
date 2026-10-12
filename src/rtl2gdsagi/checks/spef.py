@@ -68,6 +68,17 @@ def resolve_net_name(token: str, name_map: dict[str, str]) -> str | None:
     return token
 
 
+def logical_net_name(name: str) -> str:
+    """Decode punctuation escapes before comparing DEF and SPEF identities.
+
+    OpenRCX escapes the dots in flattened hierarchical identifiers while DEF
+    leaves those dots literal. Both encodings identify the same net. Decode
+    only identifier punctuation, preserving every other character and the
+    existing duplicate/missing/extra-net checks.
+    """
+    return re.sub(r"\\([.\[\]/\\])", r"\1", name)
+
+
 @dataclass(frozen=True)
 class SPEFResult:
     path: Path
@@ -134,7 +145,7 @@ def routed_net_names(def_path: str | Path) -> set[str]:
     if not m:
         return set()
     return {
-        name for name in re.findall(r"^\s*-\s+(\S+)", m.group(1), re.M)
+        logical_net_name(name) for name in re.findall(r"^\s*-\s+(\S+)", m.group(1), re.M)
     }
 
 
@@ -200,7 +211,7 @@ def validate_spef(
         if who is None:
             unresolved.append(token)
         else:
-            resolved.append(who)
+            resolved.append(logical_net_name(who))
         label = who or token
         try:
             value = float(cap)

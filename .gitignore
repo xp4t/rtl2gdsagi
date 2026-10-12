@@ -30,6 +30,7 @@ processor_16b.vcd
 *.pem
 secrets/
 credentials.json
+dist/
 
 # Generated preflight binaries for the isolated validation corpus.
 /validation/claude_sonnet5_corpus/build/

@@ -1,0 +1,12 @@
+top: register
+rtl: examples/register/rtl
+pdk:
+  name: sky130A
+retry_limit: 3
+ir:
+  sim:
+    testbench_dir: examples/register/tb
+  pdn:
+    core_ring: false
+    strap_offset_um: 50.0
+    strap_pitch_um: 10.0

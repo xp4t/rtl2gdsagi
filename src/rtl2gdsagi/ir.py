@@ -181,9 +181,10 @@ SCHEMA: dict[str, tuple[Field, ...]] = {
     "synthesis": (
         _f("strategy", "enum", "AREA0", "ABC mapping strategy.", choices=SYNTH_STRATEGIES),
         _f("flatten", "bool", True, "Flatten the hierarchy before mapping."),
-        _f("max_fanout", "int", 10, "Fanout limit driving buffering.", lo=1, hi=64),
+        _f("max_fanout", "int", 10, "Reserved fanout limit; no synthesis renderer support.",
+           lo=1, hi=64, agent_writable=False),
         _f("adder_type", "enum", "yosys", "Adder mapping.",
-           choices=("yosys", "fa", "rca", "csa")),
+           choices=("yosys", "fa", "rca", "csa"), agent_writable=False),
         _f("share_resources", "bool", True, "Enable resource sharing."),
         _f("dff_map", "bool", True, "Map flip-flops to the standard cell library."),
     ),
@@ -255,14 +256,14 @@ SCHEMA: dict[str, tuple[Field, ...]] = {
            lo=0.0, hi=1.0, agent_writable=False),
     ),
     "cts": (
-        _f("target_skew_ns", "float", 0.2, "Clock tree skew target.", lo=0.0, hi=10.0),
-        _f("max_fanout", "int", 16, "Clock buffer fanout limit.", lo=1, hi=128),
+        _f("target_skew_ns", "float", 0.2, "Reserved skew target; no renderer support.", lo=0.0, hi=10.0, agent_writable=False),
+        _f("max_fanout", "int", 16, "Reserved clock fanout limit; no renderer support.", lo=1, hi=128, agent_writable=False),
         _f("root_buffer", "str", "",
            "Root clock buffer cell; empty means auto. Restricted to a plain "
            "cell identifier: this value is written straight into the CTS Tcl, "
            "where a ';' would start a second command.",
            pattern=CELL_NAME),
-        _f("balance_levels", "bool", True, "Balance clock tree levels."),
+        _f("balance_levels", "bool", True, "Reserved balancing control; no renderer support.", agent_writable=False),
         _f("hold_margin_ns", "float", 0.05,
            "Extra hold slack to aim for when inserting delay cells. Hold is "
            "fixed by adding delay on short paths, never by touching RTL.",
@@ -271,8 +272,21 @@ SCHEMA: dict[str, tuple[Field, ...]] = {
            "Insert delay cells to repair hold violations after the clock tree "
            "exists. Turning this off does not make hold violations acceptable; "
            "the signoff timing gate still fails on them."),
+        _f("fix_setup", "bool", False,
+           "Run native setup repair after CTS. Clock constraints are preserved; "
+           "routed setup and hold must still pass signoff."),
+        _f("setup_margin_ns", "float", 0.05,
+           "Extra positive setup margin targeted by native CTS-stage repair.",
+           lo=0.0, hi=2.0),
     ),
     "routing": (
+        _f("num_threads", "int", 1, "Native routing worker threads.",
+           lo=1, hi=64, agent_writable=False),
+        _f("antenna_ratio_margin_pct", "int", 0,
+           "Conservative margin used when predicting antenna ratios before detailed route; "
+           "the final antenna check remains unchanged.", lo=0, hi=100),
+        _f("antenna_repair_iterations", "int", 1,
+           "Native global-route antenna repair iterations.", lo=1, hi=10),
         _f("min_layer", "int", 1, "Lowest routing metal layer.", lo=1, hi=12),
         _f("max_layer", "int", 5, "Highest routing metal layer.", lo=1, hi=12),
         _f("global_effort", "enum", "medium", "Global routing effort.", choices=EFFORTS, agent_writable=False),

@@ -13,6 +13,7 @@ change rather than a code change.
 from __future__ import annotations
 
 import os
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -199,7 +200,7 @@ class PDKConfig:
             / f"rules.openrcx.{self.name}.{corner}.spef_extractor"
         )
 
-    def clock_buffers(self, limit: int = 6) -> list[str]:
+    def clock_buffers(self, limit: int = 1) -> list[str]:
         """Clock buffer cells, discovered from the cell LEF.
 
         Read from the PDK rather than hardcoded so a different process works
@@ -213,9 +214,20 @@ class PDKConfig:
         for line in lef.read_text(encoding="utf-8", errors="replace").splitlines():
             line = line.strip()
             if line.startswith("MACRO ") and "clkbuf" in line:
-                names.append(line.split(None, 1)[1].strip())
-        # Prefer mid-strength drives; the extremes are rarely good CTS choices.
-        names.sort(key=lambda n: (len(n), n))
+                name = line.split(None, 1)[1].strip()
+                # Keep-alive and level-shifting buffers have a different power
+                # pin interface. Treating them as interchangeable with ordinary
+                # clock buffers makes CTS characterization repeatedly attempt
+                # impossible OpenDB swaps (ODB-0045).
+                family = name.split("__")[-1]
+                if re.fullmatch(r"clkbuf_\d+", family):
+                    names.append(name)
+        # CTS characterizes combinations of the listed cells. Listing every
+        # drive strength creates an unnecessarily large pattern search. Use a
+        # middle drive by default; explicit root_buffer remains available.
+        strengths = sorted(int(n.rsplit("_", 1)[-1]) for n in names)
+        middle = strengths[len(strengths) // 2] if strengths else 0
+        names.sort(key=lambda n: (abs(int(n.rsplit("_", 1)[-1]) - middle), n))
         return names[:limit]
 
     def _macros_matching(self, needle: str) -> list[str]:

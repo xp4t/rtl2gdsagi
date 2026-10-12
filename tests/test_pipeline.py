@@ -54,6 +54,15 @@ def build(cfg, toolchain, *, fail=None, agent=None, budget=None, missing=None):
 
 # ---- clean run ------------------------------------------------------------
 
+def test_relative_run_directory_produces_absolute_tool_inputs(cfg, toolchain, tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    orch = Orchestrator(cfg, run_dir=Path("relative_run"))
+    orch.invoker = toolchain(orch)
+    assert orch.run() == 0
+    assert orch.work_rtl.is_absolute()
+    assert all(Path(a.path).is_absolute() for a in orch.ledger._items.values())
+
+
 def test_clean_run_reaches_signoff(cfg, toolchain):
     orch = build(cfg, toolchain)
     assert orch.run() == 0
@@ -64,6 +73,17 @@ def test_clean_run_reaches_signoff(cfg, toolchain):
     for sid in (StageId.SYNTHESIS, StageId.ROUTING, StageId.DRC,
                 StageId.LVS, StageId.ANTENNA, StageId.LEC_ROUTE):
         assert state.stage(sid).status is StageStatus.OK, sid
+
+
+def test_escalation_closes_the_running_stage(cfg, toolchain):
+    orch = build(cfg, toolchain, fail={StageId.LINT: [
+        ToolRun(argv=["verilator"], returncode=1,
+                stdout="%Error: syntax error", stderr=""),
+    ]})
+    assert orch.run() != 0
+    failed = orch.state.stage(StageId.LINT)
+    assert failed.status is StageStatus.FAILED
+    assert failed.ended_at is not None
 
 
 def test_signoff_bundle_binds_every_gate_to_one_gds(cfg, toolchain):
@@ -180,13 +200,13 @@ def test_stage_retries_then_succeeds(cfg, toolchain):
 def test_exhausting_retries_without_a_deeper_target_escalates(cfg, toolchain):
     """CTS has no deeper escalate_to target, so it stops rather than looping.
 
-    Each diagnosis proposes a genuinely different skew target, so every attempt
+    Each diagnosis proposes a different rendered hold margin, so every attempt
     is distinct and the stage really does burn its whole retry budget.
     """
     agent = ScriptedAgent(diagnoses=[
         Diagnosis(
             FailureClass.CTS, "clock tree build failed", StageId.CTS, 0.6,
-            config_delta={"cts": {"target_skew_ns": 0.3 + 0.1 * i}},
+            config_delta={"cts": {"hold_margin_ns": 0.3 + 0.1 * i}},
         )
         for i in range(5)
     ])
