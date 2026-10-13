@@ -1,9 +1,111 @@
 {
   "release_tag": "rtl2gdsagi-paper-baselines-20261013",
-  "stage": "new_internal_review",
-  "baseline_states": 24,
-  "baseline_certified": 5,
-  "baseline_fixed_3ns_certified": 0,
-  "manuscript_audit": "passed",
-  "public_availability_verified": false
+  "code_commit": "af3f71e1896905b740fa9c6e53fb72f96b749ed9",
+  "status": "verified",
+  "public_availability_verified": true,
+  "fresh_overleaf_build": {
+    "build_directory": "/tmp/rtl2gdsagi-overleaf-followup-3g_svqk_",
+    "tested_zip_sha256": "018592e0a7bfd2342ec7122ead13730c759a7c13a4dadcb6346eb1d5ab3f33bf",
+    "returncode": 0,
+    "pages": 12,
+    "documents": [
+      {
+        "document": "main",
+        "pages": 12,
+        "pdf_text_sha256": "a4e69a6d58291d476325ecdade22817456d620d56d03d6466430f70c15e57566",
+        "fresh_pdf_sha256": "ab2d49553d80f2b1ab603f02ede4ed234f25acd1d096a71a1c8270a3abc2fca0",
+        "underfull_box_warnings": 11
+      },
+      {
+        "document": "supplement",
+        "pages": 6,
+        "pdf_text_sha256": "aed13f3b0a851be4ccb16846545f2dfbbbbb975beb535d525c4801406e8e7ae6",
+        "fresh_pdf_sha256": "6dd2411c067ed3c8fb369d347bcd916c2cb6e3243cd8d6bc63c3c6dce65cd9f7",
+        "underfull_box_warnings": 2
+      }
+    ],
+    "warnings": 0,
+    "warning_scope": "No overfull boxes, undefined references/citations, LaTeX warnings or errors; underfull-box notices counted separately per document.",
+    "pdf_text_matches_manuscript": true,
+    "pdf_text_sha256": "a4e69a6d58291d476325ecdade22817456d620d56d03d6466430f70c15e57566",
+    "fresh_pdf_sha256": "ab2d49553d80f2b1ab603f02ede4ed234f25acd1d096a71a1c8270a3abc2fca0",
+    "manuscript_sha256": "2aa92affa3a4eb7474e1eac7cd859529cbd4ec02f0b39bbc2358fe4388af7c80"
+  },
+  "portable_archive_verification": {
+    "archive": "dist/paper-baselines-20261013/rtl2gdsagi_experiments.tar.gz",
+    "archive_sha256": "36e9d85aeb31a94c494c7c8e19f9b0dc02f61142cbde88ed3acb9e025ac0a71a",
+    "archive_bytes": 272579666,
+    "extracted_directory": "/tmp/rtl2gdsagi-baselines-artifact-7zl18yrq",
+    "verified_file_hashes": 30603,
+    "returncode": 0,
+    "verifier_output": "Verified 30603 archived file hashes"
+  },
+  "review_count": 3,
+  "review_provenance": "Three separate internal contexts in one writing workflow; scoped corrections closed, not external peer review or exact venue acceptance.",
+  "manuscript_numerical_source_audit": "passed",
+  "current_document_hashes_reviewed": true,
+  "core_asset_digests_verified": 7,
+  "anonymous_document_and_csv_downloads_verified": 5,
+  "primary_designs": 7,
+  "primary_native_runs": 14,
+  "primary_exact_route_pairs": 7,
+  "primary_date_normalized_gds_pairs": 7,
+  "fresh_proposal_states": 20,
+  "independent_archived_full_ir_matches": 7,
+  "timing_excluding_cts_affected_state": {
+    "setup_sta": 12,
+    "placement": 1
+  },
+  "scripted_baseline_states": 24,
+  "scripted_baseline_groups": {
+    "drc": {
+      "states": 4,
+      "certified": 3,
+      "sta_states": 4,
+      "best_setup_wns_ns": 5.304609346368388,
+      "worst_setup_wns_ns": 5.131592629406767,
+      "failed_stage_counts": {
+        "drc": 1
+      }
+    },
+    "pdn": {
+      "states": 2,
+      "certified": 1,
+      "sta_states": 1,
+      "best_setup_wns_ns": 6.953344319360547,
+      "worst_setup_wns_ns": 6.953344319360547,
+      "failed_stage_counts": {
+        "pdn": 1
+      }
+    },
+    "timing": {
+      "states": 16,
+      "certified": 0,
+      "sta_states": 16,
+      "best_setup_wns_ns": -0.000653699335387172,
+      "worst_setup_wns_ns": -0.312995860311291,
+      "failed_stage_counts": {
+        "sta_signoff": 16
+      }
+    },
+    "period": {
+      "states": 2,
+      "certified": 1,
+      "sta_states": 2,
+      "best_setup_wns_ns": 0.06074341201965228,
+      "worst_setup_wns_ns": -0.1419522317648361,
+      "failed_stage_counts": {
+        "sta_signoff": 1
+      }
+    }
+  },
+  "setup_toggle_equal_pairs": 8,
+  "baseline_stopping_policy": "Study-only first-failure wrapper; frozen native acceptance and full successful certification unchanged; whole prior CLI pilot and bootstrap excluded/retained.",
+  "original_live_case_study_source": "18d948815ac6",
+  "original_live_case_study_reexecuted_on_frozen_source": false,
+  "new_model_calls": 0,
+  "larger_exploratory_certified": 0,
+  "larger_policy_escalations": 2,
+  "larger_credit_interrupted_unknown": 2,
+  "whitespace_check_scope": "All staged changes checked except byte-preserved fresh citation audit Markdown final blank line, retained to preserve its recorded bytes."
 }

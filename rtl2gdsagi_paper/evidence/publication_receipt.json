@@ -1,6 +1,94 @@
 {
+  "verified_at": "2026-10-13T11:13:05.641219+00:00",
+  "release_url": "https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-baselines-20261013",
+  "public": true,
+  "published_at": "2026-10-13T11:11:57Z",
   "tag": "rtl2gdsagi-paper-baselines-20261013",
-  "status": "publication_pending",
-  "public_availability_verified": false,
-  "previous_receipt": "publication_receipt_frozen_20261013.json"
+  "code_commit": "af3f71e1896905b740fa9c6e53fb72f96b749ed9",
+  "implementation_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "proposal_generation_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+  "manuscript_sha256": "2aa92affa3a4eb7474e1eac7cd859529cbd4ec02f0b39bbc2358fe4388af7c80",
+  "supplement_sha256": "d0e3f9fb656ff7839dd52c19fe8e515c3345db9e06f4f4ac68331e00c1b2717b",
+  "main_pdf_sha256": "d7b1a675203701620c2001ee27d3225d77bb4bd7a19a95600992e1d6cccda751",
+  "supplement_pdf_sha256": "78e0c03002c732f2b6d5bef85f7163de0530b3bccd256b92441f5e69a4bf21fa",
+  "fresh_overleaf_documents": [
+    {
+      "document": "main",
+      "pages": 12,
+      "pdf_text_sha256": "a4e69a6d58291d476325ecdade22817456d620d56d03d6466430f70c15e57566",
+      "fresh_pdf_sha256": "ab2d49553d80f2b1ab603f02ede4ed234f25acd1d096a71a1c8270a3abc2fca0",
+      "underfull_box_warnings": 11
+    },
+    {
+      "document": "supplement",
+      "pages": 6,
+      "pdf_text_sha256": "aed13f3b0a851be4ccb16846545f2dfbbbbb975beb535d525c4801406e8e7ae6",
+      "fresh_pdf_sha256": "6dd2411c067ed3c8fb369d347bcd916c2cb6e3243cd8d6bc63c3c6dce65cd9f7",
+      "underfull_box_warnings": 2
+    }
+  ],
+  "fresh_overleaf_warnings": 0,
+  "fresh_overleaf_warning_scope": "No overfull boxes, undefined references/citations, LaTeX warnings or errors; underfull-box notices counted separately per document.",
+  "fresh_overleaf_tested_zip_sha256": "018592e0a7bfd2342ec7122ead13730c759a7c13a4dadcb6346eb1d5ab3f33bf",
+  "archive_file_hashes_verified": 30603,
+  "assets": [
+    {
+      "name": "main.pdf",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-baselines-20261013/main.pdf",
+      "bytes": 301949,
+      "sha256": "d7b1a675203701620c2001ee27d3225d77bb4bd7a19a95600992e1d6cccda751",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    },
+    {
+      "name": "supplement.pdf",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-baselines-20261013/supplement.pdf",
+      "bytes": 194809,
+      "sha256": "78e0c03002c732f2b6d5bef85f7163de0530b3bccd256b92441f5e69a4bf21fa",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    },
+    {
+      "name": "rtl2gdsagi_overleaf.zip",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-baselines-20261013/rtl2gdsagi_overleaf.zip",
+      "bytes": 52671,
+      "sha256": "018592e0a7bfd2342ec7122ead13730c759a7c13a4dadcb6346eb1d5ab3f33bf",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    },
+    {
+      "name": "rtl2gdsagi_experiments.tar.gz",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-baselines-20261013/rtl2gdsagi_experiments.tar.gz",
+      "bytes": 272579666,
+      "sha256": "36e9d85aeb31a94c494c7c8e19f9b0dc02f61142cbde88ed3acb9e025ac0a71a",
+      "github_digest_verified": true
+    },
+    {
+      "name": "review_bindings.json",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-baselines-20261013/review_bindings.json",
+      "bytes": 6927,
+      "sha256": "5b66b899e98ea8e8df74d42a4c8eb9772d9bce0bc4ede5ef53ae3ccab3a0a7fd",
+      "github_digest_verified": true
+    },
+    {
+      "name": "signoff_metrics.csv",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-baselines-20261013/signoff_metrics.csv",
+      "bytes": 4982,
+      "sha256": "ba673596a793187ac22333ef3d28f9a8cd11441e03bd3817f2883b1e55be8e98",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    },
+    {
+      "name": "scripted_baseline_metrics.csv",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-baselines-20261013/scripted_baseline_metrics.csv",
+      "bytes": 5008,
+      "sha256": "c6237b02179bc8785f1b88d3d51294f2094b2bccf2d461cbb51872845510d7b6",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    }
+  ],
+  "review_execution": "Three separate internal review contexts in the same Codex writing workflow; not independent external peer review.",
+  "criteria_binding": "criteria_binding_unavailable",
+  "calibration_status": "NOT_CALIBRATED",
+  "venue_status": "Springer LNCS format; no exact venue or publication acceptance asserted."
 }
