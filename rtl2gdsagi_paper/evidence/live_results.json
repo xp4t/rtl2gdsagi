@@ -1,43 +1,40 @@
 {
   "manifest": {
-    "git_base": "a006861bb2b7eb6c676907cbdcb3ba0514e276e5",
+    "git_base": "aec0fda7ee09bd98cc7c8d6965e91120ec4d9062",
     "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
     "consistent_source": true,
     "selected_runs": [
       {
-        "run_dir": "runs/padding_release_pair_a/register",
-        "repeat_run_dir": "runs/padding_release_pair_b/register"
+        "run_dir": "runs/frozen_evaluation_20261013/pair_a/register",
+        "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/register"
       },
       {
-        "run_dir": "runs/padding_release_pair_a/mux4to1",
-        "repeat_run_dir": "runs/padding_release_pair_b/mux4to1"
+        "run_dir": "runs/frozen_evaluation_20261013/pair_a/mux4to1",
+        "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/mux4to1"
       },
       {
-        "run_dir": "runs/padding_release_pair_a/alu8",
-        "repeat_run_dir": "runs/padding_release_pair_b/alu8"
+        "run_dir": "runs/frozen_evaluation_20261013/pair_a/alu8",
+        "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/alu8"
       },
       {
-        "run_dir": "runs/padding_release_pair_a/counter",
-        "repeat_run_dir": "runs/padding_release_pair_b/counter"
+        "run_dir": "runs/frozen_evaluation_20261013/pair_a/counter",
+        "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/counter"
       },
       {
-        "run_dir": "runs/padding_release_pair_a/shift_reg",
-        "repeat_run_dir": "runs/padding_release_pair_b/shift_reg"
+        "run_dir": "runs/frozen_evaluation_20261013/pair_a/shift_reg",
+        "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/shift_reg"
       },
       {
-        "run_dir": "runs/padding_release_pair_a/fifo_buf",
-        "repeat_run_dir": "runs/padding_release_pair_b/fifo_buf"
+        "run_dir": "runs/frozen_evaluation_20261013/pair_a/fifo_buf",
+        "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/fifo_buf"
       },
       {
-        "run_dir": "runs/shift_scale_pair_a/shift1024",
-        "repeat_run_dir": "runs/shift_scale_pair_b/shift1024"
+        "run_dir": "runs/frozen_evaluation_20261013/pair_a/shift1024",
+        "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/shift1024"
       }
     ],
     "batch_manifests": [
-      "runs/padding_release_pair_a/experiment_manifest.json",
-      "runs/padding_release_pair_b/experiment_manifest.json",
-      "runs/shift_scale_pair_a/experiment_manifest.json",
-      "runs/shift_scale_pair_b/experiment_manifest.json"
+      "runs/frozen_evaluation_20261013/experiment_manifest.json"
     ],
     "environment": {
       "python": "3.10.12",
@@ -58,12 +55,12 @@
       }
     },
     "formal_controls": {
-      "counter_grouped": "runs/formal_controls_final/counter/PASS",
-      "shift_grouped": "runs/formal_controls_final/shift/PASS",
-      "counter_mutant": "runs/formal_controls_final/counter_mutant/FAIL"
+      "counter_grouped": "runs/frozen_formal_controls_20261013/counter/PASS",
+      "shift_grouped": "runs/frozen_formal_controls_20261013/shift/PASS",
+      "counter_mutant": "runs/frozen_formal_controls_20261013/counter_mutant/FAIL"
     },
-    "repair_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
-    "repair_run": "runs/live_drc_study/drc_1",
+    "repair_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+    "repair_run": "runs/frozen_recorded_spacing_repair_20261013",
     "repair_reproduction_config": "benchmarks/signoff/alu8_unpadded.yaml",
     "failed_attempts": [
       "runs/accum_density_pair_a/accum_bank32",
@@ -89,13 +86,16 @@
       "runs/publication_pair_a/alu_bank16",
       "runs/submission_pair_a/accum_bank32"
     ],
-    "pytest_report": "rtl2gdsagi_paper/evidence/pytest_followup_release.xml"
+    "pytest_report": "rtl2gdsagi_paper/evidence/pytest_followup_release.xml",
+    "source_archive": "rtl2gdsagi_paper/evidence/source_frozen_20261013.tar.gz",
+    "release_tag": "rtl2gdsagi-paper-frozen-20261013",
+    "archived_repair_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b"
   },
   "runs": [
     {
       "design": "register",
-      "run_dir": "runs/padding_release_pair_a/register",
-      "run_id": "2026-10-12T13-34-40Z",
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/register",
+      "run_id": "2026-10-13T06-36-12Z",
       "stages_passed": 21,
       "clean": true,
       "synthesis_cells": 22,
@@ -120,17 +120,17 @@
       "antenna_pin_violations": 0,
       "authoritative_testbenches": 1,
       "gds_bytes": 134950,
-      "elapsed_s": 32.037540435791016,
+      "elapsed_s": 31.658130645751953,
       "model_calls": 0,
       "provider_model": "disabled",
       "model_input_tokens": 0,
       "model_output_tokens": 0,
-      "candidate_id": "352bf9c7e099a2133b727c59e471d5b68f32e88b3cea17e947faa6a2edc69c6c",
-      "certification_id": "afe3d179c659ba3251d40f676dac4fe30c5106d27abef3cc1305a382da8e80ce",
-      "gds_sha256": "54a81fd247d4e6d61708122d2ef368ce41214e9849dc4af413ee81996eff10dc",
-      "signoff_sha256": "735846190c0c74f63be3b73ee4574fc548a322bd816eca7519de2feca958cb1d",
-      "gate_evidence_sha256": "db1aef1234b39cca48cb46fa3dc1d8d611d791835055fbee44bbe641e43378b3",
-      "run_log_sha256": "9a99934d34b53f9d4aad3c7deac238cde520f8e30d754607ad93cdae2227ddd8",
+      "candidate_id": "99733ec54828e5f36f8a46920092ab507bbcbce18ebc63867bc5e61a96936c0d",
+      "certification_id": "830dddee4971951c5c5cba1d55dee56a297cebd81e1f6338ab073384dfbc040f",
+      "gds_sha256": "815e5a279a82f62c9a74338bf4670ba6d6def52f06829e79cecf3b0c9410d756",
+      "signoff_sha256": "e6200d8515711ba0613c45fa7c236d7c67547d23af00527c7f862b44e7e64071",
+      "gate_evidence_sha256": "8d704fb6b7101c2c35a92575b178dc25c2051bfac08fb1b7ee3de3edcceb48fa",
+      "run_log_sha256": "9e91cbf2716259b4a1f56ff44bf0d3e21f1cceb42a4b5c737d87f457e427db05",
       "timing_checkpoints": {
         "sta_pre": {
           "setup_wns": 7.116841983839815,
@@ -201,8 +201,8 @@
     },
     {
       "design": "mux4to1",
-      "run_dir": "runs/padding_release_pair_a/mux4to1",
-      "run_id": "2026-10-12T13-35-12Z",
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/mux4to1",
+      "run_id": "2026-10-13T06-36-12Z",
       "stages_passed": 21,
       "clean": true,
       "synthesis_cells": 48,
@@ -226,18 +226,18 @@
       "antenna_net_violations": 0,
       "antenna_pin_violations": 0,
       "authoritative_testbenches": 1,
-      "gds_bytes": 165900,
-      "elapsed_s": 47.649617433547974,
+      "gds_bytes": 165502,
+      "elapsed_s": 45.77811932563782,
       "model_calls": 0,
       "provider_model": "disabled",
       "model_input_tokens": 0,
       "model_output_tokens": 0,
-      "candidate_id": "d12d21340ec120c4302a7f9a464c33bdb983d71beec3a1a783fc7a789bfbfeef",
-      "certification_id": "146244f7494c78f1b3a671b8e49452d640ecc939b49efb487f850aacf227bb35",
-      "gds_sha256": "dae85dc55a304661cabfdc37daaa6d066c4c94c47d48dff3882ae8041ceb81e3",
-      "signoff_sha256": "39ceab64d8c03c699c355c97b423fec62b251a8ef3c16403393ceac3d9972d64",
-      "gate_evidence_sha256": "e979e79252c271a0de31c3ffb5b03613bb1fd9480aea89d608b351e4630592ae",
-      "run_log_sha256": "d765f63339c031fe25358daeee5b1e66f453aae2ea854ea9f9c0fbb0206070d0",
+      "candidate_id": "9fd07100d45651d1fa009c93a1507352df8367e3f2b1bf0cdc6a6f7f4808f592",
+      "certification_id": "7d1cd9ef265ef0b9d2b8a7cb09a1d5df1d7e8fdd15bd778b6efaebfd4b206d75",
+      "gds_sha256": "eb767613a8bb2d3b2e86d0353850095b7f1a570492dde371f6b39992054baca4",
+      "signoff_sha256": "af38d3d86a00dcbcb960b4538138908742eb02b98715dd25279b04605db016ed",
+      "gate_evidence_sha256": "c3878236ab453430bd90a11cb7ca4a63fa00768b3a2b2cf481ec00fe7c3e6596",
+      "run_log_sha256": "2de3727bc920f4a90dba9dc6f75af1dca2a8bfcf425c11cd7a3a8e9410dd8431",
       "timing_checkpoints": {
         "sta_pre": {
           "setup_wns": 7.1640526649849745,
@@ -308,8 +308,8 @@
     },
     {
       "design": "alu8",
-      "run_dir": "runs/padding_release_pair_a/alu8",
-      "run_id": "2026-10-12T13-36-00Z",
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/alu8",
+      "run_id": "2026-10-13T06-36-44Z",
       "stages_passed": 21,
       "clean": true,
       "synthesis_cells": 133,
@@ -333,18 +333,18 @@
       "antenna_net_violations": 0,
       "antenna_pin_violations": 0,
       "authoritative_testbenches": 1,
-      "gds_bytes": 510196,
-      "elapsed_s": 75.3121292591095,
+      "gds_bytes": 509162,
+      "elapsed_s": 73.11210489273071,
       "model_calls": 0,
       "provider_model": "disabled",
       "model_input_tokens": 0,
       "model_output_tokens": 0,
-      "candidate_id": "1065e1fb3aa91ef4adcd42cb73db1623ce222c6d0f742165ae70cae24ee246d0",
-      "certification_id": "661ff214cdd00669737f626fd63a5ecec67f68ec18a83afc978a5cf52030a67c",
-      "gds_sha256": "704b4faccbb078b582f73e57f873ae3d387ce0386291d1eea63d9153704603a0",
-      "signoff_sha256": "9d781a55d5743f76a364c8505c2c41540f9d5b303c394f5c7a5528ab52c2ed32",
-      "gate_evidence_sha256": "cdcc36cb1ee1b2b656e38252844a56615770f45ca48788c289dbc9607d2e1fb6",
-      "run_log_sha256": "d43eeebd034e751b3f228a8e29b89ecb5935fd066fd4bc626277c8332cc4a27d",
+      "candidate_id": "2f734623749b3ac7b92faecb58e865ec98982a7aa44074573d1b7b88b0dc03d3",
+      "certification_id": "975c3dec9dceb3a9430bb30f0f86c7e70e6e83f73c638f20e869c84d6a6bcbce",
+      "gds_sha256": "e6ad50ffbc34a03224e88416b8ce0d8c4e2093b764df0ad45e3a630702959cc5",
+      "signoff_sha256": "24cdf36d25310e0e76dbf94443da8236efabd740649f16ae8ada63e915fd2303",
+      "gate_evidence_sha256": "53f4bc78a248dfad5d022950ddf0ecf37c5404187fe018a43837e6b544179ea9",
+      "run_log_sha256": "f3eb90ee06d3d5687fa3085a6491cdd9fae342d7a296bac6f155b1a5df310cfb",
       "timing_checkpoints": {
         "sta_pre": {
           "setup_wns": 5.2444405858025345,
@@ -415,8 +415,8 @@
     },
     {
       "design": "counter",
-      "run_dir": "runs/padding_release_pair_a/counter",
-      "run_id": "2026-10-12T13-37-15Z",
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/counter",
+      "run_id": "2026-10-13T06-37-29Z",
       "stages_passed": 21,
       "clean": true,
       "synthesis_cells": 47,
@@ -441,17 +441,17 @@
       "antenna_pin_violations": 0,
       "authoritative_testbenches": 1,
       "gds_bytes": 244080,
-      "elapsed_s": 39.18094754219055,
+      "elapsed_s": 36.478270530700684,
       "model_calls": 0,
       "provider_model": "disabled",
       "model_input_tokens": 0,
       "model_output_tokens": 0,
-      "candidate_id": "da08e21cd538fd843d538fdee930c28fd598c067e47ed950a513468763e3fa2b",
-      "certification_id": "a67337f06f619700d95fba523403bdb89e7145e195dd20daeb84b958152734f5",
-      "gds_sha256": "0fdb89c29acb8049445289c362d62ecaa35b164c92718a7c4abc14c0a4b8a0ba",
-      "signoff_sha256": "ef53dde99c0e6393fc272eec5e991ffa5e15e5c668fa2a6b0345db796b265b01",
-      "gate_evidence_sha256": "a839bd750b64023ea4d618acf37e2ff345080fca24e1e3cb75b9ec0bee2d2c9c",
-      "run_log_sha256": "3e836dab853380660926c3c3851e668d8ee1836007a23a6a6a890dc8a2c97a27",
+      "candidate_id": "bdbc151d60bd858246afdc92c558290602c2538158ea290ddec958c98a7ce645",
+      "certification_id": "fb7376ea94922681108893db3aa844d464284d31453631135f195fc4db52d00e",
+      "gds_sha256": "51b290f15d1eb8512e43d69763b2d7f1f868af784ed23d3584f043c09bb203f7",
+      "signoff_sha256": "60044de704fcb35f2f18996597dc8ec8195826f66cb9c4d4ffbc623c8aa94f37",
+      "gate_evidence_sha256": "4c333ffe9c02b395c2a99ac0d18edd5f1a1d5cbbbdad99e04acaac6a16394caa",
+      "run_log_sha256": "51e7dba4f452a3252b7853e79bc3aabe6dd923b013f49589c94997e61a3748ca",
       "timing_checkpoints": {
         "sta_pre": {
           "setup_wns": 3.955345496419031,
@@ -522,8 +522,8 @@
     },
     {
       "design": "shift_reg",
-      "run_dir": "runs/padding_release_pair_a/shift_reg",
-      "run_id": "2026-10-12T13-37-54Z",
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/shift_reg",
+      "run_id": "2026-10-13T06-38-05Z",
       "stages_passed": 21,
       "clean": true,
       "synthesis_cells": 16,
@@ -548,17 +548,17 @@
       "antenna_pin_violations": 0,
       "authoritative_testbenches": 1,
       "gds_bytes": 120252,
-      "elapsed_s": 31.919728994369507,
+      "elapsed_s": 32.36164927482605,
       "model_calls": 0,
       "provider_model": "disabled",
       "model_input_tokens": 0,
       "model_output_tokens": 0,
-      "candidate_id": "5be9f4f6a22155c6549d03d3942f6122a88a179b647b4a8dc5d5e1874852659d",
-      "certification_id": "ab3b92f99662dd07b5ce9e76219563f16c1900a38653f03d680aaf6af1013c7e",
-      "gds_sha256": "a7ea60f36bf04a190df2986ade535c398c1999ed3fb0fced112f73c768358ee6",
-      "signoff_sha256": "cfa632e053318cf357966f8329da8851e31a93d107f8f5d5c4c46cb52ca1d20b",
-      "gate_evidence_sha256": "aa34022159f01546dd2cb4a58bf26c3cdb77e45b849bca15e72a8ce91d49d404",
-      "run_log_sha256": "e9d6b27e6948ded9a717fb537e3956ad71117391a482b1e99b3022c0cbfd5bba",
+      "candidate_id": "3ed0532b19777bce413eed7290156ec0ca9c8e2772e3fc727533bee9fae10584",
+      "certification_id": "8a69dfd24d6e516fdde5df9dc5c81cb9dfee33902d0f4547b5ac0f9d242792bf",
+      "gds_sha256": "08fee6f7d61d3a52a2005e6e653ac1c84dc91e2ddc3158e73051303e2373e308",
+      "signoff_sha256": "43ec3c1704cd37e84a1a6d4b9cd55ff5ddb53b675e84aca836fd487f878e0477",
+      "gate_evidence_sha256": "a0b1d4ce0178ed85111fca9f0823efe9c83ce3c16302945c35dda58003ed937d",
+      "run_log_sha256": "d7899f87a58d6cba730ed383016cc189dc292a4780102426b8f9149fd9033611",
       "timing_checkpoints": {
         "sta_pre": {
           "setup_wns": 6.8443417315416255,
@@ -629,8 +629,8 @@
     },
     {
       "design": "fifo_buf",
-      "run_dir": "runs/padding_release_pair_a/fifo_buf",
-      "run_id": "2026-10-12T13-38-26Z",
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/fifo_buf",
+      "run_id": "2026-10-13T06-38-35Z",
       "stages_passed": 21,
       "clean": true,
       "synthesis_cells": 109,
@@ -655,17 +655,17 @@
       "antenna_pin_violations": 0,
       "authoritative_testbenches": 1,
       "gds_bytes": 498290,
-      "elapsed_s": 54.67341709136963,
+      "elapsed_s": 54.3752281665802,
       "model_calls": 0,
       "provider_model": "disabled",
       "model_input_tokens": 0,
       "model_output_tokens": 0,
-      "candidate_id": "cc659290a4d0bb9cda780cc056d8d82f95040c1fb2258f361409c6a4ec782eae",
-      "certification_id": "048a8f2bfef6bfab18095774e9c558dd4c986f89e839fd247cd1191e0abedf57",
-      "gds_sha256": "1026a8c5e74be3d8fcc7fa4a312b88c91afb0a31da55c0b0958e204f6249c0b8",
-      "signoff_sha256": "b3157e57a725c454489e2e3c61566921de466bed93971245708c33c58dae55ec",
-      "gate_evidence_sha256": "ed66cef7dc911d69db5f3f63a7f838f3657e31451e969e65a5eb9dff35fabb4e",
-      "run_log_sha256": "8fd01d56043fe316f8a985f76c219763d593591b557d2718262c67046aa4c9b0",
+      "candidate_id": "d57d7b2bcfe7a050e9db11c20f579a94f78f0bf677777076707c525cf0259b19",
+      "certification_id": "215edf8b6b156eac41f718fd7df81ef43a3388e1cae19c86d289dfa09f183fb3",
+      "gds_sha256": "52f2dc97707fc5a1be1ff91cb819ea512acab0b3fa681765023d48c298ac67bb",
+      "signoff_sha256": "0527cadc8bd8bf5e1e1bca6fd6d349f3f1c7bd36d5424bacaac48018435ea6ec",
+      "gate_evidence_sha256": "41fa63f945b47553559632fa0efe81f57bbe60a8e5c337416083f85d920b0ba9",
+      "run_log_sha256": "8fef0b98a0b92fd6b098cca96c9a2157fe7d51ac871bb08039b381648bd49c43",
       "timing_checkpoints": {
         "sta_pre": {
           "setup_wns": 6.180105491174337,
@@ -736,8 +736,8 @@
     },
     {
       "design": "shift1024",
-      "run_dir": "runs/shift_scale_pair_a/shift1024",
-      "run_id": "2026-10-12T13-48-26Z",
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/shift1024",
+      "run_id": "2026-10-13T06-38-45Z",
       "stages_passed": 21,
       "clean": true,
       "synthesis_cells": 1024,
@@ -762,17 +762,17 @@
       "antenna_pin_violations": 0,
       "authoritative_testbenches": 1,
       "gds_bytes": 3388648,
-      "elapsed_s": 114.34101271629333,
+      "elapsed_s": 145.59779596328735,
       "model_calls": 0,
       "provider_model": "disabled",
       "model_input_tokens": 0,
       "model_output_tokens": 0,
-      "candidate_id": "18a20b91d069443f41a6d8456ff221ffd34a7c65fdb6de393cf99f56166036bc",
-      "certification_id": "fb172cd14014c556204d847257d02f82c54dc8677b44a227bfc5e603ccfd9d4d",
-      "gds_sha256": "8d6420cb304b6d7560b04302ebbb58b1c9c06b507f9da94a20d617551982490a",
-      "signoff_sha256": "7c69f20075daa6d9d6ec3eac98bac9ec744197db9835c28c981fd560a7469a33",
-      "gate_evidence_sha256": "a07e9f0928bb031a355df75dd012a72fba903a33a02e77d3d635574626364b3d",
-      "run_log_sha256": "8f7f766b2682526878aaf6a5ae6419c203f473422fd3dfee4d1d0a597a352f43",
+      "candidate_id": "ff748fb950d143cd6efe701db05bf2a240f232c4203ca76c44c9db1d3bfa1abd",
+      "certification_id": "c75aaacfe9e07369a367fda27959251c7781ab06ee95a3be463ed66d0e33a440",
+      "gds_sha256": "64a810b947282ba6ef86679285a13196977a9cfc8dce30856bec464de60e9271",
+      "signoff_sha256": "ae7cf121c6d50dc7887c01fee9c20c350746333e26dc605497388383c3d51146",
+      "gate_evidence_sha256": "68adfe467a4919278e851374539cf566fc2a972e6bd3e1fb45ee30b5ba351378",
+      "run_log_sha256": "168597b2fdebc5e36c8556aac8345f4a67da6a13088a1f4feff9ecec80fe11fd",
       "timing_checkpoints": {
         "sta_pre": {
           "setup_wns": 7.1640526649849745,
@@ -829,7 +829,7 @@
           "setup_margin_ns": 0.05
         },
         "routing": {
-          "num_threads": 8,
+          "num_threads": 1,
           "antenna_ratio_margin_pct": 80,
           "antenna_repair_iterations": 8,
           "min_layer": 1,
@@ -844,17 +844,17 @@
   ],
   "repair_run": {
     "design": "alu8",
-    "run_dir": "runs/live_drc_study/drc_1",
-    "run_id": "2026-10-12T12-25-37Z",
+    "run_dir": "runs/frozen_recorded_spacing_repair_20261013",
+    "run_id": "2026-10-13T06-50-16Z",
     "stages_passed": 21,
     "clean": true,
     "synthesis_cells": 133,
     "synthesis_area_um2": 1018.4768,
     "die_area_um2": 6125.410225,
-    "routed_components": 484,
-    "wire_length_um": 4679.0,
-    "setup_wns_ns": 5.271593089039112,
-    "hold_wns_ns": 1.1921981517228608,
+    "routed_components": 486,
+    "wire_length_um": 4860.0,
+    "setup_wns_ns": 5.256095707444678,
+    "hold_wns_ns": 1.1918519841739923,
     "setup_tns_ns": 0.0,
     "hold_tns_ns": 0.0,
     "spef_nets": 157,
@@ -869,18 +869,18 @@
     "antenna_net_violations": 0,
     "antenna_pin_violations": 0,
     "authoritative_testbenches": 1,
-    "gds_bytes": 513352,
-    "elapsed_s": 168.80425310134888,
-    "model_calls": 1,
-    "provider_model": "claude-sonnet-5",
-    "model_input_tokens": 6999,
-    "model_output_tokens": 1403,
-    "candidate_id": "023143e7c479975bb6773c349a543abcaad23dadff17d32b72319d9fe4385900",
-    "certification_id": "67e8763700222279315dff417413deb386a033c6c6945c8fbfc12e5f1e6ce7de",
-    "gds_sha256": "539f5deada4cddaa077548af72f684eb917afd38f5344b4c3be80369305dbe08",
-    "signoff_sha256": "0fce154025c7fe591bf0a0d1793a9b17cc16fdf7817b6e9612bb3ce99d01cefa",
-    "gate_evidence_sha256": "4433201e3d708c524dd9090345fc24628f48fb869584439b300ad9aeec3e5073",
-    "run_log_sha256": "1c2918ee0d1295f11d4917504b3305757399d043fe6c6a9871c3555b7b569df8",
+    "gds_bytes": 509162,
+    "elapsed_s": 140.74386143684387,
+    "model_calls": 0,
+    "provider_model": "disabled",
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "candidate_id": "f4972c9e018dffe9c774ec094ad310aeb87d60d7b426917b394e137f1ec9e76c",
+    "certification_id": "34000eef1810d7b2090bca8c60754bef0f22c4aa217abe9d5b50b67c293f1e24",
+    "gds_sha256": "376a7fee1f5844108e11d71a71c36099914269395d15e924573079b906cc27ba",
+    "signoff_sha256": "aaf90fbb3dc63a291a688bdfe20c32e0a96894f2885504f839c125bb74160c28",
+    "gate_evidence_sha256": "db9a15aceef2caafa841852c1bb896a6edce2143afe6141c884aeb1d2ba6c104",
+    "run_log_sha256": "1cd777f1c57cdd270889a7f857ff0e1923749e38520794e12831f688e8619ce6",
     "timing_checkpoints": {
       "sta_pre": {
         "setup_wns": 5.2444405858025345,
@@ -891,8 +891,8 @@
         "hold_wns": 1.2140058191231258
       },
       "sta_signoff": {
-        "setup_wns": 5.271593089039112,
-        "hold_wns": 1.1921981517228608
+        "setup_wns": 5.256095707444678,
+        "hold_wns": 1.1918519841739923
       }
     },
     "repair_verifications": [
@@ -912,8 +912,8 @@
             "action_type": "SET_IR_VALUE",
             "target": "placement.padding_sites",
             "value": 2,
-            "reason": "Zero cell padding leaves insufficient space between adjacent standard cells for via/contact landing, causing local-interconnect (npc) minimum-spacing violations at DRC signoff.",
-            "expected_effect": "Re-placement with 2 sites of padding per cell should eliminate the npc.2 spacing violation by giving the router adequate clearance, without materially increasing area or hurting timing given current low utilization (33%)."
+            "reason": "model-planned bounded configuration repair",
+            "expected_effect": "Recorded proposal replay, not a new model diagnosis."
           }
         ],
         "rtl_sha256_before_repair": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
@@ -941,7 +941,7 @@
               "x.2c : non 45 degree angle tap"
             ]
           },
-          "checked_gds_sha256": "539f5deada4cddaa077548af72f684eb917afd38f5344b4c3be80369305dbe08"
+          "checked_gds_sha256": "376a7fee1f5844108e11d71a71c36099914269395d15e924573079b906cc27ba"
         },
         "rerun_verdict": "pass",
         "rerun_summary": "DRC clean: 0 violations across 211 rule categories (213 raw declarations normalized by approved aliases) on top cell 'alu8'",
@@ -1011,7 +1011,7 @@
         "design_features": {
           "top": "alu8",
           "sources": [
-            "/home/vlsi/rtl2gdsagi/runs/live_drc_study/drc_1/work/rtl/alu8.v"
+            "/home/vlsi/rtl2gdsagi/runs/frozen_recorded_spacing_repair_20261013/work/rtl/alu8.v"
           ],
           "modules": [
             "alu8"
@@ -1118,6 +1118,9 @@
               "setup_margin_ns": 0.05
             },
             "routing": {
+              "num_threads": 1,
+              "antenna_ratio_margin_pct": 0,
+              "antenna_repair_iterations": 1,
               "min_layer": 1,
               "max_layer": 5,
               "global_effort": "medium",
@@ -1145,10 +1148,10 @@
             }
           }
         },
-        "successful_ir_fingerprint": "b159f970afed12a2ad52df72c1f20dfbf246d3718a5c63578fb7dba5dd52b6ab",
+        "successful_ir_fingerprint": "20083c5c05dce90221b55a63ae120fdcd00a3b953667d3d034062770e508643b",
         "pdk": "sky130A",
-        "candidate_id": "023143e7c479975bb6773c349a543abcaad23dadff17d32b72319d9fe4385900",
-        "certification_id": "67e8763700222279315dff417413deb386a033c6c6945c8fbfc12e5f1e6ce7de"
+        "candidate_id": "f4972c9e018dffe9c774ec094ad310aeb87d60d7b426917b394e137f1ec9e76c",
+        "certification_id": "34000eef1810d7b2090bca8c60754bef0f22c4aa217abe9d5b50b67c293f1e24"
       }
     ],
     "tools": {
@@ -1192,6 +1195,9 @@
         "setup_margin_ns": 0.05
       },
       "routing": {
+        "num_threads": 1,
+        "antenna_ratio_margin_pct": 0,
+        "antenna_repair_iterations": 1,
         "min_layer": 1,
         "max_layer": 5,
         "global_effort": "medium",

@@ -1,0 +1,117 @@
+{
+  "release_tag": "rtl2gdsagi-paper-20261013",
+  "manuscript_sha256": "0bbaad3584623037b5444701f4c0949ab272717c2e4a340515ea11b20db9b76e",
+  "main_pdf_sha256": "b1e43981ea66c4b48b86c1ecaf629591bf1c86147d5d2bbbe499faf1152bd268",
+  "generated_tex_aggregate_sha256": "1951ca18adf94808abf79080dde33461310888ead5e8288223d35ed7c2629de5",
+  "reviews": [
+    {
+      "scope": "EVIDENCE",
+      "path": "rtl2gdsagi_paper/evidence/REVIEW_FOLLOWUP_EVIDENCE.md",
+      "sha256": "1958cee42fe52a65c0336e0bcd986971efd5f0c311ea0d42fc6b12b3f05bdf37"
+    },
+    {
+      "scope": "METHODS",
+      "path": "rtl2gdsagi_paper/evidence/REVIEW_FOLLOWUP_METHODS.md",
+      "sha256": "0b0bc728dc4d622cd8944912e973b123f974f5a163a73ec55d936ff41e5cf208"
+    },
+    {
+      "scope": "PRESENTATION",
+      "path": "rtl2gdsagi_paper/evidence/REVIEW_FOLLOWUP_PRESENTATION.md",
+      "sha256": "b089bced4eeeb792927833789ccee4dd35a6d462acf21ba2247bb51d5e07b931"
+    }
+  ],
+  "bound_files": [
+    {
+      "path": "rtl2gdsagi_paper/main.tex",
+      "sha256": "0bbaad3584623037b5444701f4c0949ab272717c2e4a340515ea11b20db9b76e"
+    },
+    {
+      "path": "rtl2gdsagi_paper/README.md",
+      "sha256": "b86a93a0b9e025244ac145899e74162b196adf3e26eef5ce9854f6adcb13e62c"
+    },
+    {
+      "path": "rtl2gdsagi_paper/main.pdf",
+      "sha256": "b1e43981ea66c4b48b86c1ecaf629591bf1c86147d5d2bbbe499faf1152bd268"
+    },
+    {
+      "path": "rtl2gdsagi_paper/figures/timing_stress.pdf",
+      "sha256": "f190f4fc4d3c7a2bf0857d7b310da23dcaacde0da58d26302c9a134fad43f41b"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/manuscript.txt",
+      "sha256": "2a412aaddb2d34730bcc0742f26caf29a949be03b755e10f15f61ad637a01ef4"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/episode_table.tex",
+      "sha256": "3c20c8925efea9529ad06ef021e2df0e0166304250a09209621f957f9d5cfd54"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/extended_results.tex",
+      "sha256": "e1ac173e7ec37fcf86fd81c43e1057b00fa07520b0a3501d5c6410f1bb714e3a"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/external_coverage_table.tex",
+      "sha256": "26ffdca8f89f0c010e953d2bdc374cca72df4e32819c6f0a3c09539e2ad6ab5f"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/external_coverage_text.tex",
+      "sha256": "8821668ada139e4d18972c2da00dce1195c52856d1cebb00c9f57709c0bd18ef"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/fault_table.tex",
+      "sha256": "41040ca28d1fc69ba5cddf5b504859c91cf96ddc884e127725fddae604cb001d"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/followup_repeat_text.tex",
+      "sha256": "d8f8c786d02a4daf47707149d89d62e24f8f6f30abba91280028c9493969e802"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/followup_scale_table.tex",
+      "sha256": "1ea8189037f29fefb15fc3bd6ceb4b636f8702ac4bae531ce46f77a84d9db42a"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/followup_scale_text.tex",
+      "sha256": "c25b7f56c93a5c881f0ec15b94f37bcc8b8d14d6009e336d0416034c5ef14f20"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/followup_timing_table.tex",
+      "sha256": "515571d85a025ce4476631fdd0cd8bdf0edb2b3b5680f67c76f1360070cc716b"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/followup_timing_text.tex",
+      "sha256": "4ffd97038fc846f8090a1021320eeb878f33fa1ce58235f558a0bc1e89d9561e"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/history_table.tex",
+      "sha256": "b77982464b2693cd51bde80d4754381bc69dd1451dbe58a8aa151c2408abbb79"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/implementation_identity_text.tex",
+      "sha256": "496ecf2f8ce5238dbd819a96fc7b752fb7e780aff90db7b5d4a9111de1ec6b43"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/live_results.tex",
+      "sha256": "b97c4b554a6b771f446e4762fcdec643f972e086a5eb8bcc3942aa7606bcbf29"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/qor_table.tex",
+      "sha256": "8f105251414597b0189c099be8c26b0da583a195bc9564bfa8e746ddbad2361a"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/repair_table.tex",
+      "sha256": "0f8b4eee7a9a02a2b0103bb7542d7376b84287f104a6d959a125dd9e8b490936"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/reproducibility_table.tex",
+      "sha256": "42d9e9aea7e5ce6f12e8b9b4e171042b20c2e695a66087cb1e899ed0fb5c4483"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/signoff_table.tex",
+      "sha256": "02ba42acf33b2a1642a188a626df2de21405e59f3f9eb02152d2389168d1a31c"
+    }
+  ],
+  "execution": "Three separate internal review contexts in the same Codex writing workflow; not independent external peer review.",
+  "criteria_binding": "criteria_binding_unavailable",
+  "calibration_status": "NOT_CALIBRATED",
+  "publication_verification": "Separate release receipt; reviews do not verify remote availability."
+}

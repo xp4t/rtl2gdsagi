@@ -1,0 +1,624 @@
+{
+  "checked_utc": "2026-10-13T07:52:18.731226+00:00",
+  "main_sha256": "aa000b982ef658964a94c850c53415b0bbcc8c1db263457b9ff91cb43c546b48",
+  "original_audit_sha256": "d7654fed28b5d0989a3cf0476303ad407756c65ac1996680adb0bda0cf6ba3e0",
+  "original_audit_main_sha256": "0bbaad3584623037b5444701f4c0949ab272717c2e4a340515ea11b20db9b76e",
+  "execution": "Author final continuity check using original primary-source audit; separate spawned citation phase provenance described in review ledger. Not a fresh external or full-body audit.",
+  "corrected_page_ranges": 4,
+  "references": [
+    {
+      "key": "ajayi2019",
+      "current_entry": "Ajayi, T., et al.: Toward an Open-Source Digital Flow: First Learnings from the\nOpenROAD Project. In: Proceedings of the 56th Annual Design Automation\nConference, pp. 1--4 (2019). \\url{https://doi.org/10.1145/3316781.3326334}",
+      "current_line": 352,
+      "current_contexts": [
+        {
+          "line": 49,
+          "paragraph": "\\section{Introduction}\nOpenROAD and OpenLane provide open infrastructure for synthesis and physical\nimplementation~\\cite{ajayi2019,shalan2020}. A release decision must combine\nseveral kinds of evidence: design rule checking (DRC) evaluates geometry,\nlayout versus schematic comparison (LVS) evaluates connectivity, and timing\nevaluates a constrained circuit with its parasitics. The controller must\nestablish which implementation and verification inputs produced each result.\nA zero-marker report can concern a different layout or omit required rules.\nA repair can also invalidate previously clean evidence."
+        },
+        {
+          "line": 298,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. EDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}."
+        }
+      ],
+      "original_audit_reference_number": 1,
+      "original_status": "resolved; identity confirmed by ACM-deposited metadata and primary paper mirror; ACM page blocked",
+      "prior_sources": [
+        {
+          "url": "https://api.crossref.org/works/10.1145/3316781.3326334",
+          "kind": "publisher_deposited_metadata",
+          "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+          "access_status": "HTTP 200; freshly read",
+          "read_scope": "Bibliographic metadata only; no article body"
+        },
+        {
+          "url": "https://dl.acm.org/doi/10.1145/3316781.3326334",
+          "kind": "primary_publisher",
+          "locator": "DOI target",
+          "access_status": "HTTP 403 in browser",
+          "read_scope": "No publisher body accessed"
+        },
+        {
+          "url": "https://par.nsf.gov/servlets/purl/10171025",
+          "kind": "primary_paper_mirror",
+          "locator": "PDF p.1 title/author block, Abstract, ACM Reference Format and DOI footer",
+          "access_status": "HTTP 200 via Python; browser fetch timed out",
+          "read_scope": "Only page 1 extracted and read; remaining pages not read"
+        },
+        {
+          "url": "https://fount.aucegypt.edu/faculty_book_chapters/159/",
+          "kind": "author_institution_record",
+          "locator": "Title; authors; Publication Date; Publisher; Recommended Citation",
+          "access_status": "Readable",
+          "read_scope": "Metadata only; site explicitly has no abstract"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "INVITED: Toward an Open-Source Digital Flow: First Learnings from the OpenROAD Project",
+        "authors": [
+          "Tutu Ajayi",
+          "Vidya A. Chhabria",
+          "Mateus Foga\u00e7a",
+          "Soheil Hashemi",
+          "Abdelrahman Hosny",
+          "Andrew B. Kahng",
+          "Minsoo Kim",
+          "Jeongsup Lee",
+          "Uday Mallappa",
+          "Marina Neseem",
+          "Geraldo Pradipta",
+          "Sherief Reda",
+          "Mehdi Saligane",
+          "Sachin S. Sapatnekar",
+          "Carl Sechen",
+          "Mohamed Shalan",
+          "William Swartz",
+          "Lutong Wang",
+          "Zhehong Wang",
+          "Mingyu Woo",
+          "Bangqi Xu"
+        ],
+        "year": 2019,
+        "venue": "Proceedings of the 56th Annual Design Automation Conference 2019",
+        "pages": "1\u20134",
+        "doi": "10.1145/3316781.3326334"
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "shalan2020",
+      "current_entry": "Shalan, M., Edwards, T.: Building OpenLANE: A 130nm OpenROAD-based\ntapeout-proven flow. In: Proceedings of the 2020 IEEE/ACM International\nConference on Computer-Aided Design, pp. 1--6 (2020).\n\\url{https://doi.org/10.1145/3400302.3415735}",
+      "current_line": 356,
+      "current_contexts": [
+        {
+          "line": 49,
+          "paragraph": "\\section{Introduction}\nOpenROAD and OpenLane provide open infrastructure for synthesis and physical\nimplementation~\\cite{ajayi2019,shalan2020}. A release decision must combine\nseveral kinds of evidence: design rule checking (DRC) evaluates geometry,\nlayout versus schematic comparison (LVS) evaluates connectivity, and timing\nevaluates a constrained circuit with its parasitics. The controller must\nestablish which implementation and verification inputs produced each result.\nA zero-marker report can concern a different layout or omit required rules.\nA repair can also invalidate previously clean evidence."
+        },
+        {
+          "line": 298,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. EDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}."
+        }
+      ],
+      "original_audit_reference_number": 2,
+      "original_status": "resolved; identity confirmed by ACM-deposited metadata; ACM page blocked; IEEE indexed abstract readable",
+      "prior_sources": [
+        {
+          "url": "https://api.crossref.org/works/10.1145/3400302.3415735",
+          "kind": "publisher_deposited_metadata",
+          "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+          "access_status": "HTTP 200; freshly read",
+          "read_scope": "Bibliographic metadata only; no article body"
+        },
+        {
+          "url": "https://dl.acm.org/doi/10.1145/3400302.3415735",
+          "kind": "primary_publisher",
+          "locator": "DOI target",
+          "access_status": "HTTP 403 in browser",
+          "read_scope": "No publisher article body accessed"
+        },
+        {
+          "url": "https://ieeexplore.ieee.org/abstract/document/9256623/?signout=success",
+          "kind": "primary_publisher_indexed_record",
+          "locator": "Title; Abstract; Published in; Date of Conference",
+          "access_status": "Publisher-indexed search extract readable; direct open HTTP 418; /document/9256623 challenge",
+          "read_scope": "Abstract and metadata from publisher-indexed result only"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "Building OpenLANE: a 130nm openroad-based tapeout-proven flow",
+        "authors": [
+          "Mohamed Shalan",
+          "Tim Edwards"
+        ],
+        "year": 2020,
+        "venue": "Proceedings of the 39th International Conference on Computer-Aided Design",
+        "pages": "1\u20136",
+        "doi": "10.1145/3400302.3415735"
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "eqydocs",
+      "current_entry": "YosysHQ: EQY documentation. \\url{https://yosyshq.readthedocs.io/projects/eqy/en/latest/}\n(accessed 12 October 2026)",
+      "current_line": 361,
+      "current_contexts": [
+        {
+          "line": 133,
+          "paragraph": "A typed change rolls execution back to its earliest affected stage and\ninvalidates downstream evidence. Three attempts per stage and 24 diagnosis\nattempts bound the recorded repair policy. The controller stops when a\nproposal would revisit a previously failed stage fingerprint, including its\ninputs and effective configuration. Formal equivalence checks both synthesis\nand routed netlists using EQY~\\cite{eqydocs}. Scalar-net matching uses\n\\code{splitnets on}; grouping related signals under \\code{[collect *]} and\n\\code{group *} preserves coupled-state proof structure. Fresh counter and\nshift-register controls prove equivalent, while a retained counter mutant\nwith a forced flop fails equivalence."
+        }
+      ],
+      "original_audit_reference_number": 3,
+      "original_status": "resolved; primary YosysHQ documentation readable",
+      "prior_sources": [
+        {
+          "url": "https://yosyshq.readthedocs.io/projects/eqy/en/latest/",
+          "kind": "primary_tool_docs",
+          "locator": "Main heading and opening description",
+          "access_status": "HTTP 200",
+          "read_scope": "Introductory documentation"
+        },
+        {
+          "url": "https://yosyshq.readthedocs.io/projects/eqy/en/latest/config.html#options-section",
+          "kind": "primary_tool_docs",
+          "locator": "Options section: splitnets; Match sections; Collect sections: group/nogroup and bind/nobind",
+          "access_status": "Readable",
+          "read_scope": "Named configuration sections only"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "Equivalence Checking with Yosys (EQY) Documentation",
+        "authors": [
+          "YosysHQ"
+        ],
+        "year": null,
+        "source_type": "living tool documentation",
+        "url": "https://yosyshq.readthedocs.io/projects/eqy/en/latest/",
+        "doi": null,
+        "manuscript_access_date": "2026-10-12",
+        "audit_access_date": "2026-10-13"
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "jung2021",
+      "current_entry": "Jung, J., Kahng, A.B., Kim, S., Varadarajan, R.: METRICS2.1 and flow tuning\nin the IEEE CEDA Robust Design Flow and OpenROAD: ICCAD special session paper.\nIn: Proceedings of the 2021 IEEE/ACM International Conference on Computer-Aided\nDesign, pp. 1--9 (2021). \\url{https://doi.org/10.1109/ICCAD51958.2021.9643541}",
+      "current_line": 364,
+      "current_contexts": [
+        {
+          "line": 299,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. EDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}."
+        }
+      ],
+      "original_audit_reference_number": 4,
+      "original_status": "resolved; IEEE-deposited metadata confirmed; IEEE page challenged; primary author PDF abstract readable",
+      "prior_sources": [
+        {
+          "url": "https://api.crossref.org/works/10.1109/iccad51958.2021.9643541",
+          "kind": "publisher_deposited_metadata",
+          "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+          "access_status": "HTTP 200; freshly read",
+          "read_scope": "Bibliographic metadata only; no article body"
+        },
+        {
+          "url": "https://ieeexplore.ieee.org/document/9643541",
+          "kind": "primary_publisher",
+          "locator": "Title in indexed publisher record; DOI target",
+          "access_status": "Direct page shows JavaScript anti-bot challenge",
+          "read_scope": "Title/challenge only; article body unread"
+        },
+        {
+          "url": "https://vlsicad.ucsd.edu/Publications/Conferences/388/c388.pdf",
+          "kind": "primary_author_paper",
+          "locator": "PDF p.1 title/authors and Abstract; p.2 Section II METRICS2.1",
+          "access_status": "Readable PDF",
+          "read_scope": "First-page abstract/introduction and visible Section II excerpt; remaining body not systematically read"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "METRICS2.1 and Flow Tuning in the IEEE CEDA Robust Design Flow and OpenROAD ICCAD Special Session Paper",
+        "authors": [
+          "Jinwook Jung",
+          "Andrew B. Kahng",
+          "Seungwon Kim",
+          "Ravi Varadarajan"
+        ],
+        "year": 2021,
+        "venue": "2021 IEEE/ACM International Conference On Computer Aided Design (ICCAD)",
+        "pages": "1\u20139",
+        "doi": "10.1109/ICCAD51958.2021.9643541"
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "prov2013",
+      "current_entry": "W3C: PROV-Overview: An overview of the PROV family of documents.\nW3C Working Group Note (2013). \\url{https://www.w3.org/TR/prov-overview/}",
+      "current_line": 369,
+      "current_contexts": [
+        {
+          "line": 300,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. EDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}."
+        }
+      ],
+      "original_audit_reference_number": 5,
+      "original_status": "resolved; primary W3C Note readable",
+      "prior_sources": [
+        {
+          "url": "https://www.w3.org/TR/prov-overview/",
+          "kind": "primary_standards_org",
+          "locator": "Header date/type and Editors; Abstract; Section 1 Introduction; Section 2 Document Roadmap",
+          "access_status": "HTTP 200",
+          "read_scope": "Header and named sections; no claim of reading all linked PROV specifications"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "PROV-Overview: An Overview of the PROV Family of Documents",
+        "authors": [
+          "W3C"
+        ],
+        "editors": [
+          "Paul Groth",
+          "Luc Moreau"
+        ],
+        "year": 2013,
+        "publication_date": "2013-04-30",
+        "source_type": "W3C Working Group Note; non-normative overview",
+        "doi": null,
+        "url": "https://www.w3.org/TR/prov-overview/",
+        "dated_url": "https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/"
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "chateda",
+      "current_entry": "Wu, H., He, Z., Zhang, X., Yao, X., Zheng, S., Zheng, H., Yu, B.:\nChatEDA: A Large Language Model Powered Autonomous Agent for EDA.\nIEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems\n43(10), 3184--3197 (2024). \\url{https://doi.org/10.1109/TCAD.2024.3383347}",
+      "current_line": 372,
+      "current_contexts": [
+        {
+          "line": 301,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. EDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}."
+        }
+      ],
+      "original_audit_reference_number": 6,
+      "original_status": "resolved; cited journal metadata confirmed; primary arXiv abstract readable; journal page challenged",
+      "prior_sources": [
+        {
+          "url": "https://api.crossref.org/works/10.1109/tcad.2024.3383347",
+          "kind": "publisher_deposited_metadata",
+          "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+          "access_status": "HTTP 200; freshly read",
+          "read_scope": "Bibliographic metadata only; no article body"
+        },
+        {
+          "url": "https://ieeexplore.ieee.org/document/10485372/",
+          "kind": "primary_publisher",
+          "locator": "DOI target",
+          "access_status": "JavaScript anti-bot challenge; abstract URL HTTP 418",
+          "read_scope": "No journal article body accessed"
+        },
+        {
+          "url": "https://arxiv.org/abs/2308.10204",
+          "kind": "primary_arxiv",
+          "locator": "Title; Authors; Abstract; Cite as / related DOI; Submission history",
+          "access_status": "Readable primary landing page",
+          "read_scope": "Metadata and abstract only; paper body not read"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "ChatEDA: A Large Language Model Powered Autonomous Agent for EDA",
+        "authors": [
+          "Haoyuan Wu",
+          "Zhuolun He",
+          "Xinyun Zhang",
+          "Xufeng Yao",
+          "Su Zheng",
+          "Haisheng Zheng",
+          "Bei Yu"
+        ],
+        "year": 2024,
+        "venue": "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems",
+        "volume": "43",
+        "issue": "10",
+        "pages": "3184\u20133197",
+        "doi": "10.1109/TCAD.2024.3383347"
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "orfsagent",
+      "current_entry": "Ghose, A., Kahng, A.B., Kundu, S., Wang, Z.:\nORFS-Agent: Tool-Using Agents for Chip Design Optimization.\nIn: Proceedings of the ACM/IEEE International Symposium on Machine Learning\nfor CAD (MLCAD), pp. 1--13 (2025). \\url{https://doi.org/10.1109/MLCAD65511.2025.11189204}",
+      "current_line": 377,
+      "current_contexts": [
+        {
+          "line": 302,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. EDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}."
+        }
+      ],
+      "original_audit_reference_number": 7,
+      "original_status": "resolved; 2025 conference metadata confirmed; primary arXiv abstract readable; IEEE page challenged",
+      "prior_sources": [
+        {
+          "url": "https://api.crossref.org/works/10.1109/MLCAD65511.2025.11189204",
+          "kind": "publisher_deposited_metadata",
+          "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+          "access_status": "HTTP 200; freshly read",
+          "read_scope": "Bibliographic metadata only; no article body"
+        },
+        {
+          "url": "https://ieeexplore.ieee.org/document/11189204/",
+          "kind": "primary_publisher",
+          "locator": "DOI target",
+          "access_status": "JavaScript anti-bot challenge",
+          "read_scope": "No conference article body accessed"
+        },
+        {
+          "url": "https://arxiv.org/abs/2506.08332v2",
+          "kind": "primary_arxiv",
+          "locator": "Title; Authors; Abstract; Cite as / related DOI; Submission history",
+          "access_status": "Readable primary landing page",
+          "read_scope": "Metadata and abstract only; paper body not read"
+        },
+        {
+          "url": "https://arxiv.org/abs/2506.08332",
+          "kind": "primary_arxiv",
+          "locator": "Submission history; latest v3 dated 30 April 2026",
+          "access_status": "Readable",
+          "read_scope": "Metadata and abstract only; v3 differs from 2025 version"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "ORFS-agent: Tool-Using Agents for Chip Design Optimization",
+        "authors": [
+          "Amur Ghose",
+          "Andrew B. Kahng",
+          "Sayak Kundu",
+          "Zhiang Wang"
+        ],
+        "year": 2025,
+        "publication_date": "2025-09-08",
+        "venue": "2025 ACM/IEEE 7th Symposium on Machine Learning for CAD (MLCAD)",
+        "pages": "1\u201313",
+        "doi": "10.1109/MLCAD65511.2025.11189204"
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "mcp4eda",
+      "current_entry": "Wang, Y., Ye, W., He, Y., Chen, Y., Qu, G., Li, A.:\nMCP4EDA: LLM-Powered Model Context Protocol RTL-to-GDSII Automation with\nBackend Aware Synthesis Optimization. arXiv:2507.19570 (2025).\n\\url{https://arxiv.org/abs/2507.19570}",
+      "current_line": 382,
+      "current_contexts": [
+        {
+          "line": 304,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. EDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}."
+        }
+      ],
+      "original_audit_reference_number": 8,
+      "original_status": "resolved; primary arXiv v1 metadata/abstract confirmed",
+      "prior_sources": [
+        {
+          "url": "https://arxiv.org/abs/2507.19570",
+          "kind": "primary_arxiv",
+          "locator": "Title; Authors; Abstract; Cite as / related DOI; Submission history",
+          "access_status": "Readable primary landing page",
+          "read_scope": "Metadata and abstract only; paper body not read"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "MCP4EDA: LLM-Powered Model Context Protocol RTL-to-GDSII Automation with Backend Aware Synthesis Optimization",
+        "authors": [
+          "Yiting Wang",
+          "Wanghao Ye",
+          "Yexiao He",
+          "Yiran Chen",
+          "Gang Qu",
+          "Ang Li"
+        ],
+        "year": 2025,
+        "publication_date": "2025-07-25",
+        "source_type": "arXiv preprint",
+        "arxiv_id": "2507.19570v1",
+        "additional_arxiv_doi": "10.48550/arXiv.2507.19570",
+        "url": "https://arxiv.org/abs/2507.19570",
+        "doi": null
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "flowfixer",
+      "current_entry": "Dong, K., Wang, R., Yuan, F., An, B., Zhang, X.: FlowFixer-EDA: A Tool-Feedback-Augmented Large Language Model Agent for\nAutomated Diagnosis and Repair of Open-Source RTL-to-GDS Design Flow Failures.\nIEEE Access 14, 140412--140428 (2026).\n\\url{https://doi.org/10.1109/ACCESS.2026.3730896}",
+      "current_line": 387,
+      "current_contexts": [
+        {
+          "line": 305,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. EDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}."
+        }
+      ],
+      "original_audit_reference_number": 9,
+      "original_status": "resolved; 2026 journal metadata confirmed; primary publisher-indexed abstract readable; direct page blocked",
+      "prior_sources": [
+        {
+          "url": "https://api.crossref.org/works/10.1109/access.2026.3730896",
+          "kind": "publisher_deposited_metadata",
+          "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+          "access_status": "HTTP 200; freshly read",
+          "read_scope": "Bibliographic metadata only; no article body"
+        },
+        {
+          "url": "https://ieeexplore.ieee.org/abstract/document/11683937/",
+          "kind": "primary_publisher_indexed_record",
+          "locator": "Abstract framework description and repair-acceptance sentence; Published in; Page(s); Date of Publication; DOI",
+          "access_status": "Readable publisher-indexed search extract; direct browser open HTTP 418",
+          "read_scope": "Publisher abstract and bibliographic record only; full article body unread"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "FlowFixer-EDA: A Tool-Feedback-Augmented Large Language Model Agent for Automated Diagnosis and Repair of Open-Source RTL-to-GDS Design Flow Failures",
+        "authors": [
+          "Ke Dong",
+          "Ruidong Wang",
+          "Fang Yuan",
+          "Baichun An",
+          "Xia Zhang"
+        ],
+        "year": 2026,
+        "publication_date": "2026-09-08",
+        "venue": "IEEE Access",
+        "volume": "14",
+        "pages": "140412\u2013140428",
+        "doi": "10.1109/ACCESS.2026.3730896"
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "edaid",
+      "current_entry": "Wu, H., Zheng, H., He, Z., Yu, B.: Divergent Thoughts toward One Goal:\nLLM-based Multi-Agent Collaboration System for Electronic Design Automation.\nIn: Proceedings of NAACL-HLT, vol. 1, pp. 1710--1721 (2025).\n\\url{https://doi.org/10.18653/v1/2025.naacl-long.83}",
+      "current_line": 392,
+      "current_contexts": [
+        {
+          "line": 306,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. EDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}."
+        }
+      ],
+      "original_audit_reference_number": 10,
+      "original_status": "resolved; primary ACL publisher metadata and abstract confirmed",
+      "prior_sources": [
+        {
+          "url": "https://aclanthology.org/2025.naacl-long.83/",
+          "kind": "primary_publisher",
+          "locator": "Title/author block; Abstract; Volume; Year; Pages; DOI; exported BibTeX",
+          "access_status": "Readable",
+          "read_scope": "Publisher landing-page metadata and abstract only; PDF body not read"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "Divergent Thoughts toward One Goal: LLM-based Multi-Agent Collaboration System for Electronic Design Automation",
+        "authors": [
+          "Haoyuan Wu",
+          "Haisheng Zheng",
+          "Zhuolun He",
+          "Bei Yu"
+        ],
+        "year": 2025,
+        "publication_date": "2025-04",
+        "venue": "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+        "pages": "1710\u20131721",
+        "doi": "10.18653/v1/2025.naacl-long.83"
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "audopeda",
+      "current_entry": "Ghose, A., Jang, J., Kahng, A.B., Lee, J.:\nAutomated QoR improvement in OpenROAD with coding agents.\narXiv:2601.06268v2 (2026). \\url{https://arxiv.org/abs/2601.06268v2}",
+      "current_line": 397,
+      "current_contexts": [
+        {
+          "line": 308,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. EDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}."
+        }
+      ],
+      "original_audit_reference_number": 11,
+      "original_status": "resolved; primary 2026 arXiv v2 metadata and abstract confirmed",
+      "prior_sources": [
+        {
+          "url": "https://arxiv.org/abs/2601.06268v2",
+          "kind": "primary_arxiv",
+          "locator": "Title; Authors; Abstract; Cite as / related DOI; Submission history",
+          "access_status": "Readable primary landing page",
+          "read_scope": "Metadata and abstract only; paper body not read"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "Automated QoR improvement in OpenROAD with coding agents",
+        "authors": [
+          "Amur Ghose",
+          "Junyeong Jang",
+          "Andrew B. Kahng",
+          "Jakang Lee"
+        ],
+        "year": 2026,
+        "publication_date": "2026-01-09",
+        "version_date": "2026-02-09",
+        "source_type": "arXiv preprint",
+        "arxiv_id": "2601.06268v2",
+        "additional_arxiv_doi": "10.48550/arXiv.2601.06268",
+        "url": "https://arxiv.org/abs/2601.06268v2",
+        "doi": null
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "chibench",
+      "current_entry": "Sumitani, R., Amorim, J.V., Mafra, A., Crepalde, M., Pereira, F.M.Q.:\nChiBench: A Benchmark Suite for Testing Electronic Design Automation Tools.\narXiv:2406.06550 (2024). \\url{https://arxiv.org/abs/2406.06550}",
+      "current_line": 401,
+      "current_contexts": [
+        {
+          "line": 310,
+          "paragraph": "ChiBench supplies RTL designs for EDA-tool testing~\\cite{chibench}.\nDRVerify documents physical-verification runset testing with known legal\nand violating structures~\\cite{drverify}. These works motivate checking\nrule execution and intended coverage in addition to marker counts. The\npresent contribution combines constructed native/ledger faults, candidate\nlineage, fresh recorded-proposal checks, and artifact-level repeat evidence.\nComparable contracts in other controllers are not excluded by this study."
+        }
+      ],
+      "original_audit_reference_number": 12,
+      "original_status": "resolved; primary arXiv v1 metadata and abstract confirmed",
+      "prior_sources": [
+        {
+          "url": "https://arxiv.org/abs/2406.06550",
+          "kind": "primary_arxiv",
+          "locator": "Title; Authors; Abstract; Cite as / related DOI; Submission history",
+          "access_status": "Readable primary landing page",
+          "read_scope": "Metadata and abstract only; paper body not read"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "ChiBench: a Benchmark Suite for Testing Electronic Design Automation Tools",
+        "authors": [
+          "Rafael Sumitani",
+          "Jo\u00e3o Victor Amorim",
+          "Augusto Mafra",
+          "Mirlaine Crepalde",
+          "Fernando Magno Quint\u00e3o Pereira"
+        ],
+        "year": 2024,
+        "publication_date": "2024-05-24",
+        "source_type": "arXiv preprint",
+        "arxiv_id": "2406.06550v1",
+        "additional_arxiv_doi": "10.48550/arXiv.2406.06550",
+        "url": "https://arxiv.org/abs/2406.06550",
+        "doi": null
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    },
+    {
+      "key": "drverify",
+      "current_entry": "Sage Design Automation: DRVerify: The Verification of Physical Verification.\nTechnical white paper (2018).\n\\url{https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf}",
+      "current_line": 405,
+      "current_contexts": [
+        {
+          "line": 312,
+          "paragraph": "ChiBench supplies RTL designs for EDA-tool testing~\\cite{chibench}.\nDRVerify documents physical-verification runset testing with known legal\nand violating structures~\\cite{drverify}. These works motivate checking\nrule execution and intended coverage in addition to marker counts. The\npresent contribution combines constructed native/ledger faults, candidate\nlineage, fresh recorded-proposal checks, and artifact-level repeat evidence.\nComparable contracts in other controllers are not excluded by this study."
+        }
+      ],
+      "original_audit_reference_number": 13,
+      "original_status": "resolved; vendor-authored primary document readable on third-party host",
+      "prior_sources": [
+        {
+          "url": "https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf",
+          "kind": "primary_vendor_document_on_mirror",
+          "locator": "PDF p.1 title/corporate author/copyright and Who checks the checker?; pp.1\u20132 passing/failing structures; p.4 DRVerify paragraph",
+          "access_status": "HTTP 200; readable PDF text; screenshot tool failed",
+          "read_scope": "Named passages inspected in extracted text; no claim of comprehensive full-body or figure inspection"
+        }
+      ],
+      "prior_verified_metadata": {
+        "title": "DRVerify: The Verification of Physical Verification",
+        "authors": [
+          "Sage Design Automation, Inc."
+        ],
+        "year": 2018,
+        "year_basis": "2018 copyright on PDF pages, corroborating the citation year",
+        "source_type": "vendor technical white paper hosted by SemiWiki",
+        "doi": null,
+        "url": "https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf"
+      },
+      "continuity_scope": "Same cited source identity and bounded subject description; original metadata/source resolution retained. No fresh DOI transport or full-body reading asserted."
+    }
+  ],
+  "reference_count": 13,
+  "scope": "Map current bibliography and citation paragraphs to retained original source evidence, preserving access limits and source-reading scope."
+}

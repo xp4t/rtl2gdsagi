@@ -1,0 +1,25 @@
+{
+  "manuscript_sha256": "0bbaad3584623037b5444701f4c0949ab272717c2e4a340515ea11b20db9b76e",
+  "main_pdf_sha256": "b1e43981ea66c4b48b86c1ecaf629591bf1c86147d5d2bbbe499faf1152bd268",
+  "fresh_overleaf_build": "passed",
+  "fresh_overleaf_pdf_pages": 15,
+  "fresh_overleaf_pdf_text_matches": true,
+  "numerical_audit": "passed",
+  "final_reviews": [
+    "REVIEW_FOLLOWUP_EVIDENCE.md",
+    "REVIEW_FOLLOWUP_METHODS.md",
+    "REVIEW_FOLLOWUP_PRESENTATION.md"
+  ],
+  "review_bindings": "passed; three final corrected-version closures and full input/PDF hashes",
+  "archive_check": "passed: all extracted file hashes verified",
+  "publication": "Verified public release, code tag, four server asset digests and unauthenticated PDF; see publication_receipt.json",
+  "archive_verification": {
+    "archive_sha256": "fe0eb81d8803363cb106fdab8ba5d8a50156870b1980ab43584fb247fc3d2c31",
+    "archive_bytes": 185837172,
+    "verified_file_hashes": 12250,
+    "extracted_directory": "/tmp/rtl2gdsagi-followup-final-archive-vvfcge_r",
+    "verifier_stdout": "Verified 12250 archived file hashes"
+  },
+  "publication_receipt_asset_sha256": "b02cce495aca137c9fceaaa3d0a0fe43455fab4df19ef29f9f4a32da7f892cea",
+  "publication_receipt_download": "Verified unauthenticated HTTPS download and server asset digest"
+}

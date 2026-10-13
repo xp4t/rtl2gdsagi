@@ -1,113 +1,141 @@
 {
-  "release_tag": "rtl2gdsagi-paper-20261013",
-  "manuscript_sha256": "0bbaad3584623037b5444701f4c0949ab272717c2e4a340515ea11b20db9b76e",
-  "main_pdf_sha256": "b1e43981ea66c4b48b86c1ecaf629591bf1c86147d5d2bbbe499faf1152bd268",
-  "generated_tex_aggregate_sha256": "1951ca18adf94808abf79080dde33461310888ead5e8288223d35ed7c2629de5",
+  "release_tag": "rtl2gdsagi-paper-frozen-20261013",
+  "manuscript_sha256": "aa000b982ef658964a94c850c53415b0bbcc8c1db263457b9ff91cb43c546b48",
+  "main_pdf_sha256": "df067d1b98dba094e5288123e94f22e27509c1d78e31f9b944e4065e54b09e44",
+  "generated_tex_aggregate_sha256": "605211f6b03e3cc6e7781c21ac062d06aa34376166e407406839236e977df0a9",
   "reviews": [
     {
       "scope": "EVIDENCE",
-      "path": "rtl2gdsagi_paper/evidence/REVIEW_FOLLOWUP_EVIDENCE.md",
-      "sha256": "1958cee42fe52a65c0336e0bcd986971efd5f0c311ea0d42fc6b12b3f05bdf37"
+      "path": "rtl2gdsagi_paper/evidence/REVIEW_FROZEN_EVIDENCE.md",
+      "sha256": "31c49b9a38850fa33bb2fcf440e3ae76821dc0d1b56e2b591e0763638ae05801"
     },
     {
       "scope": "METHODS",
-      "path": "rtl2gdsagi_paper/evidence/REVIEW_FOLLOWUP_METHODS.md",
-      "sha256": "0b0bc728dc4d622cd8944912e973b123f974f5a163a73ec55d936ff41e5cf208"
+      "path": "rtl2gdsagi_paper/evidence/REVIEW_FROZEN_METHODS.md",
+      "sha256": "0ca7a35414e9829b354128190fbf2cc92fad30eceb829e4bb9507650ff8ccd3e"
     },
     {
       "scope": "PRESENTATION",
-      "path": "rtl2gdsagi_paper/evidence/REVIEW_FOLLOWUP_PRESENTATION.md",
-      "sha256": "b089bced4eeeb792927833789ccee4dd35a6d462acf21ba2247bb51d5e07b931"
+      "path": "rtl2gdsagi_paper/evidence/REVIEW_FROZEN_PRESENTATION.md",
+      "sha256": "94b075f3e71f243fc387d6ae161d2f91198da026e843f648340ac469b2f8e5d6"
     }
   ],
   "bound_files": [
     {
-      "path": "rtl2gdsagi_paper/main.tex",
-      "sha256": "0bbaad3584623037b5444701f4c0949ab272717c2e4a340515ea11b20db9b76e"
-    },
-    {
       "path": "rtl2gdsagi_paper/README.md",
-      "sha256": "b86a93a0b9e025244ac145899e74162b196adf3e26eef5ce9854f6adcb13e62c"
+      "sha256": "fa7ef4ec708e54d07d2eae65def48ffd0745e8d0d4bdab0268b12a4c70d13e5f"
     },
     {
-      "path": "rtl2gdsagi_paper/main.pdf",
-      "sha256": "b1e43981ea66c4b48b86c1ecaf629591bf1c86147d5d2bbbe499faf1152bd268"
+      "path": "rtl2gdsagi_paper/evidence/citation_continuity_frozen.json",
+      "sha256": "217a7897a655f25536b3f47d283596600768d63ec8fe3bab25c8d3b23b577a3c"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/experiment_manifest.json",
+      "sha256": "18c92382dbe72d96a1b35ad550f0548d60e3832c8861cd47b1ad943ef132e340"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/frozen_results.json",
+      "sha256": "41d840d81c4c995a9aa703c88516bcfafec5bb8ebbe02b9638637655b5ead350"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/manuscript.txt",
+      "sha256": "3a9899807f0b3ddeec125736d0beb352117464836ae8f14397af8106163b4f43"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/manuscript_audit.json",
+      "sha256": "3b1f2d620aa1c704cfe12049cf6f09f99c6236f5d95e2c0939c10d3f3a32ce6f"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/native_fault_injection_frozen.json",
+      "sha256": "c87ab6dbf2535f316b04d4202b5935b84f4cc42549b06cc94d6093a4d2c5a00c"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/openlane_invocation_audit.json",
+      "sha256": "34170f5f7a776e6b7d73994a1fd9569b5570bd19da8b09ffbfc3098c75c87d68"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/reproducibility_final.json",
+      "sha256": "b9f3f8f7ccc384a471012f4eb200ee0de2cec6ad0ca42a50c9579fa45bee67f4"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/supplement.txt",
+      "sha256": "4b6c4dcb5f14a1258a5545bd7dffafcdf0fc0d6f13109445bf7fc36ffb9b0370"
     },
     {
       "path": "rtl2gdsagi_paper/figures/timing_stress.pdf",
       "sha256": "f190f4fc4d3c7a2bf0857d7b310da23dcaacde0da58d26302c9a134fad43f41b"
     },
     {
-      "path": "rtl2gdsagi_paper/evidence/manuscript.txt",
-      "sha256": "2a412aaddb2d34730bcc0742f26caf29a949be03b755e10f15f61ad637a01ef4"
+      "path": "rtl2gdsagi_paper/generated/checker_obligations_table.tex",
+      "sha256": "3e112ef5ba00f93919d5f826a34a958d5194a40864b613596385d93f01257520"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/class_replay_table.tex",
+      "sha256": "812ac102c4bf35f6107ec78511ac59925f6b10be095bf744761713c9f118ac42"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/configured_drc_controls_table.tex",
+      "sha256": "395948f80536d583d4f63a96ce9ee0492506a6ad9e431884e201ddb3820b47bf"
     },
     {
       "path": "rtl2gdsagi_paper/generated/episode_table.tex",
-      "sha256": "3c20c8925efea9529ad06ef021e2df0e0166304250a09209621f957f9d5cfd54"
+      "sha256": "f61f91ba644c005d38daf5334438fa92dba5c753cb739561159f680d10501845"
     },
     {
       "path": "rtl2gdsagi_paper/generated/extended_results.tex",
       "sha256": "e1ac173e7ec37fcf86fd81c43e1057b00fa07520b0a3501d5c6410f1bb714e3a"
     },
     {
-      "path": "rtl2gdsagi_paper/generated/external_coverage_table.tex",
-      "sha256": "26ffdca8f89f0c010e953d2bdc374cca72df4e32819c6f0a3c09539e2ad6ab5f"
+      "path": "rtl2gdsagi_paper/generated/frozen_fault_table.tex",
+      "sha256": "fe7b73d818b97d5c22906106011daf0203ddcf0fcb083a720c622912d9ec6209"
     },
     {
-      "path": "rtl2gdsagi_paper/generated/external_coverage_text.tex",
-      "sha256": "8821668ada139e4d18972c2da00dce1195c52856d1cebb00c9f57709c0bd18ef"
-    },
-    {
-      "path": "rtl2gdsagi_paper/generated/fault_table.tex",
-      "sha256": "41040ca28d1fc69ba5cddf5b504859c91cf96ddc884e127725fddae604cb001d"
-    },
-    {
-      "path": "rtl2gdsagi_paper/generated/followup_repeat_text.tex",
-      "sha256": "d8f8c786d02a4daf47707149d89d62e24f8f6f30abba91280028c9493969e802"
-    },
-    {
-      "path": "rtl2gdsagi_paper/generated/followup_scale_table.tex",
-      "sha256": "1ea8189037f29fefb15fc3bd6ceb4b636f8702ac4bae531ce46f77a84d9db42a"
-    },
-    {
-      "path": "rtl2gdsagi_paper/generated/followup_scale_text.tex",
-      "sha256": "c25b7f56c93a5c881f0ec15b94f37bcc8b8d14d6009e336d0416034c5ef14f20"
-    },
-    {
-      "path": "rtl2gdsagi_paper/generated/followup_timing_table.tex",
-      "sha256": "515571d85a025ce4476631fdd0cd8bdf0edb2b3b5680f67c76f1360070cc716b"
-    },
-    {
-      "path": "rtl2gdsagi_paper/generated/followup_timing_text.tex",
-      "sha256": "4ffd97038fc846f8090a1021320eeb878f33fa1ce58235f558a0bc1e89d9561e"
-    },
-    {
-      "path": "rtl2gdsagi_paper/generated/history_table.tex",
-      "sha256": "b77982464b2693cd51bde80d4754381bc69dd1451dbe58a8aa151c2408abbb79"
-    },
-    {
-      "path": "rtl2gdsagi_paper/generated/implementation_identity_text.tex",
-      "sha256": "496ecf2f8ce5238dbd819a96fc7b752fb7e780aff90db7b5d4a9111de1ec6b43"
+      "path": "rtl2gdsagi_paper/generated/frozen_macros.tex",
+      "sha256": "ce30a277f2c25c664964ca83f9bd789f6c2ec6400e50b1528f39227b645b9775"
     },
     {
       "path": "rtl2gdsagi_paper/generated/live_results.tex",
-      "sha256": "b97c4b554a6b771f446e4762fcdec643f972e086a5eb8bcc3942aa7606bcbf29"
+      "sha256": "e0733c07718806022edd2d279c476877eb90a74850af11ff0740bfe4818402a1"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/padding_thread_table.tex",
+      "sha256": "fbf1b8db0045131d1169c1e5c09c06c3eb8ee2b7bafccfadfe9772d1502ecae0"
     },
     {
       "path": "rtl2gdsagi_paper/generated/qor_table.tex",
       "sha256": "8f105251414597b0189c099be8c26b0da583a195bc9564bfa8e746ddbad2361a"
     },
     {
-      "path": "rtl2gdsagi_paper/generated/repair_table.tex",
-      "sha256": "0f8b4eee7a9a02a2b0103bb7542d7376b84287f104a6d959a125dd9e8b490936"
-    },
-    {
       "path": "rtl2gdsagi_paper/generated/reproducibility_table.tex",
-      "sha256": "42d9e9aea7e5ce6f12e8b9b4e171042b20c2e695a66087cb1e899ed0fb5c4483"
+      "sha256": "045e078a30747062532f3ea5d6b659d468be6eae2b27c4f7f72a3244589d2ba7"
     },
     {
       "path": "rtl2gdsagi_paper/generated/signoff_table.tex",
-      "sha256": "02ba42acf33b2a1642a188a626df2de21405e59f3f9eb02152d2389168d1a31c"
+      "sha256": "d473ad909c1dbd7f4bac2021a56e1c4b599b27f533d66cd513513e5b22431618"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/supplement_history_table.tex",
+      "sha256": "dd9903084792355b2561f1667ea3c7353b46afac51d0bacbf5a214e98f8b24a3"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/supplement_large_cases.tex",
+      "sha256": "09a175eb521c6d1fb6103e2ba5b8057dcbbc5cc9e694e45470d85d2901529a0b"
+    },
+    {
+      "path": "rtl2gdsagi_paper/main.pdf",
+      "sha256": "df067d1b98dba094e5288123e94f22e27509c1d78e31f9b944e4065e54b09e44"
+    },
+    {
+      "path": "rtl2gdsagi_paper/main.tex",
+      "sha256": "aa000b982ef658964a94c850c53415b0bbcc8c1db263457b9ff91cb43c546b48"
+    },
+    {
+      "path": "rtl2gdsagi_paper/supplement.pdf",
+      "sha256": "daac9afab3e1b879a0bf58adddaeade7e0a2daa2c3b5aefdfe38e8a55a352b01"
+    },
+    {
+      "path": "rtl2gdsagi_paper/supplement.tex",
+      "sha256": "2e2eb273acffbc28b1be077eec5a533e6fba756a622b0461cf35b59b066327ae"
     }
   ],
   "execution": "Three separate internal review contexts in the same Codex writing workflow; not independent external peer review.",

@@ -1,0 +1,10 @@
+\begin{table}[htbp]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Controlled padding and thread ablation at unchanged 3 ns. Each row contains one run at each worker count. Padding refers to reapplication after placement; placement padding itself stays at one site. Slack is measured after routing.}\label{tab:paddingthread}
+\begin{tabular}{@{}lllrr@{}}\toprule
+CTS padding & Route padding & Workers & Setup (ps) & Certified \\
+\midrule
+Off & Off & 1, 8 & +1.586 & 2/2 \\
+Off & On & 1, 8 & +9.868 & 2/2 \\
+On & Off & 1, 8 & -0.654 & 0/2 \\
+On & On & 1, 8 & -0.654 & 0/2 \\
+\bottomrule\end{tabular}\end{table}

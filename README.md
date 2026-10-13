@@ -779,40 +779,40 @@ them by rewriting your logic.
 
 ## 9. Current status
 
-The reviewer follow-up on 13 October 2026 is documented in
+The frozen-source revision of 13 October 2026 is documented in
 [`rtl2gdsagi_paper`](rtl2gdsagi_paper/README.md) and the
-[versioned paper artifact](https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-20261013).
-It treats the fault study as coverage of six constructed classes, adds isolated
-actual OpenLane checker observations, and retains all twelve follow-up executions.
-The repaired 3 ns ALU repeats at +1.586 ps with the archived controller and fails
-at −0.654 ps with the current controller, so robust timing closure is not claimed.
-Two one-worker shift1024 runs match routed DEF, netlists, SPEF and date-neutral GDS.
-Four additional live accumulator repairs produce zero certifications, two
-controller escalations and two provider-credit interruptions, with 23 valid model
-responses and two rejected requests. This separate cohort is not pooled with the
-original nine episodes. The current regression record is **955 passed, 15 skipped,
-zero failures/errors**. The three manuscript reviews are internal automated
+[versioned paper artifact](https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-frozen-20261013).
+The implementation fingerprint is **af31b39f6782**. All seven designs complete
+the 21-stage local signoff contract twice. Every pair matches routed DEF,
+mapped and routed netlists, SPEF and date-normalized GDS; primary shift1024 uses
+one routing worker. The original eight-worker observations remain an ablation.
+
+The fault study covers six constructed classes with three consistency executions
+each, all blocked. These are not independent attacks or a full-flow comparison.
+Configured OpenLane checker controls and exact invocation evidence distinguish
+supported native obligations from release-manifest obligations.
+
+Twenty recorded proposal states originated on **18d948815ac6**. Fresh executions
+on the frozen implementation certify spacing 3/3 and PDN 3/3; all fourteen timing
+states fail hard checks. Their archived timing observations were eleven failures,
+two unavailable target checks and one certification. These intermediate states
+are dependent attempts under native feedback, not a population model error rate.
+Eight controlled CTS/routing padding and worker interventions isolate the narrow
+ALU timing sign change to CTS padding reapplication in these executions. Current
+production keeps that padding and does not claim robust 3 ns timing closure.
+
+The supplement retains the original nine live repair episodes (seven verified,
+two escalated) separately from four larger accumulator episodes (zero certified,
+two controller stops, two incomplete). Outcomes remain unknown for incomplete
+cases. Full native metrics and hashes are in
+`rtl2gdsagi_paper/evidence/signoff_metrics.csv`, `live_results.json`, and
+`frozen_results.json`; the selected pairs are under
+`runs/frozen_evaluation_20261013/pair_{a,b}`. The regression record is
+**955 passed, 15 skipped, zero failures/errors**. Three manuscript reviews use
+separate contexts in the same automated writing workflow; they are internal
 reviews, not independent external peer review.
 
-The earlier validation on 12 October 2026 completed **all 21 stages with clean
-signoff for seven distinct designs**: `register`, `mux4to1`, `alu8`, `counter`,
-`shift_reg`, `fifo_buf`, and the 1,024-cell `shift1024`. Every selected run passed simulation, both formal
-boundaries, extracted-parasitic timing, GDS integrity, DRC, LVS and antenna.
-The full regression suite reports **954 passed, 15 skipped, no failures or
-errors**. The skips refer to absent archived calibration or OV7670 fixtures.
-
-The reproducible commands are in `scripts/run_signoff_benchmark.py`; measured
-values and hash/certification receipts are in
-`rtl2gdsagi_paper/evidence/signoff_metrics.csv` and `live_results.json`.
-The selected paired directories are recorded in
-`rtl2gdsagi_paper/evidence/experiment_manifest.json`: six designs in
-`runs/padding_release_pair_{a,b}/` and `shift1024` in
-`runs/shift_scale_pair_{a,b}/`. The native fault study blocks six constructed
-fault classes in three consistency executions each; repetitions are not
-independent trials or an external-flow performance comparison. The nine live
-repair episodes produce seven fully verified repairs and two escalations;
-20 authorized proposals are separately evaluated against a no-recheck comparator.
-The following older troubleshooting notes concern historical development and
+The following historical troubleshooting notes concern earlier development and
 larger-design investigations; they do not replace these current measurements.
 
 Honest picture, tested on a real design (an OV7670 camera controller, 929 cells)

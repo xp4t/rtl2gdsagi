@@ -24,12 +24,43 @@ Their initial Minor Revision findings were addressed through explicit
 feedback-conditioned replay scope, documented stopping policy, qualified native
 controls, corrected reference metadata, table callouts, term expansions and a
 conclusion retaining all larger outcomes. Each report retains its initial
-snapshot and a closure check of the corrected revision. Final source, PDF,
-generated-input and report digests are in `review_bindings.json`.
+snapshot and a closure check of the corrected revision. Their historical source, PDF, generated-input and report digests are retained in
+`review_bindings_followup_20261013.json`.
 
-The current fault result is coverage of six constructed classes, with three
+The earlier follow-up fault result is coverage of six constructed classes, with three
 consistency executions each. The separate large cohort has zero certifications,
-two controller escalations and two credit interruptions; it is not pooled with
+two controller escalations and two incomplete outcomes; it is not pooled with
 the original nine episodes. Exact venue criteria remain unavailable.
 
 Final package/build/publication checks are recorded separately in delivery/publication receipts. No review manufactures public availability before those actions complete. Prior receipts are retained with the `_20261012` suffix.
+
+## Frozen-source revision, 13 October
+
+Three separate internal review contexts (EVIDENCE, METHODS, PRESENTATION) used
+ARS academic-paper peer-review guidance and the same current manuscript and
+retained experiment inputs without consulting one another's reports. Their
+reports preserve initial observations and scoped editorial closure. They are
+neither external peer review nor an exact-venue acceptance judgement;
+`criteria_binding_unavailable`, `NOT_CALIBRATED` remain explicit.
+
+The frozen implementation is af31b39f6782. Fourteen primary executions certify,
+all seven route/date-normalized pairs match, six constructed fault classes block
+in eighteen consistency executions, and twenty reconstructed proposal states
+execute afresh. Archived generation source 18d948815ac6 stays separate. The
+controlled eight-run padding/worker matrix measures the CTS intervention. Four
+larger cases remain separately visible, including both incomplete outcomes.
+
+The presentation review's P1–P3 findings are addressed by source-specific episode
+captions, explicit archived/frozen column labels, and certification fractions.
+Methods M1/S1 now have exact switches, command locators and EQY revision in the
+supplement. M2 has `citation_continuity_frozen.json`, which maps final bibliography
+and claim contexts to the original primary-source metadata audit and preserves
+its reading/access limits. The old citation audit does not claim to have read
+later exact bytes. Citation and checker-audit workers also used separate contexts
+inside this writing workflow; their self-described inline execution refers to
+that shared workflow, not external independence.
+
+`review_bindings.json` binds current source, generated inputs, PDFs, texts,
+evidence and final reports. Historical receipts remain with date/follow-up
+suffixes. Fresh ZIP compilation, portable archive verification and public release
+availability are separate delivery gates, recorded only after execution.

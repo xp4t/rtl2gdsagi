@@ -1,0 +1,262 @@
+{
+  "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "native_tool_image": "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+  "replicates_per_attack": 3,
+  "attack_classes": 6,
+  "naive_clean": 18,
+  "candidate_blocked": 18,
+  "results": [
+    {
+      "attack": "stale_gds_fed_to_drc",
+      "replicate": 1,
+      "design": "alu8",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "drc verified final_gds 3e7073205dd2 but the candidate's final_gds is e6ad50ffbc34: this evidence is about a different design",
+        "drc invocation consumed input 3e7073205dd2, but the selected candidate requires e6ad50ffbc34"
+      ],
+      "native_exit": 0,
+      "drc_markers": 0,
+      "consumed_gds_sha256": "3e7073205dd232c653ffd9853126eb09aef049b61e2b161bc6451fc8140d1c86",
+      "selected_gds_sha256": "e6ad50ffbc34a03224e88416b8ce0d8c4e2093b764df0ad45e3a630702959cc5"
+    },
+    {
+      "attack": "drc_deck_missing_feol_rules",
+      "replicate": 1,
+      "design": "register",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "deck missing_feol.drc (sha256 a4eead62a43f) is not an approved deck. Its verdict cannot be treated as authoritative: whether a deck really can fail is a property of its behaviour, and this project only knows that for decks it has validated. Approved: sky130A libs.tech/klayout/drc/sky130A_mr.drc (volare bdc9412b), sky130A libs.tech/klayout/lvs/sky130.lvs (volare bdc9412b)",
+        "the report declares 152 rule categories but sky130A_mr.drc (volare bdc9412b) defines 211; the executed rule set is not the approved one (inventory e86ba787fe56 vs cfa36171d93a)"
+      ],
+      "native_exit": 0,
+      "drc_markers": 0,
+      "categories": 152
+    },
+    {
+      "attack": "lvs_no_real_compare",
+      "replicate": 1,
+      "design": "register",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "deck no_compare.rb (sha256 cb0dfa911685) is not an approved deck. Its verdict cannot be treated as authoritative: whether a deck really can fail is a property of its behaviour, and this project only knows that for decks it has validated. Approved: sky130A libs.tech/klayout/drc/sky130A_mr.drc (volare bdc9412b), sky130A libs.tech/klayout/lvs/sky130.lvs (volare bdc9412b)",
+        "no executable `compare` call found, so the netlist comparison never runs",
+        "asserts a passing verdict at line(s) 2 but has no failure branch and no non-zero exit; the pass is unconditional",
+        "the LVS database contains no circuit cross-reference, so no netlist comparison actually ran",
+        "the LVS deck has no reachable failure path, so its verdict is not evidence",
+        "log claims the netlists match but no comparison is recorded in the database; this is a hardcoded pass, not a result"
+      ],
+      "native_exit": 0,
+      "xref_circuits": 0
+    },
+    {
+      "attack": "missing_pdn_via_connection",
+      "replicate": 1,
+      "design": "register",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "the power grid contains no vias: its layers are not connected to each other, so the straps do not reach the rails"
+      ],
+      "removed_via_entries": 51,
+      "remaining_vias": 0,
+      "baseline": "cached_green_stage_plus_nonempty_DEF"
+    },
+    {
+      "attack": "missing_layer_map_streamout",
+      "replicate": 1,
+      "design": "register",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "302 shape(s) sit on layer numbers below anything sky130A defines, so the stream-out did not apply the layer map. Signoff would then inspect layers the routing is not on and could report clean having examined nothing"
+      ],
+      "native_stream_exit": 0,
+      "native_drc_exit": 0,
+      "drc_markers": 0
+    },
+    {
+      "attack": "stale_gds_fed_to_drc",
+      "replicate": 2,
+      "design": "alu8",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "drc verified final_gds 3e7073205dd2 but the candidate's final_gds is e6ad50ffbc34: this evidence is about a different design",
+        "drc invocation consumed input 3e7073205dd2, but the selected candidate requires e6ad50ffbc34"
+      ],
+      "native_exit": 0,
+      "drc_markers": 0,
+      "consumed_gds_sha256": "3e7073205dd232c653ffd9853126eb09aef049b61e2b161bc6451fc8140d1c86",
+      "selected_gds_sha256": "e6ad50ffbc34a03224e88416b8ce0d8c4e2093b764df0ad45e3a630702959cc5"
+    },
+    {
+      "attack": "drc_deck_missing_feol_rules",
+      "replicate": 2,
+      "design": "alu8",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "deck missing_feol.drc (sha256 a4eead62a43f) is not an approved deck. Its verdict cannot be treated as authoritative: whether a deck really can fail is a property of its behaviour, and this project only knows that for decks it has validated. Approved: sky130A libs.tech/klayout/drc/sky130A_mr.drc (volare bdc9412b), sky130A libs.tech/klayout/lvs/sky130.lvs (volare bdc9412b)",
+        "the report declares 152 rule categories but sky130A_mr.drc (volare bdc9412b) defines 211; the executed rule set is not the approved one (inventory e86ba787fe56 vs cfa36171d93a)"
+      ],
+      "native_exit": 0,
+      "drc_markers": 0,
+      "categories": 152
+    },
+    {
+      "attack": "lvs_no_real_compare",
+      "replicate": 2,
+      "design": "alu8",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "deck no_compare.rb (sha256 8c9238de784d) is not an approved deck. Its verdict cannot be treated as authoritative: whether a deck really can fail is a property of its behaviour, and this project only knows that for decks it has validated. Approved: sky130A libs.tech/klayout/drc/sky130A_mr.drc (volare bdc9412b), sky130A libs.tech/klayout/lvs/sky130.lvs (volare bdc9412b)",
+        "no executable `compare` call found, so the netlist comparison never runs",
+        "asserts a passing verdict at line(s) 2 but has no failure branch and no non-zero exit; the pass is unconditional",
+        "the LVS database contains no circuit cross-reference, so no netlist comparison actually ran",
+        "the LVS deck has no reachable failure path, so its verdict is not evidence",
+        "log claims the netlists match but no comparison is recorded in the database; this is a hardcoded pass, not a result"
+      ],
+      "native_exit": 0,
+      "xref_circuits": 0
+    },
+    {
+      "attack": "missing_pdn_via_connection",
+      "replicate": 2,
+      "design": "alu8",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "the power grid contains no vias: its layers are not connected to each other, so the straps do not reach the rails"
+      ],
+      "removed_via_entries": 468,
+      "remaining_vias": 0,
+      "baseline": "cached_green_stage_plus_nonempty_DEF"
+    },
+    {
+      "attack": "missing_layer_map_streamout",
+      "replicate": 2,
+      "design": "alu8",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "1823 shape(s) sit on layer numbers below anything sky130A defines, so the stream-out did not apply the layer map. Signoff would then inspect layers the routing is not on and could report clean having examined nothing"
+      ],
+      "native_stream_exit": 0,
+      "native_drc_exit": 0,
+      "drc_markers": 0
+    },
+    {
+      "attack": "stale_gds_fed_to_drc",
+      "replicate": 3,
+      "design": "alu8",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "drc verified final_gds 3e7073205dd2 but the candidate's final_gds is e6ad50ffbc34: this evidence is about a different design",
+        "drc invocation consumed input 3e7073205dd2, but the selected candidate requires e6ad50ffbc34"
+      ],
+      "native_exit": 0,
+      "drc_markers": 0,
+      "consumed_gds_sha256": "3e7073205dd232c653ffd9853126eb09aef049b61e2b161bc6451fc8140d1c86",
+      "selected_gds_sha256": "e6ad50ffbc34a03224e88416b8ce0d8c4e2093b764df0ad45e3a630702959cc5"
+    },
+    {
+      "attack": "drc_deck_missing_feol_rules",
+      "replicate": 3,
+      "design": "fifo_buf",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "deck missing_feol.drc (sha256 a4eead62a43f) is not an approved deck. Its verdict cannot be treated as authoritative: whether a deck really can fail is a property of its behaviour, and this project only knows that for decks it has validated. Approved: sky130A libs.tech/klayout/drc/sky130A_mr.drc (volare bdc9412b), sky130A libs.tech/klayout/lvs/sky130.lvs (volare bdc9412b)",
+        "the report declares 152 rule categories but sky130A_mr.drc (volare bdc9412b) defines 211; the executed rule set is not the approved one (inventory e86ba787fe56 vs cfa36171d93a)"
+      ],
+      "native_exit": 0,
+      "drc_markers": 0,
+      "categories": 152
+    },
+    {
+      "attack": "lvs_no_real_compare",
+      "replicate": 3,
+      "design": "fifo_buf",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "deck no_compare.rb (sha256 e3b36376327e) is not an approved deck. Its verdict cannot be treated as authoritative: whether a deck really can fail is a property of its behaviour, and this project only knows that for decks it has validated. Approved: sky130A libs.tech/klayout/drc/sky130A_mr.drc (volare bdc9412b), sky130A libs.tech/klayout/lvs/sky130.lvs (volare bdc9412b)",
+        "no executable `compare` call found, so the netlist comparison never runs",
+        "asserts a passing verdict at line(s) 2 but has no failure branch and no non-zero exit; the pass is unconditional",
+        "the LVS database contains no circuit cross-reference, so no netlist comparison actually ran",
+        "the LVS deck has no reachable failure path, so its verdict is not evidence",
+        "log claims the netlists match but no comparison is recorded in the database; this is a hardcoded pass, not a result"
+      ],
+      "native_exit": 0,
+      "xref_circuits": 0
+    },
+    {
+      "attack": "missing_pdn_via_connection",
+      "replicate": 3,
+      "design": "fifo_buf",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "the power grid contains no vias: its layers are not connected to each other, so the straps do not reach the rails"
+      ],
+      "removed_via_entries": 743,
+      "remaining_vias": 0,
+      "baseline": "cached_green_stage_plus_nonempty_DEF"
+    },
+    {
+      "attack": "missing_layer_map_streamout",
+      "replicate": 3,
+      "design": "fifo_buf",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "1763 shape(s) sit on layer numbers below anything sky130A defines, so the stream-out did not apply the layer map. Signoff would then inspect layers the routing is not on and could report clean having examined nothing"
+      ],
+      "native_stream_exit": 0,
+      "native_drc_exit": 0,
+      "drc_markers": 0
+    },
+    {
+      "attack": "artifact_swap_after_verified_repair",
+      "replicate": 1,
+      "design": "alu8",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "drc verified final_gds 376a7fee1f58 but the candidate's final_gds is 3e7073205dd2: this evidence is about a different design"
+      ],
+      "baseline": "accept_model_fix_then_reuse_prior_clean_DRC_LVS",
+      "repair_run": "runs/frozen_recorded_spacing_repair_20261013"
+    },
+    {
+      "attack": "artifact_swap_after_verified_repair",
+      "replicate": 2,
+      "design": "alu8",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "drc verified final_gds 376a7fee1f58 but the candidate's final_gds is 815e5a279a82: this evidence is about a different design"
+      ],
+      "baseline": "accept_model_fix_then_reuse_prior_clean_DRC_LVS",
+      "repair_run": "runs/frozen_recorded_spacing_repair_20261013"
+    },
+    {
+      "attack": "artifact_swap_after_verified_repair",
+      "replicate": 3,
+      "design": "alu8",
+      "naive_clean": true,
+      "blocked": true,
+      "reasons": [
+        "drc verified final_gds 376a7fee1f58 but the candidate's final_gds is 52f2dc97707f: this evidence is about a different design"
+      ],
+      "baseline": "accept_model_fix_then_reuse_prior_clean_DRC_LVS",
+      "repair_run": "runs/frozen_recorded_spacing_repair_20261013"
+    }
+  ]
+}

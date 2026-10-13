@@ -1,42 +1,39 @@
 {
-  "git_base": "a006861bb2b7eb6c676907cbdcb3ba0514e276e5",
+  "git_base": "aec0fda7ee09bd98cc7c8d6965e91120ec4d9062",
   "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
   "consistent_source": true,
   "selected_runs": [
     {
-      "run_dir": "runs/padding_release_pair_a/register",
-      "repeat_run_dir": "runs/padding_release_pair_b/register"
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/register",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/register"
     },
     {
-      "run_dir": "runs/padding_release_pair_a/mux4to1",
-      "repeat_run_dir": "runs/padding_release_pair_b/mux4to1"
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/mux4to1",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/mux4to1"
     },
     {
-      "run_dir": "runs/padding_release_pair_a/alu8",
-      "repeat_run_dir": "runs/padding_release_pair_b/alu8"
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/alu8",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/alu8"
     },
     {
-      "run_dir": "runs/padding_release_pair_a/counter",
-      "repeat_run_dir": "runs/padding_release_pair_b/counter"
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/counter",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/counter"
     },
     {
-      "run_dir": "runs/padding_release_pair_a/shift_reg",
-      "repeat_run_dir": "runs/padding_release_pair_b/shift_reg"
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/shift_reg",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/shift_reg"
     },
     {
-      "run_dir": "runs/padding_release_pair_a/fifo_buf",
-      "repeat_run_dir": "runs/padding_release_pair_b/fifo_buf"
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/fifo_buf",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/fifo_buf"
     },
     {
-      "run_dir": "runs/shift_scale_pair_a/shift1024",
-      "repeat_run_dir": "runs/shift_scale_pair_b/shift1024"
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/shift1024",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/shift1024"
     }
   ],
   "batch_manifests": [
-    "runs/padding_release_pair_a/experiment_manifest.json",
-    "runs/padding_release_pair_b/experiment_manifest.json",
-    "runs/shift_scale_pair_a/experiment_manifest.json",
-    "runs/shift_scale_pair_b/experiment_manifest.json"
+    "runs/frozen_evaluation_20261013/experiment_manifest.json"
   ],
   "environment": {
     "python": "3.10.12",
@@ -57,12 +54,12 @@
     }
   },
   "formal_controls": {
-    "counter_grouped": "runs/formal_controls_final/counter/PASS",
-    "shift_grouped": "runs/formal_controls_final/shift/PASS",
-    "counter_mutant": "runs/formal_controls_final/counter_mutant/FAIL"
+    "counter_grouped": "runs/frozen_formal_controls_20261013/counter/PASS",
+    "shift_grouped": "runs/frozen_formal_controls_20261013/shift/PASS",
+    "counter_mutant": "runs/frozen_formal_controls_20261013/counter_mutant/FAIL"
   },
-  "repair_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
-  "repair_run": "runs/live_drc_study/drc_1",
+  "repair_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "repair_run": "runs/frozen_recorded_spacing_repair_20261013",
   "repair_reproduction_config": "benchmarks/signoff/alu8_unpadded.yaml",
   "failed_attempts": [
     "runs/accum_density_pair_a/accum_bank32",
@@ -88,5 +85,8 @@
     "runs/publication_pair_a/alu_bank16",
     "runs/submission_pair_a/accum_bank32"
   ],
-  "pytest_report": "rtl2gdsagi_paper/evidence/pytest_followup_release.xml"
+  "pytest_report": "rtl2gdsagi_paper/evidence/pytest_followup_release.xml",
+  "source_archive": "rtl2gdsagi_paper/evidence/source_frozen_20261013.tar.gz",
+  "release_tag": "rtl2gdsagi-paper-frozen-20261013",
+  "archived_repair_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b"
 }

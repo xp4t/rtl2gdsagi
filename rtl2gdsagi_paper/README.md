@@ -1,71 +1,68 @@
-# RTL2GDSAGI Springer manuscript and live evidence
+# Springer LNCS manuscript and supplementary evidence
 
-The current manuscript is `main.tex`, using Springer's LNCS proceedings class.
-Upload `rtl2gdsagi_overleaf.zip` to Overleaf, select `main.tex`, and use pdfLaTeX.
-The ZIP contains all generated inputs, the plotted figure, and the LNCS class.
-The manuscript's authors and affiliations are preserved from the supplied draft.
+`main.tex` is the main report; `supplement.tex` retains the earlier
+live episodes, scale observations, control counts and replay reconstruction.
+Upload `rtl2gdsagi_overleaf.zip` to Overleaf and compile each with pdfLaTeX.
+The ZIP includes only their required generated inputs/figure and the LNCS class.
 
-## Build
+## Current results and source accounting
 
-```sh
-cd rtl2gdsagi_paper
-latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-```
+The production implementation fingerprint is `af31b39f6782`, also current HEAD's
+Python implementation. Fourteen fresh primary runs and twenty complete-state
+proposal executions use this frozen snapshot. The recorded proposals originated
+on `18d948815ac6`; their original observations remain separate.
 
-## Experiment records
+- Seven designs pass the 21-stage local contract twice, with exact routed DEF,
+  netlists, SPEF and date-normalized GDS in every pair. The main shift1024 uses
+  one routing worker; the earlier eight-worker pair is retained as an ablation.
+- Six constructed fault classes are blocked in eighteen consistency executions.
+- The archived replay failures are spacing 0/3, PDN 0/3, timing 11/14, with two
+  unavailable timing target checks. Fresh frozen executions give spacing 0/3,
+  PDN 0/3 and timing 14/14 failures (thirteen STA, one placement).
+- Eight controlled padding/thread runs identify CTS padding reapplication as
+  the source of the narrow timing sign change; worker count has no timing effect
+  within that ablation. The frozen code retains the physical spacing calls.
+- All four earlier accumulator cases remain in the supplement: zero certifications,
+  two controller stops and two incomplete outcomes. They are not pooled into the
+  original nine episodes or twenty-state replay.
 
-`evidence/experiment_manifest.json` selects the final paired baseline runs.
-`evidence/live_results.json` and `signoff_metrics.csv` contain full-precision QoR,
-constraints, physical parameters, native gate results and certification IDs.
-`evidence/native_fault_injection.json` covers six author-constructed fault classes,
-with three consistency executions per class. This is detection coverage, not
-18 independent trials or a controlled external-flow performance comparison.
-`evidence/external_fault_coverage.json` records separately executed actual
-OpenLane checks and explicit unsupported obligations.
-`evidence/repair_study.json` contains all nine declared repair episodes, all
-accepted proposals and their native rechecks, plus the separate catalog of
-retained earlier live API runs and transport failures. Episode and proposal
-counts have different denominators. The model is Claude Sonnet 5 via Anthropic.
-`evidence/reviewer_followup.json` adds six source-sensitive timing repetitions,
-a one-worker shift1024 pair, four declared large live repair episodes, and
-non-certifying implementation fingerprints. These outcomes are separate from
-the original nine repair episodes.
-`evidence/reproducibility_final.json` preserves complete paired hashes and
-normalizes only GDS library/structure date payloads.
-`evidence/pytest_followup_release.xml` records 955 passes, 15 skips, no failures.
-`evidence/REVIEW_FOLLOWUP_EVIDENCE.md`, `REVIEW_FOLLOWUP_METHODS.md`, and
-`REVIEW_FOLLOWUP_PRESENTATION.md` document three internal reviews of this revision.
-They are separate review workers in the same automated writing workflow,
-not independent external peer reviews. The numbered reviews retain the prior
-version's findings. `evidence/REVIEW.md` records both review cohorts.
+`evidence/frozen_results.json`, `live_results.json` and `signoff_metrics.csv`
+contain the full measured values. The pinned OpenLane invocation audit records
+active paired controls, unsupported interface obligations and configuration
+limits without treating an inactive engine as a comparative baseline.
+`CITATION_AUDIT_FROZEN.md` checks all thirteen references and their resolution.
 
-## Regenerate
+## Regenerate and compile
 
-With the retained native runs and exact PDK installation available:
+From the repository root, with the retained native runs and recorded PDK:
 
 ```sh
 python3 rtl2gdsagi_paper/generate_live_results.py
 python3 scripts/compare_repeated_runs.py
-python3 scripts/generate_extended_results.py
-python3 scripts/generate_external_coverage.py
-python3 scripts/collect_followup_results.py
-cd rtl2gdsagi_paper
-latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-python3 evidence/manuscript_audit.py
+python3 scripts/collect_frozen_results.py
+latexmk -cd -pdf -interaction=nonstopmode -halt-on-error rtl2gdsagi_paper/main.tex
+latexmk -cd -pdf -interaction=nonstopmode -halt-on-error rtl2gdsagi_paper/supplement.tex
+pdftotext -layout rtl2gdsagi_paper/main.pdf rtl2gdsagi_paper/evidence/manuscript.txt
+pdftotext -layout rtl2gdsagi_paper/supplement.pdf rtl2gdsagi_paper/evidence/supplement.txt
+python3 rtl2gdsagi_paper/evidence/manuscript_audit.py
 ```
 
-Cached TeX inputs compile on Overleaf without EDA tools. The public experiment
-archive provides portable file-hash verification through `verify_artifact.py`.
-Raw run records retain the original absolute paths; native re-execution requires
-the recorded tool versions, PDK revision and Python dependencies. Source snapshots
-for the final implementation and earlier repair cohort are both included.
+The experiment drivers refuse to overwrite their cohorts. The reconstruction
+pilot is retained separately; its omitted curated PDN updates make three states
+invalid for replay, so the final cohort was reconstructed and declared afresh.
+The frozen source archive includes non-Python resources. Native re-execution
+requires the recorded tools, PDK and dependencies; original absolute paths remain
+in raw records. Portable archive verification needs only Python.
 
-## Public artifact
+## Reviews and public artifact
 
-Repository: https://github.com/xp4t/rtl2gdsagi
+`REVIEW_FROZEN_EVIDENCE.md`, `REVIEW_FROZEN_METHODS.md` and
+`REVIEW_FROZEN_PRESENTATION.md` are three internal review contexts in the same
+writing workflow, not independent external peer review. Prior numbered/follow-up
+reviews retain their historical snapshots. Exact venue criteria were not supplied;
+LNCS formatting does not imply publication acceptance.
 
-Paper and experiment release:
-https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-20261013
-
-This is LNCS proceedings formatting. No exact Springer journal or conference
-track was specified, so the reviews use disclosed generic academic criteria.
+The public artifact is
+https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-frozen-20261013.
+Final source/input/PDF/report bindings and public asset verification are recorded
+separately in `review_bindings.json` and `publication_receipt.json`.

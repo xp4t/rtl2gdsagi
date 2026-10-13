@@ -1,0 +1,47 @@
+{
+  "verified_at": "2026-10-13T05:11:24.284188+00:00",
+  "release_url": "https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-20261013",
+  "public": true,
+  "published_at": "2026-10-13T05:08:03Z",
+  "tag": "rtl2gdsagi-paper-20261013",
+  "code_commit": "fefd11ff43813e1bf89a0122ee2f7050dc0e0cca",
+  "implementation_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "manuscript_sha256": "0bbaad3584623037b5444701f4c0949ab272717c2e4a340515ea11b20db9b76e",
+  "main_pdf_sha256": "b1e43981ea66c4b48b86c1ecaf629591bf1c86147d5d2bbbe499faf1152bd268",
+  "fresh_overleaf_compilation": "passed; 15 pages, no warnings, exact PDF text match",
+  "fresh_overleaf_tested_zip_sha256": "24c84a10cbeedea2a7c4468172ec084f21d0cc8c4973f9bdc7e1b5a098bc2ec1",
+  "archive_file_hashes_verified": 12250,
+  "assets": [
+    {
+      "name": "main.pdf",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-20261013/main.pdf",
+      "bytes": 352564,
+      "sha256": "b1e43981ea66c4b48b86c1ecaf629591bf1c86147d5d2bbbe499faf1152bd268",
+      "github_digest_verified": true
+    },
+    {
+      "name": "review_bindings.json",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-20261013/review_bindings.json",
+      "bytes": 4779,
+      "sha256": "f72f1e4c7c77cb6234f87e77fbe56913acf441468f5ee7e7459eaeb68b9d81e6",
+      "github_digest_verified": true
+    },
+    {
+      "name": "rtl2gdsagi_experiments.tar.gz",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-20261013/rtl2gdsagi_experiments.tar.gz",
+      "bytes": 185837172,
+      "sha256": "fe0eb81d8803363cb106fdab8ba5d8a50156870b1980ab43584fb247fc3d2c31",
+      "github_digest_verified": true
+    },
+    {
+      "name": "rtl2gdsagi_overleaf.zip",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-20261013/rtl2gdsagi_overleaf.zip",
+      "bytes": 47421,
+      "sha256": "24c84a10cbeedea2a7c4468172ec084f21d0cc8c4973f9bdc7e1b5a098bc2ec1",
+      "github_digest_verified": true
+    }
+  ],
+  "review_execution": "Three separate internal review contexts in the same Codex writing workflow; not independent external peer review.",
+  "anonymous_public_pdf_download": "Verified unauthenticated urllib HTTPS download against local SHA-256",
+  "venue_status": "Springer LNCS format; no exact venue or publication acceptance asserted."
+}

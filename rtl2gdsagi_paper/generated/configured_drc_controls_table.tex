@@ -1,0 +1,9 @@
+\begin{table}[htbp]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Paired synthetic DRC controls. Marker columns list metal/poly/off-grid fixtures. Modern controls use the PDK runtime options; the adapter is an explicit sidecar change. The inactive prior wrapper is a configuration diagnostic, excluded from this active-checker table.}\label{tab:drccontrols}
+\begin{tabular}{@{}lrrr@{}}\toprule
+Executed configuration & Categories & Violating markers & Clean markers \\
+\midrule
+Legacy native deck & 166 & 3/0/4 & 0/0/0 \\
+Modern deck, PDK options & 220 & 3/1/4 & 0/0/0 \\
+Modern wrapper adapter & 220 & 3/1/4 & 0/0/0 \\
+\bottomrule\end{tabular}\end{table}

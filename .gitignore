@@ -30,6 +30,8 @@ processor_16b.vcd
 *.pem
 secrets/
 credentials.json
+/rtl2gdsagi_paper/evidence/provider_*probe*.json
+/rtl2gdsagi_paper/evidence/provider_probe_*.json
 dist/
 
 # Generated preflight binaries for the isolated validation corpus.

@@ -66,7 +66,7 @@ def main():
         initial=(f"{t['initial_check']['setup_wns']:.6f} ns" if t['failure_type']=='timing' else '1 marker' if t['failure_type']=='drc' else 'PDN-0185')
         final=(f"{t['metrics']['setup_wns_ns']:.6f} ns" if t['failure_type']=='timing' and t['fully_verified'] else 'Not certified' if not t['fully_verified'] else 'Full signoff')
         episodes.append((f"{kind} {t['replicate']}",initial,final,t['model_calls'],outcome))
-    table('episode_table.tex','The full declared repair denominator, with actual routed slack for the stressed setup trial.','tab:episodes','lllll','Episode & Initial failure & Final evidence & Calls & Outcome',episodes)
+    table('episode_table.tex','All nine original live repair episodes on source 18d948815ac6. These archived outcomes are separate from frozen replay and larger episodes.','tab:episodes','lllll','Episode & Initial failure & Final evidence & Calls & Outcome',episodes)
     history=[]
     catalog=[]
     for i,c in enumerate([c for c in repair['all_retained_live_episodes'] if not c['prospective']],1):

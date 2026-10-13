@@ -8,6 +8,7 @@ from pathlib import Path
 import subprocess
 import tarfile
 import zipfile
+from manuscript_materials import manuscript_materials
 
 ROOT=Path(__file__).resolve().parents[1]
 PAPER=ROOT/'rtl2gdsagi_paper'
@@ -17,16 +18,21 @@ def main():
     global DEST
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--release-date',default='20261013')
+    parser.add_argument('--release-label',default=None)
+    parser.add_argument('--overleaf-only',action='store_true')
     args=parser.parse_args()
     assert len(args.release_date)==8 and args.release_date.isdigit()
-    DEST=ROOT/'dist'/f'paper-{args.release_date}'
+    DEST=ROOT/'dist'/f"paper-{args.release_label or args.release_date}"
     DEST.mkdir(parents=True,exist_ok=True)
     archive=PAPER/'rtl2gdsagi_overleaf.zip'
     cls=Path(subprocess.check_output(['kpsewhich','llncs.cls'],text=True).strip())
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
-        for p in [PAPER/'main.tex',PAPER/'README.md',*(PAPER/'generated').glob('*.tex'),PAPER/'figures/timing_stress.pdf']:
+        for p in [*manuscript_materials(PAPER),PAPER/'README.md']:
             z.write(p,str(p.relative_to(PAPER)))
         z.write(cls,'llncs.cls')
+    if args.overleaf_only:
+        print(json.dumps({'overleaf':str(archive.relative_to(ROOT)),'documents':['main.tex','supplement.tex']},indent=2))
+        return
     manifest=json.loads((PAPER/'evidence/experiment_manifest.json').read_text())
     repair=json.loads((PAPER/'evidence/repair_study.json').read_text())
     folders=set()
@@ -43,6 +49,19 @@ def main():
     external=PAPER/'evidence/external_fault_coverage.json'
     if external.is_file():
         folders.add('runs/external_fault_coverage')
+    frozen=PAPER/'evidence/frozen_results.json'
+    if frozen.is_file():
+        folders.update(['runs/frozen_evaluation_20261013',
+                        'runs/frozen_proposal_replay_complete_ir_20261013',
+                        'runs/frozen_proposal_replay_20261013',
+                        'runs/frozen_recorded_spacing_repair_20261013',
+                        'runs/frozen_fault_injection_20261013',
+                        'runs/frozen_formal_controls_20261013',
+                        'runs/padding_thread_ablation_20261013',
+                        'runs/openlane_invocation_audit'])
+        previous=json.loads((PAPER/'evidence/experiment_manifest_followup_20261013.json').read_text())
+        for row in previous['selected_runs']:
+            folders.update(row[k] for k in ('run_dir','repeat_run_dir'))
     # These native clean fixtures were used by the fault study.
     folders.update('runs/signoff_final_v5/'+n for n in ['register','alu8','fifo_buf'])
     files=set()
@@ -50,7 +69,8 @@ def main():
         files.update(p for p in (ROOT/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
     for name in ['README.md','pyproject.toml','LICENSE','.gitignore','.gitattributes']:
         if (ROOT/name).is_file():files.add(ROOT/name)
-    files.update(p for p in PAPER.rglob('*') if p.is_file() and p.suffix not in ['.aux','.out','.fls','.fdb_latexmk'] and '__pycache__' not in p.parts and 'legacy' not in p.relative_to(PAPER).parts and p.name not in ['package_build.log','publication_receipt.json','delivery_checks.json'])
+    used=set(manuscript_materials(PAPER))
+    files.update(p for p in PAPER.rglob('*') if p.is_file() and p.suffix not in ['.aux','.out','.fls','.fdb_latexmk'] and '__pycache__' not in p.parts and 'legacy' not in p.relative_to(PAPER).parts and p.name not in ['package_build.log','publication_receipt.json','delivery_checks.json'] and not p.name.startswith('provider_') and (p.parent!=PAPER/'generated' or p in used))
     for folder in folders:
         base=ROOT/folder
         assert base.is_dir(),base

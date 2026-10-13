@@ -67,9 +67,15 @@ def load(design: str):
     return state, cand, GateEvidence(**records["drc"])
 
 def main():
+    global BASE, OUT
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repair-run", type=Path, default=ROOT / "runs/alu8_drc_api_repeat_v3")
+    parser.add_argument("--base-root", type=Path, default=BASE)
+    parser.add_argument("--output-root", type=Path, default=OUT)
+    parser.add_argument("--evidence-output", type=Path, default=ROOT / "rtl2gdsagi_paper/evidence/native_fault_injection.json")
     args = parser.parse_args()
+    BASE = args.base_root.resolve()
+    OUT = args.output_root.resolve()
     OUT.mkdir(exist_ok=True)
     pdk = PDKConfig.discover("sky130A", root=PDK_ROOT)
     approved_deck = pdk.drc_deck_path
@@ -184,7 +190,7 @@ def main():
     result={"source_sha256":source_identity(),"native_tool_image":IMAGE,"replicates_per_attack":3,"attack_classes":6,
             "naive_clean":sum(r["naive_clean"] for r in rows),
             "candidate_blocked":sum(r["blocked"] for r in rows),"results":rows}
-    (ROOT/"rtl2gdsagi_paper/evidence/native_fault_injection.json").write_text(json.dumps(result,indent=2)+"\n")
+    args.evidence_output.write_text(json.dumps(result,indent=2)+"\n")
     assert len(rows)==18 and all(r["naive_clean"] and r["blocked"] for r in rows),result
 
 if __name__=="__main__": main()

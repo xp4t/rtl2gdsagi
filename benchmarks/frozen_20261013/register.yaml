@@ -1,0 +1,89 @@
+top: register
+rtl: examples/register/rtl
+pdk:
+  name: sky130A
+ir:
+  lint:
+    fail_on_warning: false
+    waived_rules: []
+    timescale: 1ns/1ps
+  sim:
+    timeout_s: 600
+    testbench_glob: '*_tb.v'
+    testbench_dir: examples/register/tb
+    plusargs: []
+  sdc:
+    default_clock_period_ns: 10.0
+    clock_uncertainty_ns: 0.25
+    input_delay_frac: 0.2
+    output_delay_frac: 0.2
+    output_load_pf: 0.05
+  synthesis:
+    strategy: AREA0
+    flatten: true
+    max_fanout: 10
+    adder_type: yosys
+    share_resources: true
+    dff_map: true
+  lec:
+    induction_steps: 8
+    timeout_s: 900
+    smt_solver: z3
+  sta:
+    corners:
+    - tt_025C_1v80
+    derate_setup: 0.0
+    derate_hold: 0.0
+    slack_guardband_ns: 0.0
+    max_paths: 20
+  floorplan:
+    core_utilization: 0.35
+    aspect_ratio: 1.0
+    core_margin_um: 10.0
+    io_mode: random_equidistant
+    tapcell_distance_um: 13.0
+  pdn:
+    strap_width_um: 1.6
+    strap_pitch_um: 30.0
+    strap_offset_um: 2.0
+    core_ring: true
+    ir_drop_budget_mv: 50.0
+  placement:
+    target_density: 0.45
+    effort: medium
+    max_displacement_um: 50.0
+    routability_driven: true
+    padding_sites: 0
+    congestion_overflow_limit: 0.15
+  cts:
+    target_skew_ns: 0.2
+    max_fanout: 16
+    root_buffer: ''
+    balance_levels: true
+    hold_margin_ns: 0.05
+    fix_hold: true
+    fix_setup: false
+    setup_margin_ns: 0.05
+  routing:
+    num_threads: 1
+    antenna_ratio_margin_pct: 0
+    antenna_repair_iterations: 1
+    min_layer: 1
+    max_layer: 5
+    global_effort: medium
+    droute_iters: 32
+    insert_filler: true
+    insert_diodes: true
+  extraction:
+    corner: nom
+    min_net_coverage: 0.5
+  gdsout:
+    merge_mode: full
+  drc:
+    threads: 4
+    deep_mode: true
+  lvs:
+    threads: 4
+    deep_mode: true
+  antenna:
+    threads: 4
