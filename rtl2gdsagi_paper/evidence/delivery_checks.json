@@ -1,57 +1,9 @@
 {
-  "release_tag": "rtl2gdsagi-paper-frozen-20261013",
-  "code_commit": "844a25c2086a84e6a6505c4ad703085b6347bdac",
-  "status": "verified",
-  "public_availability_verified": true,
-  "fresh_overleaf_build": {
-    "build_directory": "/tmp/rtl2gdsagi-overleaf-followup-vtmrj927",
-    "tested_zip_sha256": "e4541a64ffc2112f39117fb4cfc9091056679e88ab9dde418c35be82750239af",
-    "returncode": 0,
-    "pages": 11,
-    "documents": [
-      {
-        "document": "main",
-        "pages": 11,
-        "pdf_text_sha256": "3a9899807f0b3ddeec125736d0beb352117464836ae8f14397af8106163b4f43",
-        "fresh_pdf_sha256": "b894e7f9afb23d95e8b0a66cd56057bce735c4bd232ab0b68025b9bdf24efb3d"
-      },
-      {
-        "document": "supplement",
-        "pages": 6,
-        "pdf_text_sha256": "4b6c4dcb5f14a1258a5545bd7dffafcdf0fc0d6f13109445bf7fc36ffb9b0370",
-        "fresh_pdf_sha256": "8227f61c776f2ef403b7ee52e89dcc1877b644617f118bd285b0ecbb4bfb4cc7"
-      }
-    ],
-    "warnings": 0,
-    "pdf_text_matches_manuscript": true,
-    "pdf_text_sha256": "3a9899807f0b3ddeec125736d0beb352117464836ae8f14397af8106163b4f43",
-    "fresh_pdf_sha256": "b894e7f9afb23d95e8b0a66cd56057bce735c4bd232ab0b68025b9bdf24efb3d",
-    "manuscript_sha256": "aa000b982ef658964a94c850c53415b0bbcc8c1db263457b9ff91cb43c546b48"
-  },
-  "portable_archive_verification": {
-    "archive": "dist/paper-frozen-20261013/rtl2gdsagi_experiments.tar.gz",
-    "archive_sha256": "eac3c31ce7e1508419fe84584ada647c6eccee8b2d9916832c9b0c8e3c187310",
-    "archive_bytes": 241727877,
-    "extracted_directory": "/tmp/rtl2gdsagi-frozen-artifact-7ro96r1y",
-    "verified_file_hashes": 23531,
-    "returncode": 0,
-    "verifier_output": "Verified 23531 archived file hashes"
-  },
-  "review_count": 3,
-  "review_provenance": "Three separate internal contexts in one writing workflow; no external peer review or exact venue acceptance.",
-  "manuscript_numerical_source_audit": "passed",
-  "current_document_hashes_reviewed": true,
-  "github_core_asset_digests_verified": 5,
-  "anonymous_pdf_and_zip_downloads_verified": 3,
-  "primary_designs": 7,
-  "primary_native_runs": 14,
-  "primary_exact_route_pairs": 7,
-  "primary_date_normalized_gds_pairs": 7,
-  "fresh_proposal_executions": 20,
-  "fault_classes": 6,
-  "fault_consistency_executions": 18,
-  "padding_thread_interventions": 8,
-  "incomplete_larger_cases": 2,
-  "live_new_model_calls": 0,
-  "whitespace_check_scope": "All staged source/manuscript changes checked; two byte-preserved original citation-audit records retain pre-existing trailing whitespace to preserve their audit hashes."
+  "release_tag": "rtl2gdsagi-paper-baselines-20261013",
+  "stage": "new_internal_review",
+  "baseline_states": 24,
+  "baseline_certified": 5,
+  "baseline_fixed_3ns_certified": 0,
+  "manuscript_audit": "passed",
+  "public_availability_verified": false
 }

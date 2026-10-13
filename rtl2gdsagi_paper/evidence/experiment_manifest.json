@@ -87,6 +87,9 @@
   ],
   "pytest_report": "rtl2gdsagi_paper/evidence/pytest_followup_release.xml",
   "source_archive": "rtl2gdsagi_paper/evidence/source_frozen_20261013.tar.gz",
-  "release_tag": "rtl2gdsagi-paper-frozen-20261013",
-  "archived_repair_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b"
+  "release_tag": "rtl2gdsagi-paper-baselines-20261013",
+  "archived_repair_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+  "scripted_baseline_manifest": "runs/scripted_baseline_bounded_20261013/experiment_manifest.json",
+  "scripted_baseline_harness": "scripts/run_baseline_candidate.py",
+  "scripted_baseline_policy": "First native hard failure stops each predeclared state; native gates and successful certification use frozen af31. Earlier CLI pilot and failed bootstrap retained and excluded."
 }

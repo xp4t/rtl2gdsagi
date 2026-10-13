@@ -1,0 +1,92 @@
+{
+  "git_base": "aec0fda7ee09bd98cc7c8d6965e91120ec4d9062",
+  "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "consistent_source": true,
+  "selected_runs": [
+    {
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/register",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/register"
+    },
+    {
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/mux4to1",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/mux4to1"
+    },
+    {
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/alu8",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/alu8"
+    },
+    {
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/counter",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/counter"
+    },
+    {
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/shift_reg",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/shift_reg"
+    },
+    {
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/fifo_buf",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/fifo_buf"
+    },
+    {
+      "run_dir": "runs/frozen_evaluation_20261013/pair_a/shift1024",
+      "repeat_run_dir": "runs/frozen_evaluation_20261013/pair_b/shift1024"
+    }
+  ],
+  "batch_manifests": [
+    "runs/frozen_evaluation_20261013/experiment_manifest.json"
+  ],
+  "environment": {
+    "python": "3.10.12",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "logical_cpus": 48,
+    "openroad_commit": "41a51eaf4ca2171c92ff38afb91eb37bbd3f36da",
+    "opensta_version": "3.1.0",
+    "klayout_version": "0.28.2",
+    "container_image": "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+    "container_id": "sha256:d7e2bdd21e757e3f0b15d6ea08c36d9a96653c31b4fb2fafd4de88c9b6a3f3fa",
+    "pdk_root": "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+    "pdk_file_hashes": {
+      "libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib": "e66aab4e0a3eef8d0b13eb5b75aaadb725ba78b032203342eb1e419a2c111baf",
+      "libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef": "1a18b353fb5457caf0eca5b3cb28b2c0c9bbacdbbdeee7c4fc64a115932066c2",
+      "libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef": "b1f9c7fae3b58dbf063cffc2f2b3b570a02a056ccc9345abec24c4db57ab21ae",
+      "libs.tech/klayout/drc/sky130A_mr.drc": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+      "libs.tech/klayout/lvs/sky130.lvs": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+    }
+  },
+  "formal_controls": {
+    "counter_grouped": "runs/frozen_formal_controls_20261013/counter/PASS",
+    "shift_grouped": "runs/frozen_formal_controls_20261013/shift/PASS",
+    "counter_mutant": "runs/frozen_formal_controls_20261013/counter_mutant/FAIL"
+  },
+  "repair_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "repair_run": "runs/frozen_recorded_spacing_repair_20261013",
+  "repair_reproduction_config": "benchmarks/signoff/alu8_unpadded.yaml",
+  "failed_attempts": [
+    "runs/accum_density_pair_a/accum_bank32",
+    "runs/accum_margin80_pair_a/accum_bank32",
+    "runs/accum_margin80_pair_b/accum_bank32",
+    "runs/accum_pair/accum_bank32",
+    "runs/accum_spacing_pair_a/accum_bank32",
+    "runs/alu_bank16_signoff_v1",
+    "runs/closure_counter_pilot",
+    "runs/closure_shift_pilot",
+    "runs/conservative_ant_pair_a/accum_bank32",
+    "runs/conservative_ant_pair_b/accum_bank32",
+    "runs/fifo_signoff_final/fifo_buf",
+    "runs/five_design_signoff_v1/alu8",
+    "runs/mul32_scale_signoff_v1",
+    "runs/padding_release_pair_a/accum_bank32",
+    "runs/padding_release_pair_b/accum_bank32",
+    "runs/paper_register_fault_api_20261012",
+    "runs/paper_register_live_abs_20261012",
+    "runs/passive_fill_pair_a/accum_bank32",
+    "runs/passive_fill_pair_b/accum_bank32",
+    "runs/pipeline2048_scale_probe_v1",
+    "runs/publication_pair_a/alu_bank16",
+    "runs/submission_pair_a/accum_bank32"
+  ],
+  "pytest_report": "rtl2gdsagi_paper/evidence/pytest_followup_release.xml",
+  "source_archive": "rtl2gdsagi_paper/evidence/source_frozen_20261013.tar.gz",
+  "release_tag": "rtl2gdsagi-paper-frozen-20261013",
+  "archived_repair_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b"
+}

@@ -15,6 +15,7 @@
 \newcommand{\code}[1]{\texttt{#1}}
 \input{generated/live_results}
 \input{generated/frozen_macros}
+\input{generated/scripted_baseline_macros}
 \title{Candidate-Bound Evidence for RTL-to-GDS Signoff: A Frozen-Source Evaluation}
 \titlerunning{Candidate-Bound Evidence for RTL-to-GDS Signoff}
 \author{Rithwik Vallabhan TV \and Sreejeesh SG \and Jayaraj U Kidav \and Nanditha N Varma}
@@ -38,32 +39,28 @@ fractions are 0/3 for spacing, 0/3 for power-network construction, and 14/14
 for timing. These class-specific observations describe proposal states in
 iterative repair trajectories. A controlled padding ablation explains why a
 narrow timing pass from the earlier snapshot fails under the frozen source.
-The artifact contains executable configurations, native reports, source
-snapshots, and scripts generating the measured tables.
+A scripted baseline certifies spacing and PDN configurations without a model;
+\ScriptedTimingCertified/\ScriptedTimingStates\ timing configurations certify at unchanged 3 ns.
+The nine live repair episodes are a recorded case study from snapshot
+\code{\ProposalSourceShort}; live repair was not re-executed on the frozen
+source. The artifact retains source snapshots, native reports, and measured tables.
 \keywords{RTL-to-GDS \and physical verification \and artifact provenance
-\and electronic design automation \and verified repair}
+\and electronic design automation}
 \end{abstract}
 
 \section{Introduction}
-OpenROAD and OpenLane provide open infrastructure for synthesis and physical
-implementation~\cite{ajayi2019,shalan2020}. A release decision must combine
-several kinds of evidence: design rule checking (DRC) evaluates geometry,
-layout versus schematic comparison (LVS) evaluates connectivity, and timing
-evaluates a constrained circuit with its parasitics. The controller must
-establish which implementation and verification inputs produced each result.
-A zero-marker report can concern a different layout or omit required rules.
-A repair can also invalidate previously clean evidence.
+OpenROAD and OpenLane provide open synthesis and physical-implementation
+infrastructure~\cite{ajayi2019,shalan2020}. Release combines geometric,
+connectivity and timing evidence bound to the selected implementation and
+verification inputs. A zero-marker report may concern another GDS or omit
+required rules; repair can invalidate earlier evidence.
 
-RTL2GDSAGI makes this relationship explicit. Native tools produce artifacts
-and reports; a content manifest identifies the release candidate; and gate
-records specify their consumed inputs, parser contracts, and verdicts. Model
-proposals pass through typed authorization and native rechecking. This paper
-examines three questions: which constructed evidence failures are blocked,
-which recorded proposal states survive native checks, and which implementation
-artifacts reproduce under a frozen controller. Its contribution is the
-executable contract and measured integration of these mechanisms. Native
-synthesis, placement, routing, and verification algorithms remain those of
-the selected EDA tools.
+RTL2GDSAGI records artifact identity, consumed inputs, parser contracts and
+verdicts, with typed proposal authorization and native rechecking. We ask
+which constructed evidence failures are blocked, which recorded proposal
+states survive native checks, and which artifacts reproduce on a frozen
+controller. The contribution is this executable acceptance contract and its
+measured integration with existing native EDA algorithms.
 
 \section{Evidence Contract}
 \subsection{Candidate identity and release checks}
@@ -124,10 +121,17 @@ duplicate nets, and requires complete parasitic sections. Native static timing
 analysis (STA) separately requires finite setup/hold slack and zero unannotated
 or partially unannotated drivers. Clock period, uncertainty, output load, RTL
 function, and verification decks are protected from physical-only repairs.
+The slack guardband $g=\code{sta.slack\_guardband\_ns}\geq0$ is the
+minimum required slack: post-CTS requires hold WNS $\geq g$, and routed STA
+requires both setup and hold WNS $\geq g$. All evaluated runs use $g=0$ ns.
+This accepts nonnegative slack without an additional robustness margin; the
+0.25 ns clock uncertainty is a separate timing constraint. Neither a small
+positive slack nor exact repeat hashes establish margin against variation.
 
 A typed change rolls execution back to its earliest affected stage and
-invalidates downstream evidence. Three attempts per stage and 24 diagnosis
-attempts bound the recorded repair policy. The controller stops when a
+invalidates downstream evidence. The recorded live episodes configure three
+attempts per stage and 24 diagnosis attempts. These settings do not establish
+universal termination. The controller stops when a
 proposal would revisit a previously failed stage fingerprint, including its
 inputs and effective configuration. Formal equivalence checks both synthesis
 and routed netlists using EQY~\cite{eqydocs}. Scalar-net matching uses
@@ -153,9 +157,10 @@ and proposal origin.
 Result & Source / origin\\\midrule
 Seven primary design pairs & \code{\FrozenSourceShort}\\
 Fresh proposal and fault checks & \code{\FrozenSourceShort}\\
+24 scripted baseline states & Frozen native executor plus hashed stopping harness\\
 Recorded model proposals / nine live episodes & \code{\ProposalSourceShort}\\
 Padding ablation & Frozen base; two explicit call interventions\\
-Earlier accumulator episodes & \code{\FrozenSourceShort}\\\bottomrule
+Exploratory accumulator episodes & \code{\FrozenSourceShort}\\\bottomrule
 \end{tabular}\end{table}
 
 The primary designs are a register, registered multiplexer, eight-bit ALU,
@@ -191,7 +196,11 @@ The recorded proposals come from nine live Claude Sonnet 5 (Anthropic,
 construction, and ALU setup timing. Replay reconstructs complete effective
 configuration states, including characterization seeds, curated changes that
 preceded model calls, and cumulative authorized model changes. Successful
-reconstructions match the archived final IR before execution. All 20 states
+reconstructions match independently retained archived final IRs for seven
+states, before adding the explicit routing-worker field absent from that
+schema. All 20 reconstructions are consistent with archived defaults and
+logged changes; independent complete IR records for the other thirteen were
+not found in the inspected archive. All 20 states
 are then run independently from RTL on the frozen controller with one routing
 worker and further repair disabled. No new model calls generate these states.
 The supplementary record retains the original episodes, earlier measurements,
@@ -202,6 +211,27 @@ its failed-native-check fraction separately for each originating fixture
 class. The proposal sequence was collected under native feedback, so these
 fractions describe fixed states rather than the trajectory of an independently
 executed controller without rechecking.
+
+\subsection{Scripted baseline without a model}
+A predeclared sweep starts from the initial configurations of the three
+recorded fixtures. Spacing uses padding 0--3; PDN compares injected offset
+50~$\mu$m with the schema default 2~$\mu$m. At fixed 3 ns, the timing grid
+crosses synthesis strategy DELAY0/DELAY1, density 0.45/0.55, padding 1/2,
+and native post-CTS setup repair off/on with a 0.05 ns target margin.
+The initial timing fixture uses AREA0 before these scripted changes.
+Two owner-declared 3.25/3.50 ns controls retain that initial configuration
+and change the clock requirement. The 0.2 delay fractions remain fixed, so
+absolute input/output delays scale from 0.60 ns to 0.65/0.70 ns. These controls
+are not an isolated clock-period sensitivity test or repairs of the 3 ns target.
+
+All \ScriptedStates\ states run from RTL with one routing worker and no model.
+A study-only harness stops at the first failed native hard gate; successful
+states require the frozen controller's complete certification. Native checks,
+constraints within each declared stratum, and verification decks are retained.
+The prior CLI pilot repeatedly rerouted unchanged IR because date-bearing
+GDS changed failed-input fingerprints. The study harness bounds this execution
+without changing the frozen controller. That pilot and the harness bootstrap
+failure remain excluded in the artifact. The supplement records the stopping policy and full candidate metrics.
 
 \section{Results}
 \subsection{Implementation and exact repeat levels}
@@ -242,18 +272,18 @@ GDS invalidates cached gate lineage.
 
 The OpenLane follow-up audits actual pinned stage/checker interfaces using
 paired controls. Table~\ref{tab:checkerobligations} reports the obligations
-supported by those interfaces. The previous modern-deck wrapper omitted
+within the remit of those interfaces. The previous modern-deck wrapper omitted
 runtime flags, leaving its rules inactive; it is excluded as an active-DRC
 baseline. Legacy native configuration and modern explicitly configured
 controls exercise the intended geometry rules. Public pinned source matches
 the retained wrapper, and PDK options are recorded. The modern adapter is
-explicitly identified; personal maintainer endorsement is not claimed.
+explicitly identified.
 Modern configured controls report metal/poly/off-grid markers 3/1/4 while
 paired clean inputs remain clear; the legacy deck omits the tested poly rule.
 Reporting markers and enforcing a release decision are separate
 obligations. This study executes isolated interfaces, without estimating
 full-flow OpenLane detection performance. The supplement contains the control
-counts, options, commands, and unsupported-format qualifications.
+counts, options, commands, and interface-remit qualifications.
 \input{generated/checker_obligations_table}
 
 \subsection{Replay by originating class}
@@ -273,14 +303,19 @@ where failed attempts are expected. The replay supports retaining native
 checks as acceptance evidence; it supplies neither a general model-failure
 rate nor an end-to-end agent-superiority estimate.
 
+Excluding \code{timing\_1\_proposal2}, the archived +1.586 ps state
+whose sign change is explained by CTS padding, leaves thirteen timing states.
+Twelve fail setup STA and one fails placement (DPL-0036), so a timing result
+is unavailable for that placement-failed state. The full fourteen-state
+denominator remains in Table~\ref{tab:classreplay}.
+
 \subsection{Explaining the narrow timing repair}
 The archived repaired ALU configuration passes at +1.586 ps under its
 recorded source but fails at $-0.654$ ps under the frozen controller, at the
 same 3 ns period. We test CTS-padding reapplication, routing-padding
 reapplication, and routing workers in a $2\times2\times2$ factorial ablation.
 Placement padding stays at one site; clock, uncertainty, load, RTL, and PDK
-remain fixed. Table~\ref{tab:paddingthread} gives the measured outcomes.
-\input{generated/padding_thread_table}
+remain fixed. The supplement contains the full eight-run matrix.
 
 Both worker counts give the same slack in every padding configuration.
 Reapplying CTS padding changes the archived-style result from +1.586 ps to
@@ -292,25 +327,62 @@ The frozen controller retains that call and blocks the narrow configuration.
 The earlier pass therefore belongs to its recorded snapshot and is not
 presented as a repair reproducible on HEAD.
 
+\subsection{Results of the scripted baseline}
+Table~\ref{tab:scriptedbaseline} summarizes all declared strata; the retained
+\path{scripted_baseline_metrics.csv} gives all 24 candidate rows.
+Padding 0 fails DRC; padding 1, 2 and 3 each complete certification. Returning
+the PDN offset to 2~$\mu$m also certifies without the model's ring proposal.
+These fixtures therefore supply no evidence that an LLM is needed for spacing
+or PDN repair. They are manually selected finite configurations, not a
+population success rate or an autonomous diagnosis benchmark.
+\input{generated/scripted_baseline_table}
+
+At unchanged 3 ns, \ScriptedTimingCertified/\ScriptedTimingStates\ timing
+configurations certify; the best routed setup WNS is \ScriptedTimingBest\ ns.
+All eight setup-repair off/on pairs have identical CTS DEF, routed DEF, SPEF
+and setup/hold slack, despite emitted setup-repair commands. The sixteen
+declared configurations therefore include eight outcome-equivalent toggle
+pairs; this is not a general result about setup-repair effectiveness.
+The 3.25 ns control fails at $-0.141952$ ns setup WNS; the 3.50 ns control
+certifies at +0.060743 ns. These are separate requirements, not repairs of
+the original target. The grid is not an exhaustive optimizer and does not establish
+incremental model value on timing. Model-generated proposals remain one possible
+input to the evidence contract; their unsupported states still require rejection.
+
 \FloatBarrier
 \section{Related Work}
 OpenROAD and OpenLane provide implementation infrastructure
 ~\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and
 parameter tuning~\cite{jung2021}, and PROV represents provenance
-relationships~\cite{prov2013}. ChatEDA studies model-driven EDA task
+relationships~\cite{prov2013}. Nix supports fixed-output hashing and
+experimental content-addressed derivations; Bazel maps action hashes to
+cached results and stores outputs by content~\cite{nixdocs,bazeldocs}.
+SLSA build provenance relates artifact digests to build definitions and
+builder identities~\cite{slsadocs}. These mechanisms can carry domain-specific
+checks as declared actions and policies. This evaluation specializes release
+acceptance to native EDA invocation, report structure, approved inputs, and
+cached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance.
+
+ChatEDA studies model-driven EDA task
 planning, script generation, and execution~\cite{chateda}. ORFS-agent
 optimizes OpenROAD-flow-scripts parameters~\cite{orfsagent}; MCP4EDA connects
 model interaction to RTL-to-GDS execution and backend synthesis feedback
 ~\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and
-native tool feedback for diagnosis and repair~\cite{flowfixer}. EDAid uses
+native tool feedback for diagnosis and repair~\cite{flowfixer}. Its patch
+validation already demonstrates the importance of rechecking. Here, the
+specific object of study is the release contract binding the selected GDS,
+approved verification inputs, native report structure, and cached gate lineage.
+EDAid uses
 multiple model-controlled agents for EDA workflow execution~\cite{edaid}.
 Ghose et al. study executable OpenROAD changes and measured quality of
-results~\cite{audopeda}.
+results~\cite{audopeda}. The newer author conference manuscript also records
+patch/snapshot/proof manifests and renewed checks. These overlap with generic
+manifest-based revalidation; no priority for that mechanism is claimed.
 
 ChiBench supplies RTL designs for EDA-tool testing~\cite{chibench}.
 DRVerify documents physical-verification runset testing with known legal
-and violating structures~\cite{drverify}. These works motivate checking
-rule execution and intended coverage in addition to marker counts. The
+and violating structures~\cite{drverify}. That runset-testing rationale motivates checking rule execution and intended
+coverage in addition to marker counts. The
 present contribution combines constructed native/ledger faults, candidate
 lineage, fresh recorded-proposal checks, and artifact-level repeat evidence.
 Comparable contracts in other controllers are not excluded by this study.
@@ -321,16 +393,20 @@ outcomes, and exact repeat levels on one frozen implementation. All seven
 primary pairs reproduce their routed and date-normalized artifacts. The
 replay's failures are confined to the timing fixture, and the padding
 experiment explains why its earlier marginal pass does not transfer to HEAD.
-The primary circuits are small and synthetic, including a regular 1,024-cell
-shift register. They provide no population repair rate or industrial-scale
-qualification. The local contract uses a single typical corner and excludes
+The small synthetic circuits provide no population repair rate or
+industrial-scale qualification. The local contract uses a single typical corner and excludes
 multi-corner timing, on-chip variation, power integrity, and foundry
 qualification. Hashing also assumes trusted tools, controller, host, and
 PDK. Identity and approved inventory do not prove completeness of foundry
 rules or immunity to forged records.
 
-The supplement retains nine original live repair episodes, four larger
-accumulator episodes and their measured outcomes, earlier observations,
+The nine live repair episodes are a recorded case study on
+\code{\ProposalSourceShort}. Live repair was not re-executed on the frozen
+controller, so its 7/9 certifications are not a frozen-source repair success
+rate. The exploratory accumulator cohort certifies 0 of 4 episodes: two
+policy escalations and two credit-interrupted episodes. The latter have
+unknown eventual repair outcomes. The largest clean design is the synthetic
+1,024-cell shift register. The supplement retains these cohorts, earlier observations,
 known-failed-fingerprint proposals, and incomplete scale probes. These
 cohorts remain separate from fresh proposal-state executions. Raw logs retain
 accepted updates and final native artifacts; rollback can overwrite numbered
@@ -339,7 +415,7 @@ record is \TestPasses\ passed, \TestSkipped\ skipped, zero failures/errors.
 
 \section*{Artifacts and AI assistance}
 Repository: \url{https://github.com/xp4t/rtl2gdsagi}. The versioned artifact at
-\href{https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-frozen-20261013}{\code{rtl2gdsagi-paper-frozen-20261013}}
+\href{https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-baselines-20261013}{\code{rtl2gdsagi-paper-baselines-20261013}}
 contains this LNCS manuscript, an Overleaf ZIP, \code{supplement.tex}, source
 snapshots, native reports, and table-generation/verification scripts. Codex
 assisted writing and three internal review passes in the same automated
@@ -348,7 +424,7 @@ identifies the original Anthropic model runs separately from cached-proposal
 replay; no new model calls are counted for that replay.
 \FloatBarrier
 
-\begin{thebibliography}{13}
+\begin{thebibliography}{16}
 \bibitem{ajayi2019}
 Ajayi, T., et al.: Toward an Open-Source Digital Flow: First Learnings from the
 OpenROAD Project. In: Proceedings of the 56th Annual Design Automation
@@ -369,6 +445,16 @@ Design, pp. 1--9 (2021). \url{https://doi.org/10.1109/ICCAD51958.2021.9643541}
 \bibitem{prov2013}
 W3C: PROV-Overview: An overview of the PROV family of documents.
 W3C Working Group Note (2013). \url{https://www.w3.org/TR/prov-overview/}
+\bibitem{nixdocs}
+Nix project: Content-addressing derivation outputs. Nix 2.35.2 Reference Manual.
+\url{https://nix.dev/manual/nix/2.35/store/derivation/outputs/content-address.html}
+(accessed 13 October 2026)
+\bibitem{bazeldocs}
+Bazel project: Remote Caching. Bazel documentation.
+\url{https://bazel.build/remote/caching} (accessed 13 October 2026)
+\bibitem{slsadocs}
+SLSA: Build: Provenance. SLSA specification, version 1.2 (Approved).
+\url{https://slsa.dev/spec/v1.2/build-provenance} (accessed 13 October 2026)
 \bibitem{chateda}
 Wu, H., He, Z., Zhang, X., Yao, X., Zheng, S., Zheng, H., Yu, B.:
 ChatEDA: A Large Language Model Powered Autonomous Agent for EDA.
@@ -397,7 +483,9 @@ In: Proceedings of NAACL-HLT, vol. 1, pp. 1710--1721 (2025).
 \bibitem{audopeda}
 Ghose, A., Jang, J., Kahng, A.B., Lee, J.:
 Automated QoR improvement in OpenROAD with coding agents.
-arXiv:2601.06268v2 (2026). \url{https://arxiv.org/abs/2601.06268v2}
+arXiv:2601.06268v2 (2026). \url{https://arxiv.org/abs/2601.06268v2}.
+Also: author manuscript, ICCAD 2026, to appear (accessed 13 October 2026).
+\url{https://vlsicad.ucsd.edu/Publications/Conferences/431/c431.pdf}
 \bibitem{chibench}
 Sumitani, R., Amorim, J.V., Mafra, A., Crepalde, M., Pereira, F.M.Q.:
 ChiBench: A Benchmark Suite for Testing Electronic Design Automation Tools.

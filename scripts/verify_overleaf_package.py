@@ -34,11 +34,11 @@ def main():
         assert content == (PAPER / 'evidence'/expected).read_bytes(), 'Packaged text differs'
         documents.append({'document':stem,'pages':content.count(b'\f'),
                           'pdf_text_sha256':hashlib.sha256(content).hexdigest(),
-                          'fresh_pdf_sha256':sha(folder/(stem+'.pdf'))})
+                          'fresh_pdf_sha256':sha(folder/(stem+'.pdf')),'underfull_box_warnings':log.count('Underfull')})
     main_doc=documents[0]
     record = {'build_directory': str(folder), 'tested_zip_sha256': sha(args.zip),
               'returncode': 0, 'pages': main_doc['pages'], 'documents':documents,
-              'warnings': 0, 'pdf_text_matches_manuscript': True,
+              'warnings': 0, 'warning_scope':'No overfull boxes, undefined references/citations, LaTeX warnings or errors; underfull-box notices counted separately per document.', 'pdf_text_matches_manuscript': True,
               'pdf_text_sha256': main_doc['pdf_text_sha256'],
               'fresh_pdf_sha256': main_doc['fresh_pdf_sha256'],
               'manuscript_sha256': sha(PAPER / 'main.tex')}

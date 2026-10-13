@@ -59,6 +59,8 @@ def main():
                         'runs/frozen_formal_controls_20261013',
                         'runs/padding_thread_ablation_20261013',
                         'runs/openlane_invocation_audit'])
+    if (ROOT/'runs/scripted_baseline_20261013/experiment_manifest.json').is_file():
+        folders.update(['runs/scripted_baseline_20261013','runs/scripted_baseline_bounded_20261013','runs/scripted_baseline_harness_import_20261013'])
         previous=json.loads((PAPER/'evidence/experiment_manifest_followup_20261013.json').read_text())
         for row in previous['selected_runs']:
             folders.update(row[k] for k in ('run_dir','repeat_run_dir'))

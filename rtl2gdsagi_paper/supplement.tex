@@ -7,6 +7,7 @@
 \input{generated/live_results}
 \input{generated/extended_results}
 \input{generated/frozen_macros}
+\input{generated/scripted_baseline_macros}
 \title{Supplement: Candidate-Bound Evidence for RTL-to-GDS Signoff}
 \titlerunning{RTL2GDSAGI: supplementary evidence}
 \author{Rithwik Vallabhan TV \and Sreejeesh SG \and Jayaraj U Kidav \and Nanditha N Varma}
@@ -21,7 +22,9 @@ eighteen fault-consistency executions, and a replayed spacing-repair episode.
 The latter submits the recorded padding delta through a scripted proposal
 adapter and makes zero new model calls. It encounters native spacing failure,
 authorizes the recorded change, reruns the affected stages, and certifies.
-It supplies the post-repair artifact used by the new swap fixture.
+It supplies the post-repair artifact used by the new swap fixture. The
+24 scripted baseline candidates use the same frozen native executor plus the
+hashed first-failure stopping harness described in the sweep protocol below.
 
 The twenty recorded proposals originate from live Claude Sonnet 5 runs
 (Anthropic; identifier \code{claude-sonnet-5}) on snapshot
@@ -38,14 +41,17 @@ frozen source. Their changes remove only the CTS and/or routing padding calls.
 Worker count is the other declared factor. The mapped netlist and placed DEF
 match across the CTS intervention, while CTS and downstream artifacts differ.
 The main frozen renderer retains both padding calls.
+Table~\ref{tab:paddingthread} gives all eight outcomes.
+\input{generated/padding_thread_table}
 
-\section{Original Live Repair Episodes}
+\section{Recorded Live-Repair Case Study}
 Three episodes per fixture type were declared before execution. Spacing and
 PDN each certify in 3/3 episodes; timing certifies in 1/3. The original twenty
 model responses record 174306 input tokens and 50164 output tokens. Table~\ref{tab:episodes}
 retains every episode. These observations belong to \code{\ProposalSourceShort}.
-They are descriptive outcomes for repeated fixtures, with no population
-repair-rate estimate.
+Live repair was not re-executed on the frozen source. These are descriptive
+case-study outcomes for repeated fixtures, with no population repair-rate
+estimate or claim of frozen-source live-repair success.
 \input{generated/episode_table}
 
 The original timing sequence at unchanged 3 ns is shown in
@@ -65,14 +71,24 @@ Every confirmed failure in the earlier 11/20 headline is therefore from the
 timing fixture. Fresh native execution establishes outcomes for all twenty
 states on the frozen source: spacing 0/3 failures, PDN 0/3, and timing 14/14.
 No unavailable target is silently counted as a confirmed archived failure.
+Excluding \code{timing\_1\_proposal2}, the CTS-affected archived pass,
+leaves twelve setup STA failures and one placement failure among thirteen
+frozen timing states. The placement-failed state never reaches routed STA.
 
 \section{Complete-State Replay Reconstruction}
 Reconstruction starts with the archived IR defaults and applies the logged
 characterization seed, initial overrides, curated numerical changes, and all
 accepted model deltas in temporal order. The archived renderer used the
 native one-worker default; the current replay declares that effective count
-explicitly. The reconstructed final IR matches every archived successful
-episode before any new native execution. Fresh runs disable further repair.
+explicitly. All twenty reconstructed inputs are consistent with archived defaults and
+logged changes. Independently retained full IR records exactly match seven
+final proposal states (three spacing, three PDN, one timing) before adding
+\code{routing.num\_threads=1}, which was absent from the archived schema.
+No independent complete IR record for the other thirteen states was found in
+the inspected archive; attempt snapshots retain individual sections. Thus
+20/20 trace consistency and 7/20 independent full-state comparisons are
+different checks. The per-state inventory is retained in
+\path{rtl2gdsagi_paper/evidence/replay_stratified_audit.json}. Fresh runs disable further repair.
 
 An initial reconstruction pilot omitted the curated PDN changes preceding
 the model call: strap offset 50 to 21.42~$\mu$m and utilization 0.35 to 0.29.
@@ -82,6 +98,40 @@ from the final twenty-state result. The corrected cohort was declared and
 executed separately, with the full-state equality checks described above.
 This exclusion corrects configuration reconstruction rather than selecting
 favorable native outcomes.
+
+\section{Scripted Sweep and Stopping Policy}
+The \ScriptedStates{}-state sweep derives initial configurations before the first
+failed native check of each recorded fixture. It applies fixed numerical choices,
+never model responses: padding 0--3, offset 50/2~$\mu$m, and the full sixteen-state
+DELAY0/DELAY1, density 0.45/0.55, padding 1/2, setup-repair off/on grid at 3 ns.
+CTS optimization margins stay at 0.05 ns; the acceptance guardband stays zero.
+Two period controls use the initial AREA0 timing state at 3.25 and 3.50 ns.
+They keep delay fractions 0.2, which changes absolute input/output delay
+from 0.60 ns to 0.65/0.70 ns; uncertainty and load remain fixed. These are
+combined requirement changes, excluded from fixed-target repair counts.
+All eight setup off/on pairs yield identical CTS/routed DEF, SPEF and
+setup/hold WNS, although the setup-on script emits native repair. This factor
+adds no observed outcome diversity in the declared grid.
+
+The original no-model CLI pilot repeatedly rerouted the unpadded candidate
+after DRC rejection: date-bearing GDS changed the failing-input fingerprint
+without an IR change. It was stopped and retained, with its completed runs
+excluded. A bootstrap import failure created no native results and is also
+retained. The final cohort was declared separately. Its study-only
+\path{scripts/run_baseline_candidate.py} subclasses the frozen controller
+solely to stop when exhaustion would trigger rollback. Every native gate,
+parser and successful certification path remains frozen. Known PDN failure
+also terminates under the manual policy. This is a bounded candidate-acceptance
+experiment, not an iterative model-versus-controller repair comparison.
+
+\path{rtl2gdsagi_paper/evidence/scripted_baseline_metrics.csv} reports every
+candidate, full certification, first failed stage, measured setup/hold slack,
+DRC markers and elapsed time. A metric is ``not reached'' when the native check
+was not executed. Configuration and harness hashes are retained in
+\path{runs/scripted_baseline_bounded_20261013/experiment_manifest.json}.
+Successful candidate/certification identities are in each run's
+\code{signoff.json} and \code{gate\_evidence.json}. Failed states retain
+configuration and native input records, without release certificates.
 
 \section{Native Checker Invocation Controls}
 The pinned OpenLane wrapper and public source bytes match. The installed
@@ -118,12 +168,12 @@ interface and is not a semantic detection control. The stock source and PDK
 configuration provide public invocation evidence; no personal maintainer
 endorsement is asserted.
 
-\section{Larger Episodes and Stopping Proposals}
+\section{Exploratory Larger Episodes and Stopping Proposals}
 The 1,995-cell \code{accum\_bank32} contains thirty-two eight-bit accumulator
 lanes and a read-selection multiplexer. Two spacing and two antenna episodes
 were declared on \code{\FrozenSourceShort}. Table~\ref{tab:largerepair} retains
-all four: none completes certification, two stop on previously failed
-fingerprints, and two remain incomplete. The latter outcomes stay unknown;
+all four: 0/4 certify, two are policy escalations on previously failed
+fingerprints, and two are credit-interrupted and remain incomplete. The latter outcomes stay unknown;
 their saved candidate states are not certified or labeled eventual algorithmic
 repair failures. Twenty-three valid model responses are retained across this
 separate cohort. It is not pooled with the original nine episodes.
@@ -157,12 +207,8 @@ unavailable intermediate prompt/response or artifact files are not invented.
 \input{generated/supplement_history_table}
 
 \section{Artifact Verification}
-The Overleaf ZIP compiles \code{main.tex} and \code{supplement.tex} independently
-with Springer LNCS. Cached generated inputs need no EDA tools. The experiment
-archive includes a file-hash index and portable verifier. Re-execution needs
-the pinned tools, recorded PDK revision, and Python dependencies; raw paths
-retain their original workspace locations. Each manuscript/input/PDF and
-internal review is bound by exact hashes. The public release receipt is a
-separate availability check, not a scholarly review or venue acceptance.
+Both documents compile with Springer LNCS. The archive provides a hash verifier;
+native reruns need the pinned stack. Review bindings and publication receipts
+record separate checks.
 \FloatBarrier
 \end{document}

@@ -43,8 +43,15 @@
   "larger_certified": 0,
   "larger_controller_stops": 2,
   "larger_incomplete": 2,
-  "references": 13,
+  "references": 16,
   "tests_passed": 955,
   "tests_skipped": 15,
+  "scripted_baseline_states": 24,
+  "scripted_baseline_certified": 5,
+  "timing_excluding_cts_affected_state": {
+    "signoff_setup_sta": 12,
+    "placement_DPL-0036": 1
+  },
+  "independent_archived_full_ir_matches": 7,
   "scope": "Deterministic numerical/source/input audit; internal semantic reviews are separate."
 }

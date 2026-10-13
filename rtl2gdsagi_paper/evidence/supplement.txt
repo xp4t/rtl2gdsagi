@@ -3,7 +3,7 @@
 
 Rithwik Vallabhan TV, Sreejeesh SG, Jayaraj U Kidav, and Nanditha N Varma
 
-                              NIELIT Calicut, India
+                                NIELIT Calicut, India
 
 
 
@@ -14,8 +14,10 @@ teen design runs, twenty separate recorded-proposal executions, eighteen fault-
 consistency executions, and a replayed spacing-repair episode. The latter submits
 the recorded padding delta through a scripted proposal adapter and makes zero
 new model calls. It encounters native spacing failure, authorizes the recorded
-change, reruns the affected stages, and certifies. It supplies the post-repair arti-
-fact used by the new swap fixture.
+change, reruns the affected stages, and certifies. It supplies the post-repair ar-
+tifact used by the new swap fixture. The 24 scripted baseline candidates use
+the same frozen native executor plus the hashed first-failure stopping harness
+described in the sweep protocol below.
     The twenty recorded proposals originate from live Claude Sonnet 5 runs (An-
 thropic; identifier claude-sonnet-5) on snapshot 18d948815ac6. The primary
 replay counts those proposal states, with six frozen certifications and fourteen
@@ -28,84 +30,102 @@ not introduce a third implementation snapshot.
 the frozen source. Their changes remove only the CTS and/or routing padding
 calls. Worker count is the other declared factor. The mapped netlist and placed
 DEF match across the CTS intervention, while CTS and downstream artifacts
-differ. The main frozen renderer retains both padding calls.
+differ. The main frozen renderer retains both padding calls. Table 1 gives all
+eight outcomes.
 
 
-2   Original Live Repair Episodes
+Table 1. Controlled padding and thread ablation at unchanged 3 ns. Each row con-
+tains one run at each worker count. Padding refers to reapplication after placement;
+placement padding itself stays at one site. Slack is measured after routing.
 
+           CTS padding Route padding Workers Setup (ps) Certified
+           Off            Off             1, 8          +1.586       2/2
+           Off            On              1, 8          +9.868       2/2
+           On             Off             1, 8           -0.654      0/2
+           On             On              1, 8           -0.654      0/2
+2       R. Vallabhan TV et al.
+
+2    Recorded Live-Repair Case Study
 Three episodes per fixture type were declared before execution. Spacing and PDN
 each certify in 3/3 episodes; timing certifies in 1/3. The original twenty model
-responses record 174306 input tokens and 50164 output tokens. Table 1 retains
-every episode. These observations belong to 18d948815ac6. They are descriptive
-outcomes for repeated fixtures, with no population repair-rate estimate.
+responses record 174306 input tokens and 50164 output tokens. Table 2 retains
+every episode. These observations belong to 18d948815ac6. Live repair was not
+re-executed on the frozen source. These are descriptive case-study outcomes for
+repeated fixtures, with no population repair-rate estimate or claim of frozen-
+source live-repair success.
+
+
+Table 2. All nine original live repair episodes on source 18d948815ac6. These archived
+outcomes are separate from frozen replay and larger episodes.
+
+             Episode     Initial failure Final evidence Calls Outcome
+             Spacing 1   1 marker       Full signoff    1      Verified
+             Spacing 2   1 marker       Full signoff    1      Verified
+             Spacing 3   1 marker       Full signoff    1      Verified
+             PDN 1       PDN-0185       Full signoff    1      Verified
+             PDN 2       PDN-0185       Full signoff    1      Verified
+             PDN 3       PDN-0185       Full signoff    1      Verified
+             Setup 1     -0.326192 ns   0.001586 ns     2      Verified
+             Setup 2     -0.326192 ns   Not certified   3      Escalated
+             Setup 3     -0.326192 ns   Not certified   9      Escalated
+
+
+
     The original timing sequence at unchanged 3 ns is shown in Figure 1. The suc-
 cessful configuration repeats three times at +1.586 ps under its archived source
 and three times at −0.654 ps under the frozen implementation. The current-
 source failure is retained; the primary factorial experiment measures the effect
 of CTS padding rather than attributing the result to uncontrolled noise.
-2              R. Vallabhan TV et al.
+    The archived class replay gives spacing 0/3 failed states, PDN 0/3, and tim-
+ing 11/14, with two additional timing states lacking a completed target check.
+Every confirmed failure in the earlier 11/20 headline is therefore from the tim-
+ing fixture. Fresh native execution establishes outcomes for all twenty states on
+the frozen source: spacing 0/3 failures, PDN 0/3, and timing 14/14. No un-
+available target is silently counted as a confirmed archived failure. Excluding
+timing_1_proposal2, the CTS-affected archived pass, leaves twelve setup STA
+failures and one placement failure among thirteen frozen timing states. The
+placement-failed state never reaches routed STA.
 
 
-
-
-Table 1. All nine original live repair episodes on source 18d948815ac6. These archived
-outcomes are separate from frozen replay and larger episodes.
-
-                          Episode     Initial failure Final evidence Calls Outcome
-                          Spacing 1   1 marker       Full signoff      1       Verified
-                          Spacing 2   1 marker       Full signoff      1       Verified
-                          Spacing 3   1 marker       Full signoff      1       Verified
-                          PDN 1       PDN-0185       Full signoff      1       Verified
-                          PDN 2       PDN-0185       Full signoff      1       Verified
-                          PDN 3       PDN-0185       Full signoff      1       Verified
-                          Setup 1     -0.326192 ns   0.001586 ns       2       Verified
-                          Setup 2     -0.326192 ns   Not certified     3       Escalated
-                          Setup 3     -0.326192 ns   Not certified     9       Escalated
-
-
+3    Complete-State Replay Reconstruction
+Reconstruction starts with the archived IR defaults and applies the logged char-
+acterization seed, initial overrides, curated numerical changes, and all accepted
+model deltas in temporal order. The archived renderer used the native one-worker
+                                               RTL2GDSAGI: supplementary evidence                3
 
 
                         0.0
 
                        −0.1
-      Setup WNS (ns)
 
-
-
-
-                       −0.2
+      Setup WNS (ns)   −0.2
 
                        −0.3
 
                        −0.4
-                                                                                Trial 1: verified
-                       −0.5                                                     Trial 2: escalated
-                                                                                Trial 3: escalated
+                                                                            Trial 1: verified
+                       −0.5                                                 Trial 2: escalated
+                                                                            Trial 3: escalated
                        −0.6
-                              0       1        2        3        4        5         6          7
-                                      Native routed check index (0 = injected failure)
+                              0   1        2        3        4        5         6          7
+                                  Native routed check index (0 = injected failure)
 
 
 
 Fig. 1. Archived native routed timing checks at 3 ns on source 18d948815ac6. Lines
 end at the last completed check, including escalated episodes.
-                                     RTL2GDSAGI: supplementary evidence            3
-
-    The archived class replay gives spacing 0/3 failed states, PDN 0/3, and timing
-11/14, with two additional timing states lacking a completed target check. Every
-confirmed failure in the earlier 11/20 headline is therefore from the timing fixture.
-Fresh native execution establishes outcomes for all twenty states on the frozen
-source: spacing 0/3 failures, PDN 0/3, and timing 14/14. No unavailable target
-is silently counted as a confirmed archived failure.
 
 
-3   Complete-State Replay Reconstruction
-Reconstruction starts with the archived IR defaults and applies the logged char-
-acterization seed, initial overrides, curated numerical changes, and all accepted
-model deltas in temporal order. The archived renderer used the native one-
-worker default; the current replay declares that effective count explicitly. The
-reconstructed final IR matches every archived successful episode before any new
-native execution. Fresh runs disable further repair.
+default; the current replay declares that effective count explicitly. All twenty re-
+constructed inputs are consistent with archived defaults and logged changes.
+Independently retained full IR records exactly match seven final proposal states
+(three spacing, three PDN, one timing) before adding routing.num_threads=1,
+which was absent from the archived schema. No independent complete IR record
+for the other thirteen states was found in the inspected archive; attempt snap-
+shots retain individual sections. Thus 20/20 trace consistency and 7/20 in-
+dependent full-state comparisons are different checks. The per-state inventory
+is retained in rtl2gdsagi_paper/evidence/replay_stratified_audit.json.
+Fresh runs disable further repair.
     An initial reconstruction pilot omitted the curated PDN changes preceding
 the model call: strap offset 50 to 21.42 µm and utilization 0.35 to 0.29. Its three
 PDN configurations did not represent the recorded promoted states. The com-
@@ -115,13 +135,49 @@ rately, with the full-state equality checks described above. This exclusion corr
 configuration reconstruction rather than selecting favorable native outcomes.
 
 
-4   Native Checker Invocation Controls
+4   Scripted Sweep and Stopping Policy
+The 24-state sweep derives initial configurations before the first failed na-
+tive check of each recorded fixture. It applies fixed numerical choices, never
+model responses: padding 0–3, offset 50/2 µm, and the full sixteen-state DE-
+LAY0/DELAY1, density 0.45/0.55, padding 1/2, setup-repair off/on grid at 3
+ns. CTS optimization margins stay at 0.05 ns; the acceptance guardband stays
+zero. Two period controls use the initial AREA0 timing state at 3.25 and 3.50
+ns. They keep delay fractions 0.2, which changes absolute input/output delay
+from 0.60 ns to 0.65/0.70 ns; uncertainty and load remain fixed. These are
+4      R. Vallabhan TV et al.
+
+combined requirement changes, excluded from fixed-target repair counts. All
+eight setup off/on pairs yield identical CTS/routed DEF, SPEF and setup/hold
+WNS, although the setup-on script emits native repair. This factor adds no
+observed outcome diversity in the declared grid.
+     The original no-model CLI pilot repeatedly rerouted the unpadded candi-
+date after DRC rejection: date-bearing GDS changed the failing-input finger-
+print without an IR change. It was stopped and retained, with its completed
+runs excluded. A bootstrap import failure created no native results and is also
+retained. The final cohort was declared separately. Its study-only scripts/run_
+baseline_candidate.py subclasses the frozen controller solely to stop when
+exhaustion would trigger rollback. Every native gate, parser and successful cer-
+tification path remains frozen. Known PDN failure also terminates under the
+manual policy. This is a bounded candidate-acceptance experiment, not an iter-
+ative model-versus-controller repair comparison.
+     rtl2gdsagi_paper/evidence/scripted_baseline_metrics.csv reports
+every candidate, full certification, first failed stage, measured setup/hold slack,
+DRC markers and elapsed time. A metric is “not reached” when the native
+check was not executed. Configuration and harness hashes are retained in
+runs/scripted_baseline_bounded_20261013/experiment_manifest.json.
+Successful candidate/certification identities are in each run’s signoff.json
+and gate_evidence.json. Failed states retain configuration and native input
+records, without release certificates.
+
+
+5   Native Checker Invocation Controls
+
 The pinned OpenLane wrapper and public source bytes match. The installed
 modern PDK deck expects runtime rule flags that this wrapper does not forward.
 The previous pairing declares zero categories and zero markers for both known
 violating and clean synthetic geometry. It is an inactive configuration observation
 and is excluded as an active-DRC baseline.
-    Table 2 reports active paired controls. The legacy native deck reports 166
+    Table 3 reports active paired controls. The legacy native deck reports 166
 categories and metal/off-grid violations; its tested poly category is absent. The
 modern PDK options and explicit adapter each report 220 categories, with
 metal/poly/off-grid markers 3/1/4 and paired clean counts 0/0/0. These control
@@ -136,17 +192,17 @@ in runs/openlane_invocation_audit/controls_v1/executions/*/command.
 json; rtl2gdsagi_paper/evidence/openlane_invocation_audit.json binds
 their inputs and reports. The retained formal controls use EQY revision
 v0.68-2-g4a72eb9. Comprehensive rule coverage, default Magic checking, and
-4       R. Vallabhan TV et al.
+                                     RTL2GDSAGI: supplementary evidence             5
 
-Table 2. Paired synthetic DRC controls. Marker columns list metal/poly/off-grid fix-
+Table 3. Paired synthetic DRC controls. Marker columns list metal/poly/off-grid fix-
 tures. Modern controls use the PDK runtime options; the adapter is an explicit sidecar
 change. The inactive prior wrapper is a configuration diagnostic, excluded from this
 active-checker table.
 
     Executed configuration        Categories Violating markers Clean markers
-    Legacy native deck                   166                3/0/4             0/0/0
-    Modern deck, PDK options             220                3/1/4             0/0/0
-    Modern wrapper adapter               220                3/1/4             0/0/0
+    Legacy native deck                   166                3/0/4           0/0/0
+    Modern deck, PDK options             220                3/1/4           0/0/0
+    Modern wrapper adapter               220                3/1/4           0/0/0
 
 
 
@@ -159,26 +215,26 @@ source and PDK configuration provide public invocation evidence; no personal
 maintainer endorsement is asserted.
 
 
-5    Larger Episodes and Stopping Proposals
+6    Exploratory Larger Episodes and Stopping Proposals
 The 1,995-cell accum_bank32 contains thirty-two eight-bit accumulator lanes
 and a read-selection multiplexer. Two spacing and two antenna episodes were
-declared on af31b39f6782. Table 3 retains all four: none completes certifica-
-tion, two stop on previously failed fingerprints, and two remain incomplete. The
-latter outcomes stay unknown; their saved candidate states are not certified or
-labeled eventual algorithmic repair failures. Twenty-three valid model responses
-are retained across this separate cohort. It is not pooled with the original nine
-episodes.
+declared on af31b39f6782. Table 4 retains all four: 0/4 certify, two are policy
+escalations on previously failed fingerprints, and two are credit-interrupted and
+remain incomplete. The latter outcomes stay unknown; their saved candidate
+states are not certified or labeled eventual algorithmic repair failures. Twenty-
+three valid model responses are retained across this separate cohort. It is not
+pooled with the original nine episodes.
 
 
-Table 3. All four recorded 1,995-cell accumulator episodes on source af31b39f6782.
+Table 4. All four exploratory 1,995-cell accumulator episodes on source af31b39f6782.
 Responses are valid recorded model returns. No episode completes certification. In-
 complete episodes have unknown eventual repair outcomes and are not classified as
 algorithmic failures.
 
         Case         Responses Last failed native stage Recorded outcome
         Antenna 1    3                            routing   Controller stop
-        Antenna 2    3                            routing   Incomplete
-        Spacing 1    10                        placement    Incomplete
+        Antenna 2    3                            routing   Credit-interrupted
+        Spacing 1    10                        placement    Credit-interrupted
         Spacing 2    7                                drc   Controller stop
 
 
@@ -186,7 +242,7 @@ algorithmic failures.
    The spacing-stop episode’s last proposal raises padding from four to six sites.
 A previous six-site attempt at the same density already failed placement with
 DPL-0036. The sequence cycles through padding two, four and six; the recorded
-                                    RTL2GDSAGI: supplementary evidence            5
+6       R. Vallabhan TV et al.
 
 earlier DRC counts are one and four markers before the six-site placement fail-
 ure. The controller rejects revisiting that failed placement fingerprint after 7/24
@@ -204,15 +260,14 @@ excluded from the seven clean primary designs. Exact mapped-cell counts, failed
 stages, and intermediate observations are preserved in the JSON catalog.
 
 
-6   Earlier Retained Observations
-
-Table 4 preserves earlier observations under their own protocols. They do not
+7   Earlier Retained Observations
+Table 5 preserves earlier observations under their own protocols. They do not
 enlarge the prospective nine-episode denominator or the twenty-state frozen
 replay. Full logs record the actual terminal state; unavailable intermediate
 prompt/response or artifact files are not invented.
 
 
-Table 4. Earlier retained observations. Protocols and source snapshots differ; these
+Table 5. Earlier retained observations. Protocols and source snapshots differ; these
 records remain separate from the prospective nine-episode cohort. The JSON catalog
 provides the exact run paths and raw observations.
 
@@ -231,15 +286,8 @@ provides the exact run paths and raw observations.
 
 
 
-7   Artifact Verification
-
-The Overleaf ZIP compiles main.tex and supplement.tex independently with
-Springer LNCS. Cached generated inputs need no EDA tools. The experiment
-6       R. Vallabhan TV et al.
-
-archive includes a file-hash index and portable verifier. Re-execution needs the
-pinned tools, recorded PDK revision, and Python dependencies; raw paths retain
-their original workspace locations. Each manuscript/input/PDF and internal re-
-view is bound by exact hashes. The public release receipt is a separate availability
-check, not a scholarly review or venue acceptance.
+8   Artifact Verification
+Both documents compile with Springer LNCS. The archive provides a hash ver-
+ifier; native reruns need the pinned stack. Review bindings and publication re-
+ceipts record separate checks.
 

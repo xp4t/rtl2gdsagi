@@ -57,7 +57,7 @@ def main():
             'proposal_generation_source_sha256':manifest['archived_repair_source_sha256'],
             'manuscript_sha256':sha(PAPER/'main.tex'),'supplement_sha256':sha(PAPER/'supplement.tex'),
             'main_pdf_sha256':sha(PAPER/'main.pdf'),'supplement_pdf_sha256':sha(PAPER/'supplement.pdf'),
-            'fresh_overleaf_documents':fresh['documents'],'fresh_overleaf_warnings':0,
+            'fresh_overleaf_documents':fresh['documents'],'fresh_overleaf_warnings':0,'fresh_overleaf_warning_scope':fresh.get('warning_scope'),
             'fresh_overleaf_tested_zip_sha256':fresh['tested_zip_sha256'],
             'archive_file_hashes_verified':args.verified_archive_files,'assets':assets,
             'review_execution':bindings['execution'],'criteria_binding':bindings['criteria_binding'],

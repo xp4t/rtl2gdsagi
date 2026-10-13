@@ -64,3 +64,45 @@ that shared workflow, not external independence.
 evidence and final reports. Historical receipts remain with date/follow-up
 suffixes. Fresh ZIP compilation, portable archive verification and public release
 availability are separate delivery gates, recorded only after execution.
+
+## Scripted-baseline reframing revision, 13 October
+
+The prior frozen-release documents/receipts are historical. The current main
+report keeps the evidence contract, six-class coverage, seven exact repeat
+levels and twenty-state replay as primary claims. Nine original live episodes
+are a source 18d recorded case study; live repair was not re-executed on af31.
+Exploratory accumulator outcomes remain 0/4 certified with two policy escalations
+and two credit-interrupted cases whose eventual outcomes are unknown.
+
+The final scripted sweep has 24 predeclared configurations and five full native
+certifications: three spacing, one PDN, one changed-period control. Fixed 3 ns timing is 0/16.
+A first-failure study harness uses frozen native checks/certification with a
+separate stopping policy. The original CLI pilot (unbounded date-sensitive
+rerouting) and the failed harness import are retained and excluded. Counts are
+candidate configurations, not population repair episodes or model superiority.
+
+Fresh reference/official-document audit retains narrowed FlowFixer claims and
+adds newer AuDoPEDA manifest overlap, Nix/Bazel/SLSA comparisons and access
+limits. The unresolved forthcoming AuDoPEDA conference DOI is omitted from
+our bibliography. Replay accounting confirms 20/20 trace consistency but only
+seven independent archived full-IR comparisons; excluding the CTS-affected pass
+leaves twelve setup-STA failures and one placement failure. Guardband g=0 is explicit.
+
+Three new internal seats review this changed manuscript and scoped evidence:
+REVIEW_BASELINE_EVIDENCE, REVIEW_BASELINE_METHODS, REVIEW_BASELINE_PRESENTATION.
+They share the writing workflow and are not external peer review. Exact venue
+criteria remain unavailable/NOT_CALIBRATED. Final delivered-file and public
+availability checks are separate gates; no pending publication is fabricated.
+
+### Scoped reporting corrections
+
+Current reviewers' initial findings are retained. Closing edits define scaled
+interface delays in period controls, identify eight outcome-equivalent setup
+pairs among sixteen configurations, label the all-reached-STA maximum (including
+DRC-failed padding 0), and add the hashed stopping harness to source accounting.
+Successful candidate/certification identities point to per-run signoff/evidence
+records; the manifest carries configuration and harness hashes. Main text now
+states that diagnosis limits are not universal termination bounds. No native
+outcome, constraint value, eligibility rule or historical cohort was rewritten.
+The introduction was shortened without changing questions or contribution.
+Underfull TeX notices are counted separately from blocking build warnings.

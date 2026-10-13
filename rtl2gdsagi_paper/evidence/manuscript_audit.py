@@ -79,16 +79,35 @@ refs=re.findall(r'\\bibitem\{([^}]+)\}',main);first=[]
 for group in re.findall(r'\\cite\{([^}]+)\}',main):
  for key in group.split(','):
   if key not in first:first.append(key)
-assert first==refs and len(refs)==13
+assert first==refs and len(refs)==16
 assert r'\documentclass[runningheads]{llncs}' in main
 assert r'\titlerunning{Candidate-Bound Evidence for RTL-to-GDS Signoff}' in main
-for token in ['IEEEtran','Authors should confirm','recovered from','pre-deletion','credit','quota','API usage limit']:
+for token in ['IEEEtran','Authors should confirm','recovered from','pre-deletion','quota','API usage limit']:
  assert token.lower() not in (main+supp).lower(),token
 for doc in ['main','supplement']:
  log=(PAPER/(doc+'.log')).read_text();assert not re.search(r'Overfull|LaTeX Warning|Undefined|! LaTeX Error',log)
  for name in re.findall(r'\\label\{([^}]+)\}',(PAPER/(doc+'.tex')).read_text()):
   assert re.search(r'\\(?:ref|eqref)\{'+re.escape(name)+r'\}',(PAPER/(doc+'.tex')).read_text()),name
 assert all(p.exists() for p in manuscript_materials(PAPER))
-report={'source_sha256':source_identity(),'primary_designs':7,'primary_native_runs':14,'primary_exact_route_pairs':7,'primary_date_normalized_gds_pairs':7,'fresh_replayed_proposals':20,'class_replay':data['class_replay'],'ablation_runs':8,'fault_classes':6,'fault_executions':18,'original_live_episodes':9,'original_live_verified':7,'larger_cases':4,'larger_certified':0,'larger_controller_stops':2,'larger_incomplete':2,'references':13,'tests_passed':955,'tests_skipped':15,'scope':'Deterministic numerical/source/input audit; internal semantic reviews are separate.'}
+base=load('scripted_baseline.json');assert base['source_sha256']==manifest['source_sha256'] and len(base['states'])==24
+assert base['new_model_calls']==0
+assert len(base['setup_toggle_outcome_equivalent_pairs'])==8
+assert [(base['groups'][k]['states'],base['groups'][k]['certified']) for k in ('drc','pdn','timing','period')]==[(4,3),(2,1),(16,0),(2,1)]
+assert base['groups']['timing']['best_setup_wns_ns']==-0.000653699335387172
+for row in base['states']:
+ events=[json.loads(l) for l in (ROOT/row['run_dir']/'run.jsonl').read_text().splitlines()]
+ assert not any(e.get('event') in ('api_call','config_generated') for e in events)
+ if row['fully_certified']:assert extract(ROOT/row['run_dir'])['clean']
+ else:assert any(e.get('event')=='result_check' and not e.get('ok',True) for e in events)
+replay_split=load('replay_stratified_audit.json')['summary']
+assert replay_split['reconstruction_consistency_matches']==20
+assert replay_split['independent_archived_full_ir_matches']==7
+assert replay_split['timing_failure_classes_after_exclusion']=={'signoff_setup_sta':12,'placement_DPL-0036':1}
+assert 'live repair was not re-executed on the frozen' in main
+assert 'verified repair' not in re.search(r'\\keywords\{([\s\S]*?)\}',main)[1].lower()
+assert 'credit-interrupted' in main and '0 of 4' in main
+assert 'Not designed for' in (PAPER/'generated/checker_obligations_table.tex').read_text()
+
+report={'source_sha256':source_identity(),'primary_designs':7,'primary_native_runs':14,'primary_exact_route_pairs':7,'primary_date_normalized_gds_pairs':7,'fresh_replayed_proposals':20,'class_replay':data['class_replay'],'ablation_runs':8,'fault_classes':6,'fault_executions':18,'original_live_episodes':9,'original_live_verified':7,'larger_cases':4,'larger_certified':0,'larger_controller_stops':2,'larger_incomplete':2,'references':len(refs),'tests_passed':955,'tests_skipped':15,'scripted_baseline_states':24,'scripted_baseline_certified':5,'timing_excluding_cts_affected_state':replay_split['timing_failure_classes_after_exclusion'],'independent_archived_full_ir_matches':7,'scope':'Deterministic numerical/source/input audit; internal semantic reviews are separate.'}
 (PAPER/'evidence/manuscript_audit.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

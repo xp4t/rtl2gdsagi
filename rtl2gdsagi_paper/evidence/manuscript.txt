@@ -8,6 +8,7 @@ Rithwik Vallabhan TV, Sreejeesh SG, Jayaraj U Kidav, and Nanditha N Varma
              jayaraj@nielit.gov.in, nanditha@calicut.nielit.in
 
 
+
       Abstract. RTL2GDSAGI binds native verification evidence to the im-
       plementation selected for release. With frozen controller af31b39f6782,
       seven SKY130 designs spanning 16–1024 mapped cells complete the 21-
@@ -20,38 +21,36 @@ Rithwik Vallabhan TV, Sreejeesh SG, Jayaraj U Kidav, and Nanditha N Varma
       check fractions are 0/3 for spacing, 0/3 for power-network construction,
       and 14/14 for timing. These class-specific observations describe proposal
       states in iterative repair trajectories. A controlled padding ablation ex-
-      plains why a narrow timing pass from the earlier snapshot fails under
-      the frozen source. The artifact contains executable configurations, native
-      reports, source snapshots, and scripts generating the measured tables.
+      plains why a narrow timing pass from the earlier snapshot fails under the
+      frozen source. A scripted baseline certifies spacing and PDN configura-
+      tions without a model; 0/16 timing configurations certify at unchanged 3
+      ns. The nine live repair episodes are a recorded case study from snapshot
+      18d948815ac6; live repair was not re-executed on the frozen source. The
+      artifact retains source snapshots, native reports, and measured tables.
 
       Keywords: RTL-to-GDS · physical verification · artifact provenance ·
-      electronic design automation · verified repair
+      electronic design automation
 
 
 1   Introduction
-OpenROAD and OpenLane provide open infrastructure for synthesis and phys-
-ical implementation [1,2]. A release decision must combine several kinds of evi-
-dence: design rule checking (DRC) evaluates geometry, layout versus schematic
-comparison (LVS) evaluates connectivity, and timing evaluates a constrained
-circuit with its parasitics. The controller must establish which implementation
-and verification inputs produced each result. A zero-marker report can concern
-a different layout or omit required rules. A repair can also invalidate previously
-clean evidence.
-    RTL2GDSAGI makes this relationship explicit. Native tools produce artifacts
-and reports; a content manifest identifies the release candidate; and gate records
-specify their consumed inputs, parser contracts, and verdicts. Model proposals
-pass through typed authorization and native rechecking. This paper examines
-three questions: which constructed evidence failures are blocked, which recorded
-proposal states survive native checks, and which implementation artifacts repro-
-duce under a frozen controller. Its contribution is the executable contract and
-2       R. Vallabhan TV et al.
 
-measured integration of these mechanisms. Native synthesis, placement, routing,
-and verification algorithms remain those of the selected EDA tools.
+OpenROAD and OpenLane provide open synthesis and physical-implementation
+infrastructure [1,2]. Release combines geometric, connectivity and timing evi-
+dence bound to the selected implementation and verification inputs. A zero-
+marker report may concern another GDS or omit required rules; repair can
+invalidate earlier evidence.
+    RTL2GDSAGI records artifact identity, consumed inputs, parser contracts
+and verdicts, with typed proposal authorization and native rechecking. We ask
+which constructed evidence failures are blocked, which recorded proposal states
+survive native checks, and which artifacts reproduce on a frozen controller. The
+contribution is this executable acceptance contract and its measured integration
+with existing native EDA algorithms.
+2         R. Vallabhan TV et al.
 
+2      Evidence Contract
 
-2     Evidence Contract
-2.1   Candidate identity and release checks
+2.1     Candidate identity and release checks
+
 The controller executes characterization, lint, simulation, constraints, synthesis,
 synthesis equivalence, pre-layout timing, floorplan, power-network construction,
 placement, clock-tree synthesis (CTS), post-CTS timing, routing, extraction,
@@ -63,7 +62,7 @@ hard obligations to have positive evidence.
 hash. Directory hashing uses relative filenames and contents. Writing H for
 SHA-256, the candidate identity is
 
-                 C = H(T, {(k, H(Ak ))}k∈B , P, V, H(K), H(I)) ,                 (1)
+                  C = H(T, {(k, H(Ak ))}k∈B , P, V, H(K), H(I)) ,                    (1)
 
 where T is the top, B the bound artifacts, P the recorded process-design kit
 (PDK) identity, V the tool identities, K the run configuration, and I the typed
@@ -76,21 +75,6 @@ lineage, and requires DRC and LVS to consume the selected GDS. Native KLay-
 out arguments are checked against the selected input and deck bytes. The certifi-
 cation identifier commits to the candidate and gate records. Figure 1 summarizes
 the decision boundary.
-
-2.2   Native obligations and repair
-DRC requires a usable report, the expected top, and the approved active-rule in-
-ventory under the exact deck. This evaluation uses 211 normalized categories; 213
-raw declarations include two approved aliases. A zero-marker report with missing
-categories fails the inventory check. LVS requires agreement among process sta-
-tus, log verdict, and a native database with actual circuit cross-references, plus an
-approved deck containing executable compare. Stream-out requires nonempty ge-
-ometry, resolved references, and mapped layers. The power distribution network
-(PDN) check requires supply nets, rails, straps, and vertical via connections.
-    Extraction compares logical net identities in Standard Parasitic Exchange
-Format (SPEF) and routed Design Exchange Format (DEF), rejects missing or
-duplicate nets, and requires complete parasitic sections. Native static timing
-analysis (STA) separately requires finite setup/hold slack and zero unannotated
-                           Candidate-Bound Evidence for RTL-to-GDS Signoff           3
 
 
       Execution                           Evidence obligation
@@ -107,25 +91,43 @@ analysis (STA) separately requires finite setup/hold slack and zero unannotated
 
 Fig. 1. Native evidence and content identity determine acceptance of a proposed im-
 plementation.
+                         Candidate-Bound Evidence for RTL-to-GDS Signoff           3
 
-
+2.2   Native obligations and repair
+DRC requires a usable report, the expected top, and the approved active-rule in-
+ventory under the exact deck. This evaluation uses 211 normalized categories; 213
+raw declarations include two approved aliases. A zero-marker report with missing
+categories fails the inventory check. LVS requires agreement among process sta-
+tus, log verdict, and a native database with actual circuit cross-references, plus an
+approved deck containing executable compare. Stream-out requires nonempty ge-
+ometry, resolved references, and mapped layers. The power distribution network
+(PDN) check requires supply nets, rails, straps, and vertical via connections.
+    Extraction compares logical net identities in Standard Parasitic Exchange
+Format (SPEF) and routed Design Exchange Format (DEF), rejects missing or
+duplicate nets, and requires complete parasitic sections. Native static timing
+analysis (STA) separately requires finite setup/hold slack and zero unannotated
 or partially unannotated drivers. Clock period, uncertainty, output load, RTL
-function, and verification decks are protected from physical-only repairs.
-   A typed change rolls execution back to its earliest affected stage and invali-
-dates downstream evidence. Three attempts per stage and 24 diagnosis attempts
-bound the recorded repair policy. The controller stops when a proposal would
-revisit a previously failed stage fingerprint, including its inputs and effective
-configuration. Formal equivalence checks both synthesis and routed netlists us-
-ing EQY [3]. Scalar-net matching uses splitnets on; grouping related signals
-under [collect *] and group * preserves coupled-state proof structure. Fresh
-counter and shift-register controls prove equivalent, while a retained counter
-mutant with a forced flop fails equivalence.
+function, and verification decks are protected from physical-only repairs. The
+slack guardband g = sta.slack_guardband_ns ≥ 0 is the minimum required
+slack: post-CTS requires hold WNS ≥ g, and routed STA requires both setup
+and hold WNS ≥ g. All evaluated runs use g = 0 ns. This accepts nonnegative
+slack without an additional robustness margin; the 0.25 ns clock uncertainty
+is a separate timing constraint. Neither a small positive slack nor exact repeat
+hashes establish margin against variation.
+    A typed change rolls execution back to its earliest affected stage and invali-
+dates downstream evidence. The recorded live episodes configure three attempts
+per stage and 24 diagnosis attempts. These settings do not establish universal
+termination. The controller stops when a proposal would revisit a previously
+failed stage fingerprint, including its inputs and effective configuration. Formal
+equivalence checks both synthesis and routed netlists using EQY [3]. Scalar-net
+matching uses splitnets on; grouping related signals under [collect *] and
+group * preserves coupled-state proof structure. Fresh counter and shift-register
+controls prove equivalent, while a retained counter mutant with a forced flop fails
+equivalence.
 
 
-3      Experimental Protocol
-
-3.1     One frozen implementation
-
+3     Experimental Protocol
+3.1   One frozen implementation
 All primary implementation runs, fresh proposal executions, and repeated fault
 checks use source fingerprint af31b39f6782. It hashes sorted Python source
 paths and bytes. The frozen archive also retains non-Python resources. Current
@@ -135,11 +137,6 @@ experiment scripts and manuscript material. The proposal-origin snapshot,
 assigns each result to its execution and proposal origin.
     The primary designs are a register, registered multiplexer, eight-bit ALU,
 counter, bidirectional shift register, four-entry FIFO, and 1,024-stage serial shift
-register. Each has a self-checking testbench. The PDK is SKY130A, Volare re-
-vision bdc9412b3e46, HD library, typical 25 ◦ C and 1.8 V corner. The pinned
-container uses OpenROAD 41a51eaf4ca2 and KLayout 0.28.2; pre-layout Open-
-STA reports 3.1.0. Baseline clocks are 10.0 ns, with 0.25 ns uncertainty and 0.05
-pF output load.
 4        R. Vallabhan TV et al.
 
 Table 1. Source accounting. A source fingerprint differs from a Git commit identifier.
@@ -148,15 +145,22 @@ Controlled ablations alter only the stated rendered padding calls.
       Result                                   Source / origin
       Seven primary design pairs           af31b39f6782
       Fresh proposal and fault checks      af31b39f6782
+      24 scripted baseline states          Frozen native executor plus
+                                           hashed stopping harness
       Recorded model proposals / nine live 18d948815ac6
       episodes
       Padding ablation                     Frozen base; two explicit call in-
                                            terventions
-      Earlier accumulator episodes         af31b39f6782
+      Exploratory accumulator episodes     af31b39f6782
 
 
 
-   Each design runs twice from RTL through signoff. The shift register uses
+register. Each has a self-checking testbench. The PDK is SKY130A, Volare re-
+vision bdc9412b3e46, HD library, typical 25 ◦ C and 1.8 V corner. The pinned
+container uses OpenROAD 41a51eaf4ca2 and KLayout 0.28.2; pre-layout Open-
+STA reports 3.1.0. Baseline clocks are 10.0 ns, with 0.25 ns uncertainty and 0.05
+pF output load.
+    Each design runs twice from RTL through signoff. The shift register uses
 one routing worker; its otherwise unchanged eight-worker pair is retained as an
 ablation. It uses two padding sites, 25% core utilization, 0.35 placement density,
 an 80% antenna prediction margin, eight repair iterations, and passive fillers.
@@ -181,64 +185,87 @@ claude-sonnet-5) episodes: three each for ALU spacing, register PDN con-
 struction, and ALU setup timing. Replay reconstructs complete effective config-
 uration states, including characterization seeds, curated changes that preceded
 model calls, and cumulative authorized model changes. Successful reconstruc-
-tions match the archived final IR before execution. All 20 states are then run
-independently from RTL on the frozen controller with one routing worker and
-further repair disabled. No new model calls generate these states. The supple-
-mentary record retains the original episodes, earlier measurements, reconstruc-
-tion checks, and incomplete scale cases.
+tions match independently retained archived final IRs for seven states, before
+adding the explicit routing-worker field absent from that schema. All 20 recon-
+                         Candidate-Bound Evidence for RTL-to-GDS Signoff            5
+
+structions are consistent with archived defaults and logged changes; indepen-
+dent complete IR records for the other thirteen were not found in the inspected
+archive. All 20 states are then run independently from RTL on the frozen con-
+troller with one routing worker and further repair disabled. No new model calls
+generate these states. The supplementary record retains the original episodes,
+earlier measurements, reconstruction checks, and incomplete scale cases.
     The hypothetical no-recheck gate promotes every authorized state. We report
 its failed-native-check fraction separately for each originating fixture class. The
 proposal sequence was collected under native feedback, so these fractions describe
-                         Candidate-Bound Evidence for RTL-to-GDS Signoff             5
-
 fixed states rather than the trajectory of an independently executed controller
 without rechecking.
 
 
+3.3   Scripted baseline without a model
+
+A predeclared sweep starts from the initial configurations of the three recorded
+fixtures. Spacing uses padding 0–3; PDN compares injected offset 50 µm with
+the schema default 2 µm. At fixed 3 ns, the timing grid crosses synthesis strat-
+egy DELAY0/DELAY1, density 0.45/0.55, padding 1/2, and native post-CTS
+setup repair off/on with a 0.05 ns target margin. The initial timing fixture uses
+AREA0 before these scripted changes. Two owner-declared 3.25/3.50 ns controls
+retain that initial configuration and change the clock requirement. The 0.2 delay
+fractions remain fixed, so absolute input/output delays scale from 0.60 ns to
+0.65/0.70 ns. These controls are not an isolated clock-period sensitivity test or
+repairs of the 3 ns target.
+    All 24 states run from RTL with one routing worker and no model. A study-
+only harness stops at the first failed native hard gate; successful states require the
+frozen controller’s complete certification. Native checks, constraints within each
+declared stratum, and verification decks are retained. The prior CLI pilot repeat-
+edly rerouted unchanged IR because date-bearing GDS changed failed-input fin-
+gerprints. The study harness bounds this execution without changing the frozen
+controller. That pilot and the harness bootstrap failure remain excluded in the
+artifact. The supplement records the stopping policy and full candidate metrics.
+
+
 4     Results
+
 4.1   Implementation and exact repeat levels
+
 Tables 2 and 3 report the first of each frozen pair. All 7 designs complete all
 21 stages with zero routing, DRC, and antenna violations, positive LVS com-
 parisons, both equivalence boundaries, authoritative simulation, and complete
 parasitic coverage. The largest design contains 1024 mapped cells.
-
+   Table 4 reports all seven pairs. Routed DEF, mapped and routed netlists, and
+SPEF match exactly for every pair. GDS matches for all seven after zeroing only
+the 24-byte BGNLIB and BGNSTR date payloads. Raw GDS matches in 1 pair;
+other raw differences retain the date fields. The one-worker shift pair matches
+6       R. Vallabhan TV et al.
 
 Table 2. Measured implementation results. Cell area is the synthesis-library area; die
 area comes from routed DEF. Timing uses extracted parasitics.
 
           Design      Cells Cell area    Die area Setup slack Hold slack
                               (µm2 )       (µm2 )        (ns)       (ns)
-          register      22     292.78   2393.17           6.954       1.204
-          mux4to1       48     480.46   3602.40           6.952       1.203
-          alu8         133    1018.48   6125.41           5.256       1.192
-          counter       47     416.65   3279.28           4.911       0.494
-          shift_reg     16     380.36   3091.92           6.892       0.554
-          fifo_buf     109    1721.65   9169.02           6.396       0.273
-          shift1024   1024   25624.58 115705.42           5.553       0.049
-
-
+          register      22     292.78   2393.17             6.954     1.204
+          mux4to1       48     480.46   3602.40             6.952     1.203
+          alu8         133    1018.48   6125.41             5.256     1.192
+          counter       47     416.65   3279.28             4.911     0.494
+          shift_reg     16     380.36   3091.92             6.892     0.554
+          fifo_buf     109    1721.65   9169.02             6.396     0.273
+          shift1024   1024   25624.58 115705.42             5.553     0.049
 
 
 Table 3. Native verification and execution outcomes. Every design passed all 21 stages,
 both equivalence boundaries, LVS, and its authoritative testbench.
 
-          Design      Route/DRC Antenna SPEF nets            GDS Runtime
-                        violations net/pin                  (KiB)     (s)
-          register            0/0        0/0          35 131.8          31.7
-          mux4to1             0/0        0/0          87 161.6          45.8
-          alu8                0/0        0/0         157 497.2          73.1
-          counter             0/0        0/0          62 238.4          36.5
-          shift_reg           0/0        0/0          32 117.4          32.4
-          fifo_buf            0/0        0/0         126 486.6          54.4
-          shift1024           0/0        0/0        1210 3309.2        145.6
+          Design      Route/DRC Antenna SPEF nets             GDS Runtime
+                        violations net/pin                   (KiB)     (s)
+          register              0/0      0/0          35 131.8          31.7
+          mux4to1               0/0      0/0          87 161.6          45.8
+          alu8                  0/0      0/0         157 497.2          73.1
+          counter               0/0      0/0          62 238.4          36.5
+          shift_reg             0/0      0/0          32 117.4          32.4
+          fifo_buf              0/0      0/0         126 486.6          54.4
+          shift1024             0/0      0/0        1210 3309.2        145.6
 
 
-
-   Table 4 reports all seven pairs. Routed DEF, mapped and routed netlists, and
-SPEF match exactly for every pair. GDS matches for all seven after zeroing only
-the 24-byte BGNLIB and BGNSTR date payloads. Raw GDS matches in 1 pair;
-other raw differences retain the date fields. The one-worker shift pair matches
-6      R. Vallabhan TV et al.
 
 while the earlier eight-worker pair differs in DEF/GDS via variants, with iden-
 tical netlists and SPEF. The retained pinned-binary query confirms the native
@@ -246,20 +273,20 @@ one-thread default when no explicit thread command is emitted. This identi-
 fies worker-count sensitivity in the observed pairs, without isolating a particular
 native race.
 
+
 Table 4. Seven frozen primary pairs. Date normalization zeros only BGN-
 LIB/BGNSTR payloads; all other GDS bytes remain unchanged. Both netlists also
 match in every pair.
 
              Design      Routed DEF SPEF Raw GDS Dates zeroed
-             register    Same         Same   Same        Same
-             mux4to1     Same         Same   Different   Same
-             alu8        Same         Same   Different   Same
-             counter     Same         Same   Different   Same
-             shift_reg   Same         Same   Different   Same
-             fifo_buf    Same         Same   Different   Same
-             shift1024   Same         Same   Different   Same
-
-
+             register    Same           Same    Same         Same
+             mux4to1     Same           Same    Different    Same
+             alu8        Same           Same    Different    Same
+             counter     Same           Same    Different    Same
+             shift_reg   Same           Same    Different    Same
+             fifo_buf    Same           Same    Different    Same
+             shift1024   Same           Same    Different    Same
+                        Candidate-Bound Evidence for RTL-to-GDS Signoff             7
 
     A supplemental implementation fingerprint binds date-normalized GDS,
 RTL, routed netlist, SPEF, constraints, decks, layer map, and PDK name,
@@ -276,80 +303,79 @@ tive zero-marker result on stale geometry fails selected-input binding. Disablin
 FEOL produces an incomplete inventory; a fabricated match lacks circuit cross-
 references. Removed vias fail supply connectivity, omitted mapping fails layer
 checks, and substituted post-repair GDS invalidates cached gate lineage.
-    The OpenLane follow-up audits actual pinned stage/checker interfaces using
-paired controls. Table 6 reports the obligations supported by those interfaces.
-The previous modern-deck wrapper omitted runtime flags, leaving its rules inac-
-tive; it is excluded as an active-DRC baseline. Legacy native configuration and
-modern explicitly configured controls exercise the intended geometry rules. Pub-
-lic pinned source matches the retained wrapper, and PDK options are recorded.
-The modern adapter is explicitly identified; personal maintainer endorsement
-is not claimed. Modern configured controls report metal/poly/off-grid mark-
-ers 3/1/4 while paired clean inputs remain clear; the legacy deck omits the
-tested poly rule. Reporting markers and enforcing a release decision are sep-
-arate obligations. This study executes isolated interfaces, without estimating
-                        Candidate-Bound Evidence for RTL-to-GDS Signoff               7
+
 
 Table 5. Coverage of six constructed fault classes on the frozen controller. Three
 executions per class establish consistent fixture behavior, not independent samples.
 
-  Constructed class           Blocking obligation                           Blocks
-  Stale same-top GDS      Selected input hash and invocation binding           3/3
-  Missing FEOL rules      Approved deck and active category inventory          3/3
-  LVS without compare     Executable comparison and circuit cross-             3/3
+  Constructed class        Blocking obligation                             Blocks
+  Stale same-top GDS      Selected input hash and invocation binding          3/3
+  Missing FEOL rules      Approved deck and active category inventory         3/3
+  LVS without compare     Executable comparison and circuit cross-            3/3
                           references
-  Missing PDN vias        Structural supply and vertical connection            3/3
+  Missing PDN vias        Structural supply and vertical connection           3/3
                           checks
-  Missing layer map       Bound map and routed-layer geometry checks           3/3
-  Artifact swap after re- Cached gate lineage and artifact rehashing           3/3
+  Missing layer map       Bound map and routed-layer geometry checks          3/3
+  Artifact swap after re- Cached gate lineage and artifact rehashing          3/3
   pair
 
 
 
-full-flow OpenLane detection performance. The supplement contains the control
-counts, options, commands, and unsupported-format qualifications.
+    The OpenLane follow-up audits actual pinned stage/checker interfaces us-
+ing paired controls. Table 6 reports the obligations within the remit of those
+interfaces. The previous modern-deck wrapper omitted runtime flags, leaving its
+rules inactive; it is excluded as an active-DRC baseline. Legacy native configu-
+ration and modern explicitly configured controls exercise the intended geometry
+rules. Public pinned source matches the retained wrapper, and PDK options are
+recorded. The modern adapter is explicitly identified. Modern configured con-
+trols report metal/poly/off-grid markers 3/1/4 while paired clean inputs remain
+clear; the legacy deck omits the tested poly rule. Reporting markers and en-
+forcing a release decision are separate obligations. This study executes isolated
+interfaces, without estimating full-flow OpenLane detection performance. The
+supplement contains the control counts, options, commands, and interface-remit
+qualifications.
+8        R. Vallabhan TV et al.
+
+Table 6. Obligation remit of the executed OpenLane interfaces and configured native
+controls. These are stage/checker observations, not a complete-flow detection compar-
+ison.
+
+    Obligation                   Checker remit   Executed scope
+    Configured geometric         Supported       Positive/clean controls; deck and
+    marker reporting                             options specified
+    Missing PDN via              Supported       Native supply checks with
+    connectivity                                 untouched DEF controls
+    Selected candidate and       Not designed    No release-manifest interface in
+    cached lineage               for             these checker calls
+    Approved deck / active       Not designed    Rule execution differs from
+    inventory                    for             inventory approval
+    Retained KLayout             Not assessed    Report formats are incompatible
+    no-compare fixture via
+    Netgen
+    Mapping provenance           Not designed    Required map option does not
+                                 for             establish selected-map identity
 
 
-Table 6. Obligations supported by the executed OpenLane interfaces and configured
-native controls. These are stage/checker observations, not a complete-flow detection
-comparison.
 
-  Obligation                   Support         Executed scope
-  Configured      geometric    Supported     Positive/clean controls; deck and op-
-  marker reporting                           tions specified
-  Missing PDN via connec-      Supported     Native supply checks with untouched
-  tivity                                     DEF controls
-  Selected candidate and       Not supported No release-manifest interface in these
-  cached lineage                             checker calls
-  Approved deck / active       Not supported Rule execution differs from inventory
-  inventory                                  approval
-  Retained KLayout no-         Not assessed  Report formats are incompatible
-  compare     fixture   via
-  Netgen
-  Mapping provenance           Not supported Required map option does not estab-
-                                             lish selected-map identity
-
-
-
-
-4.3   Replay by originating class
+4.3    Replay by originating class
 
 Table 7 preserves both the original observations and fresh frozen-source out-
 comes. In the archived timing trajectories, 11 of 14 proposals fail native checks
 (78.6%), while 2 lack a completed required target check. Spacing and PDN each
 have zero failed proposals out of three. Thus the earlier aggregate 11/20 failure
 count comes entirely from timing proposals.
-8       R. Vallabhan TV et al.
+
 
 Table 7. Proposal replay by originating fixture class. A hypothetical gate accepting
 each proposal without rechecks would promote every row state. Failed means a native
 hard check failed; missing evidence is separate. Frozen outcomes are separate native
 executions of the same proposal states.
 
-                                     Archived Archived Frozen Frozen
-            Class     Proposals       failed  missing  failed certified
-            Spacing              3       0/3           0/3     0/3      3/3
-            PDN                  3       0/3           0/3     0/3      3/3
-            Timing              14     11/14          2/14   14/14     0/14
+                                       Archived Archived Frozen Frozen
+                 Class     Proposals    failed  missing  failed certified
+                 Spacing          3        0/3       0/3     0/3       3/3
+                 PDN              3        0/3       0/3     0/3       3/3
+                 Timing          14      11/14      2/14   14/14      0/14
 
 
 
@@ -359,27 +385,22 @@ fail routed STA and one fails placement. These are intermediate proposals in
 an iterative timing search, where failed attempts are expected. The replay sup-
 ports retaining native checks as acceptance evidence; it supplies neither a general
 model-failure rate nor an end-to-end agent-superiority estimate.
+                        Candidate-Bound Evidence for RTL-to-GDS Signoff          9
+
+    Excluding timing_1_proposal2, the archived +1.586 ps state whose sign
+change is explained by CTS padding, leaves thirteen timing states. Twelve fail
+setup STA and one fails placement (DPL-0036), so a timing result is unavailable
+for that placement-failed state. The full fourteen-state denominator remains in
+Table 7.
+
 
 4.4   Explaining the narrow timing repair
 The archived repaired ALU configuration passes at +1.586 ps under its recorded
 source but fails at −0.654 ps under the frozen controller, at the same 3 ns period.
 We test CTS-padding reapplication, routing-padding reapplication, and routing
 workers in a 2 × 2 × 2 factorial ablation. Placement padding stays at one site;
-clock, uncertainty, load, RTL, and PDK remain fixed. Table 8 gives the measured
-outcomes.
-
-Table 8. Controlled padding and thread ablation at unchanged 3 ns. Each row con-
-tains one run at each worker count. Padding refers to reapplication after placement;
-placement padding itself stays at one site. Slack is measured after routing.
-
-           CTS padding Route padding Workers Setup (ps) Certified
-           Off            Off                  1, 8          +1.586      2/2
-           Off            On                   1, 8          +9.868      2/2
-           On             Off                  1, 8           -0.654     0/2
-           On             On                   1, 8           -0.654     0/2
-
-
-
+clock, uncertainty, load, RTL, and PDK remain fixed. The supplement contains
+the full eight-run matrix.
     Both worker counts give the same slack in every padding configuration. Reap-
 plying CTS padding changes the archived-style result from +1.586 ps to −0.654
 ps. Keeping routing padding while removing the CTS call gives +9.868 ps. Syn-
@@ -387,66 +408,114 @@ thesis netlist and placed DEF hashes match before the intervention; CTS DEF
 and downstream artifacts differ, including legalized cell and hold-buffer posi-
 tions. This isolates the CTS padding call’s effect in these executions. The frozen
 controller retains that call and blocks the narrow configuration. The earlier pass
-                        Candidate-Bound Evidence for RTL-to-GDS Signoff           9
-
 therefore belongs to its recorded snapshot and is not presented as a repair re-
 producible on HEAD.
 
 
-5   Related Work
+4.5   Results of the scripted baseline
+Table 8 summarizes all declared strata; the retained scripted_baseline_
+metrics.csv gives all 24 candidate rows. Padding 0 fails DRC; padding 1,
+2 and 3 each complete certification. Returning the PDN offset to 2 µm also
+certifies without the model’s ring proposal. These fixtures therefore supply no
+evidence that an LLM is needed for spacing or PDN repair. They are manually
+selected finite configurations, not a population success rate or an autonomous
+diagnosis benchmark.
+    At unchanged 3 ns, 0/16 timing configurations certify; the best routed setup
+WNS is -0.000654 ns. All eight setup-repair off/on pairs have identical CTS
+DEF, routed DEF, SPEF and setup/hold slack, despite emitted setup-repair
+commands. The sixteen declared configurations therefore include eight outcome-
+equivalent toggle pairs; this is not a general result about setup-repair effective-
+ness. The 3.25 ns control fails at −0.141952 ns setup WNS; the 3.50 ns control
+certifies at +0.060743 ns. These are separate requirements, not repairs of the
+original target. The grid is not an exhaustive optimizer and does not estab-
+lish incremental model value on timing. Model-generated proposals remain one
+possible input to the evidence contract; their unsupported states still require
+rejection.
+10        R. Vallabhan TV et al.
+
+Table 8. Finite scripted baseline through the same frozen native contract. Counts
+are configurations, not independent repair episodes. Slower-clock controls change the
+requirement and are excluded from 3 ns repair success. Best setup is the maximum
+over all candidates reaching routed STA, including later hard failures. The spacing
+maximum is DRC-failed padding 0.
+
+                                                                      Best setup
+     Fixture             Scripted choices                  Certified all STA (ns)
+     Spacing             Padding 0–3 sites                      3/4    +5.304609
+     PDN                 Offset 50 or 2 µm                      1/2    +6.953344
+     Timing, 3 ns        Strategy/density/padding/CTS          0/16     -0.000654
+                         grid
+     Slower-clock   con- 3.25 or 3.50 ns                        1/2    +0.060743
+     trols
+
+
+
+5      Related Work
 
 OpenROAD and OpenLane provide implementation infrastructure [1,2]. MET-
 RICS2.1 structures flow measurement and parameter tuning [4], and PROV
-represents provenance relationships [5]. ChatEDA studies model-driven EDA
-task planning, script generation, and execution [6]. ORFS-agent optimizes
-OpenROAD-flow-scripts parameters [7]; MCP4EDA connects model interaction
-to RTL-to-GDS execution and backend synthesis feedback [8]. FlowFixer-EDA
-uses log extraction, patch validation, and native tool feedback for diagnosis
-and repair [9]. EDAid uses multiple model-controlled agents for EDA workflow
-execution [10]. Ghose et al. study executable OpenROAD changes and measured
-quality of results [11].
-    ChiBench supplies RTL designs for EDA-tool testing [12]. DRVerify docu-
+represents provenance relationships [5]. Nix supports fixed-output hashing and
+experimental content-addressed derivations; Bazel maps action hashes to cached
+results and stores outputs by content [6,7]. SLSA build provenance relates ar-
+tifact digests to build definitions and builder identities [8]. These mechanisms
+can carry domain-specific checks as declared actions and policies. This evalua-
+tion specializes release acceptance to native EDA invocation, report structure,
+approved inputs, and cached lineage; it does not evaluate Nix/Bazel execution
+or SLSA conformance.
+    ChatEDA studies model-driven EDA task planning, script generation, and
+execution [9]. ORFS-agent optimizes OpenROAD-flow-scripts parameters [10];
+MCP4EDA connects model interaction to RTL-to-GDS execution and backend
+synthesis feedback [11]. FlowFixer-EDA uses log extraction, patch validation,
+and native tool feedback for diagnosis and repair [12]. Its patch validation already
+demonstrates the importance of rechecking. Here, the specific object of study
+is the release contract binding the selected GDS, approved verification inputs,
+native report structure, and cached gate lineage. EDAid uses multiple model-
+controlled agents for EDA workflow execution [13]. Ghose et al. study executable
+OpenROAD changes and measured quality of results [14]. The newer author
+conference manuscript also records patch/snapshot/proof manifests and renewed
+checks. These overlap with generic manifest-based revalidation; no priority for
+that mechanism is claimed.
+    ChiBench supplies RTL designs for EDA-tool testing [15]. DRVerify docu-
 ments physical-verification runset testing with known legal and violating struc-
-tures [13]. These works motivate checking rule execution and intended cov-
-erage in addition to marker counts. The present contribution combines con-
-structed native/ledger faults, candidate lineage, fresh recorded-proposal checks,
-and artifact-level repeat evidence. Comparable contracts in other controllers are
-not excluded by this study.
+tures [16]. That runset-testing rationale motivates checking rule execution and
+intended coverage in addition to marker counts. The present contribution com-
+bines constructed native/ledger faults, candidate lineage, fresh recorded-proposal
+                        Candidate-Bound Evidence for RTL-to-GDS Signoff         11
 
+checks, and artifact-level repeat evidence. Comparable contracts in other con-
+trollers are not excluded by this study.
 
 6   Scope and Conclusion
-
 The evidence establishes six-class coverage, class-specific proposal outcomes, and
 exact repeat levels on one frozen implementation. All seven primary pairs repro-
 duce their routed and date-normalized artifacts. The replay’s failures are con-
 fined to the timing fixture, and the padding experiment explains why its earlier
-marginal pass does not transfer to HEAD. The primary circuits are small and
-synthetic, including a regular 1,024-cell shift register. They provide no popula-
-tion repair rate or industrial-scale qualification. The local contract uses a single
-typical corner and excludes multi-corner timing, on-chip variation, power in-
-tegrity, and foundry qualification. Hashing also assumes trusted tools, controller,
-host, and PDK. Identity and approved inventory do not prove completeness of
-foundry rules or immunity to forged records.
-    The supplement retains nine original live repair episodes, four larger ac-
-cumulator episodes and their measured outcomes, earlier observations, known-
-failed-fingerprint proposals, and incomplete scale probes. These cohorts remain
-separate from fresh proposal-state executions. Raw logs retain accepted up-
-dates and final native artifacts; rollback can overwrite numbered intermediate
-prompt/response and implementation files. The current regression record is 955
-passed, 15 skipped, zero failures/errors.
-10     R. Vallabhan TV et al.
+marginal pass does not transfer to HEAD. The small synthetic circuits provide
+no population repair rate or industrial-scale qualification. The local contract
+uses a single typical corner and excludes multi-corner timing, on-chip variation,
+power integrity, and foundry qualification. Hashing also assumes trusted tools,
+controller, host, and PDK. Identity and approved inventory do not prove com-
+pleteness of foundry rules or immunity to forged records.
+    The nine live repair episodes are a recorded case study on 18d948815ac6.
+Live repair was not re-executed on the frozen controller, so its 7/9 certifica-
+tions are not a frozen-source repair success rate. The exploratory accumulator
+cohort certifies 0 of 4 episodes: two policy escalations and two credit-interrupted
+episodes. The latter have unknown eventual repair outcomes. The largest clean
+design is the synthetic 1,024-cell shift register. The supplement retains these
+cohorts, earlier observations, known-failed-fingerprint proposals, and incomplete
+scale probes. These cohorts remain separate from fresh proposal-state executions.
+Raw logs retain accepted updates and final native artifacts; rollback can over-
+write numbered intermediate prompt/response and implementation files. The
+current regression record is 955 passed, 15 skipped, zero failures/errors.
 
 Artifacts and AI assistance
-
-Repository: https://github.com/xp4t/rtl2gdsagi. The versioned artifact
-at rtl2gdsagi-paper-frozen-20261013 contains this LNCS manuscript, an
+Repository: https://github.com/xp4t/rtl2gdsagi. The versioned artifact at
+rtl2gdsagi-paper-baselines-20261013 contains this LNCS manuscript, an
 Overleaf ZIP, supplement.tex, source snapshots, native reports, and table-
 generation/verification scripts. Codex assisted writing and three internal review
-passes in the same automated workflow. These are not independent external
-peer reviews. The supplement identifies the original Anthropic model runs
-separately from cached-proposal replay; no new model calls are counted for that
-replay.
-
+passes in the same automated workflow. These are not independent external peer
+reviews. The supplement identifies the original Anthropic model runs separately
+from cached-proposal replay; no new model calls are counted for that replay.
 
 References
  1. Ajayi, T., et al.: Toward an Open-Source Digital Flow: First Learnings from the
@@ -456,6 +525,8 @@ References
     tapeout-proven flow. In: Proceedings of the 2020 IEEE/ACM International Con-
     ference on Computer-Aided Design, pp. 1–6 (2020). https://doi.org/10.1145/
     3400302.3415735
+12      R. Vallabhan TV et al.
+
  3. YosysHQ: EQY documentation. https://yosyshq.readthedocs.io/projects/
     eqy/en/latest/ (accessed 12 October 2026)
  4. Jung, J., Kahng, A.B., Kim, S., Varadarajan, R.: METRICS2.1 and flow tuning
@@ -465,34 +536,41 @@ References
     2021.9643541
  5. W3C: PROV-Overview: An overview of the PROV family of documents. W3C
     Working Group Note (2013). https://www.w3.org/TR/prov-overview/
- 6. Wu, H., He, Z., Zhang, X., Yao, X., Zheng, S., Zheng, H., Yu, B.: ChatEDA: A
+ 6. Nix project: Content-addressing derivation outputs. Nix 2.35.2 Reference
+    Manual.        https://nix.dev/manual/nix/2.35/store/derivation/outputs/
+    content-address.html (accessed 13 October 2026)
+ 7. Bazel project: Remote Caching. Bazel documentation. https://bazel.build/
+    remote/caching (accessed 13 October 2026)
+ 8. SLSA: Build: Provenance. SLSA specification, version 1.2 (Approved). https://
+    slsa.dev/spec/v1.2/build-provenance (accessed 13 October 2026)
+ 9. Wu, H., He, Z., Zhang, X., Yao, X., Zheng, S., Zheng, H., Yu, B.: ChatEDA: A
     Large Language Model Powered Autonomous Agent for EDA. IEEE Transactions
     on Computer-Aided Design of Integrated Circuits and Systems 43(10), 3184–3197
     (2024). https://doi.org/10.1109/TCAD.2024.3383347
- 7. Ghose, A., Kahng, A.B., Kundu, S., Wang, Z.: ORFS-Agent: Tool-Using Agents
+10. Ghose, A., Kahng, A.B., Kundu, S., Wang, Z.: ORFS-Agent: Tool-Using Agents
     for Chip Design Optimization. In: Proceedings of the ACM/IEEE International
     Symposium on Machine Learning for CAD (MLCAD), pp. 1–13 (2025). https:
     //doi.org/10.1109/MLCAD65511.2025.11189204
- 8. Wang, Y., Ye, W., He, Y., Chen, Y., Qu, G., Li, A.: MCP4EDA: LLM-Powered
+11. Wang, Y., Ye, W., He, Y., Chen, Y., Qu, G., Li, A.: MCP4EDA: LLM-Powered
     Model Context Protocol RTL-to-GDSII Automation with Backend Aware Synthe-
     sis Optimization. arXiv:2507.19570 (2025). https://arxiv.org/abs/2507.19570
- 9. Dong, K., Wang, R., Yuan, F., An, B., Zhang, X.: FlowFixer-EDA: A Tool-
+12. Dong, K., Wang, R., Yuan, F., An, B., Zhang, X.: FlowFixer-EDA: A Tool-
     Feedback-Augmented Large Language Model Agent for Automated Diagnosis
     and Repair of Open-Source RTL-to-GDS Design Flow Failures. IEEE Access 14,
     140412–140428 (2026). https://doi.org/10.1109/ACCESS.2026.3730896
-10. Wu, H., Zheng, H., He, Z., Yu, B.: Divergent Thoughts toward One Goal: LLM-
+13. Wu, H., Zheng, H., He, Z., Yu, B.: Divergent Thoughts toward One Goal: LLM-
     based Multi-Agent Collaboration System for Electronic Design Automation. In:
     Proceedings of NAACL-HLT, vol. 1, pp. 1710–1721 (2025). https://doi.org/10.
     18653/v1/2025.naacl-long.83
-                         Candidate-Bound Evidence for RTL-to-GDS Signoff           11
-
-11. Ghose, A., Jang, J., Kahng, A.B., Lee, J.: Automated QoR improvement in Open-
+14. Ghose, A., Jang, J., Kahng, A.B., Lee, J.: Automated QoR improvement in Open-
     ROAD with coding agents. arXiv:2601.06268v2 (2026). https://arxiv.org/abs/
-    2601.06268v2
-12. Sumitani, R., Amorim, J.V., Mafra, A., Crepalde, M., Pereira, F.M.Q.:
+    2601.06268v2. Also: author manuscript, ICCAD 2026, to appear (accessed 13 Oc-
+    tober 2026). https://vlsicad.ucsd.edu/Publications/Conferences/431/c431.
+    pdf
+15. Sumitani, R., Amorim, J.V., Mafra, A., Crepalde, M., Pereira, F.M.Q.:
     ChiBench: A Benchmark Suite for Testing Electronic Design Automation Tools.
     arXiv:2406.06550 (2024). https://arxiv.org/abs/2406.06550
-13. Sage Design Automation: DRVerify: The Verification of Physical Verification. Tech-
+16. Sage Design Automation: DRVerify: The Verification of Physical Verification. Tech-
     nical white paper (2018). https://semiwiki.com/wp-content/uploads/2018/06/
     sage_DRVerify_WP_v2-3-1.pdf
 

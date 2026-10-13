@@ -781,18 +781,26 @@ them by rewriting your logic.
 
 The frozen-source revision of 13 October 2026 is documented in
 [`rtl2gdsagi_paper`](rtl2gdsagi_paper/README.md) and the
-[versioned paper artifact](https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-frozen-20261013).
+[versioned paper artifact](https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-baselines-20261013).
 The implementation fingerprint is **af31b39f6782**. All seven designs complete
 the 21-stage local signoff contract twice. Every pair matches routed DEF,
 mapped and routed netlists, SPEF and date-normalized GDS; primary shift1024 uses
 one routing worker. The original eight-worker observations remain an ablation.
+
+A 24-state scripted baseline needs no model: padding 1/2/3 certify and
+restoring the PDN offset to 2 µm certifies. Its sixteen fixed 3 ns timing
+configurations all fail, with best setup WNS −0.654 ps. Period 3.25 ns fails;
+period 3.50 ns certifies as a changed requirement, not a 3 ns repair.
 
 The fault study covers six constructed classes with three consistency executions
 each, all blocked. These are not independent attacks or a full-flow comparison.
 Configured OpenLane checker controls and exact invocation evidence distinguish
 supported native obligations from release-manifest obligations.
 
-Twenty recorded proposal states originated on **18d948815ac6**. Fresh executions
+Twenty recorded proposal states originated on **18d948815ac6**. All 20 agree
+with logged reconstruction; only seven have independently retained full IR
+records for exact comparison. Excluding the CTS-affected archived pass leaves
+twelve setup-STA failures and one placement failure. Fresh executions
 on the frozen implementation certify spacing 3/3 and PDN 3/3; all fourteen timing
 states fail hard checks. Their archived timing observations were eleven failures,
 two unavailable target checks and one certification. These intermediate states
@@ -801,10 +809,12 @@ Eight controlled CTS/routing padding and worker interventions isolate the narrow
 ALU timing sign change to CTS padding reapplication in these executions. Current
 production keeps that padding and does not claim robust 3 ns timing closure.
 
-The supplement retains the original nine live repair episodes (seven verified,
-two escalated) separately from four larger accumulator episodes (zero certified,
-two controller stops, two incomplete). Outcomes remain unknown for incomplete
-cases. Full native metrics and hashes are in
+The original nine live repair episodes are a recorded case study on 18d948815ac6
+(seven verified, two escalated); live repair was not re-executed on the frozen
+source. The four exploratory accumulator episodes remain separate: zero
+certified, two policy escalations, two credit-interrupted cases with unknown
+eventual outcomes. The largest clean design is the synthetic 1,024-stage shift
+register. Full native metrics and hashes are in
 `rtl2gdsagi_paper/evidence/signoff_metrics.csv`, `live_results.json`, and
 `frozen_results.json`; the selected pairs are under
 `runs/frozen_evaluation_20261013/pair_{a,b}`. The regression record is

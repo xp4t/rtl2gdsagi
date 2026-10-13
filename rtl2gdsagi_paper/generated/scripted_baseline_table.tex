@@ -1,0 +1,10 @@
+\begin{table}[htbp]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Finite scripted baseline through the same frozen native contract. Counts are configurations, not independent repair episodes. Slower-clock controls change the requirement and are excluded from 3 ns repair success. Best setup is the maximum over all candidates reaching routed STA, including later hard failures. The spacing maximum is DRC-failed padding 0.}\label{tab:scriptedbaseline}
+\begin{tabular}{@{}p{.23\linewidth}p{.39\linewidth}rr@{}}\toprule
+Fixture & Scripted choices & Certified & \shortstack{Best setup\\all STA (ns)} \\
+\midrule
+Spacing & Padding 0--3 sites & 3/4 & +5.304609 \\
+PDN & Offset 50 or 2 $\mu$m & 1/2 & +6.953344 \\
+Timing, 3 ns & Strategy/density/padding/CTS grid & 0/16 & -0.000654 \\
+Slower-clock controls & 3.25 or 3.50 ns & 1/2 & +0.060743 \\
+\bottomrule\end{tabular}\end{table}

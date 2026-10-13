@@ -16,7 +16,7 @@ def digest(path):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--review-prefix',default='REVIEW_FROZEN')
+    parser.add_argument('--review-prefix',default='REVIEW_BASELINE')
     args=parser.parse_args()
     main_hash = digest(PAPER / 'main.tex')
     reviews = []
@@ -30,7 +30,7 @@ def main():
     paths = [PAPER / 'README.md',
              PAPER / 'main.pdf', PAPER / 'figures/timing_stress.pdf',
              PAPER / 'evidence/manuscript.txt',
-             *[PAPER/'evidence'/n for n in ('frozen_results.json','manuscript_audit.json','experiment_manifest.json','reproducibility_final.json','native_fault_injection_frozen.json','citation_continuity_frozen.json','openlane_invocation_audit.json')],
+             *[PAPER/'evidence'/n for n in ('frozen_results.json','manuscript_audit.json','experiment_manifest.json','reproducibility_final.json','native_fault_injection_frozen.json','citation_continuity_frozen.json','openlane_invocation_audit.json','scripted_baseline.json','scripted_baseline_metrics.csv','replay_stratified_audit.json','citation_baseline_audit.json')],
              *manuscript_materials(PAPER)]
     if (PAPER/'supplement.tex').exists():
         paths += [PAPER/'supplement.pdf',PAPER/'evidence/supplement.txt']

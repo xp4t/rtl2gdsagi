@@ -107,12 +107,12 @@ def main():
     support = [
         ('Configured geometric marker reporting','Supported','Positive/clean controls; deck and options specified'),
         ('Missing PDN via connectivity','Supported','Native supply checks with untouched DEF controls'),
-        ('Selected candidate and cached lineage','Not supported','No release-manifest interface in these checker calls'),
-        ('Approved deck / active inventory','Not supported','Rule execution differs from inventory approval'),
+        ('Selected candidate and cached lineage','Not designed for','No release-manifest interface in these checker calls'),
+        ('Approved deck / active inventory','Not designed for','Rule execution differs from inventory approval'),
         ('Retained KLayout no-compare fixture via Netgen','Not assessed','Report formats are incompatible'),
-        ('Mapping provenance','Not supported','Required map option does not establish selected-map identity'),
+        ('Mapping provenance','Not designed for','Required map option does not establish selected-map identity'),
     ]
-    table('checker_obligations_table.tex', 'Obligations supported by the executed OpenLane interfaces and configured native controls. These are stage/checker observations, not a complete-flow detection comparison.', 'tab:checkerobligations', 'p{0.30\\linewidth}p{0.17\\linewidth}p{0.43\\linewidth}', 'Obligation & Support & Executed scope', support)
+    table('checker_obligations_table.tex', 'Obligation remit of the executed OpenLane interfaces and configured native controls. These are stage/checker observations, not a complete-flow detection comparison.', 'tab:checkerobligations', r'>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.43\linewidth}', 'Obligation & Checker remit & Executed scope', support)
     controls = audit['controls']
     control_rows = []
     for name, label in [('legacy_native','Legacy native deck'),('modern_direct_pdk_options','Modern deck, PDK options'),('modern_adapter_native','Modern wrapper adapter')]:
