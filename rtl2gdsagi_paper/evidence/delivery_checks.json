@@ -12,12 +12,14 @@
   ],
   "review_bindings": "passed; three final corrected-version closures and full input/PDF hashes",
   "archive_check": "passed: all extracted file hashes verified",
-  "publication": "pending new release; prior receipt retained separately",
+  "publication": "Verified public release, code tag, four server asset digests and unauthenticated PDF; see publication_receipt.json",
   "archive_verification": {
     "archive_sha256": "fe0eb81d8803363cb106fdab8ba5d8a50156870b1980ab43584fb247fc3d2c31",
     "archive_bytes": 185837172,
     "verified_file_hashes": 12250,
     "extracted_directory": "/tmp/rtl2gdsagi-followup-final-archive-vvfcge_r",
     "verifier_stdout": "Verified 12250 archived file hashes"
-  }
+  },
+  "publication_receipt_asset_sha256": "b02cce495aca137c9fceaaa3d0a0fe43455fab4df19ef29f9f4a32da7f892cea",
+  "publication_receipt_download": "Verified unauthenticated HTTPS download and server asset digest"
 }
