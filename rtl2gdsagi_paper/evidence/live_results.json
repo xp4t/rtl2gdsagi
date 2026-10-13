@@ -88,7 +88,8 @@
       "runs/pipeline2048_scale_probe_v1",
       "runs/publication_pair_a/alu_bank16",
       "runs/submission_pair_a/accum_bank32"
-    ]
+    ],
+    "pytest_report": "rtl2gdsagi_paper/evidence/pytest_followup_release.xml"
   },
   "runs": [
     {
@@ -1201,13 +1202,13 @@
     }
   },
   "tests": {
-    "tests": 969,
+    "tests": 970,
     "failures": 0,
     "errors": 0,
     "skipped": 15,
-    "passed": 954
+    "passed": 955
   },
-  "pytest_sha256": "878f57d35bd98b393afb710fd5b9ed4316b0fc5f59043fe3194deafad4e24a16",
+  "pytest_sha256": "0b521ffbcf9be41234ec0fda399f905554b1cbf608d2980dcb54478c1aa0d41d",
   "current_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
   "source_matches_extraction": true
 }

@@ -1,0 +1,12 @@
+\begin{table}[htbp]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Actual OpenLane stage/checker coverage for the retained classes. Not checked denotes an unsupported target obligation, not a passing result. No complete OpenLane flow was evaluated.}\label{tab:externalcoverage}
+\begin{tabular}{@{}p{0.25\linewidth}p{0.21\linewidth}p{0.43\linewidth}@{}}\toprule
+Class & Executed check result & Executed scope / qualification \\
+\midrule
+Stale same-top GDS & Not detected & DRC lacks selected-reference identity; optional reference XOR detects geometry differences. \\
+Missing FEOL rules & Not detected & DRC stage lacks approved-inventory checks; explicit rule flags are required for this deck. \\
+LVS without compare & Not checked & Retained KLayout database is unsupported by the Netgen report checker. \\
+Missing PDN connections & Detected & Native power-grid checks detect missing vias; untouched DEF controls pass. \\
+Missing layer map & Not detected & Existing wrong-map GDS is not rejected by DRC; stream-out requires its mapping option. \\
+GDS swap after repair & Not checked & Cached candidate binding is unsupported; supplied-reference XOR detects foreign geometry. \\
+\bottomrule\end{tabular}\end{table}

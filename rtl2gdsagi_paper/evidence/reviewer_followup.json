@@ -1,0 +1,2796 @@
+{
+  "manifest": {
+    "current_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+    "historical_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+    "resource_files": [
+      {
+        "path": "src/rtl2gdsagi/resources/openroad_messages.json",
+        "sha256": "f5a21046a3f449baeb3750d9106ce9a1a17b40e945349b437129dc8197e5074d",
+        "verified_base": "a006861"
+      },
+      {
+        "path": "src/rtl2gdsagi/resources/README.md",
+        "sha256": "2a08fbe404a966e3d0d7934bef209d78a11b3f27400395432d061ec9704226b5",
+        "verified_base": "a006861"
+      }
+    ],
+    "declared_cases": [
+      {
+        "kind": "timing_original",
+        "replicate": 1,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": true
+      },
+      {
+        "kind": "timing_original",
+        "replicate": 2,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": true
+      },
+      {
+        "kind": "timing_original",
+        "replicate": 3,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": true
+      },
+      {
+        "kind": "timing_current",
+        "replicate": 1,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": false
+      },
+      {
+        "kind": "timing_current",
+        "replicate": 2,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": false
+      },
+      {
+        "kind": "timing_current",
+        "replicate": 3,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": false
+      },
+      {
+        "kind": "shift_single",
+        "replicate": 1,
+        "config": "shift1024_one_worker.yaml",
+        "live_api": false,
+        "historical_source": false
+      },
+      {
+        "kind": "shift_single",
+        "replicate": 2,
+        "config": "shift1024_one_worker.yaml",
+        "live_api": false,
+        "historical_source": false
+      },
+      {
+        "kind": "accum_spacing",
+        "replicate": 1,
+        "config": "accum_spacing_live.yaml",
+        "live_api": true,
+        "historical_source": false
+      },
+      {
+        "kind": "accum_spacing",
+        "replicate": 2,
+        "config": "accum_spacing_live.yaml",
+        "live_api": true,
+        "historical_source": false
+      },
+      {
+        "kind": "accum_antenna",
+        "replicate": 1,
+        "config": "accum_antenna_live.yaml",
+        "live_api": true,
+        "historical_source": false
+      },
+      {
+        "kind": "accum_antenna",
+        "replicate": 2,
+        "config": "accum_antenna_live.yaml",
+        "live_api": true,
+        "historical_source": false
+      }
+    ],
+    "started_at": 1791864080.5384798,
+    "trials": {
+      "timing_original_1": {
+        "kind": "timing_original",
+        "replicate": 1,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": true,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_original_1",
+          "--no-api"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/timing_original_1",
+        "source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+        "exit_code": 0,
+        "status": "ok",
+        "elapsed_s": 69.75190114974976
+      },
+      "timing_original_3": {
+        "kind": "timing_original",
+        "replicate": 3,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": true,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_original_3",
+          "--no-api"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/timing_original_3",
+        "source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+        "exit_code": 0,
+        "status": "ok",
+        "elapsed_s": 69.80696868896484
+      },
+      "timing_original_2": {
+        "kind": "timing_original",
+        "replicate": 2,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": true,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_original_2",
+          "--no-api"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/timing_original_2",
+        "source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+        "exit_code": 0,
+        "status": "ok",
+        "elapsed_s": 69.9124174118042
+      },
+      "timing_current_1": {
+        "kind": "timing_current",
+        "replicate": 1,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": false,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_current_1",
+          "--no-api"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/timing_current_1",
+        "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+        "exit_code": 3,
+        "status": "failed",
+        "elapsed_s": 51.67548847198486
+      },
+      "timing_current_2": {
+        "kind": "timing_current",
+        "replicate": 2,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": false,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_current_2",
+          "--no-api"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/timing_current_2",
+        "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+        "exit_code": 3,
+        "status": "failed",
+        "elapsed_s": 51.87671661376953
+      },
+      "timing_current_3": {
+        "kind": "timing_current",
+        "replicate": 3,
+        "config": "alu8_repaired_3ns.yaml",
+        "live_api": false,
+        "historical_source": false,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_current_3",
+          "--no-api"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/timing_current_3",
+        "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+        "exit_code": 3,
+        "status": "failed",
+        "elapsed_s": 52.36548852920532
+      },
+      "shift_single_1": {
+        "kind": "shift_single",
+        "replicate": 1,
+        "config": "shift1024_one_worker.yaml",
+        "live_api": false,
+        "historical_source": false,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/shift1024_one_worker.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/shift_single_1",
+          "--no-api"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/shift_single_1",
+        "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+        "exit_code": 0,
+        "status": "ok",
+        "elapsed_s": 145.13455820083618
+      },
+      "shift_single_2": {
+        "kind": "shift_single",
+        "replicate": 2,
+        "config": "shift1024_one_worker.yaml",
+        "live_api": false,
+        "historical_source": false,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/shift1024_one_worker.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/shift_single_2",
+          "--no-api"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/shift_single_2",
+        "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+        "exit_code": 0,
+        "status": "ok",
+        "elapsed_s": 145.5293996334076
+      },
+      "accum_spacing_2": {
+        "kind": "accum_spacing",
+        "replicate": 2,
+        "config": "accum_spacing_live.yaml",
+        "live_api": true,
+        "historical_source": false,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/accum_spacing_live.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/accum_spacing_2",
+          "--model",
+          "claude-sonnet-5",
+          "--repair-policy",
+          "auto",
+          "--retry-limit",
+          "3"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/accum_spacing_2",
+        "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+        "exit_code": 3,
+        "status": "failed",
+        "elapsed_s": 835.2770683765411
+      },
+      "accum_antenna_1": {
+        "kind": "accum_antenna",
+        "replicate": 1,
+        "config": "accum_antenna_live.yaml",
+        "live_api": true,
+        "historical_source": false,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/accum_antenna_live.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/accum_antenna_1",
+          "--model",
+          "claude-sonnet-5",
+          "--repair-policy",
+          "auto",
+          "--retry-limit",
+          "3"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/accum_antenna_1",
+        "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+        "exit_code": 3,
+        "status": "failed",
+        "elapsed_s": 1023.131653547287
+      },
+      "accum_antenna_2": {
+        "kind": "accum_antenna",
+        "replicate": 2,
+        "config": "accum_antenna_live.yaml",
+        "live_api": true,
+        "historical_source": false,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/accum_antenna_live.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/accum_antenna_2",
+          "--model",
+          "claude-sonnet-5",
+          "--repair-policy",
+          "auto",
+          "--retry-limit",
+          "3"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/accum_antenna_2",
+        "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+        "exit_code": 1,
+        "status": "failed",
+        "elapsed_s": 705.0868155956268
+      },
+      "accum_spacing_1": {
+        "kind": "accum_spacing",
+        "replicate": 1,
+        "config": "accum_spacing_live.yaml",
+        "live_api": true,
+        "historical_source": false,
+        "command": [
+          "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+          "-m",
+          "rtl2gdsagi.cli",
+          "run",
+          "--config",
+          "/home/vlsi/rtl2gdsagi/benchmarks/followup/accum_spacing_live.yaml",
+          "--pdk-root",
+          "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+          "--klayout-backend",
+          "container",
+          "--run-dir",
+          "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/accum_spacing_1",
+          "--model",
+          "claude-sonnet-5",
+          "--repair-policy",
+          "auto",
+          "--retry-limit",
+          "3"
+        ],
+        "run_dir": "runs/reviewer_followup_20261013/accum_spacing_1",
+        "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+        "exit_code": 1,
+        "status": "failed",
+        "elapsed_s": 1687.8070113658905
+      }
+    },
+    "ended_at": 1791865890.6291573,
+    "consistent_source": true
+  },
+  "trials": [
+    {
+      "kind": "accum_antenna",
+      "replicate": 1,
+      "config": "accum_antenna_live.yaml",
+      "live_api": true,
+      "historical_source": false,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/accum_antenna_live.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/accum_antenna_1",
+        "--model",
+        "claude-sonnet-5",
+        "--repair-policy",
+        "auto",
+        "--retry-limit",
+        "3"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/accum_antenna_1",
+      "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+      "exit_code": 3,
+      "status": "failed",
+      "elapsed_s": 1023.131653547287,
+      "trial": "accum_antenna_1",
+      "fully_verified": false,
+      "model_calls": 3,
+      "input_tokens": 23074,
+      "output_tokens": 7663,
+      "provider_errors": [],
+      "initial_failure": {
+        "ts": 1791864634.302006,
+        "event": "result_check",
+        "stage": "antenna",
+        "attempt": 1,
+        "message": "antenna violations: 3 net(s), 3 pin(s)",
+        "ok": false,
+        "kind": "fail",
+        "warnings": 1,
+        "antenna_net_violations": 3,
+        "antenna_pin_violations": 3,
+        "antenna_results": 1
+      },
+      "last_failure": {
+        "ts": 1791865039.4324586,
+        "event": "result_check",
+        "stage": "routing",
+        "attempt": 1,
+        "message": "OpenROAD reported 1 error(s): GRT-0005",
+        "ok": false,
+        "kind": "fail",
+        "warnings": 1
+      },
+      "last_routed_check": {
+        "ts": 1791865298.8833807,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "timing met: setup WNS 4.0743ns, hold WNS 0.2082ns",
+        "ok": true,
+        "kind": "pass",
+        "setup_wns": 4.074301900069044,
+        "setup_tns": 0.0,
+        "hold_wns": 0.208208622902636,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": null,
+      "proposals": [
+        {
+          "ts": 1791864656.324657,
+          "event": "config_generated",
+          "stage": "antenna",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "routing"
+          ],
+          "delta": {
+            "routing": {
+              "antenna_repair_iterations": 10,
+              "antenna_ratio_margin_pct": 40
+            }
+          }
+        },
+        {
+          "ts": 1791865038.1869888,
+          "event": "config_generated",
+          "stage": "antenna",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "routing"
+          ],
+          "delta": {
+            "routing": {
+              "max_layer": 6,
+              "droute_iters": 64
+            }
+          }
+        },
+        {
+          "ts": 1791865053.130444,
+          "event": "config_generated",
+          "stage": "routing",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "routing"
+          ],
+          "delta": {
+            "routing": {
+              "max_layer": 5
+            }
+          }
+        }
+      ],
+      "terminal_outcome": "policy_escalation"
+    },
+    {
+      "kind": "accum_antenna",
+      "replicate": 2,
+      "config": "accum_antenna_live.yaml",
+      "live_api": true,
+      "historical_source": false,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/accum_antenna_live.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/accum_antenna_2",
+        "--model",
+        "claude-sonnet-5",
+        "--repair-policy",
+        "auto",
+        "--retry-limit",
+        "3"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/accum_antenna_2",
+      "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+      "exit_code": 1,
+      "status": "failed",
+      "elapsed_s": 705.0868155956268,
+      "trial": "accum_antenna_2",
+      "fully_verified": false,
+      "model_calls": 3,
+      "input_tokens": 23100,
+      "output_tokens": 5692,
+      "provider_errors": [
+        {
+          "ts": 1791865887.35291,
+          "event": "agent_failure",
+          "stage": "routing",
+          "attempt": 1,
+          "message": "agent response failed; EDA failure remains OpenROAD reported 1 error(s): GRT-0005",
+          "agent_error": "Claude API call failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfycF67tLLsyP3zLgPSve'}",
+          "eda_failure_class": "routing"
+        }
+      ],
+      "initial_failure": {
+        "ts": 1791865470.1776016,
+        "event": "result_check",
+        "stage": "antenna",
+        "attempt": 1,
+        "message": "antenna violations: 3 net(s), 3 pin(s)",
+        "ok": false,
+        "kind": "fail",
+        "warnings": 1,
+        "antenna_net_violations": 3,
+        "antenna_pin_violations": 3,
+        "antenna_results": 1
+      },
+      "last_failure": {
+        "ts": 1791865851.2545063,
+        "event": "result_check",
+        "stage": "routing",
+        "attempt": 1,
+        "message": "OpenROAD reported 1 error(s): GRT-0005",
+        "ok": false,
+        "kind": "fail",
+        "warnings": 1
+      },
+      "last_routed_check": {
+        "ts": 1791865719.5804963,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "timing met: setup WNS 4.0743ns, hold WNS 0.2082ns",
+        "ok": true,
+        "kind": "pass",
+        "setup_wns": 4.074301900069044,
+        "setup_tns": 0.0,
+        "hold_wns": 0.208208622902636,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": null,
+      "proposals": [
+        {
+          "ts": 1791865485.7821245,
+          "event": "config_generated",
+          "stage": "antenna",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "routing"
+          ],
+          "delta": {
+            "routing": {
+              "antenna_repair_iterations": 10,
+              "antenna_ratio_margin_pct": 40
+            }
+          }
+        },
+        {
+          "ts": 1791865814.6964803,
+          "event": "config_generated",
+          "stage": "antenna",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "routing"
+          ],
+          "delta": {
+            "routing": {
+              "min_layer": 2,
+              "droute_iters": 64
+            }
+          }
+        },
+        {
+          "ts": 1791865842.6122036,
+          "event": "config_generated",
+          "stage": "routing",
+          "attempt": 1,
+          "message": "generated 2 config file(s)",
+          "files": [
+            "placement",
+            "routing"
+          ],
+          "delta": {
+            "routing": {
+              "max_layer": 6
+            },
+            "placement": {
+              "padding_sites": 2,
+              "target_density": 0.3
+            }
+          }
+        }
+      ],
+      "terminal_outcome": "provider_interrupted"
+    },
+    {
+      "kind": "accum_spacing",
+      "replicate": 1,
+      "config": "accum_spacing_live.yaml",
+      "live_api": true,
+      "historical_source": false,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/accum_spacing_live.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/accum_spacing_1",
+        "--model",
+        "claude-sonnet-5",
+        "--repair-policy",
+        "auto",
+        "--retry-limit",
+        "3"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/accum_spacing_1",
+      "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+      "exit_code": 1,
+      "status": "failed",
+      "elapsed_s": 1687.8070113658905,
+      "trial": "accum_spacing_1",
+      "fully_verified": false,
+      "model_calls": 10,
+      "input_tokens": 73055,
+      "output_tokens": 20413,
+      "provider_errors": [
+        {
+          "ts": 1791865890.4975393,
+          "event": "agent_failure",
+          "stage": "placement",
+          "attempt": 1,
+          "message": "agent response failed; EDA failure remains OpenROAD reported 1 error(s): DPL-0036",
+          "agent_error": "Claude API call failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfycG4YQNgTHq1JMkjoH7'}",
+          "eda_failure_class": "placement"
+        }
+      ],
+      "initial_failure": {
+        "ts": 1791864457.4551964,
+        "event": "result_check",
+        "stage": "drc",
+        "attempt": 1,
+        "message": "DRC FAILED: 8 violations in 1 of 211 categories on top cell 'accum_bank32'; worst: npc.2 (8)",
+        "ok": false,
+        "kind": "fail",
+        "total_violations": 8,
+        "violated_categories": 1,
+        "checked_gds_sha256": "4cc60a3f6d37b0f694fd6a23b668417a9af1c4eaeb1a99b8c491bb7ed2e49b27"
+      },
+      "last_failure": {
+        "ts": 1791865864.4892223,
+        "event": "result_check",
+        "stage": "placement",
+        "attempt": 1,
+        "message": "OpenROAD reported 1 error(s): DPL-0036",
+        "ok": false,
+        "kind": "fail",
+        "warnings": 3
+      },
+      "last_routed_check": {
+        "ts": 1791865770.5521927,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "timing met: setup WNS 3.8092ns, hold WNS 0.2098ns",
+        "ok": true,
+        "kind": "pass",
+        "setup_wns": 3.809192624699421,
+        "setup_tns": 0.0,
+        "hold_wns": 0.20981994513499702,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": null,
+      "proposals": [
+        {
+          "ts": 1791864483.790184,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 8
+            }
+          }
+        },
+        {
+          "ts": 1791864531.5806665,
+          "event": "config_generated",
+          "stage": "placement",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 2,
+              "target_density": 0.3
+            }
+          }
+        },
+        {
+          "ts": 1791864650.910857,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 4
+            }
+          }
+        },
+        {
+          "ts": 1791864783.2911906,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 6
+            }
+          }
+        },
+        {
+          "ts": 1791864805.3170075,
+          "event": "config_generated",
+          "stage": "placement",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 2,
+              "target_density": 0.28
+            }
+          }
+        },
+        {
+          "ts": 1791864952.6540918,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 4
+            }
+          }
+        },
+        {
+          "ts": 1791865080.614553,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 2 config file(s)",
+          "files": [
+            "placement",
+            "routing"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 7
+            },
+            "routing": {
+              "droute_iters": 48
+            }
+          }
+        },
+        {
+          "ts": 1791865108.605203,
+          "event": "config_generated",
+          "stage": "placement",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 2,
+              "target_density": 0.32
+            }
+          }
+        },
+        {
+          "ts": 1791865238.703681,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 2 config file(s)",
+          "files": [
+            "placement",
+            "routing"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 5
+            },
+            "routing": {
+              "droute_iters": 56
+            }
+          }
+        },
+        {
+          "ts": 1791865833.5995219,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 2 config file(s)",
+          "files": [
+            "placement",
+            "routing"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 8
+            },
+            "routing": {
+              "droute_iters": 64
+            }
+          }
+        }
+      ],
+      "terminal_outcome": "provider_interrupted"
+    },
+    {
+      "kind": "accum_spacing",
+      "replicate": 2,
+      "config": "accum_spacing_live.yaml",
+      "live_api": true,
+      "historical_source": false,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/accum_spacing_live.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/accum_spacing_2",
+        "--model",
+        "claude-sonnet-5",
+        "--repair-policy",
+        "auto",
+        "--retry-limit",
+        "3"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/accum_spacing_2",
+      "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+      "exit_code": 3,
+      "status": "failed",
+      "elapsed_s": 835.2770683765411,
+      "trial": "accum_spacing_2",
+      "fully_verified": false,
+      "model_calls": 7,
+      "input_tokens": 50692,
+      "output_tokens": 12928,
+      "provider_errors": [],
+      "initial_failure": {
+        "ts": 1791864601.8767142,
+        "event": "result_check",
+        "stage": "drc",
+        "attempt": 1,
+        "message": "DRC FAILED: 8 violations in 1 of 211 categories on top cell 'accum_bank32'; worst: npc.2 (8)",
+        "ok": false,
+        "kind": "fail",
+        "total_violations": 8,
+        "violated_categories": 1,
+        "checked_gds_sha256": "e6228ea9df99dffeb67b394ebbd623b1ac7853ad152c34e613a3b0a5724ab1a3"
+      },
+      "last_failure": {
+        "ts": 1791865153.9143376,
+        "event": "result_check",
+        "stage": "drc",
+        "attempt": 1,
+        "message": "DRC FAILED: 4 violations in 1 of 211 categories on top cell 'accum_bank32'; worst: npc.2 (4)",
+        "ok": false,
+        "kind": "fail",
+        "total_violations": 4,
+        "violated_categories": 1,
+        "checked_gds_sha256": "575adf6976f7e32b81704d8898cddf45785c4e6880c50b96b7fb3459e33a0071"
+      },
+      "last_routed_check": {
+        "ts": 1791865116.983453,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "timing met: setup WNS 4.0713ns, hold WNS 0.2074ns",
+        "ok": true,
+        "kind": "pass",
+        "setup_wns": 4.071294083765664,
+        "setup_tns": 0.0,
+        "hold_wns": 0.20742264049012352,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": null,
+      "proposals": [
+        {
+          "ts": 1791864625.8940578,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 2 config file(s)",
+          "files": [
+            "placement",
+            "routing"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 6
+            },
+            "routing": {
+              "droute_iters": 40
+            }
+          }
+        },
+        {
+          "ts": 1791864645.391836,
+          "event": "config_generated",
+          "stage": "placement",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 2,
+              "target_density": 0.3
+            }
+          }
+        },
+        {
+          "ts": 1791864768.1878715,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 4
+            }
+          }
+        },
+        {
+          "ts": 1791864899.062505,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 6
+            }
+          }
+        },
+        {
+          "ts": 1791864929.5707917,
+          "event": "config_generated",
+          "stage": "placement",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 2
+            }
+          }
+        },
+        {
+          "ts": 1791865051.3688192,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 4
+            }
+          }
+        },
+        {
+          "ts": 1791865182.2247088,
+          "event": "config_generated",
+          "stage": "drc",
+          "attempt": 1,
+          "message": "generated 1 config file(s)",
+          "files": [
+            "placement"
+          ],
+          "delta": {
+            "placement": {
+              "padding_sites": 6
+            }
+          }
+        }
+      ],
+      "terminal_outcome": "policy_escalation"
+    },
+    {
+      "kind": "shift_single",
+      "replicate": 1,
+      "config": "shift1024_one_worker.yaml",
+      "live_api": false,
+      "historical_source": false,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/shift1024_one_worker.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/shift_single_1",
+        "--no-api"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/shift_single_1",
+      "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+      "exit_code": 0,
+      "status": "ok",
+      "elapsed_s": 145.13455820083618,
+      "trial": "shift_single_1",
+      "fully_verified": true,
+      "model_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "provider_errors": [],
+      "initial_failure": null,
+      "last_failure": null,
+      "last_routed_check": {
+        "ts": 1791864275.2981503,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "timing met: setup WNS 5.5532ns, hold WNS 0.0495ns",
+        "ok": true,
+        "kind": "pass",
+        "setup_wns": 5.553176298203248,
+        "setup_tns": 0.0,
+        "hold_wns": 0.049477201514033384,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": {
+        "design": "shift1024",
+        "run_dir": "runs/reviewer_followup_20261013/shift_single_1",
+        "run_id": "2026-10-13T04-03-22Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 1024,
+        "synthesis_area_um2": 25624.576,
+        "die_area_um2": 115705.424025,
+        "routed_components": 13526,
+        "wire_length_um": 32246.0,
+        "setup_wns_ns": 5.553176298203248,
+        "hold_wns_ns": 0.049477201514033384,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 1210,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 0,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 3388648,
+        "elapsed_s": 144.95956897735596,
+        "model_calls": 0,
+        "provider_model": "disabled",
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "candidate_id": "532fd480cc1a8f72cf3a2ba73b3b6759a38d57dc935b78b732360032117c85cd",
+        "certification_id": "86f0b1223c953e34b838b7ca72e04f26dc1680b58b614961c20692993a8095e2",
+        "gds_sha256": "5da7e4d0065c69865e9996e3153e1388029427fcce4edffc6d62453adaa0cf5f",
+        "signoff_sha256": "95734110e8745fd8434f857db70019005f67bb74b2feacf9242ee47361d0f180",
+        "gate_evidence_sha256": "d24f17272f70718e7f1ec74a570f803770834f19543c635df09dc400167006ec",
+        "run_log_sha256": "47631436fead85a53f242fa84c425c7d578c3cd833e576fa113df9c0ffd97dd7",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": 7.1640526649849745,
+            "hold_wns": 0.08120954139017024
+          },
+          "sta_postcts": {
+            "setup_wns": 6.695541643967231,
+            "hold_wns": 0.06532552461647623
+          },
+          "sta_signoff": {
+            "setup_wns": 5.553176298203248,
+            "hold_wns": 0.049477201514033384
+          }
+        },
+        "repair_verifications": [],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 10.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.25,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.35,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 2,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "num_threads": 1,
+            "antenna_ratio_margin_pct": 80,
+            "antenna_repair_iterations": 8,
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "proposals": [],
+      "terminal_outcome": "verified"
+    },
+    {
+      "kind": "shift_single",
+      "replicate": 2,
+      "config": "shift1024_one_worker.yaml",
+      "live_api": false,
+      "historical_source": false,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/shift1024_one_worker.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/shift_single_2",
+        "--no-api"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/shift_single_2",
+      "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+      "exit_code": 0,
+      "status": "ok",
+      "elapsed_s": 145.5293996334076,
+      "trial": "shift_single_2",
+      "fully_verified": true,
+      "model_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "provider_errors": [],
+      "initial_failure": null,
+      "last_failure": null,
+      "last_routed_check": {
+        "ts": 1791864275.3675985,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "timing met: setup WNS 5.5532ns, hold WNS 0.0495ns",
+        "ok": true,
+        "kind": "pass",
+        "setup_wns": 5.553176298203248,
+        "setup_tns": 0.0,
+        "hold_wns": 0.049477201514033384,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": {
+        "design": "shift1024",
+        "run_dir": "runs/reviewer_followup_20261013/shift_single_2",
+        "run_id": "2026-10-13T04-03-22Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 1024,
+        "synthesis_area_um2": 25624.576,
+        "die_area_um2": 115705.424025,
+        "routed_components": 13526,
+        "wire_length_um": 32246.0,
+        "setup_wns_ns": 5.553176298203248,
+        "hold_wns_ns": 0.049477201514033384,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 1210,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 0,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 3388648,
+        "elapsed_s": 145.38002943992615,
+        "model_calls": 0,
+        "provider_model": "disabled",
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "candidate_id": "903653261871dc8c51aa7ece415a3eec6eec0c55f5c8dc48da3b42c9a4b19652",
+        "certification_id": "2d356c442b61fc8721b6df67435b45f4bea12a55dfeec60cc4bd2fc7eba6bd9a",
+        "gds_sha256": "ee313cbc349af688cb852eb9b8e1e23e600f2dfa3090b73d65469d638038a292",
+        "signoff_sha256": "dba32b9af80f3839622bea8c503bd5b42a578615eb15ea1c8b2f99151f4a45b9",
+        "gate_evidence_sha256": "ca76a02a3857737003e5c6724ef0009da2376ef5b5a3d5fc90866db3322ed6f8",
+        "run_log_sha256": "c6290e4f50f498f071c3ab168a007e7fad3394ce5023e58df779d324fdc9ba49",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": 7.1640526649849745,
+            "hold_wns": 0.08120954139017024
+          },
+          "sta_postcts": {
+            "setup_wns": 6.695541643967231,
+            "hold_wns": 0.06532552461647623
+          },
+          "sta_signoff": {
+            "setup_wns": 5.553176298203248,
+            "hold_wns": 0.049477201514033384
+          }
+        },
+        "repair_verifications": [],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 10.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.25,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.35,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 2,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "num_threads": 1,
+            "antenna_ratio_margin_pct": 80,
+            "antenna_repair_iterations": 8,
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "proposals": [],
+      "terminal_outcome": "verified"
+    },
+    {
+      "kind": "timing_current",
+      "replicate": 1,
+      "config": "alu8_repaired_3ns.yaml",
+      "live_api": false,
+      "historical_source": false,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_current_1",
+        "--no-api"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/timing_current_1",
+      "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+      "exit_code": 3,
+      "status": "failed",
+      "elapsed_s": 51.67548847198486,
+      "trial": "timing_current_1",
+      "fully_verified": false,
+      "model_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "provider_errors": [],
+      "initial_failure": {
+        "ts": 1791864201.9078336,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.0007ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.000653699335387172,
+        "setup_tns": -0.000653699335387172,
+        "hold_wns": 0.34082815312507253,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "last_failure": {
+        "ts": 1791864201.9078336,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.0007ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.000653699335387172,
+        "setup_tns": -0.000653699335387172,
+        "hold_wns": 0.34082815312507253,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "last_routed_check": {
+        "ts": 1791864201.9078336,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.0007ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.000653699335387172,
+        "setup_tns": -0.000653699335387172,
+        "hold_wns": 0.34082815312507253,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": null,
+      "proposals": [],
+      "terminal_outcome": "policy_escalation"
+    },
+    {
+      "kind": "timing_current",
+      "replicate": 2,
+      "config": "alu8_repaired_3ns.yaml",
+      "live_api": false,
+      "historical_source": false,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_current_2",
+        "--no-api"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/timing_current_2",
+      "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+      "exit_code": 3,
+      "status": "failed",
+      "elapsed_s": 51.87671661376953,
+      "trial": "timing_current_2",
+      "fully_verified": false,
+      "model_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "provider_errors": [],
+      "initial_failure": {
+        "ts": 1791864202.1693113,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.0007ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.000653699335387172,
+        "setup_tns": -0.000653699335387172,
+        "hold_wns": 0.34082815312507253,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "last_failure": {
+        "ts": 1791864202.1693113,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.0007ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.000653699335387172,
+        "setup_tns": -0.000653699335387172,
+        "hold_wns": 0.34082815312507253,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "last_routed_check": {
+        "ts": 1791864202.1693113,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.0007ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.000653699335387172,
+        "setup_tns": -0.000653699335387172,
+        "hold_wns": 0.34082815312507253,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": null,
+      "proposals": [],
+      "terminal_outcome": "policy_escalation"
+    },
+    {
+      "kind": "timing_current",
+      "replicate": 3,
+      "config": "alu8_repaired_3ns.yaml",
+      "live_api": false,
+      "historical_source": false,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_current_3",
+        "--no-api"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/timing_current_3",
+      "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+      "exit_code": 3,
+      "status": "failed",
+      "elapsed_s": 52.36548852920532,
+      "trial": "timing_current_3",
+      "fully_verified": false,
+      "model_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "provider_errors": [],
+      "initial_failure": {
+        "ts": 1791864202.7661655,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.0007ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.000653699335387172,
+        "setup_tns": -0.000653699335387172,
+        "hold_wns": 0.34082815312507253,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "last_failure": {
+        "ts": 1791864202.7661655,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.0007ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.000653699335387172,
+        "setup_tns": -0.000653699335387172,
+        "hold_wns": 0.34082815312507253,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "last_routed_check": {
+        "ts": 1791864202.7661655,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "signoff setup WNS -0.0007ns is below the 0.0000ns guardband",
+        "ok": false,
+        "kind": "fail",
+        "setup_wns": -0.000653699335387172,
+        "setup_tns": -0.000653699335387172,
+        "hold_wns": 0.34082815312507253,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": null,
+      "proposals": [],
+      "terminal_outcome": "policy_escalation"
+    },
+    {
+      "kind": "timing_original",
+      "replicate": 1,
+      "config": "alu8_repaired_3ns.yaml",
+      "live_api": false,
+      "historical_source": true,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_original_1",
+        "--no-api"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/timing_original_1",
+      "source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+      "exit_code": 0,
+      "status": "ok",
+      "elapsed_s": 69.75190114974976,
+      "trial": "timing_original_1",
+      "fully_verified": true,
+      "model_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "provider_errors": [],
+      "initial_failure": null,
+      "last_failure": null,
+      "last_routed_check": {
+        "ts": 1791864132.7928824,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "timing met: setup WNS 0.0016ns, hold WNS 0.3432ns",
+        "ok": true,
+        "kind": "pass",
+        "setup_wns": 0.0015860646578364705,
+        "setup_tns": 0.0,
+        "hold_wns": 0.343179799846767,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": {
+        "design": "alu8",
+        "run_dir": "runs/reviewer_followup_20261013/timing_original_1",
+        "run_id": "2026-10-13T04-01-20Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 200,
+        "synthesis_area_um2": 1223.6736,
+        "die_area_um2": 7033.338225,
+        "routed_components": 662,
+        "wire_length_um": 4477.0,
+        "setup_wns_ns": 0.0015860646578364705,
+        "hold_wns_ns": 0.343179799846767,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 225,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 0,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 491098,
+        "elapsed_s": 69.507164478302,
+        "model_calls": 0,
+        "provider_model": "disabled",
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "candidate_id": "d2f71a271c0ff88c601fe44341e06b16cdf7737320fbf17106be99d993e04e8b",
+        "certification_id": "e7ae159261704711780a49ef0ab5d23d0941dc5d163c26b8e7a77704335ca518",
+        "gds_sha256": "77456fa948180e171270ac75132cee1e3b2122f9ac8198a2baf2a66d54378c0c",
+        "signoff_sha256": "e17ecb9a38c89a3b99da1b43d7103c63188ff8a0d1f49e5d26ed4347770656f0",
+        "gate_evidence_sha256": "24f5b5a699d91bd73abb526633d91b50f94301db99fa0fdf645ff62babf5218a",
+        "run_log_sha256": "c0aa0e21f12c062e4f7ecea67bb1729fee5e732b39d082a22049e37372bc3d2d",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": -0.5303682088071997,
+            "hold_wns": 0.054408978862352214
+          },
+          "sta_postcts": {
+            "setup_wns": 0.27452729755387884,
+            "hold_wns": 0.3220430124836811
+          },
+          "sta_signoff": {
+            "setup_wns": 0.0015860646578364705,
+            "hold_wns": 0.343179799846767
+          }
+        },
+        "repair_verifications": [],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 3.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.3,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.55,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 1,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "proposals": [],
+      "terminal_outcome": "verified"
+    },
+    {
+      "kind": "timing_original",
+      "replicate": 2,
+      "config": "alu8_repaired_3ns.yaml",
+      "live_api": false,
+      "historical_source": true,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_original_2",
+        "--no-api"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/timing_original_2",
+      "source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+      "exit_code": 0,
+      "status": "ok",
+      "elapsed_s": 69.9124174118042,
+      "trial": "timing_original_2",
+      "fully_verified": true,
+      "model_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "provider_errors": [],
+      "initial_failure": null,
+      "last_failure": null,
+      "last_routed_check": {
+        "ts": 1791864132.9115086,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "timing met: setup WNS 0.0016ns, hold WNS 0.3432ns",
+        "ok": true,
+        "kind": "pass",
+        "setup_wns": 0.0015860646578364705,
+        "setup_tns": 0.0,
+        "hold_wns": 0.343179799846767,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": {
+        "design": "alu8",
+        "run_dir": "runs/reviewer_followup_20261013/timing_original_2",
+        "run_id": "2026-10-13T04-01-20Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 200,
+        "synthesis_area_um2": 1223.6736,
+        "die_area_um2": 7033.338225,
+        "routed_components": 662,
+        "wire_length_um": 4477.0,
+        "setup_wns_ns": 0.0015860646578364705,
+        "hold_wns_ns": 0.343179799846767,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 225,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 0,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 491098,
+        "elapsed_s": 69.67188310623169,
+        "model_calls": 0,
+        "provider_model": "disabled",
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "candidate_id": "9ab794087ebbd42cfaf3aec13e55d1e7a077991a858c8310b06d09c4a364557b",
+        "certification_id": "76490a2da4d949e142c8837096fb681588da90211347c1140de67870cb274327",
+        "gds_sha256": "9c051740d6272c3badbe8ffe9ada1d30612bdad4df09ffbe6f060d162a91748a",
+        "signoff_sha256": "9c211dd39d14da49b205851f64dfd6331676cffad4d2ee3cde8d94b349d4b0dd",
+        "gate_evidence_sha256": "232721d9cfc9c7b52f8a2f913faa3991bfeb2ffdb7342b98e40f2499b63d09f6",
+        "run_log_sha256": "dd049e919924a971587cf04099d6eed28b5788ee3092040953c8e6b333ad2f53",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": -0.5303682088071997,
+            "hold_wns": 0.054408978862352214
+          },
+          "sta_postcts": {
+            "setup_wns": 0.27452729755387884,
+            "hold_wns": 0.3220430124836811
+          },
+          "sta_signoff": {
+            "setup_wns": 0.0015860646578364705,
+            "hold_wns": 0.343179799846767
+          }
+        },
+        "repair_verifications": [],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 3.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.3,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.55,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 1,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "proposals": [],
+      "terminal_outcome": "verified"
+    },
+    {
+      "kind": "timing_original",
+      "replicate": 3,
+      "config": "alu8_repaired_3ns.yaml",
+      "live_api": false,
+      "historical_source": true,
+      "command": [
+        "/home/vlsi/Documents/rtl2gdsagi/.venv/bin/python3",
+        "-m",
+        "rtl2gdsagi.cli",
+        "run",
+        "--config",
+        "/home/vlsi/rtl2gdsagi/benchmarks/followup/alu8_repaired_3ns.yaml",
+        "--pdk-root",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A",
+        "--klayout-backend",
+        "container",
+        "--run-dir",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/timing_original_3",
+        "--no-api"
+      ],
+      "run_dir": "runs/reviewer_followup_20261013/timing_original_3",
+      "source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+      "exit_code": 0,
+      "status": "ok",
+      "elapsed_s": 69.80696868896484,
+      "trial": "timing_original_3",
+      "fully_verified": true,
+      "model_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "provider_errors": [],
+      "initial_failure": null,
+      "last_failure": null,
+      "last_routed_check": {
+        "ts": 1791864132.8064811,
+        "event": "result_check",
+        "stage": "sta_signoff",
+        "attempt": 1,
+        "message": "timing met: setup WNS 0.0016ns, hold WNS 0.3432ns",
+        "ok": true,
+        "kind": "pass",
+        "setup_wns": 0.0015860646578364705,
+        "setup_tns": 0.0,
+        "hold_wns": 0.343179799846767,
+        "hold_tns": 0.0,
+        "unannotated_drivers": 0,
+        "partially_unannotated_drivers": 0,
+        "unconstrained_endpoints": 0,
+        "no_clocks": false
+      },
+      "metrics": {
+        "design": "alu8",
+        "run_dir": "runs/reviewer_followup_20261013/timing_original_3",
+        "run_id": "2026-10-13T04-01-20Z",
+        "stages_passed": 21,
+        "clean": true,
+        "synthesis_cells": 200,
+        "synthesis_area_um2": 1223.6736,
+        "die_area_um2": 7033.338225,
+        "routed_components": 662,
+        "wire_length_um": 4477.0,
+        "setup_wns_ns": 0.0015860646578364705,
+        "hold_wns_ns": 0.343179799846767,
+        "setup_tns_ns": 0.0,
+        "hold_tns_ns": 0.0,
+        "spef_nets": 225,
+        "spef_coverage": 1.0,
+        "route_violations": 0,
+        "drc_violations": 0,
+        "initial_drc_violations": 0,
+        "drc_categories": 211,
+        "lvs_match": true,
+        "lec_synthesis_partitions": 1,
+        "lec_route_partitions": 1,
+        "antenna_net_violations": 0,
+        "antenna_pin_violations": 0,
+        "authoritative_testbenches": 1,
+        "gds_bytes": 491098,
+        "elapsed_s": 69.57164335250854,
+        "model_calls": 0,
+        "provider_model": "disabled",
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "candidate_id": "0e292c127b90138cba5fa75b85734df4387485e1c96f8fcbabd44083cf5145ea",
+        "certification_id": "d47cee9d39930000cd4bd3ce7a25c7d14e3792a3d1f703fd9d87b12dba8de2ca",
+        "gds_sha256": "77456fa948180e171270ac75132cee1e3b2122f9ac8198a2baf2a66d54378c0c",
+        "signoff_sha256": "a5fc280f99d738dc0396356bb40ad3604ad2d1bf3f3d6800599af11f1d496f5c",
+        "gate_evidence_sha256": "83f1cea2f25329464a9ae27390df066645e266754195e9fb23a8c3b11fa08137",
+        "run_log_sha256": "b33e02b14739a7203a50338a739a40c6d38a400e26566fc2ac26dfa382d0b086",
+        "timing_checkpoints": {
+          "sta_pre": {
+            "setup_wns": -0.5303682088071997,
+            "hold_wns": 0.054408978862352214
+          },
+          "sta_postcts": {
+            "setup_wns": 0.27452729755387884,
+            "hold_wns": 0.3220430124836811
+          },
+          "sta_signoff": {
+            "setup_wns": 0.0015860646578364705,
+            "hold_wns": 0.343179799846767
+          }
+        },
+        "repair_verifications": [],
+        "tools": {
+          "verilator": "Verilator 5.052 2026-09-05 rev v5.052",
+          "iverilog": "Icarus Verilog version 11.0 (stable) ()",
+          "yosys": "Yosys 0.68+ (git sha1 72dc97739, Release, GNU /usr/bin/c++ 11.4.0)",
+          "eqy": "EQY v0.68-2-g4a72eb9",
+          "klayout": "KLayout container:ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69"
+        },
+        "timing_parameters": {
+          "default_clock_period_ns": 3.0,
+          "clock_uncertainty_ns": 0.25,
+          "input_delay_frac": 0.2,
+          "output_delay_frac": 0.2,
+          "output_load_pf": 0.05
+        },
+        "physical_parameters": {
+          "floorplan": {
+            "core_utilization": 0.3,
+            "aspect_ratio": 1.0,
+            "core_margin_um": 10.0,
+            "io_mode": "random_equidistant",
+            "tapcell_distance_um": 13.0
+          },
+          "placement": {
+            "target_density": 0.55,
+            "effort": "medium",
+            "max_displacement_um": 50.0,
+            "routability_driven": true,
+            "padding_sites": 1,
+            "congestion_overflow_limit": 0.15
+          },
+          "cts": {
+            "target_skew_ns": 0.2,
+            "max_fanout": 16,
+            "root_buffer": "",
+            "balance_levels": true,
+            "hold_margin_ns": 0.05,
+            "fix_hold": true,
+            "fix_setup": false,
+            "setup_margin_ns": 0.05
+          },
+          "routing": {
+            "min_layer": 1,
+            "max_layer": 5,
+            "global_effort": "medium",
+            "droute_iters": 32,
+            "insert_filler": true,
+            "insert_diodes": true
+          }
+        }
+      },
+      "proposals": [],
+      "terminal_outcome": "verified"
+    }
+  ],
+  "cohort_scope": "Follow-up only; never pooled with original nine repair episodes.",
+  "single_worker_pair": {
+    "runs": [
+      "runs/reviewer_followup_20261013/shift_single_1",
+      "runs/reviewer_followup_20261013/shift_single_2"
+    ],
+    "artifacts": {
+      "routed_def": {
+        "sha256": [
+          "1d84f82313000b2d6f6c58889984b7cbc93b72407ecf476a7477c1b9a2779df8",
+          "1d84f82313000b2d6f6c58889984b7cbc93b72407ecf476a7477c1b9a2779df8"
+        ],
+        "equal": true
+      },
+      "routed_netlist": {
+        "sha256": [
+          "3c87943dd8f43aef55140fb3b62b75171c215b2f315883effb20ef4b27ab9d38",
+          "3c87943dd8f43aef55140fb3b62b75171c215b2f315883effb20ef4b27ab9d38"
+        ],
+        "equal": true
+      },
+      "netlist": {
+        "sha256": [
+          "f8a48e3c1eba44fb90b9f993b3ef3c036b89edd1f72d39400a0fe9f578e4676b",
+          "f8a48e3c1eba44fb90b9f993b3ef3c036b89edd1f72d39400a0fe9f578e4676b"
+        ],
+        "equal": true
+      },
+      "spef": {
+        "sha256": [
+          "fdd4f5fb6f79a8756dc28b8cfe9cf1b38c6b5233209957ed9c6fae406dbd9f37",
+          "fdd4f5fb6f79a8756dc28b8cfe9cf1b38c6b5233209957ed9c6fae406dbd9f37"
+        ],
+        "equal": true
+      },
+      "final_gds": {
+        "sha256": [
+          "5da7e4d0065c69865e9996e3153e1388029427fcce4edffc6d62453adaa0cf5f",
+          "ee313cbc349af688cb852eb9b8e1e23e600f2dfa3090b73d65469d638038a292"
+        ],
+        "equal": false
+      }
+    },
+    "date_neutral_gds": [
+      "b0ff7f92b1948cba53346c1f74e1fb6d22af94532813b659f31ad73bcf69e62c",
+      "b0ff7f92b1948cba53346c1f74e1fb6d22af94532813b659f31ad73bcf69e62c"
+    ],
+    "implementation_identities": [
+      {
+        "implementation_id": "1e66c4a095a4c21d7c5ad9e4b0cd3a66f78f267400ab20a0d0374afec1d0b092",
+        "release_candidate_id": "532fd480cc1a8f72cf3a2ba73b3b6759a38d57dc935b78b732360032117c85cd",
+        "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+        "normalized_date_records": 19,
+        "payload": {
+          "schema": "implementation-date-neutral-v1",
+          "top": "shift1024",
+          "date_neutral_gds_sha256": "b0ff7f92b1948cba53346c1f74e1fb6d22af94532813b659f31ad73bcf69e62c",
+          "artifacts": {
+            "rtl_dir": "64d2e8bfb8f6fff1bd274dbc59ca42ccdcca3067e8030a403e48d181172d1767",
+            "routed_netlist": "3c87943dd8f43aef55140fb3b62b75171c215b2f315883effb20ef4b27ab9d38",
+            "spef": "fdd4f5fb6f79a8756dc28b8cfe9cf1b38c6b5233209957ed9c6fae406dbd9f37",
+            "sdc": "1f0b82a5eb644f577a99f2ec9ffc721b7f72123f0eef9809e452d95fac87a498",
+            "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+            "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+            "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+          },
+          "pdk": {
+            "name": "sky130A",
+            "std_cell_lib": "sky130_fd_sc_hd",
+            "corner": "tt_025C_1v80"
+          }
+        },
+        "certification_authority": false
+      },
+      {
+        "implementation_id": "1e66c4a095a4c21d7c5ad9e4b0cd3a66f78f267400ab20a0d0374afec1d0b092",
+        "release_candidate_id": "903653261871dc8c51aa7ece415a3eec6eec0c55f5c8dc48da3b42c9a4b19652",
+        "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+        "normalized_date_records": 19,
+        "payload": {
+          "schema": "implementation-date-neutral-v1",
+          "top": "shift1024",
+          "date_neutral_gds_sha256": "b0ff7f92b1948cba53346c1f74e1fb6d22af94532813b659f31ad73bcf69e62c",
+          "artifacts": {
+            "rtl_dir": "64d2e8bfb8f6fff1bd274dbc59ca42ccdcca3067e8030a403e48d181172d1767",
+            "routed_netlist": "3c87943dd8f43aef55140fb3b62b75171c215b2f315883effb20ef4b27ab9d38",
+            "spef": "fdd4f5fb6f79a8756dc28b8cfe9cf1b38c6b5233209957ed9c6fae406dbd9f37",
+            "sdc": "1f0b82a5eb644f577a99f2ec9ffc721b7f72123f0eef9809e452d95fac87a498",
+            "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+            "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+            "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+          },
+          "pdk": {
+            "name": "sky130A",
+            "std_cell_lib": "sky130_fd_sc_hd",
+            "corner": "tt_025C_1v80"
+          }
+        },
+        "certification_authority": false
+      }
+    ],
+    "date_neutral_equal": true,
+    "native_default_thread_probe": {
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "-v",
+        "/home/vlsi/rtl2gdsagi/runs/reviewer_followup_20261013/thread_probe:/probe:ro",
+        "--entrypoint",
+        "openroad",
+        "ghcr.io/the-openroad-project/openlane@sha256:d7e2bdd21e757e3f0b15d6ea08c36d9a96653c31b4fb2fafd4de88c9b6a3f3fa",
+        "-no_init",
+        "-exit",
+        "/probe/query.tcl"
+      ],
+      "returncode": 0,
+      "native_default_thread_count": 1,
+      "scope": "Same pinned binary and initialization flags as routing; query confirms the default used when one-worker Tcl omits set_thread_count. No routing design is loaded.",
+      "files": [
+        {
+          "path": "runs/reviewer_followup_20261013/thread_probe/query.tcl",
+          "sha256": "56bf26666f0325f27921234cc643cae338aff35ca59cbf463b85982da2d72701"
+        },
+        {
+          "path": "runs/reviewer_followup_20261013/thread_probe/default.log",
+          "sha256": "69960bd86483c114735d83d517061ad281b141efae90506a7f8a725985d389fe"
+        }
+      ]
+    }
+  },
+  "original_pair_implementation_ids": [
+    {
+      "runs": [
+        "runs/padding_release_pair_a/register",
+        "runs/padding_release_pair_b/register"
+      ],
+      "identities": [
+        {
+          "implementation_id": "e9809511461e8500c230caf17e81d291dfd028583b5837b57e62a3a92c3fc441",
+          "release_candidate_id": "352bf9c7e099a2133b727c59e471d5b68f32e88b3cea17e947faa6a2edc69c6c",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 30,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "register",
+            "date_neutral_gds_sha256": "a112431dfb9f8ae3c5f3baabb77560f01daea4b7a4ec1b6e77d90e2d0906c777",
+            "artifacts": {
+              "rtl_dir": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+              "routed_netlist": "1f18fea1e6263e5045c6b7c8f633ba62b607e4399379ae16a54315552872e096",
+              "spef": "2eb1d5a2edf696518c0b4aad82fa0cc54936fd6bf98df3df640962e4f54e3078",
+              "sdc": "151a36e79c34b9c7efae9408617f019b94a881eb2bc9f067e8fc04117078ff06",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        },
+        {
+          "implementation_id": "e9809511461e8500c230caf17e81d291dfd028583b5837b57e62a3a92c3fc441",
+          "release_candidate_id": "13436a6664c548308dfbf0381e31dc8ab1e9dc40d0c87d4f6791e297bb6dc74e",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 30,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "register",
+            "date_neutral_gds_sha256": "a112431dfb9f8ae3c5f3baabb77560f01daea4b7a4ec1b6e77d90e2d0906c777",
+            "artifacts": {
+              "rtl_dir": "802eb25d82e3d11e7d284942bed5bd809ab611421f81d5cbb9134c6474aa49cd",
+              "routed_netlist": "1f18fea1e6263e5045c6b7c8f633ba62b607e4399379ae16a54315552872e096",
+              "spef": "2eb1d5a2edf696518c0b4aad82fa0cc54936fd6bf98df3df640962e4f54e3078",
+              "sdc": "151a36e79c34b9c7efae9408617f019b94a881eb2bc9f067e8fc04117078ff06",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        }
+      ],
+      "equal": true
+    },
+    {
+      "runs": [
+        "runs/padding_release_pair_a/mux4to1",
+        "runs/padding_release_pair_b/mux4to1"
+      ],
+      "identities": [
+        {
+          "implementation_id": "df5ff7389db50f8ac392f13f5a9988a24988cff098c3d53adea7810f78d5ee99",
+          "release_candidate_id": "d12d21340ec120c4302a7f9a464c33bdb983d71beec3a1a783fc7a789bfbfeef",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 23,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "mux4to1",
+            "date_neutral_gds_sha256": "e29d727949aef67719cc90c8192812d095f5440cc7589c4005ad42684c4295a6",
+            "artifacts": {
+              "rtl_dir": "c063c0e09d70c8f4f0efd89980d6a21e1d6cb20f6f64d56afe67c15282bde939",
+              "routed_netlist": "8e7696bc173e7191b771c2c3f6a6dfff7269a0b46d39805569ae8e8bcb07b99d",
+              "spef": "2d30e503acd6e95116a8594a56a58731bc38d05d449787c5f9a9ce7ec7bbb07a",
+              "sdc": "433482b12d81b2f7cdd7075c332a1f108248f54fb86ab3c4213b3d63c90fc645",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        },
+        {
+          "implementation_id": "df5ff7389db50f8ac392f13f5a9988a24988cff098c3d53adea7810f78d5ee99",
+          "release_candidate_id": "70ce48dc87383323c3cc574c3db8de177a14d430046ea9bc96e2db5dd0332d74",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 23,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "mux4to1",
+            "date_neutral_gds_sha256": "e29d727949aef67719cc90c8192812d095f5440cc7589c4005ad42684c4295a6",
+            "artifacts": {
+              "rtl_dir": "c063c0e09d70c8f4f0efd89980d6a21e1d6cb20f6f64d56afe67c15282bde939",
+              "routed_netlist": "8e7696bc173e7191b771c2c3f6a6dfff7269a0b46d39805569ae8e8bcb07b99d",
+              "spef": "2d30e503acd6e95116a8594a56a58731bc38d05d449787c5f9a9ce7ec7bbb07a",
+              "sdc": "433482b12d81b2f7cdd7075c332a1f108248f54fb86ab3c4213b3d63c90fc645",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        }
+      ],
+      "equal": true
+    },
+    {
+      "runs": [
+        "runs/padding_release_pair_a/alu8",
+        "runs/padding_release_pair_b/alu8"
+      ],
+      "identities": [
+        {
+          "implementation_id": "1ae359767bae7399b2f1031f1f38bd0cf3f43253b3e300907c499f3b411557aa",
+          "release_candidate_id": "1065e1fb3aa91ef4adcd42cb73db1623ce222c6d0f742165ae70cae24ee246d0",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 59,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "alu8",
+            "date_neutral_gds_sha256": "08602884785e1a37bf5706a2fbd63f6881423990ed88595e052d3535de7a291b",
+            "artifacts": {
+              "rtl_dir": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+              "routed_netlist": "626c430ba0fadd67c45bf66c0f7f829c81ce792744dba0d791befbe2292fc838",
+              "spef": "c7359a9efd53bcec60d5909b26f19c352c0d4e329762513a63e4d3a3b59d9d8d",
+              "sdc": "dbbb4e37b6a799f65cf87e818b57ca05f207f023e18a4dec297f093735b39fab",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        },
+        {
+          "implementation_id": "1ae359767bae7399b2f1031f1f38bd0cf3f43253b3e300907c499f3b411557aa",
+          "release_candidate_id": "21a59189f1c5b1e1346dc68271d3bb76951a2a2ca5f93e0589bb34e6368ca5bc",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 59,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "alu8",
+            "date_neutral_gds_sha256": "08602884785e1a37bf5706a2fbd63f6881423990ed88595e052d3535de7a291b",
+            "artifacts": {
+              "rtl_dir": "945975d4c5cfc11683ffed858c72073b9a6aabf3e67f278bb52478c2bc06c120",
+              "routed_netlist": "626c430ba0fadd67c45bf66c0f7f829c81ce792744dba0d791befbe2292fc838",
+              "spef": "c7359a9efd53bcec60d5909b26f19c352c0d4e329762513a63e4d3a3b59d9d8d",
+              "sdc": "dbbb4e37b6a799f65cf87e818b57ca05f207f023e18a4dec297f093735b39fab",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        }
+      ],
+      "equal": true
+    },
+    {
+      "runs": [
+        "runs/padding_release_pair_a/counter",
+        "runs/padding_release_pair_b/counter"
+      ],
+      "identities": [
+        {
+          "implementation_id": "77b9c9d4ad595cd4b4b77c1dbf6412cfb6795a41a20060fadde31ea4b49328f3",
+          "release_candidate_id": "da08e21cd538fd843d538fdee930c28fd598c067e47ed950a513468763e3fa2b",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 38,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "counter",
+            "date_neutral_gds_sha256": "aebccf9c6d1243f4afa83ab9af0e261e661dd261c1a8f1f754df3d2c0de1f823",
+            "artifacts": {
+              "rtl_dir": "1cc3924f70362b7e52d0474e2214dd9fe8594c866b02b19dff7dc7e6cd0cdf2e",
+              "routed_netlist": "4d6af77ebe4ed074d17358cab62e8dc0b9fa8d070e7b3c8fb88c1c959fbba6ca",
+              "spef": "8e96cc72bd08877cd9bdb72d51a2088ad981185fe9e620c9fa8c99816423817a",
+              "sdc": "ae1a81211d08acc91d4afb11c4036380049c78c9f9479e4292250723dd2f833e",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        },
+        {
+          "implementation_id": "77b9c9d4ad595cd4b4b77c1dbf6412cfb6795a41a20060fadde31ea4b49328f3",
+          "release_candidate_id": "0f0eff02bb2673fdd9f1ba2254f9e2a373dbec4b5040fc3b363a570da94e558a",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 38,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "counter",
+            "date_neutral_gds_sha256": "aebccf9c6d1243f4afa83ab9af0e261e661dd261c1a8f1f754df3d2c0de1f823",
+            "artifacts": {
+              "rtl_dir": "1cc3924f70362b7e52d0474e2214dd9fe8594c866b02b19dff7dc7e6cd0cdf2e",
+              "routed_netlist": "4d6af77ebe4ed074d17358cab62e8dc0b9fa8d070e7b3c8fb88c1c959fbba6ca",
+              "spef": "8e96cc72bd08877cd9bdb72d51a2088ad981185fe9e620c9fa8c99816423817a",
+              "sdc": "ae1a81211d08acc91d4afb11c4036380049c78c9f9479e4292250723dd2f833e",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        }
+      ],
+      "equal": true
+    },
+    {
+      "runs": [
+        "runs/padding_release_pair_a/shift_reg",
+        "runs/padding_release_pair_b/shift_reg"
+      ],
+      "identities": [
+        {
+          "implementation_id": "f9e38320e64f38382f9e3a15f6bb95583998e72e1268df61b0481a44d767442c",
+          "release_candidate_id": "5be9f4f6a22155c6549d03d3942f6122a88a179b647b4a8dc5d5e1874852659d",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 20,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "shift_reg",
+            "date_neutral_gds_sha256": "42329f8e06f940e42b1912ad7a71d77187bf7a35a8c692bcbfaa7b62986787d8",
+            "artifacts": {
+              "rtl_dir": "d5e496890849e6522542ea2f691d8a0f150968c9cd6a8ac8d653d85df3eb3aa2",
+              "routed_netlist": "378f6ff4daaab5d59977aa287991b10d1983b296b9fffb44fe1c344895d78be9",
+              "spef": "7085c4a5bf41ea6a851702101162fe8543dfc4f60b0555086ed0c5806f7a0dc3",
+              "sdc": "482ca3b9fbd822a6ca5018dbd7d73bc08a349a52f3718eaefc54acc6ab19db4a",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        },
+        {
+          "implementation_id": "f9e38320e64f38382f9e3a15f6bb95583998e72e1268df61b0481a44d767442c",
+          "release_candidate_id": "837f1347e904b822cebc39e66a631334c11be692208db40c13e1c20780c99451",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 20,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "shift_reg",
+            "date_neutral_gds_sha256": "42329f8e06f940e42b1912ad7a71d77187bf7a35a8c692bcbfaa7b62986787d8",
+            "artifacts": {
+              "rtl_dir": "d5e496890849e6522542ea2f691d8a0f150968c9cd6a8ac8d653d85df3eb3aa2",
+              "routed_netlist": "378f6ff4daaab5d59977aa287991b10d1983b296b9fffb44fe1c344895d78be9",
+              "spef": "7085c4a5bf41ea6a851702101162fe8543dfc4f60b0555086ed0c5806f7a0dc3",
+              "sdc": "482ca3b9fbd822a6ca5018dbd7d73bc08a349a52f3718eaefc54acc6ab19db4a",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        }
+      ],
+      "equal": true
+    },
+    {
+      "runs": [
+        "runs/padding_release_pair_a/fifo_buf",
+        "runs/padding_release_pair_b/fifo_buf"
+      ],
+      "identities": [
+        {
+          "implementation_id": "c5f4172facd45a6dd1c3ef5dfef01e39591580e9ce71e11d09c0add432a59e53",
+          "release_candidate_id": "cc659290a4d0bb9cda780cc056d8d82f95040c1fb2258f361409c6a4ec782eae",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 48,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "fifo_buf",
+            "date_neutral_gds_sha256": "26818bbca30cf68a104762cca3164d6f39f5b284246f9a1b3d6104963b40cf17",
+            "artifacts": {
+              "rtl_dir": "ceca3595e1bd87b20f84f150fcdbfb08e739b5911bf37c8c1f84a8cc20426d21",
+              "routed_netlist": "c39d6e977721d7cb5a9e2a3dd6eb072f8811014a4b4cff9466c0e96b75e52ed1",
+              "spef": "ac8a7d3b7391242bbc3682ff6ede83a415bac8f74d8b90cb2d04ba40d9647561",
+              "sdc": "538ed411b6f46e91c0524c25f82297ad3ce3638ac7e16a30af061ddfa8423c82",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        },
+        {
+          "implementation_id": "c5f4172facd45a6dd1c3ef5dfef01e39591580e9ce71e11d09c0add432a59e53",
+          "release_candidate_id": "2ab59e631a29c0e923719b0658dda16a71936876752c6a44a237570eb6967809",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 48,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "fifo_buf",
+            "date_neutral_gds_sha256": "26818bbca30cf68a104762cca3164d6f39f5b284246f9a1b3d6104963b40cf17",
+            "artifacts": {
+              "rtl_dir": "ceca3595e1bd87b20f84f150fcdbfb08e739b5911bf37c8c1f84a8cc20426d21",
+              "routed_netlist": "c39d6e977721d7cb5a9e2a3dd6eb072f8811014a4b4cff9466c0e96b75e52ed1",
+              "spef": "ac8a7d3b7391242bbc3682ff6ede83a415bac8f74d8b90cb2d04ba40d9647561",
+              "sdc": "538ed411b6f46e91c0524c25f82297ad3ce3638ac7e16a30af061ddfa8423c82",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        }
+      ],
+      "equal": true
+    },
+    {
+      "runs": [
+        "runs/shift_scale_pair_a/shift1024",
+        "runs/shift_scale_pair_b/shift1024"
+      ],
+      "identities": [
+        {
+          "implementation_id": "1e66c4a095a4c21d7c5ad9e4b0cd3a66f78f267400ab20a0d0374afec1d0b092",
+          "release_candidate_id": "18a20b91d069443f41a6d8456ff221ffd34a7c65fdb6de393cf99f56166036bc",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 19,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "shift1024",
+            "date_neutral_gds_sha256": "b0ff7f92b1948cba53346c1f74e1fb6d22af94532813b659f31ad73bcf69e62c",
+            "artifacts": {
+              "rtl_dir": "64d2e8bfb8f6fff1bd274dbc59ca42ccdcca3067e8030a403e48d181172d1767",
+              "routed_netlist": "3c87943dd8f43aef55140fb3b62b75171c215b2f315883effb20ef4b27ab9d38",
+              "spef": "fdd4f5fb6f79a8756dc28b8cfe9cf1b38c6b5233209957ed9c6fae406dbd9f37",
+              "sdc": "1f0b82a5eb644f577a99f2ec9ffc721b7f72123f0eef9809e452d95fac87a498",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        },
+        {
+          "implementation_id": "401fefbb0c1d62e8caad4fbb1d1e4367a0ce5e250c5ed415a9c11dc9a1a09ef1",
+          "release_candidate_id": "205c91d5067ea773152e9037b968e267e71540c67fedb5f0f6247263fbf45bbb",
+          "normalization": "Only BGNLIB/BGNSTR 24-byte date payloads zeroed.",
+          "normalized_date_records": 19,
+          "payload": {
+            "schema": "implementation-date-neutral-v1",
+            "top": "shift1024",
+            "date_neutral_gds_sha256": "eab95fbf2b83b58a686cec9c03353ddb884c8553b4e0c1d2a8f26c88fa2ed8c8",
+            "artifacts": {
+              "rtl_dir": "64d2e8bfb8f6fff1bd274dbc59ca42ccdcca3067e8030a403e48d181172d1767",
+              "routed_netlist": "3c87943dd8f43aef55140fb3b62b75171c215b2f315883effb20ef4b27ab9d38",
+              "spef": "fdd4f5fb6f79a8756dc28b8cfe9cf1b38c6b5233209957ed9c6fae406dbd9f37",
+              "sdc": "1f0b82a5eb644f577a99f2ec9ffc721b7f72123f0eef9809e452d95fac87a498",
+              "layer_map": "80a0e06eb733f1ebd3b37f971162112dee2ec0834751ac54ae71a3eead6fbf14",
+              "drc_deck": "ff4c0281ff485ae1c85f44d6d2695d43dd71422363edea8bc6c1b3dde6ef9470",
+              "lvs_deck": "9ac9ea80e91786510c2010f9f816a090d1879dbc22937b3280947be7cab2c890"
+            },
+            "pdk": {
+              "name": "sky130A",
+              "std_cell_lib": "sky130_fd_sc_hd",
+              "corner": "tt_025C_1v80"
+            }
+          },
+          "certification_authority": false
+        }
+      ],
+      "equal": false
+    }
+  ]
+}

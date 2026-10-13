@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-10-13",
+  "flowfixer": {
+    "primary_url": "https://ieeexplore.ieee.org/abstract/document/11683937/",
+    "locator": "Publisher abstract, framework description and acceptance criterion",
+    "scope": "Primary publisher abstract read; full body not accessed.",
+    "supported_claims": [
+      "stage-aware log parsing",
+      "structured patch generation and validation",
+      "iterative tool-feedback verification",
+      "actual EDA reruns decide acceptance"
+    ]
+  },
+  "openroad_reference": {
+    "primary_url": "https://fount.aucegypt.edu/faculty_book_chapters/159/",
+    "locator": "Title and recommended citation",
+    "full_title": "INVITED: Toward an open-source digital flow: First learnings from the OpenROAD project",
+    "doi": "10.1145/3316781.3326334"
+  }
+}

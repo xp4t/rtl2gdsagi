@@ -87,5 +87,6 @@
     "runs/pipeline2048_scale_probe_v1",
     "runs/publication_pair_a/alu_bank16",
     "runs/submission_pair_a/accum_bank32"
-  ]
+  ],
+  "pytest_report": "rtl2gdsagi_paper/evidence/pytest_followup_release.xml"
 }

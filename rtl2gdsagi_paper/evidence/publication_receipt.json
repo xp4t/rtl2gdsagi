@@ -1,44 +1,6 @@
 {
-  "verified_at": "2026-10-12T14:14:57.947868+00:00",
-  "release_url": "https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-20261012",
-  "public": true,
-  "published_at": "2026-10-12T14:13:03Z",
-  "tag": "rtl2gdsagi-paper-20261012",
-  "code_commit": "95482fe00696515228266b4d541e428a43004ea0",
-  "implementation_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
-  "manuscript_sha256": "6c144a237a968a8fcdfcc94ccbe050dc2abe11665219f799c7c7473f2a9ed5f3",
-  "fresh_overleaf_compilation": "passed; 12 pages",
-  "archive_file_hashes_verified": 9059,
-  "assets": [
-    {
-      "name": "main.pdf",
-      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-20261012/main.pdf",
-      "bytes": 317211,
-      "sha256": "0172a884774af03bd7e0c27758d2d71bf0e4f0730a6d3091ac9888b1e823e7b0",
-      "github_digest_verified": true
-    },
-    {
-      "name": "review_bindings.json",
-      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-20261012/review_bindings.json",
-      "bytes": 1165,
-      "sha256": "a468cb075a4c5a6f67b8c98022a4b232a4256a37dd4b011e790a8e30b6e17d9f",
-      "github_digest_verified": true
-    },
-    {
-      "name": "rtl2gdsagi_experiments.tar.gz",
-      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-20261012/rtl2gdsagi_experiments.tar.gz",
-      "bytes": 112635374,
-      "sha256": "41d188fcd03e0ccc685d089d78d093ebc4a1b978850c181569fe8b2ec8c1687e",
-      "github_digest_verified": true
-    },
-    {
-      "name": "rtl2gdsagi_overleaf.zip",
-      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-20261012/rtl2gdsagi_overleaf.zip",
-      "bytes": 41325,
-      "sha256": "e29c52ad1a18f1d769bee2bb4bd445619792e065349efcf36e65a371116ff029",
-      "github_digest_verified": true
-    }
-  ],
-  "review_execution": "three final internal reviews, shared context; not independent external peer review",
-  "anonymous_public_pdf_download": "verified against local SHA-256"
+  "tag": "rtl2gdsagi-paper-20261013",
+  "status": "pending_publication_verification",
+  "prior_verified_receipt": "publication_receipt_20261012.json",
+  "manuscript_sha256": "0bbaad3584623037b5444701f4c0949ab272717c2e4a340515ea11b20db9b76e"
 }

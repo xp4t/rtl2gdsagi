@@ -1,0 +1,23 @@
+The follow-up executes actual OpenLane code from the same pinned tool image,
+including DRC, optional reference XOR, Netgen report gates and native
+post-pdngen power-grid checks. Table~\ref{tab:externalcoverage} separates
+detected, not detected and not checked results within the executed scope. Native power-grid
+checks detect the missing-via fixtures for register, ALU and FIFO, with paired
+untouched DEF controls. Optional XOR detects stale, foreign and wrongly mapped
+geometry when an explicit selected reference is supplied. The stream-out
+interface requires a mapping option; this differs from checking already
+generated GDS. The retained KLayout no-compare database is incompatible with
+the Netgen report interface and is not scored as a semantic detection.
+
+These are isolated stage and report-checker runs on externally generated
+artifacts, not a full OpenLane rerun. The unmodified DRC stage does not pass
+this PDK deck's runtime rule flags. Its known-violating control declares zero
+categories and zero markers; the explicitly enabled native-engine control
+declares 213 raw categories and four markers. These controls are identified
+separately. No detection-rate or full-flow superiority estimate is
+derived from this constructed six-class matrix. Commands, stock checker
+source hashes, known-fault controls, unsupported obligations and initial
+invalid control attempts are retained.
+Selected-candidate binding, inventory approval and reference-free map
+semantics are unsupported obligations in these executed interfaces. Their
+absence is not a measured false-pass rate.

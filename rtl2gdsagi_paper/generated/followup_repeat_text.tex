@@ -1,0 +1,7 @@
+The one-worker ablation runs shift1024 twice with all other typed settings
+unchanged. Both runs certify and reproduce routed DEF, mapped/routed netlists, SPEF
+and date-neutral GDS exactly. Raw GDS dates still differ. The pinned binary reports a default thread
+count of one with the same initialization flags, as confirmed by a retained
+native query. This controlled pair supports worker-count
+sensitivity in the observed repeat behavior; it does not isolate a native
+algorithmic race or establish universal determinism from two executions.

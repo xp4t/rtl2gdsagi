@@ -17,20 +17,27 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 `evidence/experiment_manifest.json` selects the final paired baseline runs.
 `evidence/live_results.json` and `signoff_metrics.csv` contain full-precision QoR,
 constraints, physical parameters, native gate results and certification IDs.
-`evidence/native_fault_injection.json` contains six native attack classes with
-three replicates each. The comparator is the explicitly defined status/count
-checker, not a measured OpenLane or ORFS-agent implementation.
+`evidence/native_fault_injection.json` covers six author-constructed fault classes,
+with three consistency executions per class. This is detection coverage, not
+18 independent trials or a controlled external-flow performance comparison.
+`evidence/external_fault_coverage.json` records separately executed actual
+OpenLane checks and explicit unsupported obligations.
 `evidence/repair_study.json` contains all nine declared repair episodes, all
 accepted proposals and their native rechecks, plus the separate catalog of
 retained earlier live API runs and transport failures. Episode and proposal
 counts have different denominators. The model is Claude Sonnet 5 via Anthropic.
+`evidence/reviewer_followup.json` adds six source-sensitive timing repetitions,
+a one-worker shift1024 pair, four declared large live repair episodes, and
+non-certifying implementation fingerprints. These outcomes are separate from
+the original nine repair episodes.
 `evidence/reproducibility_final.json` preserves complete paired hashes and
 normalizes only GDS library/structure date payloads.
-`evidence/pytest_final_release.xml` records 954 passes, 15 skips, no failures.
-`evidence/REVIEW_3.md`, `REVIEW_4.md`, and `REVIEW_5.md` document three final
-internal reviews of the same final manuscript; `REVIEW_1.md` and `REVIEW_2.md`
-retain preliminary findings. All share one conversation and are not independent
-external reviews. `evidence/REVIEW.md` records the review ledger.
+`evidence/pytest_followup_release.xml` records 955 passes, 15 skips, no failures.
+`evidence/REVIEW_FOLLOWUP_EVIDENCE.md`, `REVIEW_FOLLOWUP_METHODS.md`, and
+`REVIEW_FOLLOWUP_PRESENTATION.md` document three internal reviews of this revision.
+They are separate review workers in the same automated writing workflow,
+not independent external peer reviews. The numbered reviews retain the prior
+version's findings. `evidence/REVIEW.md` records both review cohorts.
 
 ## Regenerate
 
@@ -40,6 +47,8 @@ With the retained native runs and exact PDK installation available:
 python3 rtl2gdsagi_paper/generate_live_results.py
 python3 scripts/compare_repeated_runs.py
 python3 scripts/generate_extended_results.py
+python3 scripts/generate_external_coverage.py
+python3 scripts/collect_followup_results.py
 cd rtl2gdsagi_paper
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 python3 evidence/manuscript_audit.py
@@ -56,7 +65,7 @@ for the final implementation and earlier repair cohort are both included.
 Repository: https://github.com/xp4t/rtl2gdsagi
 
 Paper and experiment release:
-https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-20261012
+https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-20261013
 
 This is LNCS proceedings formatting. No exact Springer journal or conference
 track was specified, so the reviews use disclosed generic academic criteria.

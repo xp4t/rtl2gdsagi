@@ -1,0 +1,11 @@
+\subsection{Narrow-margin repeat and source sensitivity}
+The repaired ALU configuration is run three times using the archived repair
+source and three times using the current controller, without further model
+changes. Table~\ref{tab:timingrepeat} preserves both arms. The original source
+repeats at +1.586 ps, while the current source reaches $-0.654$ ps and blocks
+signoff in all three runs. Reapplying placement padding in later tool processes
+is part of the source change; its isolated timing effect is not separately
+measured. The result demonstrates a constraint-preserving repair within its
+recorded source version, and sensitivity of its narrow margin to controller
+changes. It does not establish robust timing closure.
+\input{generated/followup_timing_table}

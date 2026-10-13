@@ -49,13 +49,41 @@ for name,expected in [('source_final.tar.gz',data['manifest']['source_sha256']),
             if m.isfile() and m.name.endswith('.py'):
                 h.update(m.name.encode()+b'\0');h.update(archive.extractfile(m).read())
     assert h.hexdigest()==expected,(name,h.hexdigest(),expected)
-suite=ET.parse(PAPER/'evidence/pytest_final_release.xml').getroot().find('testsuite')
+suite=ET.parse(ROOT/data['manifest'].get('pytest_report','rtl2gdsagi_paper/evidence/pytest_final_release.xml')).getroot().find('testsuite')
 assert int(suite.get('failures'))==int(suite.get('errors'))==0 and data['source_matches_extraction']
 main=(PAPER/'main.tex').read_text()
 refs=set(re.findall(r'\\bibitem\{([^}]+)\}',main));cites={k for group in re.findall(r'\\cite\{([^}]+)\}',main) for k in group.split(',')}
 assert refs==cites and len(refs)>=12
+ordered_refs=re.findall(r'\\bibitem\{([^}]+)\}',main)
+first=[]
+for group in re.findall(r'\\cite\{([^}]+)\}',main):
+    for key in group.split(','):
+        if key not in first:first.append(key)
+assert ordered_refs==first,'Springer references must follow the requested first-citation order'
+assert r'\titlerunning{Candidate-Bound Evidence for RTL-to-GDS Signoff}' in main
+followup=load('reviewer_followup.json')
+assert len(followup['trials'])==12 and followup['manifest']['consistent_source']
+for kind,clean in [('timing_original',True),('timing_current',False)]:
+    group=[r for r in followup['trials'] if r['kind']==kind]
+    assert len(group)==3 and all(r['fully_verified']==clean for r in group)
+    assert all((r['last_routed_check']['setup_wns']>0)==clean for r in group)
+single=followup['single_worker_pair']
+assert single['date_neutral_equal'] and all(single['artifacts'][k]['equal'] for k in ['routed_def','routed_netlist','netlist','spef'])
+assert single['implementation_identities'][0]['implementation_id']==single['implementation_identities'][1]['implementation_id']
+assert single['implementation_identities'][0]['release_candidate_id']!=single['implementation_identities'][1]['release_candidate_id']
+large=[r for r in followup['trials'] if r['live_api']]
+assert len(large)==4 and all(r['initial_failure'] for r in large)
+assert sum(r['model_calls'] for r in large)==23
+assert sum(len(r['provider_errors']) for r in large)==2
+assert sum(r['terminal_outcome']=='policy_escalation' for r in large)==2
+assert sum(r['terminal_outcome']=='provider_interrupted' for r in large)==2
+assert not any(r['fully_verified'] for r in large)
+assert single['native_default_thread_probe']['native_default_thread_count']==1
+external=load('external_fault_coverage.json')
+assert external['status']=='completed' and len(external['coverage'])==6
+assert all(r['result'] in ('detected','not_detected','not_checked') for r in external['coverage'])
 assert r'\documentclass[runningheads]{llncs}' in main
 for token in ('IEEEtran','Authors should confirm','pre-deletion','restored benchmark','recovered from','ContinuationSourceShort'):assert token not in main
 log=(PAPER/'main.log').read_text();assert not re.search(r'Overfull|Undefined|LaTeX Warning|! LaTeX Error',log)
-report={'designs':len(rows),'largest_cells':max(r['synthesis_cells'] for r in rows),'stages':21,'native_attack_cases':18,'live_episodes':9,'verified_repairs':7,'provider_calls':20,'references':len(refs),'tests':data['tests'],'scope':'Registered numerical and file assertions; semantic review is separately disclosed.'}
+report={'designs':len(rows),'largest_cells':max(r['synthesis_cells'] for r in rows),'stages':21,'fault_coverage_classes':6,'fault_consistency_executions':18,'live_episodes':9,'verified_repairs':7,'provider_calls':20,'references':len(refs),'tests':data['tests'],'followup_executions':12,'large_live_episodes':4,'large_verified':sum(r['fully_verified'] for r in large),'large_policy_escalations':2,'large_provider_interruptions':2,'large_valid_responses':23,'large_credit_rejections':2,'single_worker_native_default':1,'scope':'Registered numerical and file assertions; semantic review is separately disclosed.'}
 (PAPER/'evidence/manuscript_audit.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

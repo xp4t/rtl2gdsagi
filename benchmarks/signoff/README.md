@@ -1,7 +1,11 @@
 # Complete signoff validation
 
-The selected native runs are retained in `runs/signoff_final_v3/`. Each of
-register, mux4to1, alu8, counter, shift_reg, and fifo_buf completes all 21 stages.
+The current manuscript selects paired native runs in
+`runs/padding_release_pair_a/` and `runs/padding_release_pair_b/` for register,
+mux4to1, alu8, counter, shift_reg and fifo_buf, plus `runs/shift_scale_pair_a/`
+and `runs/shift_scale_pair_b/` for shift1024. All selected runs complete 21 stages.
+`rtl2gdsagi_paper/evidence/experiment_manifest.json` is the selection authority.
+Earlier `signoff_final_v3` runs remain historical records.
 
 Reproduce the suite from the repository root:
 

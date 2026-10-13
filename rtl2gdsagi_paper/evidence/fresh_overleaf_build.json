@@ -1,0 +1,11 @@
+{
+  "build_directory": "/tmp/rtl2gdsagi-overleaf-followup-rbqxg705",
+  "tested_zip_sha256": "24c84a10cbeedea2a7c4468172ec084f21d0cc8c4973f9bdc7e1b5a098bc2ec1",
+  "returncode": 0,
+  "pages": 15,
+  "warnings": 0,
+  "pdf_text_matches_manuscript": true,
+  "pdf_text_sha256": "2a412aaddb2d34730bcc0742f26caf29a949be03b755e10f15f61ad637a01ef4",
+  "fresh_pdf_sha256": "ef8c7a37a9d95fcf0e8188078673e02aa5552007e6664f987596c0e202d4b387",
+  "manuscript_sha256": "0bbaad3584623037b5444701f4c0949ab272717c2e4a340515ea11b20db9b76e"
+}

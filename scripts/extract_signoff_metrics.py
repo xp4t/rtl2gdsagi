@@ -164,7 +164,7 @@ def main() -> None:
     rows = [extract(ROOT / r["run_dir"]) for r in manifest["selected_runs"]]
     repair_run = extract(ROOT / manifest["repair_run"])
     assert len(rows) >= 5 and len({r["design"] for r in rows}) == len(rows)
-    suite_path = args.paper_dir / "evidence/pytest_final_release.xml"
+    suite_path = ROOT / manifest.get("pytest_report", "rtl2gdsagi_paper/evidence/pytest_final_release.xml")
     suite = ET.parse(suite_path).getroot().find("testsuite")
     counts = {k: int(suite.attrib[k]) for k in ("tests", "failures", "errors", "skipped")}
     counts["passed"] = counts["tests"] - counts["failures"] - counts["errors"] - counts["skipped"]

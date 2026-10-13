@@ -779,7 +779,22 @@ them by rewriting your logic.
 
 ## 9. Current status
 
-The final validation on 12 October 2026 completed **all 21 stages with clean
+The reviewer follow-up on 13 October 2026 is documented in
+[`rtl2gdsagi_paper`](rtl2gdsagi_paper/README.md) and the
+[versioned paper artifact](https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-20261013).
+It treats the fault study as coverage of six constructed classes, adds isolated
+actual OpenLane checker observations, and retains all twelve follow-up executions.
+The repaired 3 ns ALU repeats at +1.586 ps with the archived controller and fails
+at −0.654 ps with the current controller, so robust timing closure is not claimed.
+Two one-worker shift1024 runs match routed DEF, netlists, SPEF and date-neutral GDS.
+Four additional live accumulator repairs produce zero certifications, two
+controller escalations and two provider-credit interruptions, with 23 valid model
+responses and two rejected requests. This separate cohort is not pooled with the
+original nine episodes. The current regression record is **955 passed, 15 skipped,
+zero failures/errors**. The three manuscript reviews are internal automated
+reviews, not independent external peer review.
+
+The earlier validation on 12 October 2026 completed **all 21 stages with clean
 signoff for seven distinct designs**: `register`, `mux4to1`, `alu8`, `counter`,
 `shift_reg`, `fifo_buf`, and the 1,024-cell `shift1024`. Every selected run passed simulation, both formal
 boundaries, extracted-parasitic timing, GDS integrity, DRC, LVS and antenna.
@@ -792,8 +807,9 @@ values and hash/certification receipts are in
 The selected paired directories are recorded in
 `rtl2gdsagi_paper/evidence/experiment_manifest.json`: six designs in
 `runs/padding_release_pair_{a,b}/` and `shift1024` in
-`runs/shift_scale_pair_{a,b}/`. The native fault study blocks all 18 fixtures
-accepted by its explicitly defined status/count comparator. The nine live
+`runs/shift_scale_pair_{a,b}/`. The native fault study blocks six constructed
+fault classes in three consistency executions each; repetitions are not
+independent trials or an external-flow performance comparison. The nine live
 repair episodes produce seven fully verified repairs and two escalations;
 20 authorized proposals are separately evaluated against a no-recheck comparator.
 The following older troubleshooting notes concern historical development and

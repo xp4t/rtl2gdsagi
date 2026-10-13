@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Package the manuscript and selected native evidence, with a portable hash index."""
+import argparse
 import hashlib
 import json
 import os
@@ -10,9 +11,15 @@ import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 PAPER=ROOT/'rtl2gdsagi_paper'
-DEST=ROOT/'dist/paper-20261012'
+DEST=ROOT/'dist/paper-20261013'
 
 def main():
+    global DEST
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--release-date',default='20261013')
+    args=parser.parse_args()
+    assert len(args.release_date)==8 and args.release_date.isdigit()
+    DEST=ROOT/'dist'/f'paper-{args.release_date}'
     DEST.mkdir(parents=True,exist_ok=True)
     archive=PAPER/'rtl2gdsagi_overleaf.zip'
     cls=Path(subprocess.check_output(['kpsewhich','llncs.cls'],text=True).strip())
@@ -30,6 +37,12 @@ def main():
     folders.update(manifest['failed_attempts'])
     folders.update(['runs/native_fault_injection','runs/formal_controls_final',
                     'runs/counter_timing_stress_1p5ns','runs/alu8_timing_api_v4'])
+    followup=PAPER/'evidence/reviewer_followup.json'
+    if followup.is_file():
+        folders.add('runs/reviewer_followup_20261013')
+    external=PAPER/'evidence/external_fault_coverage.json'
+    if external.is_file():
+        folders.add('runs/external_fault_coverage')
     # These native clean fixtures were used by the fault study.
     folders.update('runs/signoff_final_v5/'+n for n in ['register','alu8','fifo_buf'])
     files=set()
@@ -37,7 +50,7 @@ def main():
         files.update(p for p in (ROOT/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
     for name in ['README.md','pyproject.toml','LICENSE','.gitignore','.gitattributes']:
         if (ROOT/name).is_file():files.add(ROOT/name)
-    files.update(p for p in PAPER.rglob('*') if p.is_file() and p.suffix not in ['.aux','.out','.fls','.fdb_latexmk'] and '__pycache__' not in p.parts and 'legacy' not in p.relative_to(PAPER).parts and p.name not in ['package_build.log','publication_receipt.json'])
+    files.update(p for p in PAPER.rglob('*') if p.is_file() and p.suffix not in ['.aux','.out','.fls','.fdb_latexmk'] and '__pycache__' not in p.parts and 'legacy' not in p.relative_to(PAPER).parts and p.name not in ['package_build.log','publication_receipt.json','delivery_checks.json'])
     for folder in folders:
         base=ROOT/folder
         assert base.is_dir(),base

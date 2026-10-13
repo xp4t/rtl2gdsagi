@@ -1,0 +1,19 @@
+\subsection{Live repair of larger failed implementations}
+Four additional episodes start from the retained accumulator spacing
+and antenna configurations, with two declared repeats per configuration.
+The design, \code{accum\_bank32}, contains 32 eight-bit accumulator
+lanes and a read-selection multiplexer. The antenna configuration selects
+passive fillers; the spacing configuration retains default fillers.
+Table~\ref{tab:largerepair} lists every episode.
+Of four episodes, 0 complete the full contract, 2 end in policy
+escalation and 2 are interrupted by insufficient provider credit.
+They record 23 valid model responses and 2 rejected provider
+requests. Each first encounters an actual native
+failure. These exploratory episodes retain all outcomes and are reported
+separately from the original injected-fault cohort. The initial failure,
+every authorized update and native recheck, provider errors and final
+candidate or failure state are retained in the follow-up catalog.
+Provider interruptions are not interpreted as algorithmic repair failures.
+Policy escalation denotes the controller stopping when a proposed
+remediation would repeat previously failed stage inputs and configuration.
+\input{generated/followup_scale_table}

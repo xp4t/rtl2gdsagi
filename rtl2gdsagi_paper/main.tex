@@ -2,15 +2,24 @@
 \usepackage[T1]{fontenc}
 \usepackage{booktabs,array,graphicx}
 \usepackage{flafter}
+\usepackage{placeins}
 \usepackage{hyperref}
 \usepackage{url}
 \hypersetup{hidelinks}
 \emergencystretch=2em
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.85}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{12pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
 \newcommand{\code}[1]{\texttt{#1}}
 \input{generated/live_results}
 \input{generated/extended_results}
 \title{Candidate-Bound Evidence for RTL-to-GDS Signoff: An Open-Source Orchestration Study}
-\titlerunning{Candidate-Bound Signoff and Verified Repair}
+\titlerunning{Candidate-Bound Evidence for RTL-to-GDS Signoff}
 \author{Rithwik Vallabhan TV \and Sreejeesh SG \and Jayaraj U Kidav \and Nanditha N Varma}
 \authorrunning{R. Vallabhan TV et al.}
 \institute{NIELIT Calicut, India\\
@@ -25,15 +34,18 @@ layout, parasitics, verification inputs, and native gate records to a candidate
 manifest and revalidates these identities before local signoff. We evaluate
 \DesignCount\ SKY130 designs spanning \CellMin--\CellMax\ mapped cells and
 complete the declared \StageCount-stage contract, including synthesis and
-routed equivalence, extracted-parasitic timing, DRC, LVS, and antenna checks.
-A native fault-injection study covers six stale or incomplete evidence classes,
-with three replicates each. A comparator based on successful exit or cached
-status accepts all \NativeAttackTrials\ fixtures; the candidate-aware checks
-block all \NativeBlocked\ cases. Nine live model-assisted repair trials cover
-spacing, power-network construction, and stressed setup timing; \StudyVerified\
-complete full rechecking and \StudyEscalated\ escalate. At an unchanged 3 ns
-period, one ALU repair improves setup slack from \TimingBefore\ ns to
-\TimingAfter\ ns. Repeated implementation runs produce \ExactRoutePairs\
+routed equivalence, extracted-parasitic timing, design rule checking (DRC),
+layout versus schematic comparison (LVS), and antenna checks.
+In a retrospective no-recheck replay, \ConfirmedBadProposals\ of
+\ProposalPromotions\ authorized model proposals fail native checks and
+\UncheckedProposals\ lack a required target check. Nine live repair episodes
+cover spacing, power-network construction, and stressed timing; \StudyVerified\
+complete the verification contract and \StudyEscalated\ escalate. A detection
+coverage study exercises six author-constructed stale or incomplete evidence
+classes; all six are blocked. Three repetitions per class check consistent
+behavior and are not independent experimental trials. At an unchanged 3 ns
+period, one archived-source ALU repair changes setup slack from \TimingBefore\ ns
+to \TimingAfter\ ns; repeated source checks show this margin is fragile. Repeated implementation runs produce \ExactRoutePairs\
 identical routed-DEF pairs and \NormalizedGDSPairs\ identical GDS pairs after
 zeroing timestamp payloads; raw GDS hashes and candidate identifiers can
 differ. All tables are generated from retained native artifacts and audit logs.
@@ -129,15 +141,17 @@ A zero-marker report with missing categories is insufficient. LVS requires
 agreement among exit status, log verdict, and a native database containing
 actual circuit cross-references. Its deck must contain an executable comparison
 and belong to the approved set. Stream-out checks nonempty geometry, resolved
-references, and layer numbers compatible with the PDK mapping. The PDN check
+references, and layer numbers compatible with the PDK mapping. The power
+distribution network (PDN) check
 requires supply nets, follow-pin rails, straps, and vertical via connections.
 These are structural obligations; IR drop and electromigration are outside
 the implemented contract.
 
-Extraction compares the logical net identities in SPEF and routed DEF, rejects
+Extraction compares logical net identities in Standard Parasitic Exchange
+Format (SPEF) and routed Design Exchange Format (DEF), rejects
 missing or duplicate nets, and requires complete parasitic sections. Standard
 punctuation escapes are decoded before comparing hierarchical names. Native
-signoff STA separately requires zero unannotated and partially unannotated
+signoff static timing analysis (STA) separately requires zero unannotated and partially unannotated
 drivers and finite setup and hold slack meeting the fixed guardband. The model
 cannot change clock period, uncertainty, output load, or verification decks.
 
@@ -191,25 +205,27 @@ extractor validates candidate hashes, gate contracts, lineage, and certification
 identity before generating the tables. Cell area comes from the synthesis
 library report; die area comes from routed DEF coordinates and database units.
 
-\subsection{Native fault injection and comparators}
-The six fault classes in Table~\ref{tab:faults} use three replicates each.
+\subsection{Fault detection coverage}
+The six author-constructed fault classes in Table~\ref{tab:faults} are
+exercised three times each. The unit of detection coverage is the fault class;
+the 18 executions are consistency checks, not 18 independent trials.
 Stale-input trials run native DRC on a physically different, clean ALU layout
 with the same top name, while the candidate selects the current ALU layout.
-The rule-coverage trials disable FEOL checks in a copy of the real DRC deck.
+The rule-coverage trials disable front-end-of-line (FEOL) checks in a copy of
+the real DRC deck.
 The LVS fixture writes a database-shaped file and prints a match without
 calling compare. The layer-map fixture performs a real stream-out with the
 mapping assignment omitted, then runs native DRC. PDN fixtures remove via
 connections from a retained DEF. The final fixture substitutes a foreign GDS
 after a verified ALU repair while retaining the repair's DRC/LVS records.
 
-The comparator accepts zero DRC markers after successful exit, an LVS match
-message after successful exit, or retained green status with a nonempty
-artifact for the cached PDN and post-repair cases. It deliberately omits
-coverage and candidate-identity checks. This controlled comparator isolates
-the verification obligation; it is not a measured implementation of OpenLane,
-ORFS-Agent, or another named external controller. Stale-input repetitions use
-the same two ALU candidates. Other fixtures span register, ALU, and FIFO
-candidates or three distinct foreign layouts, as recorded in the evidence.
+The fixtures are chosen to exercise declared contract obligations. Coverage
+is therefore a check of the implemented guards on these classes, not an
+estimate of detection probability, superiority over another flow, or a
+sampling-based false-pass rate. Same-top stale repetitions reuse the same two
+ALU candidates; other fixtures span register, ALU and FIFO. Actual OpenLane
+checker executions are reported separately with precise stage scope and
+unsupported obligations.
 
 \subsection{Live repair study}
 Three repeats are declared for each of three injected failures: unpadded ALU
@@ -218,10 +234,22 @@ failure at 3 ns. Each episode uses Claude Sonnet 5 (Anthropic API; identifier
 \code{claude-sonnet-5}), automatic typed authorization, and the recorded retry
 policy. Every declared episode remains in the denominator. Model proposals
 can differ between repeats, and native tools determine the recheck outcomes.
+Both recorded controller versions allow three attempts per stage and a
+global budget of 24 diagnosis attempts. Authorized changes roll execution
+back to their earliest affected stage and invalidate downstream evidence;
+rollbacks can therefore produce more than three model calls in an episode.
+A previously failed stage fingerprint with unchanged configuration and inputs
+stops the loop before another identical attempt. In the larger follow-up,
+the two policy escalations use 7/24 and 3/24 diagnosis attempts, respectively;
+their retained failure reports identify this no-progress stop rather than
+exhaustion of the global budget.
 
-A second comparator retrospectively replays the same authorized proposals,
+A comparator retrospectively replays the same authorized proposals,
 labeling each as promoted without repeating native checks. Native outcomes
-are used only to assess whether that promotion was supported.
+are used only to assess whether that promotion was supported. This replay fixes
+proposals collected under native feedback; it measures support for these
+states, not the trajectory or success rate of a separately executed controller
+that skips rechecking.
 We evaluate this comparator at the proposal level,
 separately from the episode outcome. A native failed recheck establishes a
 confirmed false-clean promotion; an unavailable required recheck establishes
@@ -241,21 +269,23 @@ and pins; and synthesis and routed equivalence pass. Every supplied testbench
 passes, and each SPEF covers every routed signal net counted by the identity
 check. Table~\ref{tab:gates} retains physical and runtime measurements.
 
-\subsection{False-clean evidence}
+\subsection{Detection coverage}
 \input{generated/fault_table}
-The comparator accepts \NativeFalseClean/\NativeAttackTrials\ fault fixtures;
-the implemented checks reject \NativeBlocked/\NativeAttackTrials. Disabling
-FEOL produces zero markers but only \DegradedRuleCount\ normalized categories.
-Omitting the layer map also produces a native zero-marker result, while the
-stream-out check finds routing shapes on incompatible layer numbers. The fake
-LVS database has zero circuit cross-references despite its match message.
-These results show why content identity, rule coverage, and comparison evidence
-are separate requirements. They establish detection of the six tested classes,
-not completeness against arbitrary checker or host compromise.
+The controller blocks all six declared fault classes in all three
+executions per class. Disabling FEOL produces zero markers but only
+\DegradedRuleCount\ normalized categories. Missing mapping also produces a
+native zero-marker report, while stream-out checks detect incompatible layer
+shapes. The fake LVS database has zero comparison cross-references despite its
+match message. These examples demonstrate the obligations exercised; author
+selection of the fixtures precludes an independent comparative-performance
+inference.
+\input{generated/external_coverage_text}
+\input{generated/external_coverage_table}
 
 \subsection{Live repair and timing stress}
 \input{generated/repair_table}
-Of \StudyEpisodes\ declared episodes, \StudyVerified\ reach full verification
+Table~\ref{tab:repairs} summarizes the original cohort. Of \StudyEpisodes\
+declared episodes, \StudyVerified\ reach full verification
 (\StudySuccessPct\%) and \StudyEscalated\ escalate (\StudyEscalationPct\%).
 Spacing and PDN construction each succeed in three repeats; stressed timing
 succeeds in one of three. These are descriptive results on repeated fixtures,
@@ -263,18 +293,18 @@ not a population repair-success estimate. The cohort makes \StudyModelCalls\
 provider calls, with \StudyInputTokens\ input and \StudyOutputTokens\ output
 tokens. Token counts are provider observations, not inferred cost estimates.
 
-All three stressed ALU trials initially reach routed setup WNS
+All three stressed ALU trials initially reach routed setup worst negative slack (WNS)
 \TimingBefore\ ns under a generated 3.000 ns SDC period. In the successful
 trial, the delay-oriented mapping first remains negative; a subsequent
 placement update reaches \TimingAfter\ ns with unchanged clock and protected
 RTL. The resulting layout passes all downstream checks. The small positive
-margin is a result at the stated typical corner and guardband, not evidence
-of multi-corner closure. A separate counter control at an unchanged 1.5 ns
+margin is a single typical-corner result. Its repeat and source-sensitivity
+checks are reported below; it does not establish robust timing closure. A separate counter control at an unchanged 1.5 ns
 period reaches setup WNS \CounterStressWNS\ ns and is blocked by the native
 timing gate. Figure~\ref{fig:stress} shows the measured ALU recheck sequence.
 
-\begin{figure}[htbp]\centering
-\includegraphics[width=0.95\linewidth]{figures/timing_stress.pdf}
+\begin{figure}[!htbp]\centering
+\includegraphics[width=0.86\linewidth]{figures/timing_stress.pdf}
 \caption{Native routed setup checks at the unchanged 3 ns period. Lines end
 at the last completed routed check; the legend gives each episode's terminal
 outcome.}
@@ -288,6 +318,10 @@ This result directly tests the danger of accepting a model's change as its own
 verification evidence. The earlier live episodes, including malformed
 responses and authentication/grammar failures, remain visible in the catalog.
 
+\FloatBarrier
+\input{generated/followup_timing_text}
+\input{generated/followup_scale_text}
+
 \subsection{Repeated artifacts and regressions}
 \input{generated/reproducibility_table}
 The repeat comparison in Table~\ref{tab:reproducibility} uses content hashes.
@@ -297,12 +331,22 @@ Routed DEF, mapped and routed netlists, and SPEF reproduce exactly for
 All raw GDS hashes differ; some LVS serialization hashes also differ. The
 larger pair selects different native li1-to-met1 via variants, changing DEF
 and GDS bytes while mapped/routed netlists and SPEF remain identical.
-Eight routing workers were used for this case; the cause of the variant
-selection difference was not isolated. Candidate identifiers
+Eight routing workers were used for this case. A one-worker ablation is
+reported below. Candidate identifiers
 therefore identify actual artifact bytes rather than a normalized geometry
 class. Path-bearing characterization records can also differ between run
 directories. We claim reproducibility at the explicitly reported levels; full
 bitwise identity of every run file is not established.
+
+\input{generated/followup_repeat_text}
+
+A separate implementation fingerprint binds the date-neutral GDS digest, RTL,
+routed netlist, constraints, SPEF, verification decks and map, together with
+PDK name/library/corner. It omits run directories and report serialization.
+It is used for implementation comparison and does not authorize release. Raw
+candidate and gate identities continue to bind exact file bytes, so a changed
+file cannot inherit a prior native verdict through timestamp normalization.
+\input{generated/implementation_identity_text}
 
 The final regression suite reports \TestPasses\ passes, zero failures and
 errors, and \TestSkipped\ skips. Skipped archived fixtures are not counted as
@@ -323,9 +367,9 @@ log-grounded diagnosis, patch validation, and native tool feedback for repair
 ~\cite{flowfixer}. These works establish that tool use and verified feedback
 already form part of LLM-assisted EDA research. EDAid uses multiple
 model-controlled agents to improve EDA workflow execution~\cite{edaid},
-extending the comparison beyond single-agent controllers. AuDoPEDA evaluates
-repository-grounded coding agents through executable OpenROAD changes and
-measured quality of results~\cite{audopeda}.
+extending the comparison beyond single-agent controllers. Ghose et al. study executable OpenROAD changes and measured quality of results
+in \emph{Automated QoR improvement in OpenROAD with coding agents}
+~\cite{audopeda}.
 
 ChiBench supplies a curated RTL corpus for testing EDA tools
 ~\cite{chibench}. DRVerify addresses physical-verification runset testing with
@@ -339,8 +383,8 @@ protections. A comparative claim against another controller would require a
 shared design set, tool environment, constraints, and verification obligations.
 
 \section{Discussion and Limitations}
-The fault fixtures demonstrate actual native false-pass outputs under the
-specified weak comparators. The guard rejects them through several mechanisms:
+The fault fixtures exercise six selected evidence failures. They are
+constructed coverage tests, and repetition does not add independent samples. The guard rejects them through several mechanisms:
 input identity for stale GDS, approved inventory for missing rules, native
 comparison evidence for fake LVS, structural connectivity for PDN, and layer
 mapping for stream-out. Hashes preserve identity under a trusted controller,
@@ -365,9 +409,13 @@ are retained.
 RTL2GDSAGI binds native verification evidence to a selected implementation and
 requires native rechecking of authorized model proposals. The measured flow
 completes \DesignCount\ designs, including a \LargeCells-cell synthetic shift register.
-All \NativeAttackTrials\ native false-clean fixtures are blocked. Of
+All six declared fault classes are blocked across their consistency checks. Of
 \StudyEpisodes\ live repair episodes, \StudyVerified\ complete signoff and
-\StudyEscalated\ escalate; the stressed ALU result preserves the 3 ns constraint.
+\StudyEscalated\ escalate; the stressed ALU result preserves the 3 ns constraint. Repeat checks separate
+same-source behavior from sensitivity to controller changes. Separately,
+none of four larger accumulator repair episodes certify: two stop under the
+controller's no-progress policy and two are interrupted by provider credit.
+The interruptions leave eventual repair outcomes unknown.
 Repeated artifacts reproduce at the stated content and timestamp-normalized
 levels. The evidence supports the tested release contract and identifies the
 remaining limits on larger applications and verification coverage.
@@ -375,13 +423,13 @@ remaining limits on larger applications and verification coverage.
 \section*{Code, data, and AI assistance}
 The public repository is \url{https://github.com/xp4t/rtl2gdsagi}. The versioned
 paper artifact is available at
-\url{https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-20261012}.
+\url{https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-20261013}.
 It includes source snapshots, exact commands, native reports, content digests,
 all retained live repair episodes, and scripts that regenerate the tables.
 The repair study uses Claude Sonnet 5 from Anthropic. Codex assisted writing
 and three final internal review passes addressing evidence, methods/citations, and
-final presentation. These passes share the same conversational context and
-are not independent external peer review.
+final presentation. The reviews belong to the same automated writing workflow and are not
+independent external peer review.
 
 \appendix
 \section{Repair Episodes and Incomplete Scale Probes}
@@ -395,27 +443,29 @@ design count. Clock-buffer discovery, path handling, and terminal-verdict
 parsing are implementation prerequisites rather than independent contributions.
 \input{generated/episode_table}
 \input{generated/history_table}
+\FloatBarrier
 
 \begin{thebibliography}{13}
 \bibitem{ajayi2019}
-Ajayi, T., et al.: Toward an Open-Source Digital Flow. In: Proceedings of the 56th Annual Design Automation
+Ajayi, T., et al.: Toward an Open-Source Digital Flow: First Learnings from the
+OpenROAD Project. In: Proceedings of the 56th Annual Design Automation
 Conference (2019). \url{https://doi.org/10.1145/3316781.3326334}
-\bibitem{jung2021}
-Jung, J., Kahng, A.B., Kim, S., Varadarajan, R.: METRICS2.1 and flow tuning
-in the IEEE CEDA Robust Design Flow and OpenROAD: ICCAD special session paper.
-In: Proceedings of the 2021 IEEE/ACM International Conference on Computer-Aided
-Design (2021). \url{https://doi.org/10.1109/ICCAD51958.2021.9643541}
 \bibitem{shalan2020}
 Shalan, M., Edwards, T.: Building OpenLANE: A 130nm OpenROAD-based
 tapeout-proven flow. In: Proceedings of the 2020 IEEE/ACM International
 Conference on Computer-Aided Design (2020).
 \url{https://doi.org/10.1145/3400302.3415735}
-\bibitem{prov2013}
-W3C: PROV-Overview: An overview of the PROV family of documents.
-W3C Working Group Note (2013). \url{https://www.w3.org/TR/prov-overview/}
 \bibitem{eqydocs}
 YosysHQ: EQY documentation. \url{https://yosyshq.readthedocs.io/projects/eqy/en/latest/}
 (accessed 12 October 2026)
+\bibitem{jung2021}
+Jung, J., Kahng, A.B., Kim, S., Varadarajan, R.: METRICS2.1 and flow tuning
+in the IEEE CEDA Robust Design Flow and OpenROAD: ICCAD special session paper.
+In: Proceedings of the 2021 IEEE/ACM International Conference on Computer-Aided
+Design (2021). \url{https://doi.org/10.1109/ICCAD51958.2021.9643541}
+\bibitem{prov2013}
+W3C: PROV-Overview: An overview of the PROV family of documents.
+W3C Working Group Note (2013). \url{https://www.w3.org/TR/prov-overview/}
 \bibitem{chateda}
 Wu, H., He, Z., Zhang, X., Yao, X., Zheng, S., Zheng, H., Yu, B.:
 ChatEDA: A Large Language Model Powered Autonomous Agent for EDA.
@@ -436,15 +486,6 @@ Dong, K., Wang, R., Yuan, F., An, B., Zhang, X.: FlowFixer-EDA: A Tool-Feedback-
 Automated Diagnosis and Repair of Open-Source RTL-to-GDS Design Flow Failures.
 IEEE Access 14, 140412--140428 (2026).
 \url{https://doi.org/10.1109/ACCESS.2026.3730896}
-
-\bibitem{chibench}
-Sumitani, R., Amorim, J.V., Mafra, A., Crepalde, M., Pereira, F.M.Q.:
-ChiBench: A Benchmark Suite for Testing Electronic Design Automation Tools.
-arXiv:2406.06550 (2024). \url{https://arxiv.org/abs/2406.06550}
-\bibitem{drverify}
-Sage Design Automation: DRVerify: The Verification of Physical Verification.
-Technical white paper (2018).
-\url{https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf}
 \bibitem{edaid}
 Wu, H., Zheng, H., He, Z., Yu, B.: Divergent Thoughts toward One Goal:
 LLM-based Multi-Agent Collaboration System for Electronic Design Automation.
@@ -454,5 +495,13 @@ In: Proceedings of NAACL-HLT, vol. 1, pp. 1710--1721 (2025).
 Ghose, A., Jang, J., Kahng, A.B., Lee, J.:
 Automated QoR improvement in OpenROAD with coding agents.
 arXiv:2601.06268v2 (2026). \url{https://arxiv.org/abs/2601.06268v2}
+\bibitem{chibench}
+Sumitani, R., Amorim, J.V., Mafra, A., Crepalde, M., Pereira, F.M.Q.:
+ChiBench: A Benchmark Suite for Testing Electronic Design Automation Tools.
+arXiv:2406.06550 (2024). \url{https://arxiv.org/abs/2406.06550}
+\bibitem{drverify}
+Sage Design Automation: DRVerify: The Verification of Physical Verification.
+Technical white paper (2018).
+\url{https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf}
 \end{thebibliography}
 \end{document}

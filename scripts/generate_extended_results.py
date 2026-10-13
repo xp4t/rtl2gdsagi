@@ -52,8 +52,8 @@ def main():
     rows=[]
     for key,label,native in attacks:
         trials=[r for r in fault['results'] if r['attack']==key];assert len(trials)==3
-        rows.append((label,native,f"{sum(r['naive_clean'] for r in trials)}/3",f"{sum(r['blocked'] for r in trials)}/3"))
-    table('fault_table.tex','Native fault fixtures and the controlled status/count comparator. Replicates are defined in the protocol.','tab:faults','p{0.25\\linewidth}p{0.37\\linewidth}rr','Fixture & Observed evidence & Naive clean & Blocked',rows)
+        rows.append((label,native,f"{sum(r['blocked'] for r in trials)}/3"))
+    table('fault_table.tex','Detection coverage for six author-constructed fault classes. Three executions per class check consistent behavior; they are not independent trials.','tab:faults','p{0.30\\linewidth}p{0.46\\linewidth}r','Fault class & Native observation & Blocks',rows)
     rows=[]
     for kind,label in [('drc','Spacing: padding 0'),('pdn','PDN: offset 50 $\\mu$m'),('timing','Setup: period 3 ns')]:
         group=[t for t in repair['trials'] if t['failure_type']==kind]; counts=repair['by_failure_type'][kind]

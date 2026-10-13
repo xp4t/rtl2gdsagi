@@ -2,17 +2,26 @@
   "designs": 7,
   "largest_cells": 1024,
   "stages": 21,
-  "native_attack_cases": 18,
+  "fault_coverage_classes": 6,
+  "fault_consistency_executions": 18,
   "live_episodes": 9,
   "verified_repairs": 7,
   "provider_calls": 20,
   "references": 13,
   "tests": {
-    "tests": 969,
+    "tests": 970,
     "failures": 0,
     "errors": 0,
     "skipped": 15,
-    "passed": 954
+    "passed": 955
   },
+  "followup_executions": 12,
+  "large_live_episodes": 4,
+  "large_verified": 0,
+  "large_policy_escalations": 2,
+  "large_provider_interruptions": 2,
+  "large_valid_responses": 23,
+  "large_credit_rejections": 2,
+  "single_worker_native_default": 1,
   "scope": "Registered numerical and file assertions; semantic review is separately disclosed."
 }

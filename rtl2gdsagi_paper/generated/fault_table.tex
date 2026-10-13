@@ -1,12 +1,12 @@
 \begin{table}[htbp]\centering\small\setlength{\tabcolsep}{4pt}
-\caption{Native fault fixtures and the controlled status/count comparator. Replicates are defined in the protocol.}\label{tab:faults}
-\begin{tabular}{@{}p{0.25\linewidth}p{0.37\linewidth}rr@{}}\toprule
-Fixture & Observed evidence & Naive clean & Blocked \\
+\caption{Detection coverage for six author-constructed fault classes. Three executions per class check consistent behavior; they are not independent trials.}\label{tab:faults}
+\begin{tabular}{@{}p{0.30\linewidth}p{0.46\linewidth}r@{}}\toprule
+Fault class & Native observation & Blocks \\
 \midrule
-Stale same-top GDS & DRC 0; input mismatch & 3/3 & 3/3 \\
-Missing FEOL rules & DRC 0; 152 categories & 3/3 & 3/3 \\
-LVS without compare & Match; zero cross-refs & 3/3 & 3/3 \\
-Missing PDN connections & Nonempty DEF; zero vias & 3/3 & 3/3 \\
-Missing layer map & DRC 0; invalid layer shapes & 3/3 & 3/3 \\
-GDS swap after repair & Cached pass; digest mismatch & 3/3 & 3/3 \\
+Stale same-top GDS & DRC 0; input mismatch & 3/3 \\
+Missing FEOL rules & DRC 0; 152 categories & 3/3 \\
+LVS without compare & Match; zero cross-refs & 3/3 \\
+Missing PDN connections & Nonempty DEF; zero vias & 3/3 \\
+Missing layer map & DRC 0; invalid layer shapes & 3/3 \\
+GDS swap after repair & Cached pass; digest mismatch & 3/3 \\
 \bottomrule\end{tabular}\end{table}
