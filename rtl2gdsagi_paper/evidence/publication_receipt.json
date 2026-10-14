@@ -1,0 +1,103 @@
+{
+  "verified_at": "2026-10-14T03:47:27.816900+00:00",
+  "release_url": "https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-sensitivity-20261013",
+  "public": true,
+  "published_at": "2026-10-14T03:46:41Z",
+  "tag": "rtl2gdsagi-paper-sensitivity-20261013",
+  "code_commit": "5b896ec1095b7eac20ad4c450d13f2d29ce365c9",
+  "implementation_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "proposal_generation_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+  "manuscript_sha256": "83cd4ba381f8fbf74aec6ddaacde98c47c5c3357c9cc8021a0432bbe76370436",
+  "supplement_sha256": "70973b40eef369a1e42523be13395f1043efb931035aef8594e6d35bb5871242",
+  "main_pdf_sha256": "38f73a8425abdc5d0dd7f5b7e3a87a296506ebbc931521a67d9d1e26eb29ec64",
+  "supplement_pdf_sha256": "f6445a6dfc48ce4b1fc39f5c0c9694bb18d844470ff0bc5eadeb3bdaf3a64e6a",
+  "fresh_overleaf_documents": [
+    {
+      "document": "main",
+      "pages": 12,
+      "pdf_text_sha256": "ec05a3376f11bec6f487195893dbdb7e347db5aa217c60ba580c7b13874d8d90",
+      "fresh_pdf_sha256": "ae47dcbc76f9eb75b522425b701427069a5b7c486020d8c4a7a2ed9d10ba325c",
+      "underfull_box_warnings": 11
+    },
+    {
+      "document": "supplement",
+      "pages": 7,
+      "pdf_text_sha256": "dfa58b59c7b9c9f5a6d15a04dceb41cdcdfce1caafdfab35fbe9a62638c76707",
+      "fresh_pdf_sha256": "6e4080571874205dd3b2862ac811753a7ab75d7ea9b34df18268935137fff078",
+      "underfull_box_warnings": 3
+    }
+  ],
+  "fresh_overleaf_warnings": 0,
+  "fresh_overleaf_warning_scope": "No overfull boxes, undefined references/citations, LaTeX warnings or errors; underfull-box notices counted separately per document.",
+  "fresh_overleaf_tested_zip_sha256": "1734210ff7bcc653cebcc5a9b65abd198dfbe42f03820d86818abccba4c29174",
+  "archive_file_hashes_verified": 30686,
+  "assets": [
+    {
+      "name": "main.pdf",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-sensitivity-20261013/main.pdf",
+      "bytes": 302247,
+      "sha256": "38f73a8425abdc5d0dd7f5b7e3a87a296506ebbc931521a67d9d1e26eb29ec64",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    },
+    {
+      "name": "supplement.pdf",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-sensitivity-20261013/supplement.pdf",
+      "bytes": 214760,
+      "sha256": "f6445a6dfc48ce4b1fc39f5c0c9694bb18d844470ff0bc5eadeb3bdaf3a64e6a",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    },
+    {
+      "name": "rtl2gdsagi_overleaf.zip",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-sensitivity-20261013/rtl2gdsagi_overleaf.zip",
+      "bytes": 55015,
+      "sha256": "1734210ff7bcc653cebcc5a9b65abd198dfbe42f03820d86818abccba4c29174",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    },
+    {
+      "name": "rtl2gdsagi_experiments.tar.gz",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-sensitivity-20261013/rtl2gdsagi_experiments.tar.gz",
+      "bytes": 273028301,
+      "sha256": "fe48ca648cf8b6e5467866beec69ca1cb941daa818878eebb722fd5fab84bbcd",
+      "github_digest_verified": true
+    },
+    {
+      "name": "review_bindings.json",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-sensitivity-20261013/review_bindings.json",
+      "bytes": 7862,
+      "sha256": "b185c196944ab03b5df11bcc352df3e5985fe46c8f3e12168f90cb11b484ab4b",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    },
+    {
+      "name": "signoff_metrics.csv",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-sensitivity-20261013/signoff_metrics.csv",
+      "bytes": 4982,
+      "sha256": "ba673596a793187ac22333ef3d28f9a8cd11441e03bd3817f2883b1e55be8e98",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    },
+    {
+      "name": "scripted_baseline_metrics.csv",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-sensitivity-20261013/scripted_baseline_metrics.csv",
+      "bytes": 5008,
+      "sha256": "c6237b02179bc8785f1b88d3d51294f2094b2bccf2d461cbb51872845510d7b6",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    },
+    {
+      "name": "guardband_sensitivity_metrics.csv",
+      "url": "https://github.com/xp4t/rtl2gdsagi/releases/download/rtl2gdsagi-paper-sensitivity-20261013/guardband_sensitivity_metrics.csv",
+      "bytes": 20064,
+      "sha256": "f8783691842a1f22d89f78da5f5cf9562fbd51592d1afd5491c3dbe615a63b96",
+      "github_digest_verified": true,
+      "anonymous_https_download_verified": true
+    }
+  ],
+  "review_execution": "Three sequential internal ARS review passes by the same Codex assistant in one writing session; initial separate workers produced no completed reports and are not counted; not independent external peer review.",
+  "criteria_binding": "criteria_binding_unavailable",
+  "calibration_status": "NOT_CALIBRATED",
+  "venue_status": "Springer LNCS format; no exact venue or publication acceptance asserted."
+}

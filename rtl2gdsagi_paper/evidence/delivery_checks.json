@@ -1,0 +1,97 @@
+{
+  "release_tag": "rtl2gdsagi-paper-sensitivity-20261013",
+  "code_commit": "5b896ec1095b7eac20ad4c450d13f2d29ce365c9",
+  "status": "verified",
+  "public_availability_verified": true,
+  "fresh_overleaf_build": {
+    "build_directory": "/tmp/rtl2gdsagi-overleaf-followup-dmjgyzhx",
+    "tested_zip_sha256": "1734210ff7bcc653cebcc5a9b65abd198dfbe42f03820d86818abccba4c29174",
+    "returncode": 0,
+    "pages": 12,
+    "documents": [
+      {
+        "document": "main",
+        "pages": 12,
+        "pdf_text_sha256": "ec05a3376f11bec6f487195893dbdb7e347db5aa217c60ba580c7b13874d8d90",
+        "fresh_pdf_sha256": "ae47dcbc76f9eb75b522425b701427069a5b7c486020d8c4a7a2ed9d10ba325c",
+        "underfull_box_warnings": 11
+      },
+      {
+        "document": "supplement",
+        "pages": 7,
+        "pdf_text_sha256": "dfa58b59c7b9c9f5a6d15a04dceb41cdcdfce1caafdfab35fbe9a62638c76707",
+        "fresh_pdf_sha256": "6e4080571874205dd3b2862ac811753a7ab75d7ea9b34df18268935137fff078",
+        "underfull_box_warnings": 3
+      }
+    ],
+    "warnings": 0,
+    "warning_scope": "No overfull boxes, undefined references/citations, LaTeX warnings or errors; underfull-box notices counted separately per document.",
+    "pdf_text_matches_manuscript": true,
+    "pdf_text_sha256": "ec05a3376f11bec6f487195893dbdb7e347db5aa217c60ba580c7b13874d8d90",
+    "fresh_pdf_sha256": "ae47dcbc76f9eb75b522425b701427069a5b7c486020d8c4a7a2ed9d10ba325c",
+    "manuscript_sha256": "83cd4ba381f8fbf74aec6ddaacde98c47c5c3357c9cc8021a0432bbe76370436"
+  },
+  "portable_archive_verification": {
+    "archive": "dist/paper-sensitivity-20261013/rtl2gdsagi_experiments.tar.gz",
+    "archive_sha256": "fe48ca648cf8b6e5467866beec69ca1cb941daa818878eebb722fd5fab84bbcd",
+    "archive_bytes": 273028301,
+    "extracted_directory": "/tmp/rtl2gdsagi-sensitivity-artifact-gw1cotbm",
+    "verified_file_hashes": 30686,
+    "returncode": 0,
+    "verifier_output": "Verified 30686 archived file hashes"
+  },
+  "review_count": 3,
+  "review_provenance": "Three sequential internal ARS review passes by the same Codex assistant in one writing session; initial separate workers produced no completed reports and are not counted; not independent external peer review.",
+  "manuscript_numerical_source_audit": "passed",
+  "current_document_hashes_reviewed": true,
+  "published_asset_digests_verified": 8,
+  "anonymous_small_asset_downloads_verified": 7,
+  "guardband_ns": 0.05,
+  "guardband_sensitivity_states": 73,
+  "guardband_cohort_summaries": {
+    "archived_live_certified": {
+      "states": 7,
+      "recorded_certifications_g0": 7,
+      "complete_timing_states": 7,
+      "certified_states_eligible_g50ps": 6
+    },
+    "frozen_replay": {
+      "states": 20,
+      "recorded_certifications_g0": 6,
+      "complete_timing_states": 19,
+      "certified_states_eligible_g50ps": 6
+    },
+    "padding_ablation": {
+      "states": 8,
+      "recorded_certifications_g0": 4,
+      "complete_timing_states": 8,
+      "certified_states_eligible_g50ps": 0
+    },
+    "primary": {
+      "states": 14,
+      "recorded_certifications_g0": 14,
+      "complete_timing_states": 14,
+      "certified_states_eligible_g50ps": 12
+    },
+    "scripted_baseline": {
+      "states": 24,
+      "recorded_certifications_g0": 5,
+      "complete_timing_states": 23,
+      "certified_states_eligible_g50ps": 5
+    }
+  },
+  "setup_repair_diagnostic_native_calls": 8,
+  "setup_repair_calls_entered_and_returned": 8,
+  "setup_repair_pre_setup_wns_ns_range": [
+    0.19435609227685544,
+    0.27452729755387884
+  ],
+  "unchanged_setup_repair_snapshot_pairs": 8,
+  "diagnostic_cts_def_hashes_match_original": 8,
+  "implementation_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "proposal_generation_source_sha256": "18d948815ac6d0af630a5440578304dc9270e1be659c602b5aa7149f40aab22b",
+  "original_live_case_study_reexecuted_on_frozen_source": false,
+  "new_model_calls": 0,
+  "guardband_interpretation": "Post-hoc eligibility only; recorded native certifications remain at g=0. Both shift1024 repeats fail 50 ps routed hold; archived +1.586 ps repair fails setup.",
+  "whitespace_check_scope": "All staged changes passed git diff --cached --check."
+}
