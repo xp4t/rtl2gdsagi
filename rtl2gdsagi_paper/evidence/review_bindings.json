@@ -1,29 +1,29 @@
 {
-  "release_tag": "rtl2gdsagi-paper-baselines-20261013",
-  "manuscript_sha256": "2aa92affa3a4eb7474e1eac7cd859529cbd4ec02f0b39bbc2358fe4388af7c80",
-  "main_pdf_sha256": "d7b1a675203701620c2001ee27d3225d77bb4bd7a19a95600992e1d6cccda751",
-  "generated_tex_aggregate_sha256": "b45e5f831ea396f78fb856c91f6468ced8ae160a549673de804a65ddf4ac89df",
+  "release_tag": "rtl2gdsagi-paper-sensitivity-20261013",
+  "manuscript_sha256": "83cd4ba381f8fbf74aec6ddaacde98c47c5c3357c9cc8021a0432bbe76370436",
+  "main_pdf_sha256": "38f73a8425abdc5d0dd7f5b7e3a87a296506ebbc931521a67d9d1e26eb29ec64",
+  "generated_tex_aggregate_sha256": "6eb8c981cbec1406a473285edd623bed3d16cbbe6615d41e0eb2bd7ec377085a",
   "reviews": [
     {
       "scope": "EVIDENCE",
-      "path": "rtl2gdsagi_paper/evidence/REVIEW_BASELINE_EVIDENCE.md",
-      "sha256": "46ea76b15959f037575ce04f83833dbdfd51fd07d2a722aa0c7a352579a168bf"
+      "path": "rtl2gdsagi_paper/evidence/REVIEW_SENSITIVITY_EVIDENCE.md",
+      "sha256": "554d496a58bc1842496eddfcddc0e38770dfd9d835e39a698d9833df54f821b1"
     },
     {
       "scope": "METHODS",
-      "path": "rtl2gdsagi_paper/evidence/REVIEW_BASELINE_METHODS.md",
-      "sha256": "a1487ba49ad02cc44642a7473c17c1de2f85987d262d268d067fefe79e4e0d08"
+      "path": "rtl2gdsagi_paper/evidence/REVIEW_SENSITIVITY_METHODS.md",
+      "sha256": "f5b5f2f90b84a3cd507db5b917c402592d2e3ef4b07bbd80da0f53c52c029210"
     },
     {
       "scope": "PRESENTATION",
-      "path": "rtl2gdsagi_paper/evidence/REVIEW_BASELINE_PRESENTATION.md",
-      "sha256": "1106aaf759d030a5abbff83876c176a94abe0778dc590b4b1e01a1f810e228cf"
+      "path": "rtl2gdsagi_paper/evidence/REVIEW_SENSITIVITY_PRESENTATION.md",
+      "sha256": "2d95aca2051f31b4063760755ddf0a38d10b336853050e785147387a0a57dcdf"
     }
   ],
   "bound_files": [
     {
       "path": "rtl2gdsagi_paper/README.md",
-      "sha256": "f138b8bc17a4f00c87f6f340e0702307647cf3da24b312c9303e6051580887b5"
+      "sha256": "41334d6f05aa2df8b826b4218eea10dd4e2d64a6f305e2b7783e14ce6ad58d09"
     },
     {
       "path": "rtl2gdsagi_paper/evidence/citation_baseline_audit.json",
@@ -31,23 +31,31 @@
     },
     {
       "path": "rtl2gdsagi_paper/evidence/citation_continuity_frozen.json",
-      "sha256": "3d60fcc1ff94bd3e0e043d80fc6650e4a017dc5f4a41f180c49ffbc5b96f4be1"
+      "sha256": "d885ce399f69be4f9ee34c257b51ae25e80b1802657d9dcbd8fc381b50ecf463"
     },
     {
       "path": "rtl2gdsagi_paper/evidence/experiment_manifest.json",
-      "sha256": "0a328991f58bf793b2474c98f759fbc80f2ee9bee3041432b4d0b2e848655783"
+      "sha256": "a05d7ef1d36b39cebb1cea3da30fed4ce1a44f391e348d7f90f1385ed55253e7"
     },
     {
       "path": "rtl2gdsagi_paper/evidence/frozen_results.json",
       "sha256": "41d840d81c4c995a9aa703c88516bcfafec5bb8ebbe02b9638637655b5ead350"
     },
     {
+      "path": "rtl2gdsagi_paper/evidence/guardband_sensitivity.json",
+      "sha256": "6ae9bef693806117966da261a7ec2d44363c83f760789f52c8731c9cd26bd34a"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/guardband_sensitivity_metrics.csv",
+      "sha256": "f8783691842a1f22d89f78da5f5cf9562fbd51592d1afd5491c3dbe615a63b96"
+    },
+    {
       "path": "rtl2gdsagi_paper/evidence/manuscript.txt",
-      "sha256": "a4e69a6d58291d476325ecdade22817456d620d56d03d6466430f70c15e57566"
+      "sha256": "ec05a3376f11bec6f487195893dbdb7e347db5aa217c60ba580c7b13874d8d90"
     },
     {
       "path": "rtl2gdsagi_paper/evidence/manuscript_audit.json",
-      "sha256": "95bae42370c5e90af70c883a1923a1df11aac641f965f22870ca694e0b25309b"
+      "sha256": "7d725decc21164b4a93b4bca3d36ceaaca2343c535efa42c4c85c771d27b53c0"
     },
     {
       "path": "rtl2gdsagi_paper/evidence/native_fault_injection_frozen.json",
@@ -74,8 +82,12 @@
       "sha256": "c6237b02179bc8785f1b88d3d51294f2094b2bccf2d461cbb51872845510d7b6"
     },
     {
+      "path": "rtl2gdsagi_paper/evidence/setup_repair_diagnostic.json",
+      "sha256": "ab4f98489a505a1ad6847ea795ff378c821f93883687881701a293dae480d470"
+    },
+    {
       "path": "rtl2gdsagi_paper/evidence/supplement.txt",
-      "sha256": "aed13f3b0a851be4ccb16846545f2dfbbbbb975beb535d525c4801406e8e7ae6"
+      "sha256": "dfa58b59c7b9c9f5a6d15a04dceb41cdcdfce1caafdfab35fbe9a62638c76707"
     },
     {
       "path": "rtl2gdsagi_paper/figures/timing_stress.pdf",
@@ -108,6 +120,14 @@
     {
       "path": "rtl2gdsagi_paper/generated/frozen_macros.tex",
       "sha256": "ce30a277f2c25c664964ca83f9bd789f6c2ec6400e50b1528f39227b645b9775"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/guardband_macros.tex",
+      "sha256": "d83c13678707e02cc61ecc829dcbbdb84f04d67894f76df9c47f09d27eb39bb0"
+    },
+    {
+      "path": "rtl2gdsagi_paper/generated/guardband_table.tex",
+      "sha256": "5e6a621ee033874d28624737f2ad82825672ded719ec15309ba4bbf83dd687b3"
     },
     {
       "path": "rtl2gdsagi_paper/generated/live_results.tex",
@@ -147,22 +167,22 @@
     },
     {
       "path": "rtl2gdsagi_paper/main.pdf",
-      "sha256": "d7b1a675203701620c2001ee27d3225d77bb4bd7a19a95600992e1d6cccda751"
+      "sha256": "38f73a8425abdc5d0dd7f5b7e3a87a296506ebbc931521a67d9d1e26eb29ec64"
     },
     {
       "path": "rtl2gdsagi_paper/main.tex",
-      "sha256": "2aa92affa3a4eb7474e1eac7cd859529cbd4ec02f0b39bbc2358fe4388af7c80"
+      "sha256": "83cd4ba381f8fbf74aec6ddaacde98c47c5c3357c9cc8021a0432bbe76370436"
     },
     {
       "path": "rtl2gdsagi_paper/supplement.pdf",
-      "sha256": "78e0c03002c732f2b6d5bef85f7163de0530b3bccd256b92441f5e69a4bf21fa"
+      "sha256": "f6445a6dfc48ce4b1fc39f5c0c9694bb18d844470ff0bc5eadeb3bdaf3a64e6a"
     },
     {
       "path": "rtl2gdsagi_paper/supplement.tex",
-      "sha256": "d0e3f9fb656ff7839dd52c19fe8e515c3345db9e06f4f4ac68331e00c1b2717b"
+      "sha256": "70973b40eef369a1e42523be13395f1043efb931035aef8594e6d35bb5871242"
     }
   ],
-  "execution": "Three separate internal review contexts in the same Codex writing workflow; not independent external peer review.",
+  "execution": "Three sequential internal ARS review passes by the same Codex assistant in one writing session; initial separate workers produced no completed reports and are not counted; not independent external peer review.",
   "criteria_binding": "criteria_binding_unavailable",
   "calibration_status": "NOT_CALIBRATED",
   "publication_verification": "Separate release receipt; reviews do not verify remote availability."

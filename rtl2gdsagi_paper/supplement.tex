@@ -8,6 +8,7 @@
 \input{generated/extended_results}
 \input{generated/frozen_macros}
 \input{generated/scripted_baseline_macros}
+\input{generated/guardband_macros}
 \title{Supplement: Candidate-Bound Evidence for RTL-to-GDS Signoff}
 \titlerunning{RTL2GDSAGI: supplementary evidence}
 \author{Rithwik Vallabhan TV \and Sreejeesh SG \and Jayaraj U Kidav \and Nanditha N Varma}
@@ -25,6 +26,9 @@ authorizes the recorded change, reruns the affected stages, and certifies.
 It supplies the post-repair artifact used by the new swap fixture. The
 24 scripted baseline candidates use the same frozen native executor plus the
 hashed first-failure stopping harness described in the sweep protocol below.
+Both documents use Springer LNCS. The archive includes a portable hash verifier;
+native reruns require the pinned stack. Review bindings and publication receipts
+record separate checks.
 
 The twenty recorded proposals originate from live Claude Sonnet 5 runs
 (Anthropic; identifier \code{claude-sonnet-5}) on snapshot
@@ -110,8 +114,20 @@ They keep delay fractions 0.2, which changes absolute input/output delay
 from 0.60 ns to 0.65/0.70 ns; uncertainty and load remain fixed. These are
 combined requirement changes, excluded from fixed-target repair counts.
 All eight setup off/on pairs yield identical CTS/routed DEF, SPEF and
-setup/hold WNS, although the setup-on script emits native repair. This factor
-adds no observed outcome diversity in the declared grid.
+setup/hold WNS. Diagnostic re-execution of the eight setup-on CTS scripts
+retains their inputs and command order, adding only slack markers and
+redirected output snapshots. Every setup call is entered and returns normally.
+Setup WNS immediately before and after the call is unchanged at
+\SetupRepairPreMinPs--\SetupRepairPreMaxPs{} ps, above the 50 ps target.
+The before/after DEF and netlist hashes match, and every final diagnostic
+CTS DEF matches its original candidate. The scripts set clock-layer RC
+but omit signal-wire RC; native warnings RSZ-0014/RSZ-0021 report zero wire
+capacitance and wire-load fallback. Thus no setup violation is visible at
+the repair point under that estimator, while later routed SPEF timing fails.
+This limits what the toggle experiment establishes about setup repair.
+The eight logs, scripts, markers and snapshot hashes are retained in
+\path{runs/setup_repair_diagnostic_20261013}; these are diagnostics, not
+additional end-to-end candidates or certifications.
 
 The original no-model CLI pilot repeatedly rerouted the unpadded candidate
 after DRC rejection: date-bearing GDS changed the failing-input fingerprint
@@ -132,6 +148,30 @@ was not executed. Configuration and harness hashes are retained in
 Successful candidate/certification identities are in each run's
 \code{signoff.json} and \code{gate\_evidence.json}. Failed states retain
 configuration and native input records, without release certificates.
+
+\section{Guardband Sensitivity from Retained Slacks}
+The acceptance guardband in every recorded run is $g=0$. We calculate
+eligibility at $g=0.05$ ns without modifying implementation, constraints,
+reports or certificates. Post-CTS hold and routed setup/hold must all reach
+that threshold; every other obligation retains its recorded outcome.
+Table~\ref{tab:guardband} reports the seven primary designs and the archived
+narrow timing repair. All fourteen primary runs pass at $g=0$; twelve
+(six designs) remain eligible at 50 ps. Both shift1024 repeats fail routed
+hold, with \GuardbandShiftHoldPs{} ps against 50 ps; post-CTS hold still passes.
+The archived +1.586 ps setup repair fails the stricter setup threshold.
+\input{generated/guardband_table}
+
+Among already certified states in the other separate cohorts, 6/7 archived
+live certifications, 6/6 frozen replay certifications, 5/5 scripted baseline
+certifications, and 0/4 padding-ablation certifications remain eligible.
+These cohort-specific counts are not pooled: they reuse configurations and
+have different execution/proposal origins. The archived live analysis omits
+two noncertified episodes without terminal certified-candidate timing.
+\path{rtl2gdsagi_paper/evidence/guardband_sensitivity_metrics.csv} retains
+all 73 inspected states, checkpoint availability, original certification,
+and threshold outcomes. Missing STA remains ``not reached''; a timing pass
+cannot certify a state rejected by another gate. This post-hoc sensitivity
+does not measure robustness across corners, process variation or native reruns.
 
 \section{Native Checker Invocation Controls}
 The pinned OpenLane wrapper and public source bytes match. The installed
@@ -206,9 +246,5 @@ the twenty-state frozen replay. Full logs record the actual terminal state;
 unavailable intermediate prompt/response or artifact files are not invented.
 \input{generated/supplement_history_table}
 
-\section{Artifact Verification}
-Both documents compile with Springer LNCS. The archive provides a hash verifier;
-native reruns need the pinned stack. Review bindings and publication receipts
-record separate checks.
 \FloatBarrier
 \end{document}

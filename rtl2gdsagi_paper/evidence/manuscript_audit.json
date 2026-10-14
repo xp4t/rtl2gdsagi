@@ -53,5 +53,43 @@
     "placement_DPL-0036": 1
   },
   "independent_archived_full_ir_matches": 7,
-  "scope": "Deterministic numerical/source/input audit; internal semantic reviews are separate."
+  "scope": "Deterministic numerical/source/input audit; internal semantic reviews are separate.",
+  "guardband_sensitivity": {
+    "archived_live_certified": {
+      "states": 7,
+      "recorded_certifications_g0": 7,
+      "complete_timing_states": 7,
+      "certified_states_eligible_g50ps": 6
+    },
+    "frozen_replay": {
+      "states": 20,
+      "recorded_certifications_g0": 6,
+      "complete_timing_states": 19,
+      "certified_states_eligible_g50ps": 6
+    },
+    "padding_ablation": {
+      "states": 8,
+      "recorded_certifications_g0": 4,
+      "complete_timing_states": 8,
+      "certified_states_eligible_g50ps": 0
+    },
+    "primary": {
+      "states": 14,
+      "recorded_certifications_g0": 14,
+      "complete_timing_states": 14,
+      "certified_states_eligible_g50ps": 12
+    },
+    "scripted_baseline": {
+      "states": 24,
+      "recorded_certifications_g0": 5,
+      "complete_timing_states": 23,
+      "certified_states_eligible_g50ps": 5
+    }
+  },
+  "guardband_ns": 0.05,
+  "setup_repair_diagnostic_calls": 8,
+  "setup_repair_pre_wns_ns_range": [
+    0.19435609227685544,
+    0.27452729755387884
+  ]
 }

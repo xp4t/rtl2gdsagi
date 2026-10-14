@@ -1,6 +1,6 @@
 {
-  "created_at": "2026-10-13T11:00:36.661975+00:00",
-  "main_sha256": "2aa92affa3a4eb7474e1eac7cd859529cbd4ec02f0b39bbc2358fe4388af7c80",
+  "created_at": "2026-10-14T03:40:02.629793+00:00",
+  "main_sha256": "83cd4ba381f8fbf74aec6ddaacde98c47c5c3357c9cc8021a0432bbe76370436",
   "source_audits": [
     {
       "path": "rtl2gdsagi_paper/evidence/citation_audit_frozen.json",
@@ -15,14 +15,14 @@
     {
       "key": "ajayi2019",
       "current_entry": "Ajayi, T., et al.: Toward an Open-Source Digital Flow: First Learnings from the\nOpenROAD Project. In: Proceedings of the 56th Annual Design Automation\nConference, pp. 1--4 (2019). \\url{https://doi.org/10.1145/3316781.3326334}",
-      "current_line": 428,
+      "current_line": 433,
       "current_contexts": [
         {
           "line": 53,
           "paragraph": "\\section{Introduction}\nOpenROAD and OpenLane provide open synthesis and physical-implementation\ninfrastructure~\\cite{ajayi2019,shalan2020}. Release combines geometric,\nconnectivity and timing evidence bound to the selected implementation and\nverification inputs. A zero-marker report may concern another GDS or omit\nrequired rules; repair can invalidate earlier evidence."
         },
         {
-          "line": 355,
+          "line": 364,
           "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
         }
       ],
@@ -176,14 +176,14 @@
     {
       "key": "shalan2020",
       "current_entry": "Shalan, M., Edwards, T.: Building OpenLANE: A 130nm OpenROAD-based\ntapeout-proven flow. In: Proceedings of the 2020 IEEE/ACM International\nConference on Computer-Aided Design, pp. 1--6 (2020).\n\\url{https://doi.org/10.1145/3400302.3415735}",
-      "current_line": 432,
+      "current_line": 437,
       "current_contexts": [
         {
           "line": 53,
           "paragraph": "\\section{Introduction}\nOpenROAD and OpenLane provide open synthesis and physical-implementation\ninfrastructure~\\cite{ajayi2019,shalan2020}. Release combines geometric,\nconnectivity and timing evidence bound to the selected implementation and\nverification inputs. A zero-marker report may concern another GDS or omit\nrequired rules; repair can invalidate earlier evidence."
         },
         {
-          "line": 355,
+          "line": 364,
           "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
         }
       ],
@@ -304,7 +304,7 @@
     {
       "key": "eqydocs",
       "current_entry": "YosysHQ: EQY documentation. \\url{https://yosyshq.readthedocs.io/projects/eqy/en/latest/}\n(accessed 12 October 2026)",
-      "current_line": 437,
+      "current_line": 442,
       "current_contexts": [
         {
           "line": 137,
@@ -417,10 +417,10 @@
     {
       "key": "jung2021",
       "current_entry": "Jung, J., Kahng, A.B., Kim, S., Varadarajan, R.: METRICS2.1 and flow tuning\nin the IEEE CEDA Robust Design Flow and OpenROAD: ICCAD special session paper.\nIn: Proceedings of the 2021 IEEE/ACM International Conference on Computer-Aided\nDesign, pp. 1--9 (2021). \\url{https://doi.org/10.1109/ICCAD51958.2021.9643541}",
-      "current_line": 440,
+      "current_line": 445,
       "current_contexts": [
         {
-          "line": 356,
+          "line": 365,
           "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
         }
       ],
@@ -535,10 +535,10 @@
     {
       "key": "prov2013",
       "current_entry": "W3C: PROV-Overview: An overview of the PROV family of documents.\nW3C Working Group Note (2013). \\url{https://www.w3.org/TR/prov-overview/}",
-      "current_line": 445,
+      "current_line": 450,
       "current_contexts": [
         {
-          "line": 357,
+          "line": 366,
           "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
         }
       ],
@@ -636,10 +636,10 @@
     {
       "key": "nixdocs",
       "current_entry": "Nix project: Content-addressing derivation outputs. Nix 2.35.2 Reference Manual.\n\\url{https://nix.dev/manual/nix/2.35/store/derivation/outputs/content-address.html}\n(accessed 13 October 2026)",
-      "current_line": 448,
+      "current_line": 453,
       "current_contexts": [
         {
-          "line": 359,
+          "line": 368,
           "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
         }
       ],
@@ -732,10 +732,10 @@
     {
       "key": "bazeldocs",
       "current_entry": "Bazel project: Remote Caching. Bazel documentation.\n\\url{https://bazel.build/remote/caching} (accessed 13 October 2026)",
-      "current_line": 452,
+      "current_line": 457,
       "current_contexts": [
         {
-          "line": 359,
+          "line": 368,
           "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
         }
       ],
@@ -770,10 +770,10 @@
     {
       "key": "slsadocs",
       "current_entry": "SLSA: Build: Provenance. SLSA specification, version 1.2 (Approved).\n\\url{https://slsa.dev/spec/v1.2/build-provenance} (accessed 13 October 2026)",
-      "current_line": 455,
+      "current_line": 460,
       "current_contexts": [
         {
-          "line": 361,
+          "line": 370,
           "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
         }
       ],
@@ -870,11 +870,11 @@
     {
       "key": "chateda",
       "current_entry": "Wu, H., He, Z., Zhang, X., Yao, X., Zheng, S., Zheng, H., Yu, B.:\nChatEDA: A Large Language Model Powered Autonomous Agent for EDA.\nIEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems\n43(10), 3184--3197 (2024). \\url{https://doi.org/10.1109/TCAD.2024.3383347}",
-      "current_line": 458,
+      "current_line": 463,
       "current_contexts": [
         {
-          "line": 367,
-          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+          "line": 376,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. Ghose et al.'s newer ICCAD author manuscript also\nrecords patch/snapshot/proof manifests and renewed checks. Their manifest\nand rechecking mechanisms overlap with generic manifest-based revalidation;\nwe claim no priority for that mechanism."
         }
       ],
       "audit": "citation_audit_frozen.json",
@@ -987,11 +987,11 @@
     {
       "key": "orfsagent",
       "current_entry": "Ghose, A., Kahng, A.B., Kundu, S., Wang, Z.:\nORFS-Agent: Tool-Using Agents for Chip Design Optimization.\nIn: Proceedings of the ACM/IEEE International Symposium on Machine Learning\nfor CAD (MLCAD), pp. 1--13 (2025). \\url{https://doi.org/10.1109/MLCAD65511.2025.11189204}",
-      "current_line": 463,
+      "current_line": 468,
       "current_contexts": [
         {
-          "line": 368,
-          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+          "line": 377,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. Ghose et al.'s newer ICCAD author manuscript also\nrecords patch/snapshot/proof manifests and renewed checks. Their manifest\nand rechecking mechanisms overlap with generic manifest-based revalidation;\nwe claim no priority for that mechanism."
         }
       ],
       "audit": "citation_baseline_audit.json",
@@ -1103,11 +1103,11 @@
     {
       "key": "mcp4eda",
       "current_entry": "Wang, Y., Ye, W., He, Y., Chen, Y., Qu, G., Li, A.:\nMCP4EDA: LLM-Powered Model Context Protocol RTL-to-GDSII Automation with\nBackend Aware Synthesis Optimization. arXiv:2507.19570 (2025).\n\\url{https://arxiv.org/abs/2507.19570}",
-      "current_line": 468,
+      "current_line": 473,
       "current_contexts": [
         {
-          "line": 370,
-          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+          "line": 379,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. Ghose et al.'s newer ICCAD author manuscript also\nrecords patch/snapshot/proof manifests and renewed checks. Their manifest\nand rechecking mechanisms overlap with generic manifest-based revalidation;\nwe claim no priority for that mechanism."
         }
       ],
       "audit": "citation_baseline_audit.json",
@@ -1175,11 +1175,11 @@
     {
       "key": "flowfixer",
       "current_entry": "Dong, K., Wang, R., Yuan, F., An, B., Zhang, X.: FlowFixer-EDA: A Tool-Feedback-Augmented Large Language Model Agent for\nAutomated Diagnosis and Repair of Open-Source RTL-to-GDS Design Flow Failures.\nIEEE Access 14, 140412--140428 (2026).\n\\url{https://doi.org/10.1109/ACCESS.2026.3730896}",
-      "current_line": 473,
+      "current_line": 478,
       "current_contexts": [
         {
-          "line": 371,
-          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+          "line": 380,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. Ghose et al.'s newer ICCAD author manuscript also\nrecords patch/snapshot/proof manifests and renewed checks. Their manifest\nand rechecking mechanisms overlap with generic manifest-based revalidation;\nwe claim no priority for that mechanism."
         }
       ],
       "audit": "citation_baseline_audit.json",
@@ -1268,11 +1268,11 @@
     {
       "key": "edaid",
       "current_entry": "Wu, H., Zheng, H., He, Z., Yu, B.: Divergent Thoughts toward One Goal:\nLLM-based Multi-Agent Collaboration System for Electronic Design Automation.\nIn: Proceedings of NAACL-HLT, vol. 1, pp. 1710--1721 (2025).\n\\url{https://doi.org/10.18653/v1/2025.naacl-long.83}",
-      "current_line": 478,
+      "current_line": 483,
       "current_contexts": [
         {
-          "line": 376,
-          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+          "line": 385,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. Ghose et al.'s newer ICCAD author manuscript also\nrecords patch/snapshot/proof manifests and renewed checks. Their manifest\nand rechecking mechanisms overlap with generic manifest-based revalidation;\nwe claim no priority for that mechanism."
         }
       ],
       "audit": "citation_baseline_audit.json",
@@ -1338,11 +1338,11 @@
     {
       "key": "audopeda",
       "current_entry": "Ghose, A., Jang, J., Kahng, A.B., Lee, J.:\nAutomated QoR improvement in OpenROAD with coding agents.\narXiv:2601.06268v2 (2026). \\url{https://arxiv.org/abs/2601.06268v2}.\nAlso: author manuscript, ICCAD 2026, to appear (accessed 13 October 2026).\n\\url{https://vlsicad.ucsd.edu/Publications/Conferences/431/c431.pdf}",
-      "current_line": 483,
+      "current_line": 488,
       "current_contexts": [
         {
-          "line": 378,
-          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+          "line": 387,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. Ghose et al.'s newer ICCAD author manuscript also\nrecords patch/snapshot/proof manifests and renewed checks. Their manifest\nand rechecking mechanisms overlap with generic manifest-based revalidation;\nwe claim no priority for that mechanism."
         }
       ],
       "audit": "citation_baseline_audit.json",
@@ -1485,10 +1485,10 @@
     {
       "key": "chibench",
       "current_entry": "Sumitani, R., Amorim, J.V., Mafra, A., Crepalde, M., Pereira, F.M.Q.:\nChiBench: A Benchmark Suite for Testing Electronic Design Automation Tools.\narXiv:2406.06550 (2024). \\url{https://arxiv.org/abs/2406.06550}",
-      "current_line": 489,
+      "current_line": 494,
       "current_contexts": [
         {
-          "line": 382,
+          "line": 392,
           "paragraph": "ChiBench supplies RTL designs for EDA-tool testing~\\cite{chibench}.\nDRVerify documents physical-verification runset testing with known legal\nand violating structures~\\cite{drverify}. That runset-testing rationale motivates checking rule execution and intended\ncoverage in addition to marker counts. The\npresent contribution combines constructed native/ledger faults, candidate\nlineage, fresh recorded-proposal checks, and artifact-level repeat evidence.\nComparable contracts in other controllers are not excluded by this study."
         }
       ],
@@ -1556,10 +1556,10 @@
     {
       "key": "drverify",
       "current_entry": "Sage Design Automation: DRVerify: The Verification of Physical Verification.\nTechnical white paper (2018).\n\\url{https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf}",
-      "current_line": 493,
+      "current_line": 498,
       "current_contexts": [
         {
-          "line": 384,
+          "line": 394,
           "paragraph": "ChiBench supplies RTL designs for EDA-tool testing~\\cite{chibench}.\nDRVerify documents physical-verification runset testing with known legal\nand violating structures~\\cite{drverify}. That runset-testing rationale motivates checking rule execution and intended\ncoverage in addition to marker counts. The\npresent contribution combines constructed native/ledger faults, candidate\nlineage, fresh recorded-proposal checks, and artifact-level repeat evidence.\nComparable contracts in other controllers are not excluded by this study."
         }
       ],

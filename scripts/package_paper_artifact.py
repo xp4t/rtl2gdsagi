@@ -64,6 +64,8 @@ def main():
         previous=json.loads((PAPER/'evidence/experiment_manifest_followup_20261013.json').read_text())
         for row in previous['selected_runs']:
             folders.update(row[k] for k in ('run_dir','repeat_run_dir'))
+    if (PAPER/'evidence/setup_repair_diagnostic.json').is_file():
+        folders.add('runs/setup_repair_diagnostic_20261013')
     # These native clean fixtures were used by the fault study.
     folders.update('runs/signoff_final_v5/'+n for n in ['register','alu8','fifo_buf'])
     files=set()

@@ -17,6 +17,7 @@ def digest(path):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--review-prefix',default='REVIEW_BASELINE')
+    parser.add_argument('--review-execution',default='Three separate internal review contexts in the same Codex writing workflow; not independent external peer review.')
     args=parser.parse_args()
     main_hash = digest(PAPER / 'main.tex')
     reviews = []
@@ -35,6 +36,8 @@ def main():
     if (PAPER/'supplement.tex').exists():
         paths += [PAPER/'supplement.pdf',PAPER/'evidence/supplement.txt']
     paths=sorted(set(paths))
+    paths=sorted(set(paths+[PAPER/'evidence'/n for n in
+                            ('guardband_sensitivity.json','guardband_sensitivity_metrics.csv','setup_repair_diagnostic.json')]))
     bound = [{'path': str(p.relative_to(ROOT)), 'sha256': digest(p)} for p in paths]
     aggregate = hashlib.sha256()
     for p in sorted(p for p in manuscript_materials(PAPER) if p.parent==PAPER/'generated'):
@@ -45,7 +48,7 @@ def main():
             'main_pdf_sha256': digest(PAPER / 'main.pdf'),
             'generated_tex_aggregate_sha256': aggregate.hexdigest(),
             'reviews': reviews, 'bound_files': bound,
-            'execution': 'Three separate internal review contexts in the same Codex writing workflow; not independent external peer review.',
+            'execution': args.review_execution,
             'criteria_binding': 'criteria_binding_unavailable',
             'calibration_status': 'NOT_CALIBRATED',
             'publication_verification': 'Separate release receipt; reviews do not verify remote availability.'}

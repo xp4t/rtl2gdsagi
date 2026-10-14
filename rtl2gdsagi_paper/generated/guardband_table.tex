@@ -1,0 +1,13 @@
+\begin{table}[!htbp]\centering\small
+\caption{Post-hoc 50 ps guardband sensitivity. All listed candidates were certified at $g=0$; both primary repeats have these same slacks. Eligibility also requires post-CTS hold. No new certificates are issued.}\label{tab:guardband}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Candidate & \shortstack{Post-CTS\\hold (ps)} & \shortstack{Routed\\setup (ps)} & \shortstack{Routed\\hold (ps)} & $g=50$ ps\\\midrule
+register & 1220.036 & 6954.046 & 1203.611 & Pass\\
+mux4to1 & 1220.036 & 6951.572 & 1202.738 & Pass\\
+alu8 & 1214.006 & 5256.096 & 1191.852 & Pass\\
+counter & 476.518 & 4910.823 & 493.969 & Pass\\
+shift\_reg & 528.552 & 6891.726 & 553.843 & Pass\\
+fifo\_buf & 259.698 & 6395.702 & 272.794 & Pass\\
+shift1024 & 65.326 & 5553.176 & 49.477 & Fail\\
+Archived timing repair & 322.043 & 1.586 & 343.180 & Fail\\
+\bottomrule\end{tabular}\end{table}

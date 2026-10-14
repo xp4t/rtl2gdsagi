@@ -107,7 +107,21 @@ assert 'live repair was not re-executed on the frozen' in main
 assert 'verified repair' not in re.search(r'\\keywords\{([\s\S]*?)\}',main)[1].lower()
 assert 'credit-interrupted' in main and '0 of 4' in main
 assert 'Not designed for' in (PAPER/'generated/checker_obligations_table.tex').read_text()
+guard=load('guardband_sensitivity.json')
+assert guard['guardband_ns']==0.05 and len(guard['rows'])==73
+assert guard['summaries']['primary']['certified_states_eligible_g50ps']==12
+assert guard['summaries']['archived_live_certified']['certified_states_eligible_g50ps']==6
+diag=load('setup_repair_diagnostic.json')
+assert diag['consistent_source'] and diag['source_sha256']==manifest['source_sha256']
+assert len(diag['trials'])==8
+for r in diag['trials']:
+ assert r['command_entered_and_returned'] and r['setup_repair_def_unchanged'] and r['setup_repair_netlist_unchanged'] and r['final_cts_def_matches_archived']
+ assert r['before_setup']==r['after_setup'] and r['before_setup']['setup_wns_ns']>0.05
+ assert hashlib.sha256((ROOT/r['log']).read_bytes()).hexdigest()==r['log_sha256']
 
 report={'source_sha256':source_identity(),'primary_designs':7,'primary_native_runs':14,'primary_exact_route_pairs':7,'primary_date_normalized_gds_pairs':7,'fresh_replayed_proposals':20,'class_replay':data['class_replay'],'ablation_runs':8,'fault_classes':6,'fault_executions':18,'original_live_episodes':9,'original_live_verified':7,'larger_cases':4,'larger_certified':0,'larger_controller_stops':2,'larger_incomplete':2,'references':len(refs),'tests_passed':955,'tests_skipped':15,'scripted_baseline_states':24,'scripted_baseline_certified':5,'timing_excluding_cts_affected_state':replay_split['timing_failure_classes_after_exclusion'],'independent_archived_full_ir_matches':7,'scope':'Deterministic numerical/source/input audit; internal semantic reviews are separate.'}
+report.update(guardband_sensitivity=guard['summaries'],guardband_ns=guard['guardband_ns'],
+              setup_repair_diagnostic_calls=8,
+              setup_repair_pre_wns_ns_range=[min(r['before_setup']['setup_wns_ns'] for r in diag['trials']),max(r['before_setup']['setup_wns_ns'] for r in diag['trials'])])
 (PAPER/'evidence/manuscript_audit.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

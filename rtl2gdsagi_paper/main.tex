@@ -16,6 +16,7 @@
 \input{generated/live_results}
 \input{generated/frozen_macros}
 \input{generated/scripted_baseline_macros}
+\input{generated/guardband_macros}
 \title{Candidate-Bound Evidence for RTL-to-GDS Signoff: A Frozen-Source Evaluation}
 \titlerunning{Candidate-Bound Evidence for RTL-to-GDS Signoff}
 \author{Rithwik Vallabhan TV \and Sreejeesh SG \and Jayaraj U Kidav \and Nanditha N Varma}
@@ -33,17 +34,16 @@ verification contract twice. All seven pairs reproduce routed DEF, mapped
 and routed netlists, extracted parasitics, and date-normalized GDS; the
 1,024-cell shift register uses one routing worker. Six constructed classes
 of stale or incomplete evidence are blocked in three consistency executions
-each. We also re-execute 20 recorded model proposals, generated under snapshot
-\code{\ProposalSourceShort}, on the frozen controller. Failed native-check
-fractions are 0/3 for spacing, 0/3 for power-network construction, and 14/14
-for timing. These class-specific observations describe proposal states in
-iterative repair trajectories. A controlled padding ablation explains why a
-narrow timing pass from the earlier snapshot fails under the frozen source.
+each. In the archived timing trajectories from snapshot
+\code{\ProposalSourceShort}, 11/14 model proposals fail native checks, two
+lack completed target checks, and one passes. Frozen-source replay fails
+14/14 timing states, but this comparison is confounded by a CTS-padding
+source change that reverses the archived pass. These proposal states were collected under iterative native feedback.
 A scripted baseline certifies spacing and PDN configurations without a model;
 \ScriptedTimingCertified/\ScriptedTimingStates\ timing configurations certify at unchanged 3 ns.
 The nine live repair episodes are a recorded case study from snapshot
 \code{\ProposalSourceShort}; live repair was not re-executed on the frozen
-source. The artifact retains source snapshots, native reports, and measured tables.
+source.
 \keywords{RTL-to-GDS \and physical verification \and artifact provenance
 \and electronic design automation}
 \end{abstract}
@@ -261,6 +261,12 @@ identity; native release and gate identities continue to bind exact bytes,
 including reports and path-bearing characterization records. Normalization
 does not transfer a prior verdict to a changed artifact.
 
+Post-hoc eligibility at $g=50$ ps is \GuardbandPrimaryDesigns/7 primary designs
+(\GuardbandPrimaryRuns/14 runs), applying post-CTS hold and routed setup/hold.
+Both shift1024 repeats fail routed hold at \GuardbandShiftHoldPs{} ps;
+the archived +1.586 ps repair fails setup. Other gate outcomes stay fixed;
+no new certificates are issued. The supplement reports all checkpoint values.
+
 \subsection{Fault coverage and native checker scope}
 Every constructed class is blocked in all three executions
 (Table~\ref{tab:frozenfaults}). A native zero-marker result on stale geometry
@@ -340,7 +346,10 @@ population success rate or an autonomous diagnosis benchmark.
 At unchanged 3 ns, \ScriptedTimingCertified/\ScriptedTimingStates\ timing
 configurations certify; the best routed setup WNS is \ScriptedTimingBest\ ns.
 All eight setup-repair off/on pairs have identical CTS DEF, routed DEF, SPEF
-and setup/hold slack, despite emitted setup-repair commands. The sixteen
+and setup/hold slack. Instrumented CTS replay confirms all eight setup calls
+execute with pre-repair setup WNS \SetupRepairPreMinPs--\SetupRepairPreMaxPs{} ps,
+above their 50 ps target under wire-load fallback, leaving no setup violation
+to repair at that point. The sixteen
 declared configurations therefore include eight outcome-equivalent toggle
 pairs; this is not a general result about setup-repair effectiveness.
 The 3.25 ns control fails at $-0.141952$ ns setup WNS; the 3.50 ns control
@@ -375,9 +384,10 @@ approved verification inputs, native report structure, and cached gate lineage.
 EDAid uses
 multiple model-controlled agents for EDA workflow execution~\cite{edaid}.
 Ghose et al. study executable OpenROAD changes and measured quality of
-results~\cite{audopeda}. The newer author conference manuscript also records
-patch/snapshot/proof manifests and renewed checks. These overlap with generic
-manifest-based revalidation; no priority for that mechanism is claimed.
+results~\cite{audopeda}. Ghose et al.'s newer ICCAD author manuscript also
+records patch/snapshot/proof manifests and renewed checks. Their manifest
+and rechecking mechanisms overlap with generic manifest-based revalidation;
+we claim no priority for that mechanism.
 
 ChiBench supplies RTL designs for EDA-tool testing~\cite{chibench}.
 DRVerify documents physical-verification runset testing with known legal
@@ -400,28 +410,23 @@ qualification. Hashing also assumes trusted tools, controller, host, and
 PDK. Identity and approved inventory do not prove completeness of foundry
 rules or immunity to forged records.
 
-The nine live repair episodes are a recorded case study on
-\code{\ProposalSourceShort}. Live repair was not re-executed on the frozen
-controller, so its 7/9 certifications are not a frozen-source repair success
-rate. The exploratory accumulator cohort certifies 0 of 4 episodes: two
-policy escalations and two credit-interrupted episodes. The latter have
-unknown eventual repair outcomes. The largest clean design is the synthetic
-1,024-cell shift register. The supplement retains these cohorts, earlier observations,
-known-failed-fingerprint proposals, and incomplete scale probes. These
-cohorts remain separate from fresh proposal-state executions. Raw logs retain
-accepted updates and final native artifacts; rollback can overwrite numbered
-intermediate prompt/response and implementation files. The current regression
-record is \TestPasses\ passed, \TestSkipped\ skipped, zero failures/errors.
+The nine live episodes remain an archived case study on
+\code{\ProposalSourceShort}; their 7/9 certifications are not a frozen-source
+repair rate. The separate exploratory accumulator cohort certifies 0 of 4:
+two policy escalations and two credit-interrupted episodes with unknown
+eventual outcomes. The largest clean design is the synthetic 1,024-cell shift
+register. The supplement retains earlier observations, failed-fingerprint
+proposals and incomplete scale probes. Logs retain updates and final artifacts;
+rollback can overwrite intermediate files. The regression record is
+\TestPasses\ passed, \TestSkipped\ skipped, zero failures/errors.
 
 \section*{Artifacts and AI assistance}
 Repository: \url{https://github.com/xp4t/rtl2gdsagi}. The versioned artifact at
-\href{https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-baselines-20261013}{\code{rtl2gdsagi-paper-baselines-20261013}}
+\href{https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-sensitivity-20261013}{\code{rtl2gdsagi-paper-sensitivity-20261013}}
 contains this LNCS manuscript, an Overleaf ZIP, \code{supplement.tex}, source
 snapshots, native reports, and table-generation/verification scripts. Codex
 assisted writing and three internal review passes in the same automated
-workflow. These are not independent external peer reviews. The supplement
-identifies the original Anthropic model runs separately from cached-proposal
-replay; no new model calls are counted for that replay.
+workflow. These are not independent external peer reviews.
 \FloatBarrier
 
 \begin{thebibliography}{16}

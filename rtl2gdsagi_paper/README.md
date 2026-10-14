@@ -21,10 +21,19 @@ Live repair was not re-executed on the frozen source.
   and restored PDN offset 2 (1/2 states). The fixed 3 ns timing grid is 0/16;
   best setup WNS is −0.000653699 ns. Period 3.25 ns fails; period 3.50 ns certifies,
   as a changed requirement rather than fixed-target repair.
+- A post-hoc 50 ps guardband retains six of seven primary designs (12/14 runs).
+  Both shift1024 repeats fail routed hold at 49.477 ps; the archived +1.586 ps
+  setup repair also fails. Original certificates remain at g=0.
+- Eight instrumented CTS scripts enter and return from setup repair with
+  194.356–274.527 ps pre-repair setup slack, above the 50 ps target. No setup
+  violation is present under the logged wire-load fallback; diagnostic final
+  CTS DEF hashes match their original candidates.
 - Six constructed fault classes are blocked in eighteen consistency executions.
 - The archived replay failures are spacing 0/3, PDN 0/3, timing 11/14, with two
   unavailable timing target checks. Fresh frozen executions give spacing 0/3,
-  PDN 0/3 and timing 14/14 failures (thirteen STA, one placement).
+  PDN 0/3 and timing 14/14 failures (thirteen STA, one placement). The timing
+  comparison is confounded by the CTS-padding source change, which reverses
+  the archived pass.
 - Eight controlled padding/thread runs identify CTS padding reapplication as
   the source of the narrow timing sign change; worker count has no timing effect
   within that ablation. The frozen code retains the physical spacing calls.
@@ -52,6 +61,7 @@ python3 rtl2gdsagi_paper/generate_live_results.py
 python3 scripts/compare_repeated_runs.py
 python3 scripts/collect_frozen_results.py
 python3 scripts/collect_scripted_baseline.py
+python3 scripts/collect_guardband_sensitivity.py
 python3 scripts/record_citation_continuity.py
 latexmk -cd -pdf -interaction=nonstopmode -halt-on-error rtl2gdsagi_paper/main.tex
 latexmk -cd -pdf -interaction=nonstopmode -halt-on-error rtl2gdsagi_paper/supplement.tex
@@ -69,13 +79,14 @@ in raw records. Portable archive verification needs only Python.
 
 ## Reviews and public artifact
 
-`REVIEW_BASELINE_EVIDENCE.md`, `REVIEW_BASELINE_METHODS.md` and
-`REVIEW_BASELINE_PRESENTATION.md` are three internal review contexts in the same
-writing workflow, not independent external peer review. Prior numbered/follow-up
+`REVIEW_SENSITIVITY_EVIDENCE.md`, `REVIEW_SENSITIVITY_METHODS.md` and
+`REVIEW_SENSITIVITY_PRESENTATION.md` are three sequential internal review passes in the same
+Codex session, not independent external peer review. Initial worker attempts produced no completed
+reports and are not counted. Prior numbered/follow-up
 reviews retain their historical snapshots. Exact venue criteria were not supplied;
 LNCS formatting does not imply publication acceptance.
 
 The public artifact is
-https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-baselines-20261013.
+https://github.com/xp4t/rtl2gdsagi/releases/tag/rtl2gdsagi-paper-sensitivity-20261013.
 Final source/input/PDF/report bindings and public asset verification are recorded
 separately in `review_bindings.json` and `publication_receipt.json`.

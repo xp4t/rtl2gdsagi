@@ -1,0 +1,436 @@
+{
+  "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "script_sha256": "0857ac35ab300139fc03001b45fcb121c6a184da76ff44e119e0f0049196f506",
+  "scope": "Diagnostic CTS re-execution of the eight setup-on scripts with WNS markers and output snapshots. Original native runs, source, constraints and certificates remain unchanged.",
+  "declared_cases": [
+    "timing_DELAY0_density45_pad1_setup1",
+    "timing_DELAY0_density45_pad2_setup1",
+    "timing_DELAY0_density55_pad1_setup1",
+    "timing_DELAY0_density55_pad2_setup1",
+    "timing_DELAY1_density45_pad1_setup1",
+    "timing_DELAY1_density45_pad2_setup1",
+    "timing_DELAY1_density55_pad1_setup1",
+    "timing_DELAY1_density55_pad2_setup1"
+  ],
+  "started_at": 1791891425.9551406,
+  "trials": [
+    {
+      "trial": "timing_DELAY0_density45_pad1_setup1",
+      "original_script": "runs/scripted_baseline_bounded_20261013/timing_DELAY0_density45_pad1_setup1/stages/10_cts/cts.tcl",
+      "original_script_sha256": "99ddcb707b99bfae17c0d1d2e84a67d3fe9a0df521a519b4056c4c98155d7069",
+      "instrumented_script": "runs/setup_repair_diagnostic_20261013/timing_DELAY0_density45_pad1_setup1/diagnostic.tcl",
+      "instrumented_script_sha256": "7f3508ed5acefc41a7a4fbe0d8332d46da31bf71c79d6861884824d6a61ded84",
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "-u",
+        "1000:1000",
+        "-v",
+        "/home/vlsi/rtl2gdsagi/runs:/home/vlsi/rtl2gdsagi/runs",
+        "-v",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:ro",
+        "-w",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY0_density45_pad1_setup1",
+        "--entrypoint",
+        "openroad",
+        "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+        "-no_init",
+        "-exit",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY0_density45_pad1_setup1/diagnostic.tcl"
+      ],
+      "returncode": 0,
+      "log": "runs/setup_repair_diagnostic_20261013/timing_DELAY0_density45_pad1_setup1/native.log",
+      "log_sha256": "6695bd8ee11ff20eb2ba0f7ee8709beab889926a6ccfd97c6ebb6285d789c78c",
+      "command_entered_and_returned": true,
+      "before_setup": {
+        "setup_wns_ns": 0.2691804633160653,
+        "hold_wns_ns": -0.1859941697746436
+      },
+      "after_setup": {
+        "setup_wns_ns": 0.2691804633160653,
+        "hold_wns_ns": -0.1859941697746436
+      },
+      "setup_margin_ns": 0.05,
+      "setup_repair_def_unchanged": true,
+      "setup_repair_netlist_unchanged": true,
+      "final_cts_def_matches_archived": true,
+      "zero_wire_capacitance_warning": true,
+      "wire_load_fallback_warning": true,
+      "snapshot_hashes": {
+        "before.def": "caa87dbc2742708384227581b57fb41e2a57c9bc95835bbcea702879b4736342",
+        "final.v": "452b38e5ceda146002e5ef4b372c591428f810f8c3784bb4231eb009a5023b83",
+        "before.v": "d7048ad0972280316af3bfaa5fcd0ba7d36acc2639b837dacd0ca107b31e0325",
+        "after.def": "caa87dbc2742708384227581b57fb41e2a57c9bc95835bbcea702879b4736342",
+        "final.def": "fd6048b7fe37df2a4b9c72ef62d8c819e2f3a1513f876fc1613b0c36b049d989",
+        "after.v": "d7048ad0972280316af3bfaa5fcd0ba7d36acc2639b837dacd0ca107b31e0325"
+      }
+    },
+    {
+      "trial": "timing_DELAY0_density45_pad2_setup1",
+      "original_script": "runs/scripted_baseline_bounded_20261013/timing_DELAY0_density45_pad2_setup1/stages/10_cts/cts.tcl",
+      "original_script_sha256": "8c38e83772fd2634967f7b378ebcfd6cf2a9263428a6b39af3e5dd116edb16d8",
+      "instrumented_script": "runs/setup_repair_diagnostic_20261013/timing_DELAY0_density45_pad2_setup1/diagnostic.tcl",
+      "instrumented_script_sha256": "2cff4ad19d135690f789a70ddb465d9aca938fe4f9bd871d3ef637b7f58f85b2",
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "-u",
+        "1000:1000",
+        "-v",
+        "/home/vlsi/rtl2gdsagi/runs:/home/vlsi/rtl2gdsagi/runs",
+        "-v",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:ro",
+        "-w",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY0_density45_pad2_setup1",
+        "--entrypoint",
+        "openroad",
+        "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+        "-no_init",
+        "-exit",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY0_density45_pad2_setup1/diagnostic.tcl"
+      ],
+      "returncode": 0,
+      "log": "runs/setup_repair_diagnostic_20261013/timing_DELAY0_density45_pad2_setup1/native.log",
+      "log_sha256": "b9745673978dffec9a79481dd6c150abb00a1eb9eb62cdb131b7cfba1fb3ff4c",
+      "command_entered_and_returned": true,
+      "before_setup": {
+        "setup_wns_ns": 0.2691804633160653,
+        "hold_wns_ns": -0.1859941697746436
+      },
+      "after_setup": {
+        "setup_wns_ns": 0.2691804633160653,
+        "hold_wns_ns": -0.1859941697746436
+      },
+      "setup_margin_ns": 0.05,
+      "setup_repair_def_unchanged": true,
+      "setup_repair_netlist_unchanged": true,
+      "final_cts_def_matches_archived": true,
+      "zero_wire_capacitance_warning": true,
+      "wire_load_fallback_warning": true,
+      "snapshot_hashes": {
+        "before.def": "6845633057f5fd74e61cca2c77bda77a5d4c8b395ad074ca4fde8c4b571bbcd0",
+        "final.v": "452b38e5ceda146002e5ef4b372c591428f810f8c3784bb4231eb009a5023b83",
+        "before.v": "d7048ad0972280316af3bfaa5fcd0ba7d36acc2639b837dacd0ca107b31e0325",
+        "after.def": "6845633057f5fd74e61cca2c77bda77a5d4c8b395ad074ca4fde8c4b571bbcd0",
+        "final.def": "f07b9175883cd04179a67e37e9167b1638ae947523a55fb3f0c644df3c3eaeef",
+        "after.v": "d7048ad0972280316af3bfaa5fcd0ba7d36acc2639b837dacd0ca107b31e0325"
+      }
+    },
+    {
+      "trial": "timing_DELAY0_density55_pad1_setup1",
+      "original_script": "runs/scripted_baseline_bounded_20261013/timing_DELAY0_density55_pad1_setup1/stages/10_cts/cts.tcl",
+      "original_script_sha256": "1629433596f1f04ae4112c8b0d6f79bed73f2ad3b24d614aa1560184477d9341",
+      "instrumented_script": "runs/setup_repair_diagnostic_20261013/timing_DELAY0_density55_pad1_setup1/diagnostic.tcl",
+      "instrumented_script_sha256": "44b12cd49ccd1760fb48421502593f65dda052def949cb3b3ddfd83fa6435538",
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "-u",
+        "1000:1000",
+        "-v",
+        "/home/vlsi/rtl2gdsagi/runs:/home/vlsi/rtl2gdsagi/runs",
+        "-v",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:ro",
+        "-w",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY0_density55_pad1_setup1",
+        "--entrypoint",
+        "openroad",
+        "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+        "-no_init",
+        "-exit",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY0_density55_pad1_setup1/diagnostic.tcl"
+      ],
+      "returncode": 0,
+      "log": "runs/setup_repair_diagnostic_20261013/timing_DELAY0_density55_pad1_setup1/native.log",
+      "log_sha256": "24288cfbcb3f2df86afb82c5e6fd0520709e0e941ed01d017d0f60b8baa90529",
+      "command_entered_and_returned": true,
+      "before_setup": {
+        "setup_wns_ns": 0.27452729755387884,
+        "hold_wns_ns": -0.19198249089422806
+      },
+      "after_setup": {
+        "setup_wns_ns": 0.27452729755387884,
+        "hold_wns_ns": -0.19198249089422806
+      },
+      "setup_margin_ns": 0.05,
+      "setup_repair_def_unchanged": true,
+      "setup_repair_netlist_unchanged": true,
+      "final_cts_def_matches_archived": true,
+      "zero_wire_capacitance_warning": true,
+      "wire_load_fallback_warning": true,
+      "snapshot_hashes": {
+        "before.def": "606e539c03e34a15712b33af166ceb5d4f4babef826d3bcc4026e90b432bfe5c",
+        "final.v": "7fe5b785f6f8eb0dfb3d21dbc2af5d18fe5a6258cd7fdcfcf60db3a80289f043",
+        "before.v": "f18b5d82fd294c56e7a0023e341d5eb2a8621d8fae84da71aaea2761efabf9a2",
+        "after.def": "606e539c03e34a15712b33af166ceb5d4f4babef826d3bcc4026e90b432bfe5c",
+        "final.def": "530de75815e7c3bcf6d0d7b60ddee8559169818fb0723aac3f07c76423c52a6b",
+        "after.v": "f18b5d82fd294c56e7a0023e341d5eb2a8621d8fae84da71aaea2761efabf9a2"
+      }
+    },
+    {
+      "trial": "timing_DELAY0_density55_pad2_setup1",
+      "original_script": "runs/scripted_baseline_bounded_20261013/timing_DELAY0_density55_pad2_setup1/stages/10_cts/cts.tcl",
+      "original_script_sha256": "2ece2855dbd052bfad26e60eda09cb53f8db0241b67b8f9d7ce116b855f54b0f",
+      "instrumented_script": "runs/setup_repair_diagnostic_20261013/timing_DELAY0_density55_pad2_setup1/diagnostic.tcl",
+      "instrumented_script_sha256": "aa4bb38a245122ace1e01e32f2a67e4bd0609e0e951788efeeb4d152948c1c93",
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "-u",
+        "1000:1000",
+        "-v",
+        "/home/vlsi/rtl2gdsagi/runs:/home/vlsi/rtl2gdsagi/runs",
+        "-v",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:ro",
+        "-w",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY0_density55_pad2_setup1",
+        "--entrypoint",
+        "openroad",
+        "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+        "-no_init",
+        "-exit",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY0_density55_pad2_setup1/diagnostic.tcl"
+      ],
+      "returncode": 0,
+      "log": "runs/setup_repair_diagnostic_20261013/timing_DELAY0_density55_pad2_setup1/native.log",
+      "log_sha256": "aec325eefdca1e277ad2e279788f3f24263d6535acf4f1702db491abc1beb9bb",
+      "command_entered_and_returned": true,
+      "before_setup": {
+        "setup_wns_ns": 0.27452729755387884,
+        "hold_wns_ns": -0.19198249089422806
+      },
+      "after_setup": {
+        "setup_wns_ns": 0.27452729755387884,
+        "hold_wns_ns": -0.19198249089422806
+      },
+      "setup_margin_ns": 0.05,
+      "setup_repair_def_unchanged": true,
+      "setup_repair_netlist_unchanged": true,
+      "final_cts_def_matches_archived": true,
+      "zero_wire_capacitance_warning": true,
+      "wire_load_fallback_warning": true,
+      "snapshot_hashes": {
+        "before.def": "04de8f63d771ddca2bfcf6afdc8d6e9db876ad0e84b613bc8721c6c6585afeb9",
+        "final.v": "7fe5b785f6f8eb0dfb3d21dbc2af5d18fe5a6258cd7fdcfcf60db3a80289f043",
+        "before.v": "f18b5d82fd294c56e7a0023e341d5eb2a8621d8fae84da71aaea2761efabf9a2",
+        "after.def": "04de8f63d771ddca2bfcf6afdc8d6e9db876ad0e84b613bc8721c6c6585afeb9",
+        "final.def": "5e0e147ffb0e765f3ddd06d13331f510231bc433aeacffc1957680f6cc1e17d0",
+        "after.v": "f18b5d82fd294c56e7a0023e341d5eb2a8621d8fae84da71aaea2761efabf9a2"
+      }
+    },
+    {
+      "trial": "timing_DELAY1_density45_pad1_setup1",
+      "original_script": "runs/scripted_baseline_bounded_20261013/timing_DELAY1_density45_pad1_setup1/stages/10_cts/cts.tcl",
+      "original_script_sha256": "0b941c90fa9e37816e6fdc8d7650d8417db2643b0c8c4a5eafd706e2d5a0ecaa",
+      "instrumented_script": "runs/setup_repair_diagnostic_20261013/timing_DELAY1_density45_pad1_setup1/diagnostic.tcl",
+      "instrumented_script_sha256": "3fdbfd04e53bb69e3cf279c8b3ab8606bed514e8d2a752f99e053169deb1a740",
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "-u",
+        "1000:1000",
+        "-v",
+        "/home/vlsi/rtl2gdsagi/runs:/home/vlsi/rtl2gdsagi/runs",
+        "-v",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:ro",
+        "-w",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY1_density45_pad1_setup1",
+        "--entrypoint",
+        "openroad",
+        "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+        "-no_init",
+        "-exit",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY1_density45_pad1_setup1/diagnostic.tcl"
+      ],
+      "returncode": 0,
+      "log": "runs/setup_repair_diagnostic_20261013/timing_DELAY1_density45_pad1_setup1/native.log",
+      "log_sha256": "7be0462f3da09e8f3ad60cbf297d7b1a8233a9fec54dd080e40fa7fc5d092a94",
+      "command_entered_and_returned": true,
+      "before_setup": {
+        "setup_wns_ns": 0.19435609227685544,
+        "hold_wns_ns": -0.19202440181459296
+      },
+      "after_setup": {
+        "setup_wns_ns": 0.19435609227685544,
+        "hold_wns_ns": -0.19202440181459296
+      },
+      "setup_margin_ns": 0.05,
+      "setup_repair_def_unchanged": true,
+      "setup_repair_netlist_unchanged": true,
+      "final_cts_def_matches_archived": true,
+      "zero_wire_capacitance_warning": true,
+      "wire_load_fallback_warning": true,
+      "snapshot_hashes": {
+        "before.def": "781a880f787f3713d7c3350252bed12df89356bdcc3e87a9bfc55f80c31a8541",
+        "final.v": "ed0a237bbb4f1aac36ed2b5b7608a6c4de1fd13b040b1513dd8459b8483636b3",
+        "before.v": "3f61e0b89901a4d0c8855daa522f4bc805510df2c5e2ef03657fbf079a898392",
+        "after.def": "781a880f787f3713d7c3350252bed12df89356bdcc3e87a9bfc55f80c31a8541",
+        "final.def": "e8cc902c93c611957cc564f5d94e4529c38b2057fded518c85cd5fb1f9ee493d",
+        "after.v": "3f61e0b89901a4d0c8855daa522f4bc805510df2c5e2ef03657fbf079a898392"
+      }
+    },
+    {
+      "trial": "timing_DELAY1_density45_pad2_setup1",
+      "original_script": "runs/scripted_baseline_bounded_20261013/timing_DELAY1_density45_pad2_setup1/stages/10_cts/cts.tcl",
+      "original_script_sha256": "ee5f98db71255f142852db7a1af58aafcccb5ce42dad97eccad356bec6e26b54",
+      "instrumented_script": "runs/setup_repair_diagnostic_20261013/timing_DELAY1_density45_pad2_setup1/diagnostic.tcl",
+      "instrumented_script_sha256": "89d79ab6679eae9bb617448af9d96f5d08c57220d6d94cbcefff0541102334af",
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "-u",
+        "1000:1000",
+        "-v",
+        "/home/vlsi/rtl2gdsagi/runs:/home/vlsi/rtl2gdsagi/runs",
+        "-v",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:ro",
+        "-w",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY1_density45_pad2_setup1",
+        "--entrypoint",
+        "openroad",
+        "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+        "-no_init",
+        "-exit",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY1_density45_pad2_setup1/diagnostic.tcl"
+      ],
+      "returncode": 0,
+      "log": "runs/setup_repair_diagnostic_20261013/timing_DELAY1_density45_pad2_setup1/native.log",
+      "log_sha256": "c7ab685ea57ec837321706eae2b1dd6b3b3ed7f94acb6202298b8b8e987960be",
+      "command_entered_and_returned": true,
+      "before_setup": {
+        "setup_wns_ns": 0.19971669328056368,
+        "hold_wns_ns": -0.1859941697746436
+      },
+      "after_setup": {
+        "setup_wns_ns": 0.19971669328056368,
+        "hold_wns_ns": -0.1859941697746436
+      },
+      "setup_margin_ns": 0.05,
+      "setup_repair_def_unchanged": true,
+      "setup_repair_netlist_unchanged": true,
+      "final_cts_def_matches_archived": true,
+      "zero_wire_capacitance_warning": true,
+      "wire_load_fallback_warning": true,
+      "snapshot_hashes": {
+        "before.def": "55b1f69d159d975188aced38d4052373b7a3c02b6b1559fb53efa0ce69998bd2",
+        "final.v": "bf8271e3b1a1a2b3a3f4d503abc2560727b60b855f310b59019ac434005728b2",
+        "before.v": "feaf642f3098b72b769be0f3c10f9e4bced7e7f8e8676d4b50969776130b77fb",
+        "after.def": "55b1f69d159d975188aced38d4052373b7a3c02b6b1559fb53efa0ce69998bd2",
+        "final.def": "e0df479b034cfa53fe5a8d88d927dee7ad32203ca9bb6823b79aa45af64eccb6",
+        "after.v": "feaf642f3098b72b769be0f3c10f9e4bced7e7f8e8676d4b50969776130b77fb"
+      }
+    },
+    {
+      "trial": "timing_DELAY1_density55_pad1_setup1",
+      "original_script": "runs/scripted_baseline_bounded_20261013/timing_DELAY1_density55_pad1_setup1/stages/10_cts/cts.tcl",
+      "original_script_sha256": "abceff23befb0b36dd464a4a7e77eca417327bccecb5551bf3e9b66d6d961868",
+      "instrumented_script": "runs/setup_repair_diagnostic_20261013/timing_DELAY1_density55_pad1_setup1/diagnostic.tcl",
+      "instrumented_script_sha256": "5c9bd879ee577d4c71996b916ad3a3573acea52d77577e690bfcf63c9b20090b",
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "-u",
+        "1000:1000",
+        "-v",
+        "/home/vlsi/rtl2gdsagi/runs:/home/vlsi/rtl2gdsagi/runs",
+        "-v",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:ro",
+        "-w",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY1_density55_pad1_setup1",
+        "--entrypoint",
+        "openroad",
+        "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+        "-no_init",
+        "-exit",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY1_density55_pad1_setup1/diagnostic.tcl"
+      ],
+      "returncode": 0,
+      "log": "runs/setup_repair_diagnostic_20261013/timing_DELAY1_density55_pad1_setup1/native.log",
+      "log_sha256": "43d6d1a6f5c02fd3a5c88afcaa6784380db03b4c89d22a7ecffe22db8c6cc709",
+      "command_entered_and_returned": true,
+      "before_setup": {
+        "setup_wns_ns": 0.19971669328056368,
+        "hold_wns_ns": -0.1859941697746436
+      },
+      "after_setup": {
+        "setup_wns_ns": 0.19971669328056368,
+        "hold_wns_ns": -0.1859941697746436
+      },
+      "setup_margin_ns": 0.05,
+      "setup_repair_def_unchanged": true,
+      "setup_repair_netlist_unchanged": true,
+      "final_cts_def_matches_archived": true,
+      "zero_wire_capacitance_warning": true,
+      "wire_load_fallback_warning": true,
+      "snapshot_hashes": {
+        "before.def": "e35043b22e40ff20f5986a554ee193e2ffebd5fbad5ac2a86d09d07b253699d9",
+        "final.v": "bf8271e3b1a1a2b3a3f4d503abc2560727b60b855f310b59019ac434005728b2",
+        "before.v": "feaf642f3098b72b769be0f3c10f9e4bced7e7f8e8676d4b50969776130b77fb",
+        "after.def": "e35043b22e40ff20f5986a554ee193e2ffebd5fbad5ac2a86d09d07b253699d9",
+        "final.def": "afeb1ad32973191371ce4a763c0d4ea92a50094396f63e402078968b31e5cc98",
+        "after.v": "feaf642f3098b72b769be0f3c10f9e4bced7e7f8e8676d4b50969776130b77fb"
+      }
+    },
+    {
+      "trial": "timing_DELAY1_density55_pad2_setup1",
+      "original_script": "runs/scripted_baseline_bounded_20261013/timing_DELAY1_density55_pad2_setup1/stages/10_cts/cts.tcl",
+      "original_script_sha256": "c3714385ec9df4172a62c8ea55f91b0105a95e2318001e9e1bb2768d05fc9f89",
+      "instrumented_script": "runs/setup_repair_diagnostic_20261013/timing_DELAY1_density55_pad2_setup1/diagnostic.tcl",
+      "instrumented_script_sha256": "a1db2749390dcc3ebbaa5a3b38b1082f2c5479a0ae8d2aacb41fdc4a3d1a5938",
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "-u",
+        "1000:1000",
+        "-v",
+        "/home/vlsi/rtl2gdsagi/runs:/home/vlsi/rtl2gdsagi/runs",
+        "-v",
+        "/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:/home/vlsi/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A:ro",
+        "-w",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY1_density55_pad2_setup1",
+        "--entrypoint",
+        "openroad",
+        "ghcr.io/the-openroad-project/openlane:ff5509f65b17bfa4068d5336495ab1718987ff69",
+        "-no_init",
+        "-exit",
+        "/home/vlsi/rtl2gdsagi/runs/setup_repair_diagnostic_20261013/timing_DELAY1_density55_pad2_setup1/diagnostic.tcl"
+      ],
+      "returncode": 0,
+      "log": "runs/setup_repair_diagnostic_20261013/timing_DELAY1_density55_pad2_setup1/native.log",
+      "log_sha256": "13c7dd4a6c003196056b67cb62ee66818dda8b8f5ea4cc9688a62c8b72a3c9a6",
+      "command_entered_and_returned": true,
+      "before_setup": {
+        "setup_wns_ns": 0.19971669328056368,
+        "hold_wns_ns": -0.1859941697746436
+      },
+      "after_setup": {
+        "setup_wns_ns": 0.19971669328056368,
+        "hold_wns_ns": -0.1859941697746436
+      },
+      "setup_margin_ns": 0.05,
+      "setup_repair_def_unchanged": true,
+      "setup_repair_netlist_unchanged": true,
+      "final_cts_def_matches_archived": true,
+      "zero_wire_capacitance_warning": true,
+      "wire_load_fallback_warning": true,
+      "snapshot_hashes": {
+        "before.def": "2ce366c167f84d2db7c6468abdab2ea6599dd42b5726fcdcfdab92dca32273c3",
+        "final.v": "bf8271e3b1a1a2b3a3f4d503abc2560727b60b855f310b59019ac434005728b2",
+        "before.v": "feaf642f3098b72b769be0f3c10f9e4bced7e7f8e8676d4b50969776130b77fb",
+        "after.def": "2ce366c167f84d2db7c6468abdab2ea6599dd42b5726fcdcfdab92dca32273c3",
+        "final.def": "98f620ead4b6fff2307ffdd7041e891ff8a121c451af60401240e54a95687215",
+        "after.v": "feaf642f3098b72b769be0f3c10f9e4bced7e7f8e8676d4b50969776130b77fb"
+      }
+    }
+  ],
+  "ended_at": 1791891455.0533035,
+  "consistent_source": true
+}

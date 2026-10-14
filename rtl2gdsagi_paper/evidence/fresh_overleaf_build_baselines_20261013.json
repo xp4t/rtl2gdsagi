@@ -1,0 +1,28 @@
+{
+  "build_directory": "/tmp/rtl2gdsagi-overleaf-followup-3g_svqk_",
+  "tested_zip_sha256": "018592e0a7bfd2342ec7122ead13730c759a7c13a4dadcb6346eb1d5ab3f33bf",
+  "returncode": 0,
+  "pages": 12,
+  "documents": [
+    {
+      "document": "main",
+      "pages": 12,
+      "pdf_text_sha256": "a4e69a6d58291d476325ecdade22817456d620d56d03d6466430f70c15e57566",
+      "fresh_pdf_sha256": "ab2d49553d80f2b1ab603f02ede4ed234f25acd1d096a71a1c8270a3abc2fca0",
+      "underfull_box_warnings": 11
+    },
+    {
+      "document": "supplement",
+      "pages": 6,
+      "pdf_text_sha256": "aed13f3b0a851be4ccb16846545f2dfbbbbb975beb535d525c4801406e8e7ae6",
+      "fresh_pdf_sha256": "6dd2411c067ed3c8fb369d347bcd916c2cb6e3243cd8d6bc63c3c6dce65cd9f7",
+      "underfull_box_warnings": 2
+    }
+  ],
+  "warnings": 0,
+  "warning_scope": "No overfull boxes, undefined references/citations, LaTeX warnings or errors; underfull-box notices counted separately per document.",
+  "pdf_text_matches_manuscript": true,
+  "pdf_text_sha256": "a4e69a6d58291d476325ecdade22817456d620d56d03d6466430f70c15e57566",
+  "fresh_pdf_sha256": "ab2d49553d80f2b1ab603f02ede4ed234f25acd1d096a71a1c8270a3abc2fca0",
+  "manuscript_sha256": "2aa92affa3a4eb7474e1eac7cd859529cbd4ec02f0b39bbc2358fe4388af7c80"
+}

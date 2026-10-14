@@ -106,3 +106,24 @@ states that diagnosis limits are not universal termination bounds. No native
 outcome, constraint value, eligibility rule or historical cohort was rewritten.
 The introduction was shortened without changing questions or contribution.
 Underfull TeX notices are counted separately from blocking build warnings.
+
+
+## Timing and guardband clarification, 13 October
+
+This revision separates archived timing proposal outcomes (11/14 confirmed
+failures, two unavailable target checks, one pass) from the source-confounded
+14/14 frozen failures. Eight instrumented CTS traces show native setup repair
+is entered and returns with no setup violation under its wire-load estimate;
+all resulting CTS DEF hashes match the original states. The 50 ps analysis is
+post-hoc threshold eligibility, not new signoff: six of seven primary designs
+qualify, while shift1024's 49.477 ps routed hold does not. The archived 1.586 ps
+setup repair also misses the threshold. Ghose et al. are explicitly identified
+as authors of the overlapping ICCAD manuscript.
+
+The three scoped sequential internal review passes in this Codex session are
+REVIEW_SENSITIVITY_EVIDENCE,
+REVIEW_SENSITIVITY_METHODS and REVIEW_SENSITIVITY_PRESENTATION. Initial separate-context worker attempts yielded no completed
+reports and are not counted. Actual verdicts and final hash closure are retained in those reports and the current
+review bindings. They are not external review; exact venue criteria remain
+unavailable/NOT_CALIBRATED. Earlier baseline bindings and publication receipts
+are retained with the `_baselines_20261013` suffix.

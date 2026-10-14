@@ -1,0 +1,1657 @@
+{
+  "created_at": "2026-10-13T11:00:36.661975+00:00",
+  "main_sha256": "2aa92affa3a4eb7474e1eac7cd859529cbd4ec02f0b39bbc2358fe4388af7c80",
+  "source_audits": [
+    {
+      "path": "rtl2gdsagi_paper/evidence/citation_audit_frozen.json",
+      "sha256": "d7654fed28b5d0989a3cf0476303ad407756c65ac1996680adb0bda0cf6ba3e0"
+    },
+    {
+      "path": "rtl2gdsagi_paper/evidence/citation_baseline_audit.json",
+      "sha256": "fd81236614c35bd7087bfd7ce9af65cb46eea34b0c582d420eeadd725d6e11cb"
+    }
+  ],
+  "references": [
+    {
+      "key": "ajayi2019",
+      "current_entry": "Ajayi, T., et al.: Toward an Open-Source Digital Flow: First Learnings from the\nOpenROAD Project. In: Proceedings of the 56th Annual Design Automation\nConference, pp. 1--4 (2019). \\url{https://doi.org/10.1145/3316781.3326334}",
+      "current_line": 428,
+      "current_contexts": [
+        {
+          "line": 53,
+          "paragraph": "\\section{Introduction}\nOpenROAD and OpenLane provide open synthesis and physical-implementation\ninfrastructure~\\cite{ajayi2019,shalan2020}. Release combines geometric,\nconnectivity and timing evidence bound to the selected implementation and\nverification inputs. A zero-marker report may concern another GDS or omit\nrequired rules; repair can invalidate earlier evidence."
+        },
+        {
+          "line": 355,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
+        }
+      ],
+      "audit": "citation_audit_frozen.json",
+      "audit_record": {
+        "reference_number": 1,
+        "citation_key": "ajayi2019",
+        "manuscript_bibliography_locator": "main.tex:449",
+        "manuscript_entry": "Ajayi, T., et al.: Toward an Open-Source Digital Flow: First Learnings from the\nOpenROAD Project. In: Proceedings of the 56th Annual Design Automation\nConference (2019). \\url{https://doi.org/10.1145/3316781.3326334}",
+        "citation_occurrences": [
+          "main.tex:58",
+          "main.tex:359"
+        ],
+        "status": "resolved; identity confirmed by ACM-deposited metadata and primary paper mirror; ACM page blocked",
+        "verified_metadata": {
+          "title": "INVITED: Toward an Open-Source Digital Flow: First Learnings from the OpenROAD Project",
+          "authors": [
+            "Tutu Ajayi",
+            "Vidya A. Chhabria",
+            "Mateus Foga\u00e7a",
+            "Soheil Hashemi",
+            "Abdelrahman Hosny",
+            "Andrew B. Kahng",
+            "Minsoo Kim",
+            "Jeongsup Lee",
+            "Uday Mallappa",
+            "Marina Neseem",
+            "Geraldo Pradipta",
+            "Sherief Reda",
+            "Mehdi Saligane",
+            "Sachin S. Sapatnekar",
+            "Carl Sechen",
+            "Mohamed Shalan",
+            "William Swartz",
+            "Lutong Wang",
+            "Zhehong Wang",
+            "Mingyu Woo",
+            "Bangqi Xu"
+          ],
+          "year": 2019,
+          "venue": "Proceedings of the 56th Annual Design Automation Conference 2019",
+          "pages": "1\u20134",
+          "doi": "10.1145/3316781.3326334"
+        },
+        "field_checks": {
+          "title": "Matches source identity; documented title variants/normalization below where applicable",
+          "authors": "Matches cited version and order; corporate attribution acceptable for documentation",
+          "year": "Confirmed 2019",
+          "doi": "Confirmed registered DOI and HTTP 302 target"
+        },
+        "resolution": {
+          "printed_doi": {
+            "url": "https://doi.org/10.1145/3316781.3326334",
+            "status": 302,
+            "location": "https://dl.acm.org/doi/10.1145/3316781.3326334",
+            "error": null
+          },
+          "printed_url": null,
+          "additional_arxiv_doi": null
+        },
+        "sources": [
+          {
+            "url": "https://api.crossref.org/works/10.1145/3316781.3326334",
+            "kind": "publisher_deposited_metadata",
+            "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+            "access_status": "HTTP 200; freshly read",
+            "read_scope": "Bibliographic metadata only; no article body"
+          },
+          {
+            "url": "https://dl.acm.org/doi/10.1145/3316781.3326334",
+            "kind": "primary_publisher",
+            "locator": "DOI target",
+            "access_status": "HTTP 403 in browser",
+            "read_scope": "No publisher body accessed"
+          },
+          {
+            "url": "https://par.nsf.gov/servlets/purl/10171025",
+            "kind": "primary_paper_mirror",
+            "locator": "PDF p.1 title/author block, Abstract, ACM Reference Format and DOI footer",
+            "access_status": "HTTP 200 via Python; browser fetch timed out",
+            "read_scope": "Only page 1 extracted and read; remaining pages not read"
+          },
+          {
+            "url": "https://fount.aucegypt.edu/faculty_book_chapters/159/",
+            "kind": "author_institution_record",
+            "locator": "Title; authors; Publication Date; Publisher; Recommended Citation",
+            "access_status": "Readable",
+            "read_scope": "Metadata only; site explicitly has no abstract"
+          }
+        ],
+        "claim_alignment": {
+          "status": "Supported at the disclosed reading scope; limitations and optional narrowing recorded",
+          "manuscript_locator": "main.tex:56\u201358; 358\u2013359",
+          "claim_summary": "OpenROAD and OpenLane supply open synthesis/physical implementation infrastructure.",
+          "supported_scope": "The OpenROAD abstract describes an open flow spanning synthesis, placement and routing.",
+          "limitations": [
+            "The 2019 paper describes an alpha release and goals; it does not certify current tool behavior or this manuscript's signoff results.",
+            "Crossref separates title/subtitle and omits INVITED; the paper title block includes it. Both identify the same source."
+          ],
+          "recommended_wording": "OpenROAD describes an open tool flow spanning synthesis and physical implementation."
+        },
+        "recommended_corrections": [
+          {
+            "type": "bibliographic_completeness",
+            "priority": "recommended",
+            "field": "pages",
+            "action": "Add pp. 1\u20134."
+          },
+          {
+            "type": "title_normalization",
+            "priority": "optional",
+            "field": "title",
+            "action": "Include INVITED: to reproduce the paper's title block; its omission is not a source-identity error."
+          }
+        ],
+        "recommended_reference": "Ajayi, T., et al.: INVITED: Toward an Open-Source Digital Flow: First Learnings from the OpenROAD Project. In: Proceedings of the 56th Annual Design Automation Conference 2019, pp. 1\u20134 (2019). https://doi.org/10.1145/3316781.3326334",
+        "full_paper_body_read": false
+      },
+      "source_receipts": [
+        {
+          "url": "https://api.crossref.org/works/10.1145/3316781.3326334",
+          "kind": "publisher_deposited_metadata",
+          "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+          "access_status": "HTTP 200; freshly read",
+          "read_scope": "Bibliographic metadata only; no article body"
+        },
+        {
+          "url": "https://dl.acm.org/doi/10.1145/3316781.3326334",
+          "kind": "primary_publisher",
+          "locator": "DOI target",
+          "access_status": "HTTP 403 in browser",
+          "read_scope": "No publisher body accessed"
+        },
+        {
+          "url": "https://par.nsf.gov/servlets/purl/10171025",
+          "kind": "primary_paper_mirror",
+          "locator": "PDF p.1 title/author block, Abstract, ACM Reference Format and DOI footer",
+          "access_status": "HTTP 200 via Python; browser fetch timed out",
+          "read_scope": "Only page 1 extracted and read; remaining pages not read"
+        },
+        {
+          "url": "https://fount.aucegypt.edu/faculty_book_chapters/159/",
+          "kind": "author_institution_record",
+          "locator": "Title; authors; Publication Date; Publisher; Recommended Citation",
+          "access_status": "Readable",
+          "read_scope": "Metadata only; site explicitly has no abstract"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "shalan2020",
+      "current_entry": "Shalan, M., Edwards, T.: Building OpenLANE: A 130nm OpenROAD-based\ntapeout-proven flow. In: Proceedings of the 2020 IEEE/ACM International\nConference on Computer-Aided Design, pp. 1--6 (2020).\n\\url{https://doi.org/10.1145/3400302.3415735}",
+      "current_line": 432,
+      "current_contexts": [
+        {
+          "line": 53,
+          "paragraph": "\\section{Introduction}\nOpenROAD and OpenLane provide open synthesis and physical-implementation\ninfrastructure~\\cite{ajayi2019,shalan2020}. Release combines geometric,\nconnectivity and timing evidence bound to the selected implementation and\nverification inputs. A zero-marker report may concern another GDS or omit\nrequired rules; repair can invalidate earlier evidence."
+        },
+        {
+          "line": 355,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
+        }
+      ],
+      "audit": "citation_audit_frozen.json",
+      "audit_record": {
+        "reference_number": 2,
+        "citation_key": "shalan2020",
+        "manuscript_bibliography_locator": "main.tex:453",
+        "manuscript_entry": "Shalan, M., Edwards, T.: Building OpenLANE: A 130nm OpenROAD-based\ntapeout-proven flow. In: Proceedings of the 2020 IEEE/ACM International\nConference on Computer-Aided Design (2020).\n\\url{https://doi.org/10.1145/3400302.3415735}",
+        "citation_occurrences": [
+          "main.tex:58",
+          "main.tex:359"
+        ],
+        "status": "resolved; identity confirmed by ACM-deposited metadata; ACM page blocked; IEEE indexed abstract readable",
+        "verified_metadata": {
+          "title": "Building OpenLANE: a 130nm openroad-based tapeout-proven flow",
+          "authors": [
+            "Mohamed Shalan",
+            "Tim Edwards"
+          ],
+          "year": 2020,
+          "venue": "Proceedings of the 39th International Conference on Computer-Aided Design",
+          "pages": "1\u20136",
+          "doi": "10.1145/3400302.3415735"
+        },
+        "field_checks": {
+          "title": "Matches source identity; documented title variants/normalization below where applicable",
+          "authors": "Matches cited version and order; corporate attribution acceptable for documentation",
+          "year": "Confirmed 2020",
+          "doi": "Confirmed registered DOI and HTTP 302 target"
+        },
+        "resolution": {
+          "printed_doi": {
+            "url": "https://doi.org/10.1145/3400302.3415735",
+            "status": 302,
+            "location": "https://dl.acm.org/doi/10.1145/3400302.3415735",
+            "error": null
+          },
+          "printed_url": null,
+          "additional_arxiv_doi": null
+        },
+        "sources": [
+          {
+            "url": "https://api.crossref.org/works/10.1145/3400302.3415735",
+            "kind": "publisher_deposited_metadata",
+            "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+            "access_status": "HTTP 200; freshly read",
+            "read_scope": "Bibliographic metadata only; no article body"
+          },
+          {
+            "url": "https://dl.acm.org/doi/10.1145/3400302.3415735",
+            "kind": "primary_publisher",
+            "locator": "DOI target",
+            "access_status": "HTTP 403 in browser",
+            "read_scope": "No publisher article body accessed"
+          },
+          {
+            "url": "https://ieeexplore.ieee.org/abstract/document/9256623/?signout=success",
+            "kind": "primary_publisher_indexed_record",
+            "locator": "Title; Abstract; Published in; Date of Conference",
+            "access_status": "Publisher-indexed search extract readable; direct open HTTP 418; /document/9256623 challenge",
+            "read_scope": "Abstract and metadata from publisher-indexed result only"
+          }
+        ],
+        "claim_alignment": {
+          "status": "Supported at the disclosed reading scope; limitations and optional narrowing recorded",
+          "manuscript_locator": "main.tex:56\u201358; 358\u2013359",
+          "claim_summary": "OpenLane supplies open implementation infrastructure.",
+          "supported_scope": "IEEE abstract describes an open SoC implemented with an open tool flow and open PDK, from concept to silicon validation.",
+          "limitations": [
+            "No body-level evaluation or current-version behavior verified.",
+            "IEEE record adds Invited Paper; ACM title/subtitle variant matches the manuscript. A different record does not justify replacing the valid ACM DOI."
+          ],
+          "recommended_wording": "OpenLane describes an open tool flow demonstrated on a 130 nm SoC."
+        },
+        "recommended_corrections": [
+          {
+            "type": "bibliographic_completeness",
+            "priority": "recommended",
+            "field": "pages",
+            "action": "Add pp. 1\u20136."
+          },
+          {
+            "type": "venue_normalization",
+            "priority": "recommended",
+            "field": "venue",
+            "action": "Use Proceedings of the 39th International Conference on Computer-Aided Design for the cited ACM record, or consistently retain its ICCAD abbreviation."
+          }
+        ],
+        "recommended_reference": "Shalan, M., Edwards, T.: Building OpenLANE: A 130nm OpenROAD-based tapeout-proven flow. In: Proceedings of the 39th International Conference on Computer-Aided Design, pp. 1\u20136 (2020). https://doi.org/10.1145/3400302.3415735",
+        "full_paper_body_read": false
+      },
+      "source_receipts": [
+        {
+          "url": "https://api.crossref.org/works/10.1145/3400302.3415735",
+          "kind": "publisher_deposited_metadata",
+          "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+          "access_status": "HTTP 200; freshly read",
+          "read_scope": "Bibliographic metadata only; no article body"
+        },
+        {
+          "url": "https://dl.acm.org/doi/10.1145/3400302.3415735",
+          "kind": "primary_publisher",
+          "locator": "DOI target",
+          "access_status": "HTTP 403 in browser",
+          "read_scope": "No publisher article body accessed"
+        },
+        {
+          "url": "https://ieeexplore.ieee.org/abstract/document/9256623/?signout=success",
+          "kind": "primary_publisher_indexed_record",
+          "locator": "Title; Abstract; Published in; Date of Conference",
+          "access_status": "Publisher-indexed search extract readable; direct open HTTP 418; /document/9256623 challenge",
+          "read_scope": "Abstract and metadata from publisher-indexed result only"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "eqydocs",
+      "current_entry": "YosysHQ: EQY documentation. \\url{https://yosyshq.readthedocs.io/projects/eqy/en/latest/}\n(accessed 12 October 2026)",
+      "current_line": 437,
+      "current_contexts": [
+        {
+          "line": 137,
+          "paragraph": "A typed change rolls execution back to its earliest affected stage and\ninvalidates downstream evidence. The recorded live episodes configure three\nattempts per stage and 24 diagnosis attempts. These settings do not establish\nuniversal termination. The controller stops when a\nproposal would revisit a previously failed stage fingerprint, including its\ninputs and effective configuration. Formal equivalence checks both synthesis\nand routed netlists using EQY~\\cite{eqydocs}. Scalar-net matching uses\n\\code{splitnets on}; grouping related signals under \\code{[collect *]} and\n\\code{group *} preserves coupled-state proof structure. Fresh counter and\nshift-register controls prove equivalent, while a retained counter mutant\nwith a forced flop fails equivalence."
+        }
+      ],
+      "audit": "citation_audit_frozen.json",
+      "audit_record": {
+        "reference_number": 3,
+        "citation_key": "eqydocs",
+        "manuscript_bibliography_locator": "main.tex:458",
+        "manuscript_entry": "YosysHQ: EQY documentation. \\url{https://yosyshq.readthedocs.io/projects/eqy/en/latest/}\n(accessed 12 October 2026)",
+        "citation_occurrences": [
+          "main.tex:93",
+          "main.tex:378"
+        ],
+        "status": "resolved; primary YosysHQ documentation readable",
+        "verified_metadata": {
+          "title": "Equivalence Checking with Yosys (EQY) Documentation",
+          "authors": [
+            "YosysHQ"
+          ],
+          "year": null,
+          "source_type": "living tool documentation",
+          "url": "https://yosyshq.readthedocs.io/projects/eqy/en/latest/",
+          "doi": null,
+          "manuscript_access_date": "2026-10-12",
+          "audit_access_date": "2026-10-13"
+        },
+        "field_checks": {
+          "title": "Matches source identity; documented title variants/normalization below where applicable",
+          "authors": "Matches cited version and order; corporate attribution acceptable for documentation",
+          "year": "No dated edition verified; no publication year asserted",
+          "doi": "No DOI stated in manuscript or identified in inspected source; URL citation adequate"
+        },
+        "resolution": {
+          "printed_doi": null,
+          "printed_url": {
+            "url": "https://yosyshq.readthedocs.io/projects/eqy/en/latest/",
+            "status": 200,
+            "final_url": "https://yosyshq.readthedocs.io/projects/eqy/en/latest/",
+            "type": "text/html; charset=utf-8",
+            "bytes": 21842,
+            "sha256": "e9ae4c04d9238fa17cd24ed99b6ad400032f23a925cd0a8d40691d219be65acd"
+          },
+          "additional_arxiv_doi": null
+        },
+        "sources": [
+          {
+            "url": "https://yosyshq.readthedocs.io/projects/eqy/en/latest/",
+            "kind": "primary_tool_docs",
+            "locator": "Main heading and opening description",
+            "access_status": "HTTP 200",
+            "read_scope": "Introductory documentation"
+          },
+          {
+            "url": "https://yosyshq.readthedocs.io/projects/eqy/en/latest/config.html#options-section",
+            "kind": "primary_tool_docs",
+            "locator": "Options section: splitnets; Match sections; Collect sections: group/nogroup and bind/nobind",
+            "access_status": "Readable",
+            "read_scope": "Named configuration sections only"
+          }
+        ],
+        "claim_alignment": {
+          "status": "Supported at the disclosed reading scope; limitations and optional narrowing recorded",
+          "manuscript_locator": "main.tex:92\u201393; 160\u2013169 (configuration context); 378",
+          "claim_summary": "EQY is the equivalence engine; scalar splitting and grouping provide decomposition context.",
+          "supported_scope": "Documentation identifies a Yosys equivalence driver and describes vector splitting, net matching and fragment grouping.",
+          "limitations": [
+            "Docs establish configuration semantics, not local PASS/FAIL outcomes or correctness of this controller's particular grouping.",
+            "The /latest/ URL is mutable. Copyright 2026 is not a publication year. The author's earlier access date is not independently attested by this audit."
+          ],
+          "recommended_wording": "EQY provides Yosys-based equivalence checking; its configuration supports splitting vector nets and grouping matched signals."
+        },
+        "recommended_corrections": [
+          {
+            "type": "documentation_reproducibility",
+            "priority": "recommended",
+            "field": "version",
+            "action": "Add the EQY revision/documentation version used for experiments if retained."
+          },
+          {
+            "type": "access_date",
+            "priority": "conditional",
+            "field": "accessed",
+            "action": "Keep 12 October if it is the author's actual access; use 13 October only if adopting this audit's access event."
+          }
+        ],
+        "recommended_reference": "YosysHQ: Equivalence Checking with Yosys (EQY) Documentation. https://yosyshq.readthedocs.io/projects/eqy/en/latest/ (accessed 13 October 2026 for this audit; retain the author's original access date when appropriate).",
+        "full_paper_body_read": false
+      },
+      "source_receipts": [
+        {
+          "url": "https://yosyshq.readthedocs.io/projects/eqy/en/latest/",
+          "kind": "primary_tool_docs",
+          "locator": "Main heading and opening description",
+          "access_status": "HTTP 200",
+          "read_scope": "Introductory documentation"
+        },
+        {
+          "url": "https://yosyshq.readthedocs.io/projects/eqy/en/latest/config.html#options-section",
+          "kind": "primary_tool_docs",
+          "locator": "Options section: splitnets; Match sections; Collect sections: group/nogroup and bind/nobind",
+          "access_status": "Readable",
+          "read_scope": "Named configuration sections only"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "jung2021",
+      "current_entry": "Jung, J., Kahng, A.B., Kim, S., Varadarajan, R.: METRICS2.1 and flow tuning\nin the IEEE CEDA Robust Design Flow and OpenROAD: ICCAD special session paper.\nIn: Proceedings of the 2021 IEEE/ACM International Conference on Computer-Aided\nDesign, pp. 1--9 (2021). \\url{https://doi.org/10.1109/ICCAD51958.2021.9643541}",
+      "current_line": 440,
+      "current_contexts": [
+        {
+          "line": 356,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
+        }
+      ],
+      "audit": "citation_audit_frozen.json",
+      "audit_record": {
+        "reference_number": 4,
+        "citation_key": "jung2021",
+        "manuscript_bibliography_locator": "main.tex:461",
+        "manuscript_entry": "Jung, J., Kahng, A.B., Kim, S., Varadarajan, R.: METRICS2.1 and flow tuning\nin the IEEE CEDA Robust Design Flow and OpenROAD: ICCAD special session paper.\nIn: Proceedings of the 2021 IEEE/ACM International Conference on Computer-Aided\nDesign (2021). \\url{https://doi.org/10.1109/ICCAD51958.2021.9643541}",
+        "citation_occurrences": [
+          "main.tex:360"
+        ],
+        "status": "resolved; IEEE-deposited metadata confirmed; IEEE page challenged; primary author PDF abstract readable",
+        "verified_metadata": {
+          "title": "METRICS2.1 and Flow Tuning in the IEEE CEDA Robust Design Flow and OpenROAD ICCAD Special Session Paper",
+          "authors": [
+            "Jinwook Jung",
+            "Andrew B. Kahng",
+            "Seungwon Kim",
+            "Ravi Varadarajan"
+          ],
+          "year": 2021,
+          "venue": "2021 IEEE/ACM International Conference On Computer Aided Design (ICCAD)",
+          "pages": "1\u20139",
+          "doi": "10.1109/ICCAD51958.2021.9643541"
+        },
+        "field_checks": {
+          "title": "Matches source identity; documented title variants/normalization below where applicable",
+          "authors": "Matches cited version and order; corporate attribution acceptable for documentation",
+          "year": "Confirmed 2021",
+          "doi": "Confirmed registered DOI and HTTP 302 target"
+        },
+        "resolution": {
+          "printed_doi": {
+            "url": "https://doi.org/10.1109/ICCAD51958.2021.9643541",
+            "status": 302,
+            "location": "https://ieeexplore.ieee.org/document/9643541/",
+            "error": null
+          },
+          "printed_url": null,
+          "additional_arxiv_doi": null
+        },
+        "sources": [
+          {
+            "url": "https://api.crossref.org/works/10.1109/iccad51958.2021.9643541",
+            "kind": "publisher_deposited_metadata",
+            "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+            "access_status": "HTTP 200; freshly read",
+            "read_scope": "Bibliographic metadata only; no article body"
+          },
+          {
+            "url": "https://ieeexplore.ieee.org/document/9643541",
+            "kind": "primary_publisher",
+            "locator": "Title in indexed publisher record; DOI target",
+            "access_status": "Direct page shows JavaScript anti-bot challenge",
+            "read_scope": "Title/challenge only; article body unread"
+          },
+          {
+            "url": "https://vlsicad.ucsd.edu/Publications/Conferences/388/c388.pdf",
+            "kind": "primary_author_paper",
+            "locator": "PDF p.1 title/authors and Abstract; p.2 Section II METRICS2.1",
+            "access_status": "Readable PDF",
+            "read_scope": "First-page abstract/introduction and visible Section II excerpt; remaining body not systematically read"
+          }
+        ],
+        "claim_alignment": {
+          "status": "Supported at the disclosed reading scope; limitations and optional narrowing recorded",
+          "manuscript_locator": "main.tex:359\u2013360",
+          "claim_summary": "METRICS2.1 provides structured measurement and flow tuning.",
+          "supported_scope": "Abstract proposes a metrics structure and discusses parameter autotuning; Section II describes hierarchical metrics.",
+          "limitations": [
+            "This does not independently validate this manuscript's JSON records or measured QoR."
+          ],
+          "recommended_wording": "METRICS2.1 proposes a structured format for flow metrics and supports parameter autotuning."
+        },
+        "recommended_corrections": [
+          {
+            "type": "bibliographic_completeness",
+            "priority": "recommended",
+            "field": "pages",
+            "action": "Add pp. 1\u20139."
+          }
+        ],
+        "recommended_reference": "Jung, J., Kahng, A.B., Kim, S., Varadarajan, R.: METRICS2.1 and Flow Tuning in the IEEE CEDA Robust Design Flow and OpenROAD: ICCAD Special Session Paper. In: 2021 IEEE/ACM International Conference On Computer Aided Design (ICCAD), pp. 1\u20139 (2021). https://doi.org/10.1109/ICCAD51958.2021.9643541",
+        "full_paper_body_read": false
+      },
+      "source_receipts": [
+        {
+          "url": "https://api.crossref.org/works/10.1109/iccad51958.2021.9643541",
+          "kind": "publisher_deposited_metadata",
+          "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+          "access_status": "HTTP 200; freshly read",
+          "read_scope": "Bibliographic metadata only; no article body"
+        },
+        {
+          "url": "https://ieeexplore.ieee.org/document/9643541",
+          "kind": "primary_publisher",
+          "locator": "Title in indexed publisher record; DOI target",
+          "access_status": "Direct page shows JavaScript anti-bot challenge",
+          "read_scope": "Title/challenge only; article body unread"
+        },
+        {
+          "url": "https://vlsicad.ucsd.edu/Publications/Conferences/388/c388.pdf",
+          "kind": "primary_author_paper",
+          "locator": "PDF p.1 title/authors and Abstract; p.2 Section II METRICS2.1",
+          "access_status": "Readable PDF",
+          "read_scope": "First-page abstract/introduction and visible Section II excerpt; remaining body not systematically read"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "prov2013",
+      "current_entry": "W3C: PROV-Overview: An overview of the PROV family of documents.\nW3C Working Group Note (2013). \\url{https://www.w3.org/TR/prov-overview/}",
+      "current_line": 445,
+      "current_contexts": [
+        {
+          "line": 357,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
+        }
+      ],
+      "audit": "citation_audit_frozen.json",
+      "audit_record": {
+        "reference_number": 5,
+        "citation_key": "prov2013",
+        "manuscript_bibliography_locator": "main.tex:466",
+        "manuscript_entry": "W3C: PROV-Overview: An overview of the PROV family of documents.\nW3C Working Group Note (2013). \\url{https://www.w3.org/TR/prov-overview/}",
+        "citation_occurrences": [
+          "main.tex:361"
+        ],
+        "status": "resolved; primary W3C Note readable",
+        "verified_metadata": {
+          "title": "PROV-Overview: An Overview of the PROV Family of Documents",
+          "authors": [
+            "W3C"
+          ],
+          "editors": [
+            "Paul Groth",
+            "Luc Moreau"
+          ],
+          "year": 2013,
+          "publication_date": "2013-04-30",
+          "source_type": "W3C Working Group Note; non-normative overview",
+          "doi": null,
+          "url": "https://www.w3.org/TR/prov-overview/",
+          "dated_url": "https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/"
+        },
+        "field_checks": {
+          "title": "Matches source identity; documented title variants/normalization below where applicable",
+          "authors": "Matches cited version and order; corporate attribution acceptable for documentation",
+          "year": "Confirmed 2013",
+          "doi": "No DOI stated in manuscript or identified in inspected source; URL citation adequate"
+        },
+        "resolution": {
+          "printed_doi": null,
+          "printed_url": {
+            "url": "https://www.w3.org/TR/prov-overview/",
+            "status": 200,
+            "final_url": "https://www.w3.org/TR/prov-overview/",
+            "type": "text/html; charset=utf-8",
+            "bytes": 34025,
+            "sha256": "fc45beed479aef763da4dd6e11d1f92e0e7b91e9c19c30a0ed9ba279de36b556"
+          },
+          "additional_arxiv_doi": null
+        },
+        "sources": [
+          {
+            "url": "https://www.w3.org/TR/prov-overview/",
+            "kind": "primary_standards_org",
+            "locator": "Header date/type and Editors; Abstract; Section 1 Introduction; Section 2 Document Roadmap",
+            "access_status": "HTTP 200",
+            "read_scope": "Header and named sections; no claim of reading all linked PROV specifications"
+          }
+        ],
+        "claim_alignment": {
+          "status": "Supported at the disclosed reading scope; limitations and optional narrowing recorded",
+          "manuscript_locator": "main.tex:360\u2013361",
+          "claim_summary": "PROV provides general provenance relationships.",
+          "supported_scope": "Overview discusses entities, activities, attribution and derivation as provenance concepts.",
+          "limitations": [
+            "The overview is a Working Group Note, not itself a Recommendation; it does not prove hash-based release correctness."
+          ],
+          "recommended_wording": "The W3C PROV overview describes general provenance relationships among entities, activities and agents."
+        },
+        "recommended_corrections": [
+          {
+            "type": "documentation_reproducibility",
+            "priority": "optional",
+            "field": "url",
+            "action": "Use the dated 30 April 2013 Note URL for a stable edition."
+          },
+          {
+            "type": "attribution_detail",
+            "priority": "optional",
+            "field": "editors",
+            "action": "Include Groth and Moreau as editors if the bibliography uses named editors; W3C corporate attribution is acceptable."
+          }
+        ],
+        "recommended_reference": "W3C: PROV-Overview: An Overview of the PROV Family of Documents. W3C Working Group Note, 30 April 2013. https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/",
+        "full_paper_body_read": false
+      },
+      "source_receipts": [
+        {
+          "url": "https://www.w3.org/TR/prov-overview/",
+          "kind": "primary_standards_org",
+          "locator": "Header date/type and Editors; Abstract; Section 1 Introduction; Section 2 Document Roadmap",
+          "access_status": "HTTP 200",
+          "read_scope": "Header and named sections; no claim of reading all linked PROV specifications"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "nixdocs",
+      "current_entry": "Nix project: Content-addressing derivation outputs. Nix 2.35.2 Reference Manual.\n\\url{https://nix.dev/manual/nix/2.35/store/derivation/outputs/content-address.html}\n(accessed 13 October 2026)",
+      "current_line": 448,
+      "current_contexts": [
+        {
+          "line": 359,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
+        }
+      ],
+      "audit": "citation_baseline_audit.json",
+      "audit_record": {
+        "key": "nixdocs",
+        "name": "Nix",
+        "version": "manual 2.35.2, URL series 2.35",
+        "sources": [
+          "nix_ca",
+          "nix_experimental",
+          "nix_build",
+          "nix_rebuild",
+          "nix_cli"
+        ],
+        "verified": "Derivation execution and deterministic build setup; fixed output hash checking; experimental floating content addressing; --check rebuild comparison.",
+        "limit": "Content identity and successful build status require workflow-defined semantic checks for an EDA acceptance decision. Content addressing alone does not guarantee deterministic outputs.",
+        "proposed_bibitem": "\\bibitem{nixdocs}\nNix project: Nix 2.35.2 Reference Manual: Content-addressing derivation outputs; Building; nix-store --realise.\n\\url{https://nix.dev/manual/nix/2.35/store/derivation/outputs/content-address.html};\n\\url{https://nix.dev/manual/nix/2.35/store/building.html};\n\\url{https://nix.dev/manual/nix/2.35/command-ref/nix-store/realise.html}\n(accessed 13 October 2026)"
+      },
+      "source_receipts": [
+        {
+          "id": "nix_ca",
+          "url": "https://nix.dev/manual/nix/2.35/store/derivation/outputs/content-address.html",
+          "authority": "official Nix manual 2.35.2",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "opening definition; Fixed-output content-addressing; (Floating) Content-Addressing; Purity; Floating versus Fixed",
+          "read_scope": "named documentation sections",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied",
+          "requested_url": "https://nix.dev/manual/nix/latest/store/derivation/outputs/content-address.html",
+          "redirected": true
+        },
+        {
+          "id": "nix_experimental",
+          "url": "https://nix.dev/manual/nix/2.35/development/experimental-features.html",
+          "authority": "official Nix manual 2.35.2",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "What are experimental features?; ca-derivations",
+          "read_scope": "two named documentation sections",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied",
+          "requested_url": "https://nix.dev/manual/nix/latest/development/experimental-features.html",
+          "redirected": true
+        },
+        {
+          "id": "nix_build",
+          "url": "https://nix.dev/manual/nix/2.35/store/building.html",
+          "authority": "official Nix manual 2.35.2",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Building opening definition/determinism paragraphs; build lifecycle; sandbox build directory",
+          "read_scope": "selected definition, lifecycle and environment passages",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied",
+          "requested_url": "https://nix.dev/manual/nix/latest/store/building.html",
+          "redirected": true
+        },
+        {
+          "id": "nix_rebuild",
+          "url": "https://nix.dev/manual/nix/2.35/command-ref/nix-store/realise.html",
+          "authority": "official Nix manual 2.35.2",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Options: --check; Special exit codes: 104; Examples deterministic rebuild",
+          "read_scope": "named option/exit-code/example passages",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "nix_cli",
+          "url": "https://nix.dev/manual/nix/2.35/command-ref/nix-build.html",
+          "authority": "official Nix manual 2.35.2",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Description; Special exit codes for build failure, 102 and 104",
+          "read_scope": "selected build command/exit-code passages",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "bazeldocs",
+      "current_entry": "Bazel project: Remote Caching. Bazel documentation.\n\\url{https://bazel.build/remote/caching} (accessed 13 October 2026)",
+      "current_line": 452,
+      "current_contexts": [
+        {
+          "line": 359,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
+        }
+      ],
+      "audit": "citation_baseline_audit.json",
+      "audit_record": {
+        "key": "bazeldocs",
+        "name": "Bazel",
+        "version": "living official documentation; no release/date inferred",
+        "sources": [
+          "bazel_cache"
+        ],
+        "verified": "Action hashes map to action-result metadata; CAS stores output content; inputs, output names, command line and environment belong to actions.",
+        "limit": "Reuse depends on reproducibility and adequate declared inputs/trust. Native checker and report validation can be explicit build/test actions; no inability to support EDA checking is claimed.",
+        "proposed_bibitem": "\\bibitem{bazeldocs}\nBazel project: Remote Caching. Bazel documentation.\n\\url{https://bazel.build/remote/caching}\n(accessed 13 October 2026)"
+      },
+      "source_receipts": [
+        {
+          "id": "bazel_cache",
+          "url": "https://bazel.build/remote/caching",
+          "authority": "official Bazel documentation",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Remote Caching introduction/action model; action cache/CAS list; How a build uses remote caching; HTTP caching protocol; write access; Known issues",
+          "read_scope": "selected caching/action/protocol/trust/concurrent-change passages; setup recipes not comprehensively read",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "slsadocs",
+      "current_entry": "SLSA: Build: Provenance. SLSA specification, version 1.2 (Approved).\n\\url{https://slsa.dev/spec/v1.2/build-provenance} (accessed 13 October 2026)",
+      "current_line": 455,
+      "current_contexts": [
+        {
+          "line": 361,
+          "paragraph": "\\FloatBarrier\n\\section{Related Work}\nOpenROAD and OpenLane provide implementation infrastructure\n~\\cite{ajayi2019,shalan2020}. METRICS2.1 structures flow measurement and\nparameter tuning~\\cite{jung2021}, and PROV represents provenance\nrelationships~\\cite{prov2013}. Nix supports fixed-output hashing and\nexperimental content-addressed derivations; Bazel maps action hashes to\ncached results and stores outputs by content~\\cite{nixdocs,bazeldocs}.\nSLSA build provenance relates artifact digests to build definitions and\nbuilder identities~\\cite{slsadocs}. These mechanisms can carry domain-specific\nchecks as declared actions and policies. This evaluation specializes release\nacceptance to native EDA invocation, report structure, approved inputs, and\ncached lineage; it does not evaluate Nix/Bazel execution or SLSA conformance."
+        }
+      ],
+      "audit": "citation_baseline_audit.json",
+      "audit_record": {
+        "key": "slsadocs",
+        "name": "SLSA",
+        "version": "specification 1.2 Approved; build predicate v1; Statement v1",
+        "sources": [
+          "slsa_current",
+          "slsa_provenance",
+          "slsa_verify",
+          "in_toto_statement"
+        ],
+        "verified": "Artifact subjects carry digests; buildDefinition and runDetails describe the build and builder; verification checks subject, signer/builder and policy expectations.",
+        "limit": "Provenance can support domain-specific build types/checks. Schema conformance alone establishes neither native EDA correctness nor a SLSA level.",
+        "schema": {
+          "statement_type": "https://in-toto.io/Statement/v1",
+          "predicate_type": "https://slsa.dev/provenance/v1",
+          "required_for_build_l1": [
+            "buildDefinition",
+            "runDetails",
+            "buildDefinition.buildType",
+            "buildDefinition.externalParameters",
+            "runDetails.builder",
+            "runDetails.builder.id"
+          ],
+          "subject_rule": "in-toto Statement requires subject array; each artifact entry must have digest",
+          "dependencies_completeness": "best effort at least through Build L3",
+          "optional_examples": [
+            "internalParameters",
+            "resolvedDependencies",
+            "runDetails.metadata",
+            "runDetails.byproducts"
+          ],
+          "summary_authority": "CUE/protobuf summaries informative; normative field text governs"
+        },
+        "proposed_bibitem": "\\bibitem{slsadocs}\nSLSA: Build: Provenance. SLSA specification, version 1.2 (Approved).\n\\url{https://slsa.dev/spec/v1.2/build-provenance}\n(accessed 13 October 2026)"
+      },
+      "source_receipts": [
+        {
+          "id": "slsa_current",
+          "url": "https://slsa.dev/spec/v1.2/",
+          "authority": "official SLSA specification",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Version 1.2; Status: Approved; Attestation formats links",
+          "read_scope": "version/status/navigation metadata",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied",
+          "requested_url": "https://slsa.dev/spec/",
+          "redirected": true
+        },
+        {
+          "id": "slsa_provenance",
+          "url": "https://slsa.dev/spec/v1.2/build-provenance",
+          "authority": "official SLSA specification",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Status; predicateType; Purpose; Model; Parsing rules; Schema/Summary; Provenance; BuildDefinition; RunDetails/Builder; BuildMetadata; Extension fields",
+          "read_scope": "selected normative and schema field descriptions; CUE/protobuf summaries identified as informative",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "slsa_verify",
+          "url": "https://slsa.dev/spec/v1.2/verifying-artifacts",
+          "authority": "official SLSA specification",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Step 1: Check SLSA Build level; Step 2: Check expectations; Step 3: Check dependencies recursively",
+          "read_scope": "selected artifact digest, signature, trust and policy verification passages",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "in_toto_statement",
+          "url": "https://raw.githubusercontent.com/in-toto/attestation/7aefca35a0f74a6e0cb397a8c4a76558f54de571/spec/v1/statement.md",
+          "authority": "official in-toto specification, immutable commit linked by SLSA",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Statement version v1.0; Schema; Fields: _type, subject, predicateType, predicate",
+          "read_scope": "schema and field descriptions; related linked specifications not fully read",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "chateda",
+      "current_entry": "Wu, H., He, Z., Zhang, X., Yao, X., Zheng, S., Zheng, H., Yu, B.:\nChatEDA: A Large Language Model Powered Autonomous Agent for EDA.\nIEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems\n43(10), 3184--3197 (2024). \\url{https://doi.org/10.1109/TCAD.2024.3383347}",
+      "current_line": 458,
+      "current_contexts": [
+        {
+          "line": 367,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+        }
+      ],
+      "audit": "citation_audit_frozen.json",
+      "audit_record": {
+        "reference_number": 6,
+        "citation_key": "chateda",
+        "manuscript_bibliography_locator": "main.tex:469",
+        "manuscript_entry": "Wu, H., He, Z., Zhang, X., Yao, X., Zheng, S., Zheng, H., Yu, B.:\nChatEDA: A Large Language Model Powered Autonomous Agent for EDA.\nIEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems\n43(10), 3184--3197 (2024). \\url{https://doi.org/10.1109/TCAD.2024.3383347}",
+        "citation_occurrences": [
+          "main.tex:362"
+        ],
+        "status": "resolved; cited journal metadata confirmed; primary arXiv abstract readable; journal page challenged",
+        "verified_metadata": {
+          "title": "ChatEDA: A Large Language Model Powered Autonomous Agent for EDA",
+          "authors": [
+            "Haoyuan Wu",
+            "Zhuolun He",
+            "Xinyun Zhang",
+            "Xufeng Yao",
+            "Su Zheng",
+            "Haisheng Zheng",
+            "Bei Yu"
+          ],
+          "year": 2024,
+          "venue": "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems",
+          "volume": "43",
+          "issue": "10",
+          "pages": "3184\u20133197",
+          "doi": "10.1109/TCAD.2024.3383347"
+        },
+        "field_checks": {
+          "title": "Matches source identity; documented title variants/normalization below where applicable",
+          "authors": "Matches cited version and order; corporate attribution acceptable for documentation",
+          "year": "Confirmed 2024",
+          "doi": "Confirmed registered DOI and HTTP 302 target"
+        },
+        "resolution": {
+          "printed_doi": {
+            "url": "https://doi.org/10.1109/TCAD.2024.3383347",
+            "status": 302,
+            "location": "https://ieeexplore.ieee.org/document/10485372/",
+            "error": null
+          },
+          "printed_url": null,
+          "additional_arxiv_doi": null
+        },
+        "sources": [
+          {
+            "url": "https://api.crossref.org/works/10.1109/tcad.2024.3383347",
+            "kind": "publisher_deposited_metadata",
+            "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+            "access_status": "HTTP 200; freshly read",
+            "read_scope": "Bibliographic metadata only; no article body"
+          },
+          {
+            "url": "https://ieeexplore.ieee.org/document/10485372/",
+            "kind": "primary_publisher",
+            "locator": "DOI target",
+            "access_status": "JavaScript anti-bot challenge; abstract URL HTTP 418",
+            "read_scope": "No journal article body accessed"
+          },
+          {
+            "url": "https://arxiv.org/abs/2308.10204",
+            "kind": "primary_arxiv",
+            "locator": "Title; Authors; Abstract; Cite as / related DOI; Submission history",
+            "access_status": "Readable primary landing page",
+            "read_scope": "Metadata and abstract only; paper body not read"
+          }
+        ],
+        "claim_alignment": {
+          "status": "Supported at the disclosed reading scope; limitations and optional narrowing recorded",
+          "manuscript_locator": "main.tex:361\u2013362",
+          "claim_summary": "ChatEDA studies task decomposition, script construction and execution.",
+          "supported_scope": "The arXiv abstract describes these three functions and explicitly links the cited journal DOI.",
+          "limitations": [
+            "Journal deposition lists Wu then He; arXiv lists He then Wu. Keep the journal author order for the journal citation.",
+            "arXiv began in 2023; that does not invalidate the journal's 2024 publication year."
+          ],
+          "recommended_wording": "ChatEDA describes LLM-assisted task decomposition, script generation and EDA task execution."
+        },
+        "recommended_corrections": [],
+        "recommended_reference": "Wu, H., He, Z., Zhang, X., Yao, X., Zheng, S., Zheng, H., Yu, B.: ChatEDA: A Large Language Model Powered Autonomous Agent for EDA. IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems 43(10), 3184\u20133197 (2024). https://doi.org/10.1109/TCAD.2024.3383347",
+        "full_paper_body_read": false
+      },
+      "source_receipts": [
+        {
+          "url": "https://api.crossref.org/works/10.1109/tcad.2024.3383347",
+          "kind": "publisher_deposited_metadata",
+          "locator": "JSON message.title, message.subtitle (where present), message.author, message.published, message.container-title, message.volume/issue/page, message.resource.primary.URL",
+          "access_status": "HTTP 200; freshly read",
+          "read_scope": "Bibliographic metadata only; no article body"
+        },
+        {
+          "url": "https://ieeexplore.ieee.org/document/10485372/",
+          "kind": "primary_publisher",
+          "locator": "DOI target",
+          "access_status": "JavaScript anti-bot challenge; abstract URL HTTP 418",
+          "read_scope": "No journal article body accessed"
+        },
+        {
+          "url": "https://arxiv.org/abs/2308.10204",
+          "kind": "primary_arxiv",
+          "locator": "Title; Authors; Abstract; Cite as / related DOI; Submission history",
+          "access_status": "Readable primary landing page",
+          "read_scope": "Metadata and abstract only; paper body not read"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "orfsagent",
+      "current_entry": "Ghose, A., Kahng, A.B., Kundu, S., Wang, Z.:\nORFS-Agent: Tool-Using Agents for Chip Design Optimization.\nIn: Proceedings of the ACM/IEEE International Symposium on Machine Learning\nfor CAD (MLCAD), pp. 1--13 (2025). \\url{https://doi.org/10.1109/MLCAD65511.2025.11189204}",
+      "current_line": 463,
+      "current_contexts": [
+        {
+          "line": 368,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+        }
+      ],
+      "audit": "citation_baseline_audit.json",
+      "audit_record": {
+        "key": "orfsagent",
+        "name": "ORFS-agent",
+        "year": 2025,
+        "title": "ORFS-agent: Tool-Using Agents for Chip Design Optimization",
+        "authors": [
+          "Amur Ghose",
+          "Andrew B. Kahng",
+          "Sayak Kundu",
+          "Zhiang Wang"
+        ],
+        "type": "conference paper",
+        "venue": "2025 ACM/IEEE 7th Symposium on Machine Learning for CAD (MLCAD)",
+        "pages": "1\u201313",
+        "doi": "10.1109/MLCAD65511.2025.11189204",
+        "sources": [
+          "orfs_metadata",
+          "orfs_2025_pdf",
+          "orfs_publisher",
+          "orfs_v2",
+          "orfs_latest"
+        ],
+        "identity_status": "verified cited conference identity",
+        "claim_status": "supported narrow parameter-tuning description",
+        "claim": "ORFS-agent optimizes OpenROAD-flow-scripts parameters.",
+        "recommendation": "Normalize title case to ORFS-agent and venue to 2025 ACM/IEEE 7th Symposium on Machine Learning for CAD (MLCAD). Retain the 2025 conference DOI; current arXiv v3 (2026-04-30) changes backend/results details. Do not import v3 numbers into the 2025 attribution.",
+        "suggested_reference": "Ghose, A., Kahng, A.B., Kundu, S., Wang, Z.: ORFS-agent: Tool-Using Agents for Chip Design Optimization. In: 2025 ACM/IEEE 7th Symposium on Machine Learning for CAD (MLCAD), pp. 1\u201313 (2025). https://doi.org/10.1109/MLCAD65511.2025.11189204",
+        "manuscript_location": {
+          "bibliography_line": 392,
+          "citation_lines": [
+            308
+          ]
+        }
+      },
+      "source_receipts": [
+        {
+          "id": "orfs_metadata",
+          "url": "https://api.crossref.org/works/10.1109/MLCAD65511.2025.11189204",
+          "authority": "IEEE-deposited Crossref metadata",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "HTTP 200 via urllib",
+          "locator": "message.title, author, published, container-title, page, DOI, resource.primary.URL",
+          "read_scope": "bibliographic metadata",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied",
+          "accessed_at_utc": "2026-10-13T10:21:06.037031+00:00"
+        },
+        {
+          "id": "orfs_2025_pdf",
+          "url": "https://vlsicad.ucsd.edu/Publications/Conferences/417/c417.pdf",
+          "authority": "author institution UC San Diego",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "browser-extracted PDF text; 13 pages",
+          "locator": "PDF p.1 title/authors, Abstract, Introduction contributions; IEEE 2025 copyright footer",
+          "read_scope": "selected passages on PDF p.1; remaining body and figures not systematically read",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "orfs_publisher",
+          "url": "https://ieeexplore.ieee.org/document/11189204/",
+          "authority": "IEEE publisher",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "JavaScript/robot challenge",
+          "locator": "document 11189204",
+          "read_scope": "challenge page only; no article body",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied",
+          "resolver": {
+            "requested_url": "https://doi.org/10.1109/MLCAD65511.2025.11189204",
+            "final_url": "https://ieeexplore.ieee.org/document/11189204/",
+            "final_http_status": 202,
+            "redirect_chain_statuses": "not captured"
+          }
+        },
+        {
+          "id": "orfs_v2",
+          "url": "https://arxiv.org/abs/2506.08332v2",
+          "authority": "arXiv author-submitted primary record",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Title, Authors, Abstract, Cite as, Submission history",
+          "read_scope": "landing metadata and abstract",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "orfs_latest",
+          "url": "https://arxiv.org/abs/2506.08332",
+          "authority": "arXiv author-submitted primary record",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Title, Authors, Abstract, Submission history",
+          "read_scope": "landing metadata and abstract; latest v3 dated 2026-04-30",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "mcp4eda",
+      "current_entry": "Wang, Y., Ye, W., He, Y., Chen, Y., Qu, G., Li, A.:\nMCP4EDA: LLM-Powered Model Context Protocol RTL-to-GDSII Automation with\nBackend Aware Synthesis Optimization. arXiv:2507.19570 (2025).\n\\url{https://arxiv.org/abs/2507.19570}",
+      "current_line": 468,
+      "current_contexts": [
+        {
+          "line": 370,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+        }
+      ],
+      "audit": "citation_baseline_audit.json",
+      "audit_record": {
+        "key": "mcp4eda",
+        "name": "MCP4EDA",
+        "year": 2025,
+        "title": "MCP4EDA: LLM-Powered Model Context Protocol RTL-to-GDSII Automation with Backend Aware Synthesis Optimization",
+        "authors": [
+          "Yiting Wang",
+          "Wanghao Ye",
+          "Yexiao He",
+          "Yiran Chen",
+          "Gang Qu",
+          "Ang Li"
+        ],
+        "type": "arXiv preprint",
+        "arxiv": "2507.19570v1",
+        "version_date": "2025-07-25",
+        "doi": "10.48550/arXiv.2507.19570",
+        "sources": [
+          "mcp_record",
+          "mcp_body"
+        ],
+        "identity_status": "verified preprint v1; no later version or journal reference on inspected record",
+        "claim_status": "supported narrow backend-feedback description",
+        "claim": "MCP4EDA connects model interaction to RTL-to-GDS execution and backend synthesis feedback.",
+        "recommendation": "Optionally pin v1 and add the arXiv-issued DOI. Avoid adopting its first-system priority claims or numerical improvements as independently established results.",
+        "suggested_reference": "Wang, Y., Ye, W., He, Y., Chen, Y., Qu, G., Li, A.: MCP4EDA: LLM-Powered Model Context Protocol RTL-to-GDSII Automation with Backend Aware Synthesis Optimization. arXiv:2507.19570v1 (2025). https://arxiv.org/abs/2507.19570v1. https://doi.org/10.48550/arXiv.2507.19570",
+        "manuscript_location": {
+          "bibliography_line": 397,
+          "citation_lines": [
+            310
+          ]
+        }
+      },
+      "source_receipts": [
+        {
+          "id": "mcp_record",
+          "url": "https://arxiv.org/abs/2507.19570",
+          "authority": "arXiv author-submitted primary record",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Title, Authors, Abstract, Cite as, Submission history",
+          "read_scope": "landing metadata and abstract; only v1 listed",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "mcp_body",
+          "url": "https://arxiv.org/html/2507.19570v1",
+          "authority": "arXiv author manuscript",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Introduction contributions; Figure 2 caption, three-phase optimization workflow",
+          "read_scope": "selected introduction and workflow-caption passages; not complete body/figure inspection",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "flowfixer",
+      "current_entry": "Dong, K., Wang, R., Yuan, F., An, B., Zhang, X.: FlowFixer-EDA: A Tool-Feedback-Augmented Large Language Model Agent for\nAutomated Diagnosis and Repair of Open-Source RTL-to-GDS Design Flow Failures.\nIEEE Access 14, 140412--140428 (2026).\n\\url{https://doi.org/10.1109/ACCESS.2026.3730896}",
+      "current_line": 473,
+      "current_contexts": [
+        {
+          "line": 371,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+        }
+      ],
+      "audit": "citation_baseline_audit.json",
+      "audit_record": {
+        "key": "flowfixer",
+        "name": "FlowFixer-EDA",
+        "year": 2026,
+        "title": "FlowFixer-EDA: A Tool-Feedback-Augmented Large Language Model Agent for Automated Diagnosis and Repair of Open-Source RTL-to-GDS Design Flow Failures",
+        "authors": [
+          "Ke Dong",
+          "Ruidong Wang",
+          "Fang Yuan",
+          "Baichun An",
+          "Xia Zhang"
+        ],
+        "type": "journal article",
+        "venue": "IEEE Access",
+        "volume": "14",
+        "pages": "140412\u2013140428",
+        "doi": "10.1109/ACCESS.2026.3730896",
+        "publication_date": "2026-09-08 (publisher-indexed record)",
+        "sources": [
+          "flow_metadata",
+          "flow_indexed",
+          "flow_publisher"
+        ],
+        "identity_status": "verified publisher-deposited identity; direct body inaccessible",
+        "claim_status": "supported by publisher-indexed abstract; full contract comparison unassessed",
+        "claim": "FlowFixer-EDA uses log extraction, patch validation, and native tool feedback for diagnosis and repair.",
+        "recommendation": "Retain identity. The revised paragraph properly acknowledges existing rechecking. Actual tool reruns determine acceptance in the primary abstract; no claim that this work lacks candidate/deck/report/lineage checks follows from the limited read.",
+        "suggested_reference": "Dong, K., Wang, R., Yuan, F., An, B., Zhang, X.: FlowFixer-EDA: A Tool-Feedback-Augmented Large Language Model Agent for Automated Diagnosis and Repair of Open-Source RTL-to-GDS Design Flow Failures. IEEE Access 14, 140412\u2013140428 (2026). https://doi.org/10.1109/ACCESS.2026.3730896",
+        "manuscript_location": {
+          "bibliography_line": 402,
+          "citation_lines": [
+            311
+          ]
+        }
+      },
+      "source_receipts": [
+        {
+          "id": "flow_metadata",
+          "url": "https://api.crossref.org/works/10.1109/ACCESS.2026.3730896",
+          "authority": "IEEE-deposited Crossref metadata",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "HTTP 200 via urllib",
+          "locator": "message.title, author, published, container-title, volume, page, DOI, resource.primary.URL",
+          "read_scope": "bibliographic metadata",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied",
+          "accessed_at_utc": "2026-10-13T10:21:06.039427+00:00"
+        },
+        {
+          "id": "flow_indexed",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11683937/",
+          "authority": "IEEE publisher, search-indexed primary record",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "search extract readable; direct publisher page challenged",
+          "locator": "Abstract; Published in; Page(s); Date of Publication; DOI",
+          "read_scope": "publisher-indexed abstract and bibliographic fields only",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "flow_publisher",
+          "url": "https://ieeexplore.ieee.org/document/11683937/",
+          "authority": "IEEE publisher",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "JavaScript/robot challenge",
+          "locator": "document 11683937",
+          "read_scope": "challenge page only; no article body",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied",
+          "resolver": {
+            "requested_url": "https://doi.org/10.1109/ACCESS.2026.3730896",
+            "final_url": "https://ieeexplore.ieee.org/document/11683937/",
+            "final_http_status": 202,
+            "redirect_chain_statuses": "not captured"
+          }
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "edaid",
+      "current_entry": "Wu, H., Zheng, H., He, Z., Yu, B.: Divergent Thoughts toward One Goal:\nLLM-based Multi-Agent Collaboration System for Electronic Design Automation.\nIn: Proceedings of NAACL-HLT, vol. 1, pp. 1710--1721 (2025).\n\\url{https://doi.org/10.18653/v1/2025.naacl-long.83}",
+      "current_line": 478,
+      "current_contexts": [
+        {
+          "line": 376,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+        }
+      ],
+      "audit": "citation_baseline_audit.json",
+      "audit_record": {
+        "key": "edaid",
+        "name": "EDAid",
+        "year": 2025,
+        "title": "Divergent Thoughts toward One Goal: LLM-based Multi-Agent Collaboration System for Electronic Design Automation",
+        "authors": [
+          "Haoyuan Wu",
+          "Haisheng Zheng",
+          "Zhuolun He",
+          "Bei Yu"
+        ],
+        "type": "conference paper",
+        "venue": "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+        "pages": "1710\u20131721",
+        "doi": "10.18653/v1/2025.naacl-long.83",
+        "sources": [
+          "edaid_record",
+          "edaid_pdf"
+        ],
+        "identity_status": "verified ACL publisher and PDF identity",
+        "claim_status": "supported narrow multi-agent description",
+        "claim": "EDAid uses multiple model-controlled agents for EDA workflow execution.",
+        "recommendation": "Replace abbreviated NAACL-HLT volume wording with the publisher's full proceedings title or a consistent short form identifying Volume 1: Long Papers. No certified runtime contract or superiority over this controller was established.",
+        "suggested_reference": "Wu, H., Zheng, H., He, Z., Yu, B.: Divergent Thoughts toward One Goal: LLM-based Multi-Agent Collaboration System for Electronic Design Automation. In: Proceedings of NAACL 2025: Human Language Technologies, Volume 1: Long Papers, pp. 1710\u20131721 (2025). https://doi.org/10.18653/v1/2025.naacl-long.83",
+        "manuscript_location": {
+          "bibliography_line": 407,
+          "citation_lines": [
+            316
+          ]
+        }
+      },
+      "source_receipts": [
+        {
+          "id": "edaid_record",
+          "url": "https://aclanthology.org/2025.naacl-long.83/",
+          "authority": "ACL publisher",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Title/Authors; Abstract; Volume; Year; Pages; DOI; exported BibTeX",
+          "read_scope": "landing metadata and abstract",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "edaid_pdf",
+          "url": "https://aclanthology.org/2025.naacl-long.83.pdf",
+          "authority": "ACL publisher",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "browser-extracted PDF text; 12 pages",
+          "locator": "PDF p.1 (printed p.1710) proceedings header/title/authors/abstract; p.2 opening introduction/contributions",
+          "read_scope": "selected metadata/abstract and introduction passages; not entire experiments or appendix",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "audopeda",
+      "current_entry": "Ghose, A., Jang, J., Kahng, A.B., Lee, J.:\nAutomated QoR improvement in OpenROAD with coding agents.\narXiv:2601.06268v2 (2026). \\url{https://arxiv.org/abs/2601.06268v2}.\nAlso: author manuscript, ICCAD 2026, to appear (accessed 13 October 2026).\n\\url{https://vlsicad.ucsd.edu/Publications/Conferences/431/c431.pdf}",
+      "current_line": 483,
+      "current_contexts": [
+        {
+          "line": 378,
+          "paragraph": "ChatEDA studies model-driven EDA task\nplanning, script generation, and execution~\\cite{chateda}. ORFS-agent\noptimizes OpenROAD-flow-scripts parameters~\\cite{orfsagent}; MCP4EDA connects\nmodel interaction to RTL-to-GDS execution and backend synthesis feedback\n~\\cite{mcp4eda}. FlowFixer-EDA uses log extraction, patch validation, and\nnative tool feedback for diagnosis and repair~\\cite{flowfixer}. Its patch\nvalidation already demonstrates the importance of rechecking. Here, the\nspecific object of study is the release contract binding the selected GDS,\napproved verification inputs, native report structure, and cached gate lineage.\nEDAid uses\nmultiple model-controlled agents for EDA workflow execution~\\cite{edaid}.\nGhose et al. study executable OpenROAD changes and measured quality of\nresults~\\cite{audopeda}. The newer author conference manuscript also records\npatch/snapshot/proof manifests and renewed checks. These overlap with generic\nmanifest-based revalidation; no priority for that mechanism is claimed."
+        }
+      ],
+      "audit": "citation_baseline_audit.json",
+      "audit_record": {
+        "key": "audopeda",
+        "name": "AuDoPEDA",
+        "year": 2026,
+        "title": "Automated QoR improvement in OpenROAD with coding agents",
+        "authors": [
+          "Amur Ghose",
+          "Junyeong Jang",
+          "Andrew B. Kahng",
+          "Jakang Lee"
+        ],
+        "type": "arXiv preprint",
+        "arxiv": "2601.06268v2",
+        "version_date": "2026-02-09",
+        "doi": "10.48550/arXiv.2601.06268",
+        "sources": [
+          "audo_record",
+          "audo_v2_body",
+          "audo_lab",
+          "audo_current_pdf",
+          "audo_future_doi",
+          "audo_future_metadata",
+          "audo_future_publisher"
+        ],
+        "identity_status": "cited arXiv v2 verified; newer author conference version identified, publisher identity unresolved",
+        "claim_status": "supported executable changes/QoR description; avoid generic novelty about gates or manifests",
+        "claim": "Ghose et al. study executable OpenROAD changes and measured quality of results.",
+        "recommendation": "Retain pinned v2 for its claims. Separately note the newer ICCAD author version when discussing current overlap; it includes formal patch/proof manifests. Its printed DOI returned 404, so do not silently substitute a published proceedings citation.",
+        "suggested_reference": "Ghose, A., Jang, J., Kahng, A.B., Lee, J.: Automated QoR improvement in OpenROAD with coding agents. arXiv:2601.06268v2 (2026). https://arxiv.org/abs/2601.06268v2. https://doi.org/10.48550/arXiv.2601.06268",
+        "current_author_version": {
+          "title": "Automated QoR Improvement in OpenROAD with Coding Agents",
+          "venue_label": "ICCAD \u201926",
+          "conference_dates": "2026-11-08/2026-11-12",
+          "pages_total": 9,
+          "printed_doi": "10.1145/3831252.3834240",
+          "status": "author lab says to appear; author PDF has ACM Reference Format; DOI and Crossref HTTP 404 on audit date",
+          "reading_limit": "selected passages only; no proof, code, manifest execution or numerical result replication",
+          "overlap": "Hard gates, rollback, versioned artifacts, patch/snapshot/proof manifests and renewed proxy/signoff checks after changes are described."
+        },
+        "manuscript_location": {
+          "bibliography_line": 412,
+          "citation_lines": [
+            318
+          ]
+        }
+      },
+      "source_receipts": [
+        {
+          "id": "audo_record",
+          "url": "https://arxiv.org/abs/2601.06268v2",
+          "authority": "arXiv author-submitted primary record",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Title, Authors, Abstract, Cite as, Submission history",
+          "read_scope": "landing metadata and abstract; latest arXiv version remains v2",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "audo_v2_body",
+          "url": "https://arxiv.org/html/2601.06268v2",
+          "authority": "arXiv author manuscript",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "sections 3.3\u20133.5: acceptance/rollback plan; QoR Gating and Metric Model; Evaluation Protocol and Implementation; Safety and Rollback",
+          "read_scope": "selected methods paragraphs; numerical experiments not audited",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "audo_lab",
+          "url": "https://vlsicad.ucsd.edu/Publications/Conferences/",
+          "authority": "author institution UC San Diego",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "publication list entry 431",
+          "read_scope": "single bibliographic entry and linked PDF identity",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "audo_current_pdf",
+          "url": "https://vlsicad.ucsd.edu/Publications/Conferences/431/c431.pdf",
+          "authority": "author institution UC San Diego",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "browser-extracted PDF text; 9 pages",
+          "locator": "PDF p.1 title/authors/abstract/ACM Reference Format; p.4 sections 3.4\u20133.6; p.7 section 4.4; p.8 section 5.4",
+          "read_scope": "selected identity, gating, formal manifest and limitations passages; not complete paper or experiments",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "audo_future_doi",
+          "url": "https://doi.org/10.1145/3831252.3834240",
+          "authority": "DOI resolver",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "HTTP 404 via urllib; browser internal error",
+          "locator": "identifier printed in c431.pdf",
+          "read_scope": "no publisher content",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied",
+          "accessed_at_utc": "2026-10-13T10:22:38.367531+00:00"
+        },
+        {
+          "id": "audo_future_metadata",
+          "url": "https://api.crossref.org/works/10.1145/3831252.3834240",
+          "authority": "Crossref registry",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "HTTP 404 via urllib",
+          "locator": "requested work identifier",
+          "read_scope": "no metadata returned",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied",
+          "accessed_at_utc": "2026-10-13T10:22:37.998068+00:00"
+        },
+        {
+          "id": "audo_future_publisher",
+          "url": "https://dl.acm.org/doi/10.1145/3831252.3834240",
+          "authority": "ACM publisher",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "not accessible via browser tool",
+          "locator": "requested DOI record",
+          "read_scope": "no publisher content",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "chibench",
+      "current_entry": "Sumitani, R., Amorim, J.V., Mafra, A., Crepalde, M., Pereira, F.M.Q.:\nChiBench: A Benchmark Suite for Testing Electronic Design Automation Tools.\narXiv:2406.06550 (2024). \\url{https://arxiv.org/abs/2406.06550}",
+      "current_line": 489,
+      "current_contexts": [
+        {
+          "line": 382,
+          "paragraph": "ChiBench supplies RTL designs for EDA-tool testing~\\cite{chibench}.\nDRVerify documents physical-verification runset testing with known legal\nand violating structures~\\cite{drverify}. That runset-testing rationale motivates checking rule execution and intended\ncoverage in addition to marker counts. The\npresent contribution combines constructed native/ledger faults, candidate\nlineage, fresh recorded-proposal checks, and artifact-level repeat evidence.\nComparable contracts in other controllers are not excluded by this study."
+        }
+      ],
+      "audit": "citation_baseline_audit.json",
+      "audit_record": {
+        "key": "chibench",
+        "name": "ChiBench",
+        "year": 2024,
+        "title": "ChiBench: a Benchmark Suite for Testing Electronic Design Automation Tools",
+        "authors": [
+          "Rafael Sumitani",
+          "Jo\u00e3o Victor Amorim",
+          "Augusto Mafra",
+          "Mirlaine Crepalde",
+          "Fernando Magno Quint\u00e3o Pereira"
+        ],
+        "type": "arXiv preprint",
+        "arxiv": "2406.06550v1",
+        "version_date": "2024-05-24",
+        "doi": "10.48550/arXiv.2406.06550",
+        "sources": [
+          "chi_record",
+          "chi_body"
+        ],
+        "identity_status": "verified 2024 preprint v1; no newer version/journal reference on inspected record",
+        "claim_status": "supported tool-testing corpus claim; physical rule inventory completeness unestablished",
+        "claim": "ChiBench supplies RTL designs for EDA-tool testing.",
+        "recommendation": "Prefer curated Verilog corpus over RTL designs for precision. Keep 2024; the 2406 identifier does not override the record's May submission date. Revised singular DRVerify rationale fixes the earlier collective attribution risk.",
+        "suggested_reference": "Sumitani, R., Amorim, J.V., Mafra, A., Crepalde, M., Pereira, F.M.Q.: ChiBench: a Benchmark Suite for Testing Electronic Design Automation Tools. arXiv:2406.06550v1 (2024). https://arxiv.org/abs/2406.06550v1. https://doi.org/10.48550/arXiv.2406.06550",
+        "manuscript_location": {
+          "bibliography_line": 416,
+          "citation_lines": [
+            320
+          ]
+        }
+      },
+      "source_receipts": [
+        {
+          "id": "chi_record",
+          "url": "https://arxiv.org/abs/2406.06550",
+          "authority": "arXiv author-submitted primary record",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "Title, Authors, Abstract, Cite as, Submission history",
+          "read_scope": "landing metadata and abstract; only v1 listed",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        },
+        {
+          "id": "chi_body",
+          "url": "https://arxiv.org/html/2406.06550v1",
+          "authority": "arXiv author manuscript",
+          "access_date": "2026-10-13",
+          "freshly_accessed": true,
+          "access_status": "readable browser text",
+          "locator": "sections 3.2 Coverage Analysis and 3.3 Actual Bug Reports",
+          "read_scope": "selected tool-testing passages; not complete body or figures",
+          "full_body_read": false,
+          "human_read_attestation": "not supplied"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    },
+    {
+      "key": "drverify",
+      "current_entry": "Sage Design Automation: DRVerify: The Verification of Physical Verification.\nTechnical white paper (2018).\n\\url{https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf}",
+      "current_line": 493,
+      "current_contexts": [
+        {
+          "line": 384,
+          "paragraph": "ChiBench supplies RTL designs for EDA-tool testing~\\cite{chibench}.\nDRVerify documents physical-verification runset testing with known legal\nand violating structures~\\cite{drverify}. That runset-testing rationale motivates checking rule execution and intended\ncoverage in addition to marker counts. The\npresent contribution combines constructed native/ledger faults, candidate\nlineage, fresh recorded-proposal checks, and artifact-level repeat evidence.\nComparable contracts in other controllers are not excluded by this study."
+        }
+      ],
+      "audit": "citation_audit_frozen.json",
+      "audit_record": {
+        "reference_number": 13,
+        "citation_key": "drverify",
+        "manuscript_bibliography_locator": "main.tex:502",
+        "manuscript_entry": "Sage Design Automation: DRVerify: The Verification of Physical Verification.\nTechnical white paper (2018).\n\\url{https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf}",
+        "citation_occurrences": [
+          "main.tex:376"
+        ],
+        "status": "resolved; vendor-authored primary document readable on third-party host",
+        "verified_metadata": {
+          "title": "DRVerify: The Verification of Physical Verification",
+          "authors": [
+            "Sage Design Automation, Inc."
+          ],
+          "year": 2018,
+          "year_basis": "2018 copyright on PDF pages, corroborating the citation year",
+          "source_type": "vendor technical white paper hosted by SemiWiki",
+          "doi": null,
+          "url": "https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf"
+        },
+        "field_checks": {
+          "title": "Matches source identity; documented title variants/normalization below where applicable",
+          "authors": "Matches cited version and order; corporate attribution acceptable for documentation",
+          "year": "Confirmed 2018",
+          "doi": "No DOI stated in manuscript or identified in inspected source; URL citation adequate"
+        },
+        "resolution": {
+          "printed_doi": null,
+          "printed_url": {
+            "url": "https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf",
+            "status": 200,
+            "final_url": "https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf",
+            "type": "application/pdf",
+            "bytes": 1116392,
+            "sha256": "32de8d03489c5c0ec214b25519723c902381c8de186e470aa3fda69187edb23f"
+          },
+          "additional_arxiv_doi": null
+        },
+        "sources": [
+          {
+            "url": "https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf",
+            "kind": "primary_vendor_document_on_mirror",
+            "locator": "PDF p.1 title/corporate author/copyright and Who checks the checker?; pp.1\u20132 passing/failing structures; p.4 DRVerify paragraph",
+            "access_status": "HTTP 200; readable PDF text; screenshot tool failed",
+            "read_scope": "Named passages inspected in extracted text; no claim of comprehensive full-body or figure inspection"
+          }
+        ],
+        "claim_alignment": {
+          "status": "Supported at the disclosed reading scope; limitations and optional narrowing recorded",
+          "manuscript_locator": "main.tex:375\u2013378",
+          "claim_summary": "Runset testing uses known legal and violating structures; zero markers alone do not prove rule intent/coverage.",
+          "supported_scope": "White paper describes PASS/FAIL test generation and the distinction between executable runsets and intended design rules.",
+          "limitations": [
+            "This is vendor documentation, not a peer-reviewed efficacy study. SemiWiki is the host, not the author/publisher identity.",
+            "The zero-marker inference is an interpretation of the cited rationale; it is not a reported result about this study's 211-rule deck."
+          ],
+          "recommended_wording": "Sage's DRVerify white paper describes runset testing with passing and failing layout structures. This illustrates why rule intent and coverage require testing beyond a clean report on one layout."
+        },
+        "recommended_corrections": [
+          {
+            "type": "attribution_detail",
+            "priority": "optional",
+            "field": "corporate_author",
+            "action": "Use Sage Design Automation, Inc., exactly as shown in the PDF."
+          },
+          {
+            "type": "claim_attribution",
+            "priority": "recommended",
+            "field": "main.tex:376\u2013378",
+            "action": "Attribute the rule-intent/coverage inference specifically to the vendor white paper and separate it from ChiBench."
+          }
+        ],
+        "recommended_reference": "Sage Design Automation, Inc.: DRVerify: The Verification of Physical Verification. Technical white paper (2018). https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf",
+        "full_paper_body_read": false
+      },
+      "source_receipts": [
+        {
+          "url": "https://semiwiki.com/wp-content/uploads/2018/06/sage_DRVerify_WP_v2-3-1.pdf",
+          "kind": "primary_vendor_document_on_mirror",
+          "locator": "PDF p.1 title/corporate author/copyright and Who checks the checker?; pp.1\u20132 passing/failing structures; p.4 DRVerify paragraph",
+          "access_status": "HTTP 200; readable PDF text; screenshot tool failed",
+          "read_scope": "Named passages inspected in extracted text; no claim of comprehensive full-body or figure inspection"
+        }
+      ],
+      "continuity_scope": "Current bibliography/context anchors mapped to retained primary-source evidence. Prior reading/access limits remain; no new full-body or external review claimed."
+    }
+  ],
+  "reference_count": 16,
+  "execution": "Final author continuity mapping to original and fresh separate-context citation audit; internal writing workflow, not external review.",
+  "scope": "Identity, bounded claim contexts, current exact bibliography and inherited primary-source receipts/read scopes. Unresolved future AuDoPEDA conference DOI excluded from bibliography; author manuscript explicitly to appear."
+}

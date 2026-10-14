@@ -1,0 +1,57 @@
+{
+  "source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "primary_designs": 7,
+  "primary_native_runs": 14,
+  "primary_exact_route_pairs": 7,
+  "primary_date_normalized_gds_pairs": 7,
+  "fresh_replayed_proposals": 20,
+  "class_replay": {
+    "drc": {
+      "proposals": 3,
+      "archived_native_failures": 0,
+      "archived_target_unavailable": 0,
+      "frozen_native_failures": 0,
+      "frozen_certified": 3,
+      "archived_failure_fraction": 0.0,
+      "frozen_failure_fraction": 0.0
+    },
+    "pdn": {
+      "proposals": 3,
+      "archived_native_failures": 0,
+      "archived_target_unavailable": 0,
+      "frozen_native_failures": 0,
+      "frozen_certified": 3,
+      "archived_failure_fraction": 0.0,
+      "frozen_failure_fraction": 0.0
+    },
+    "timing": {
+      "proposals": 14,
+      "archived_native_failures": 11,
+      "archived_target_unavailable": 2,
+      "frozen_native_failures": 14,
+      "frozen_certified": 0,
+      "archived_failure_fraction": 0.7857142857142857,
+      "frozen_failure_fraction": 1.0
+    }
+  },
+  "ablation_runs": 8,
+  "fault_classes": 6,
+  "fault_executions": 18,
+  "original_live_episodes": 9,
+  "original_live_verified": 7,
+  "larger_cases": 4,
+  "larger_certified": 0,
+  "larger_controller_stops": 2,
+  "larger_incomplete": 2,
+  "references": 16,
+  "tests_passed": 955,
+  "tests_skipped": 15,
+  "scripted_baseline_states": 24,
+  "scripted_baseline_certified": 5,
+  "timing_excluding_cts_affected_state": {
+    "signoff_setup_sta": 12,
+    "placement_DPL-0036": 1
+  },
+  "independent_archived_full_ir_matches": 7,
+  "scope": "Deterministic numerical/source/input audit; internal semantic reviews are separate."
+}

@@ -1,0 +1,26 @@
+{
+  "request": "Replay framing, actual setup repair execution, 50 ps sensitivity, and named related-work subject",
+  "date": "2026-10-13",
+  "implementation_source_sha256": "af31b39f67827a3375c52bf41f52a727130947f8b5716d80b2680c7de88ca06c",
+  "new_model_calls": 0,
+  "native_work": "Eight instrumented CTS-stage diagnostic re-executions using retained placement/constraints and frozen native commands; no full flow repair reruns or new signoff certificates.",
+  "items": [
+    {
+      "request": "Lead abstract with archived11/14 and label frozen14/14 confounded",
+      "disposition": "Implemented; two unavailable target checks retained; known CTS change reverses one archived pass. Proposal-state observation, feedback-conditioned."
+    },
+    {
+      "request": "Explain zero setup-toggle effect in8/8pairs",
+      "disposition": "All eight calls entered/returned, WNS194.356\u2013274.527ps before/after; exceeds50ps target under signal-wireRC missing/wireloadfallback. DEF/netlist unchanged, finalCTS matches archived."
+    },
+    {
+      "request": "50ps guardband from existing slacks",
+      "disposition": "User expectation of all primary passes corrected:6/7 designs12/14runs eligible. shift1024hold49.477ps missesby.523ps; archivedtimingrepairsetup1.586psfails. Seventy-three inspected states reported separately, no certificates changed."
+    },
+    {
+      "request": "Identify newer author manuscript and overlap subject",
+      "disposition": "Names Ghose et al. ICCAD author manuscript; their manifest and rechecking mechanisms overlap with generic revalidation; no priority claimed."
+    }
+  ],
+  "review_provenance": "Three sequential internal ARS review passes in one Codex session; not independent external peer review. Initial separate worker attempts produced no completed reports and are not counted. Exact venue unavailable/NOT_CALIBRATED; final document hashes are recorded in all three reports."
+}
