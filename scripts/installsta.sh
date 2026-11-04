@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================
+# SCRIPT CREATED FOR CHIPCRAFT BOOTCAMP, ./setup.sh inside the rtl2gdsagi folder handles all these, if you are not a student of CHIPCRAFT bootcamp then ignore this.
 # OpenSTA + CUDD Installation Script
 # Ubuntu / Debian
 # CUDD Version : 3.0.0
