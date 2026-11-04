@@ -71,6 +71,12 @@ sudo apt-get install -y \
     zlib1g-dev \
     pkg-config
 
+sudo apt-get install -y --reinstall "linux-headers-$(uname -r)"
+
+sudo apt-get install -y --reinstall \
+    linux-headers-7.0.0-38-generic \
+    linux-headers-generic
+
 success "System dependencies installed"
 
 # ------------------------------------------------------------
