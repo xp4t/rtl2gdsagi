@@ -158,10 +158,16 @@ log "Downloading the toolchain and SKY130A; running the OpenLane smoke test"
 # OpenLane uses Volare to fetch the PDK revision matched to this release.
 # A shell alone does not fetch the PDK; running the flow is necessary.
 "$prefix/bin/openlane" --pdk-root "$pdk_root" --pdk sky130A --smoke-test
-[[ -d "$pdk_root/sky130A/libs.ref" && -d "$pdk_root/sky130A/libs.tech" ]] \
-    || die "The smoke test returned, but SKY130A is missing from $pdk_root."
+# OpenLane fetches a version without enabling Volare's top-level sky130A
+# shortcut. Resolve the same revision as OpenLane instead of requiring it.
+printf -v resolve_command '%q ' python3 -c \
+    'import os, sys, volare; from openlane.common import get_opdks_rev; print(os.path.join(volare.Version(name=get_opdks_rev(), pdk="sky130").get_dir(sys.argv[1]), "sky130A"))' \
+    "$pdk_root"
+pdk_path="$("$nix_shell" "$repo/shell.nix" --run "$resolve_command")"
+[[ -d "$pdk_path/libs.ref" && -d "$pdk_path/libs.tech" ]] \
+    || die "The smoke test returned, but SKY130A is missing from $pdk_path."
 
 log "OpenLane $version and SKY130A installed; smoke test passed"
 printf '\nStart using it:\n  source %q\n  openlane --run-example spm\n\n' "$prefix/env.sh"
 printf 'For a shell with Yosys, OpenROAD, Magic, Netgen and KLayout:\n  %q\n\n' "$prefix/bin/openlane-shell"
-printf 'PDK location: %s/sky130A\nLog: %s/install.log\n' "$pdk_root" "$prefix"
+printf 'PDK location: %s\nLog: %s/install.log\n' "$pdk_path" "$prefix"
