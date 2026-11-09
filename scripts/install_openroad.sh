@@ -13,7 +13,8 @@ Usage: ./install_openroad.sh [OPTIONS]
   --skip-deps     Use dependencies already installed on this machine
   -h, --help      Show this help
 
-Run as your normal user on Ubuntu 22.04/24.04/26.04, x86_64 or aarch64.
+Run as your normal user on Ubuntu 22.04/24.04/26.04 or Ubuntu-based Linux
+Mint 21.x/22.x, x86_64 or aarch64. LMDE (Debian Edition) is not covered.
 Requires internet and substantial free storage for source and Bazel downloads.
 sudo installs system libraries; source, tools and OpenROAD stay under PREFIX.
 Reruns fetch the requested revision and reuse build caches. Edited source trees
@@ -23,6 +24,38 @@ EOF
 }
 die() { printf '\nERROR: %s\n' "$*" >&2; exit 1; }
 log() { printf '\n==> %s\n' "$*"; }
+
+# Mint's VERSION_ID is its own release number, not the Ubuntu package base.
+# Keep this detection separate so compatibility checks can be tested without
+# installing packages or changing /etc/os-release.
+detect_ubuntu_base() {
+    local distro_id="$1" distro_version="$2" ubuntu_codename="$3" distro_like="$4"
+    case "$distro_id" in
+        ubuntu)
+            case "$distro_version" in
+                22.04|24.04|26.04) printf '%s\n' "$distro_version" ;;
+                *) die "Supported Ubuntu versions: 22.04, 24.04, 26.04." ;;
+            esac ;;
+        linuxmint)
+            case " $distro_like " in
+                *' ubuntu '*) ;;
+                *) die "Linux Mint Debian Edition (LMDE) is not covered by this installer." ;;
+            esac
+            case "$ubuntu_codename" in
+                jammy) printf '22.04\n' ;;
+                noble) printf '24.04\n' ;;
+                '')
+                    # Older Mint metadata may omit UBUNTU_CODENAME.
+                    case "$distro_version" in
+                        21|21.*) printf '22.04\n' ;;
+                        22|22.*) printf '24.04\n' ;;
+                        *) die "Cannot identify a supported Ubuntu base for this Mint release." ;;
+                    esac ;;
+                *) die "Unsupported Mint Ubuntu base: $ubuntu_codename. Expected jammy or noble." ;;
+            esac ;;
+        *) die "This installer targets Ubuntu and Ubuntu-based Linux Mint." ;;
+    esac
+}
 
 prefix="$HOME/eda/openroad"
 ref=master
@@ -47,14 +80,10 @@ while (($#)); do
 done
 [[ "$jobs" =~ ^[1-9][0-9]*$ ]] || die "--jobs must be a positive integer."
 [[ "$EUID" -ne 0 ]] || die "Run as your normal user, without sudo."
-[[ "$(uname -s)" == Linux && -r /etc/os-release ]] || die "Ubuntu Linux is required."
+[[ "$(uname -s)" == Linux && -r /etc/os-release ]] || die "Ubuntu or Ubuntu-based Linux Mint is required."
 # shellcheck disable=SC1091
 source /etc/os-release
-[[ "${ID:-}" == ubuntu ]] || die "This installer targets Ubuntu."
-case "${VERSION_ID:-}" in
-    22.04|24.04|26.04) ;;
-    *) die "Supported Ubuntu versions: 22.04, 24.04, 26.04." ;;
-esac
+ubuntu_base="$(detect_ubuntu_base "${ID:-}" "${VERSION_ID:-}" "${UBUNTU_CODENAME:-}" "${ID_LIKE:-}")"
 case "$(uname -m)" in
     x86_64|aarch64) ;;
     *) die "Supported architectures: x86_64 and aarch64." ;;
@@ -69,6 +98,7 @@ mkdir -p -- "$prefix/logs" "$prefix/tools/bin"
 log_file="$prefix/logs/install-$(date +%Y%m%d-%H%M%S)-$$.log"
 exec > >(tee -a "$log_file") 2>&1
 trap 'printf "\nInstallation failed at line %s. Log: %s\n" "$LINENO" "$log_file" >&2' ERR
+log "Detected ${PRETTY_NAME:-$ID}; Ubuntu package base: $ubuntu_base"
 
 if [[ "$skip_deps" == no ]]; then
     command -v sudo >/dev/null || die "sudo is required to install system dependencies."
